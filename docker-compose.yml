@@ -1,0 +1,63 @@
+version: '3.3'
+
+services:
+
+  db:
+    container_name: ee_test_mariadb
+    image: mariadb:10.5.10-focal
+    volumes:
+        - db_data:/var/lib/mysql
+    environment:
+        MYSQL_DATABASE: "${DATABASE_NAME}"
+        MYSQL_USER: "${DATABASE_USER}"
+        MYSQL_PASSWORD: "${DATABASE_PASSWORD}"
+        MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
+    networks:
+        - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-file: '100'
+        max-size: 1m
+    restart: unless-stopped
+  apache:
+    build: ./docker/apache/
+    container_name: ee_test_apache
+    volumes:
+      - ./data:/var/www
+    logging:
+      driver: "json-file"
+      options:
+        max-file: '100'
+        max-size: 1m
+    restart: unless-stopped
+    depends_on:
+      - db
+    networks:
+      - frontend
+      - backend
+  nginx:
+    build: ./docker/nginx/
+    container_name: ee_test_nginx
+    depends_on:
+      - apache
+    logging:
+      driver: "json-file"
+      options:
+        max-file: '100'
+        max-size: 1m
+    networks:
+      - frontend
+    restart: unless-stopped
+    ports:
+      # - 172.17.0.1:50025:80
+      - 80:80
+
+volumes:
+    db_data: {}
+
+networks:
+    frontend:
+      driver: bridge
+    backend:
+      driver: bridge
