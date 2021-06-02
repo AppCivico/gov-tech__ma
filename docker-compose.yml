@@ -1,7 +1,15 @@
 version: '3.3'
 
 services:
-
+  redis:
+    image: docker.io/bitnami/redis:6.2
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=${REDIS_ALLOW_EMPTY_PASSWORD}
+    networks:
+        - backend
+    volumes:
+      - 'redis_data:/bitnami/redis/data'
   db:
     container_name: ee_test_mariadb
     image: mariadb:10.5.10-focal
@@ -33,6 +41,7 @@ services:
     restart: unless-stopped
     depends_on:
       - db
+      - redis
     networks:
       - frontend
       - backend
@@ -50,11 +59,11 @@ services:
       - frontend
     restart: unless-stopped
     ports:
-      # - 172.17.0.1:50025:80
-      - 80:80
+      - ${NGINX_BIND_ADDRESS}:80
 
 volumes:
     db_data: {}
+    redis_data: {}
 
 networks:
     frontend:
