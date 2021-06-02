@@ -6,6 +6,7 @@ services:
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=${REDIS_ALLOW_EMPTY_PASSWORD}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
     networks:
         - backend
     volumes:
@@ -39,6 +40,12 @@ services:
         max-file: '100'
         max-size: 1m
     restart: unless-stopped
+    environment:
+        REDIS_PASSWORD: ${REDIS_PASSWORD}
+        MYSQL_DATABASE: "${DATABASE_NAME}"
+        MYSQL_USER: "${DATABASE_USER}"
+        MYSQL_PASSWORD: "${DATABASE_PASSWORD}"
+        MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
     depends_on:
       - db
       - redis
