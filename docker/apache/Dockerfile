@@ -121,6 +121,10 @@ RUN set -eux; \
 
 ADD ./000-default.conf /etc/apache2/sites-available
 
+RUN pecl bundle -d /usr/src/php/ext redis \
+&& rm /usr/src/php/ext/redis-*.tgz \
+&& docker-php-ext-install redis
+
 # Apply necessary permissions
 RUN ["chmod", "+x", "/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
