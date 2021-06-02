@@ -1,0 +1,45 @@
+{
+    "label": "Metadados personalizados",
+    "order": 21,
+    "instructions": "Use esse campo para dados separados do corpo principal de texto como \"pre\u00e7o\", \"documentos necess\u00e1rios\", \"exce\u00e7\u00f5es\", etc...",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "text",
+            "label": "Termo",
+            "name": "term",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "textarea",
+            "label": "Descri\u00e7\u00e3o",
+            "name": "description",
+            "instructions": "",
+            "required": "y",
+            "search": "n",
+            "settings": {
+                "field_show_file_selector": "",
+                "db_column_type": "text",
+                "field_show_smileys": "n",
+                "field_show_formatting_btns": "y",
+                "field_ta_rows": "6",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_required": "y"
+            }
+        }
+    ]
+}

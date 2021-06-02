@@ -1,0 +1,233 @@
+{
+  "version": "6.0.6",
+  "channels": [
+    {
+      "channel_title": "An\u00fancios publicit\u00e1rios \/ Informes",
+      "channel_name": "ad",
+      "title_field_label": "",
+      "field_groups": [
+        "ad"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias"
+      ]
+    },
+    {
+      "channel_title": "Documentos",
+      "channel_name": "document",
+      "title_field_label": "Nome",
+      "field_groups": [
+        "document"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias",
+        "Assuntos"
+      ]
+    },
+    {
+      "channel_title": "Equipe",
+      "channel_name": "staff",
+      "title_field_label": "Nome",
+      "field_groups": [
+        "staff"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias"
+      ]
+    },
+    {
+      "channel_title": "Eventos",
+      "channel_name": "event",
+      "title_field_label": "Nome",
+      "field_groups": [
+        "event"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias",
+        "Assuntos"
+      ]
+    },
+    {
+      "channel_title": "Not\u00edcias",
+      "channel_name": "news",
+      "field_groups": [
+        "news"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias",
+        "Tipos de not\u00edcias",
+        "Assuntos"
+      ]
+    },
+    {
+      "channel_title": "P\u00e1ginas livres",
+      "channel_name": "page",
+      "field_groups": [
+        "page"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias"
+      ]
+    },
+    {
+      "channel_title": "Servi\u00e7os",
+      "channel_name": "service",
+      "field_groups": [
+        "service"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Secretarias"
+      ]
+    }
+  ],
+  "field_groups": [
+    {
+      "name": "ad",
+      "fields": [
+        "summary",
+        "ad__position",
+        "ad_link",
+        "ad__images"
+      ]
+    },
+    {
+      "name": "document",
+      "fields": [
+        "summary",
+        "related_content",
+        "isbn",
+        "number_of_pages",
+        "document__file",
+        "custom_metadata"
+      ]
+    },
+    {
+      "name": "event",
+      "fields": [
+        "body",
+        "summary",
+        "single_page_title",
+        "erratum",
+        "event__children",
+        "thumbnail",
+        "custom_metadata"
+      ]
+    },
+    {
+      "name": "news",
+      "fields": [
+        "gallery",
+        "body",
+        "summary",
+        "single_page_title",
+        "news__sources",
+        "erratum",
+        "related_content",
+        "custom_metadata"
+      ]
+    },
+    {
+      "name": "page",
+      "fields": [
+        "body",
+        "summary",
+        "single_page_title",
+        "custom_metadata"
+      ]
+    },
+    {
+      "name": "service",
+      "fields": [
+        "service__link",
+        "body",
+        "summary",
+        "single_page_title",
+        "custom_metadata"
+      ]
+    },
+    {
+      "name": "staff",
+      "fields": [
+        "biography",
+        "email_address",
+        "phone_number",
+        "staff__position",
+        "custom_metadata"
+      ]
+    }
+  ],
+  "statuses": [],
+  "category_groups": [
+    {
+      "name": "Tipos de not\u00edcias",
+      "sort_order": "a",
+      "categories": [
+        {
+          "cat_name": "an\u00fancio",
+          "cat_url_title": "anuncio",
+          "cat_description": "",
+          "cat_order": 1
+        },
+        {
+          "cat_name": "declara\u00e7\u00e3o oficial",
+          "cat_url_title": "declaracao-oficial",
+          "cat_description": "",
+          "cat_order": 2
+        },
+        {
+          "cat_name": "concurso",
+          "cat_url_title": "concurso",
+          "cat_description": "",
+          "cat_order": 3
+        },
+        {
+          "cat_name": "press release",
+          "cat_url_title": "press-release",
+          "cat_description": "",
+          "cat_order": 4
+        }
+      ]
+    },
+    {
+      "name": "Assuntos",
+      "sort_order": "a",
+      "categories": [
+        {
+          "cat_name": "calend\u00e1rio oficial",
+          "cat_url_title": "calendario-oficial",
+          "cat_description": "",
+          "cat_order": 1
+        },
+        {
+          "cat_name": "campanha de vacina\u00e7\u00e3o",
+          "cat_url_title": "campanha-de-vacinacaeo",
+          "cat_description": "",
+          "cat_order": 2
+        }
+      ]
+    },
+    {
+      "name": "Secretarias",
+      "sort_order": "a",
+      "categories": []
+    }
+  ],
+  "upload_destinations": [
+    {
+      "name": "An\u00fancios"
+    },
+    {
+      "name": "Imagens"
+    },
+    {
+      "name": "Documentos"
+    }
+  ]
+}

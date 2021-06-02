@@ -1,0 +1,93 @@
+{
+    "label": "Galeria",
+    "order": 2,
+    "instructions": "",
+    "content_type": "image",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y",
+        "field_content_type": "image",
+        "allowed_directories": "6"
+    },
+    "columns": [
+        {
+            "type": "file",
+            "label": "File",
+            "name": "file",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "6",
+                "show_existing": "",
+                "num_existing": 0,
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "file",
+            "label": "Imagem",
+            "name": "image",
+            "instructions": "",
+            "required": "y",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "6",
+                "show_existing": "y",
+                "num_existing": "50",
+                "field_fmt": "none",
+                "field_required": "y"
+            }
+        },
+        {
+            "type": "file",
+            "label": "Imagem para telas largas",
+            "name": "landscape",
+            "instructions": "Imagem opcional para telas largas",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "6",
+                "show_existing": "y",
+                "num_existing": "50",
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "text",
+            "label": "Descri\u00e7\u00e3o",
+            "name": "alt",
+            "instructions": "Descri\u00e7\u00e3o da imagem para cegos",
+            "required": "y",
+            "search": "n",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "y"
+            }
+        },
+        {
+            "type": "text",
+            "label": "Legenda",
+            "name": "caption",
+            "instructions": "Legenda opcional",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "xhtml",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "n"
+            }
+        }
+    ]
+}

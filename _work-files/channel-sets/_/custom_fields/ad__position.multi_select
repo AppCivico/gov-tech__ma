@@ -1,0 +1,16 @@
+{
+    "label": "Posi\u00e7\u00e3o",
+    "order": 15,
+    "instructions": "",
+    "required": "y",
+    "fmt": "none",
+    "pre_populate": "v",
+    "settings": {
+        "value_label_pairs": {
+            "header": "cabe\u00e7alho",
+            "sidebar": "barra lateral",
+            "footer": "rodap\u00e9",
+            "dialog": "painel flutuante"
+        }
+    }
+}

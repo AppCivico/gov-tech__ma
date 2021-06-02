@@ -1,0 +1,15 @@
+{
+    "label": "Arquivo",
+    "order": 20,
+    "instructions": "",
+    "required": "y",
+    "search": "y",
+    "fmt": "none",
+    "content_type": "all",
+    "settings": {
+        "num_existing": "50",
+        "show_existing": "y",
+        "field_content_type": "all",
+        "allowed_directories": "Documentos"
+    }
+}

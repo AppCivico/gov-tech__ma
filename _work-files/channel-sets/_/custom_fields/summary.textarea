@@ -1,0 +1,15 @@
+{
+    "label": "Resumo",
+    "order": 4,
+    "instructions": "Resumo opcional a ser exibido em listagens.",
+    "search": "y",
+    "show_fmt": "n",
+    "fmt": "none",
+    "settings": {
+        "field_show_file_selector": "",
+        "db_column_type": "text",
+        "field_show_smileys": "n",
+        "field_show_formatting_btns": ""
+    },
+    "ta_rows": 6
+}

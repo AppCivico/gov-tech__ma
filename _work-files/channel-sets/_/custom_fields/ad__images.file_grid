@@ -1,0 +1,64 @@
+{
+    "label": "Imagens",
+    "order": 18,
+    "instructions": "",
+    "required": "y",
+    "content_type": "image",
+    "settings": {
+        "grid_min_rows": "1",
+        "grid_max_rows": "1",
+        "allow_reorder": "y",
+        "field_content_type": "image",
+        "allowed_directories": "all"
+    },
+    "columns": [
+        {
+            "type": "file",
+            "label": "File",
+            "name": "file",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "all",
+                "show_existing": "",
+                "num_existing": 0,
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "file",
+            "label": "Imagem padr\u00e3o",
+            "name": "image--mobile",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "7",
+                "show_existing": "y",
+                "num_existing": "50",
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "file",
+            "label": "Imagem para dispositivos de mesa",
+            "name": "image--desktop",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "7",
+                "show_existing": "y",
+                "num_existing": "50",
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        }
+    ]
+}

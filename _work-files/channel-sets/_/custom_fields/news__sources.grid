@@ -1,0 +1,44 @@
+{
+    "label": "Fontes",
+    "order": 6,
+    "instructions": "Opcional lista de links das fontes consultadas.",
+    "search": "y",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "text",
+            "label": "Texto",
+            "name": "text",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "url",
+            "label": "Link",
+            "name": "link",
+            "instructions": "",
+            "required": "n",
+            "search": "y",
+            "settings": {
+                "allowed_url_schemes": [
+                    "http:\/\/",
+                    "https:\/\/"
+                ],
+                "url_scheme_placeholder": "https:\/\/",
+                "field_required": "n"
+            }
+        }
+    ]
+}

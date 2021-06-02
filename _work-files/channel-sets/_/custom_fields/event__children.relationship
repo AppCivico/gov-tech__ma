@@ -1,0 +1,9 @@
+{
+    "label": "Eventos filhos",
+    "order": 9,
+    "instructions": "",
+    "settings": {
+        "allow_multiple": "y",
+        "channels": []
+    }
+}
