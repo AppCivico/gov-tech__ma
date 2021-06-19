@@ -1,0 +1,125 @@
+autofill:
+  - throw
+  - content
+  - require
+dest: "data/html/style-guide"
+exclude:
+  - "resources/stylesheets/vendor/*"
+
+groups:
+  undefined: General
+  components: CSS components
+  config: Configuration variables and maps
+  font-stacks: Font-stacks
+  qa: Quality assurance
+  hacks: Dirty Hacks & Fixes
+  helpers: Helpers
+  normalizer: Normalization
+
+  Design guide:
+    config-grid-and-graphics: General
+    config-palettes: Color Palettes
+    config-typography: Typography
+
+package: "./package.json"
+
+display:
+  access:
+    - public
+  alias: true
+  watermark: false
+  shortcutIcon: https://www.ma.gov.br/wp-content/uploads/2021/03/Governo_MA-Logo2021.png
+  descriptionPath: "README.md"
+
+trackingCode: |
+  <style>
+    :root {
+      --herman-cell-color: hsl(196, 0%, 87.1%);
+      --herman-label-color: hsl(196, 0%, 87.1%);
+    }
+
+    html {
+      color: #666;
+    }
+
+    [data-region="nav"] {
+      background: transparent;
+      color: #999;
+      border-right: 1px solid lightgray;
+    }
+
+    [data-region="banner"] {
+      border-bottom: 0;
+    }
+
+    [data-region="banner"]::after,
+    [data-region="banner"]::before {
+      content: none;
+    }
+
+    .breadcrumb {
+      background: transparent;
+    }
+
+    [href]:link,
+    [href]:visited,
+    [href]:hover,
+    [href]:focus,
+    [href]:active {
+      color: black;
+    }
+
+    [href]:link,
+    [href]:visited {
+      text-decoration-color: hsl(330, 0%, 85.5%);
+    }
+
+    [href]:hover,
+    [href]:focus {
+      text-decoration: underline;
+    }
+
+    .code-header {
+      background-color: hsl(196, 0%, 87.1%);
+      color: hsl(197.1, 0%, 24.5%);
+    }
+
+    .hljs-pre,
+    .text-block pre {
+      background-color: hsl(200, 0%, 98.6%);
+      border: 1px solid hsl(196, 0%, 87.1%);
+      color: hsl(195, 0, 34.9%);
+    }
+
+    [data-nav]:link::before,
+    [data-nav]:visited::before {
+      background: hsl(196, 0%, 87.1%);
+    }
+  </style>
+
+herman:
+  customCSS: "resources/stylesheets/compiledResults/base.css"
+
+  displayColors:
+    - "hex"
+    - "hsl"
+  extraLinks:
+    - name: "Governo do Estado do Maranhão"
+      url: "https://ma.gov.br"
+    - name: "AppCívico"
+      url: "https://appcivico.com"
+  sass:
+    includePaths:
+      - "./resources/stylesheets/abstracts"
+    jsonFile: ./resources/stylesheets/compiledResults/json.css
+    use:
+      - file: config/typography
+        namespace: "*"
+      - file: constants/font-stacks
+        namespace: "*"
+      - file: mixins
+        namespace: "*"
+
+strict: true
+theme: "herman"
+verbose: true

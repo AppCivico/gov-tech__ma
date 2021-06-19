@@ -1,0 +1,146 @@
+@use 'sass:map';
+@use 'sass:color';
+
+////
+/// This file contains all application-wide Sass color palettes
+/// @group config-palettes
+/// @prop {map} color - Map of colors
+/// @todo Customize to match the needs of your design.
+////
+
+/// Store all available colors and tones.
+///
+/// @colors palette
+/// @access private
+///
+/// @prop {color | map} color.tone - Pure colors or returned color value of functions
+///
+$palette: () !default;
+
+$accent-color: hsl(330, 72%, 42%) !default;
+
+$palette: (
+  'accent': $accent-color,
+  'border': (
+    'base': rgb(192, 192, 192),
+    'focus': rgb(0, 0, 0),
+  ),
+  'disabled': (
+    'foreground': hsl(0, 0%, 42%),
+    'background': hsl(0, 0%, 94%),
+  ),
+  'loading': (
+    'foreground': hsl(0, 0%, 94%),
+    'background': hsla(0, 0%, 7%, 0.8),
+  ),
+  'mark': (
+    'foreground': rgb(51, 51, 51),
+    'background': rgb(215, 255, 90),
+  ),
+  'placeholder': (
+    'base': hsl(0, 0%, 34%),
+    'focus': hsl(0, 0%, 56%),
+  ),
+  'selection': (
+    'foreground': rgb(255, 255, 255),
+    'background': rgb(20, 105, 140),
+  ),
+);
+
+
+///
+/// @colors neutral
+///
+$neutral: (
+  'white': hsl(0, 0%, 100%),
+  'x-light': color.scale(hsl(0, 0%, 97%), $whiteness: 10%),
+  'light': hsl(0, 0%, 97%),
+  'base': hsl(0, 0%, 78%),
+  'dark': hsl(0, 0%, 35%),
+  'x-dark': color.scale(hsl(0, 0%, 35%), $blackness: 10%),
+  'black': hsl(345, 6%, 13%),
+);
+$palette: map.set($palette, 'neutral', $neutral);
+
+
+///
+/// @colors brand
+///
+$brand: (
+  'yellow-dark': hsl(43, 96%, 53%),
+  'yellow-medium': hsl(50, 98%, 51%),
+  'red-dark': hsl(0, 65%, 43%),
+  'red-medium': hsl(1, 69%, 50%),
+  'blue-dark': hsl(206, 75%, 42%),
+  'blue-medium': hsl(201, 76%, 48%),
+  'green-dark': hsl(103, 43%, 36%),
+  'green-medium': #83BB42,
+);
+$palette: map.set($palette, 'brand', $brand);
+
+
+///
+///
+/// @colors anchor
+///
+$anchor: (
+  'base': rgb(0, 102, 204),
+  'link': rgb(0, 102, 204),
+  'visited': rgb(128, 0, 128),
+  'hover': rgb(50, 152, 255),
+  'focus': rgb(50, 152, 255),
+  'active': rgb(229, 0, 80),
+);
+$palette: map.set($palette, 'anchor', $anchor);
+
+
+///
+/// @colors button
+///
+$button: (
+  'base': rgb(225, 225, 225),
+  'hover': rgb(229, 241, 251),
+  'focus': rgb(229, 241, 251),
+  'slider': hsl(0, 0%, 40%),
+  'submit': rgb(217, 83, 79),
+  'reset': transparent,
+);
+$palette: map.set($palette, 'button', $button);
+
+///
+/// @colors effects
+///
+$effects: (
+  'backdrop': rgba(0, 0, 0, 0.5),
+  'shadow': rgba(0, 0, 0, 0.15),
+  'tap-highlight': rgb(255, 94, 153),
+  'target-highlight': rgb(255, 255, 102),
+);
+$palette: map.set($palette, 'effects', $effects);
+
+
+///
+/// @colors feedback
+///
+$feedback: (
+  'default': rgb(119, 119, 119),
+  'primary': rgb(51, 122, 183),
+  'success': #008612,
+  'info': rgb(60, 127, 145),
+  'warning': #C15400,
+  'danger': #CB1030,
+);
+$palette: map.set($palette, 'feedback', $feedback);
+
+
+///
+/// @colors text
+///
+$text: (
+  'dark': hsl(0, 0%, 13%),
+  'title': $accent-color,
+  'faded': hsl(216, 11%, 32.5%),
+  'light': hsl(216, 11%, 91%),
+  'quotes': hsl(0, 0%, 34%),
+);
+$palette: map.set($palette, 'text', $text);

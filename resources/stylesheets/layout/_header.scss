@@ -1,0 +1,110 @@
+@use '../abstracts' as my;
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+/**
+ * A region that contains mostly site-oriented content, rather than page-specific content.
+ *
+ * Site-oriented content typically includes things such as the logo or identity of the site sponsor, and site-specific search tool. A banner usually appears at the top of the page and typically spans the full width.
+ *
+ * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `banner` role.
+ */
+.main-header {
+}
+
+.header-menu-and-banner {
+}
+
+[role='banner'] {
+}
+
+.main-header__logo {
+  > img {
+    display: block;
+    margin: auto;
+    object-fit: contain;
+  }
+}
+
+.main-nav {
+  font-weight: bold;
+
+  @media screen and (min-width: my.breakpoint('toggle-menu')) {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+.main-nav__menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: my.layer('dropdown');
+  display: block;
+  max-width: 100%;
+  background-color: my.palette('white');
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
+  transition-property: transform;
+  transform: translateY(-100%);
+
+  [id='menu-controller']:checked ~ & {
+    box-shadow: 8px 12px 24px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+  }
+
+  @media screen and (min-width: my.breakpoint('toggle-menu')) {
+    position: static;
+    display: flex;
+    height: 100%;
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.main-nav__menu-item {
+  width: 100%;
+
+  @media screen and (min-width: my.breakpoint('toggle-menu')) {
+    width: auto;
+  }
+}
+
+/// .menu-controller styles
+///
+/// @group helpers
+///
+/// @example html
+/// <label for="menu-controller" onclick>menu</label>
+///
+[for='menu-controller'] {
+  position: fixed;
+  top: my.$gutter * 0.25;
+  left: my.$gutter * 0.25;
+  z-index: my.layer('default');
+  background-color: my.palette('white');
+
+  > svg {
+    display: block;
+    width: my.$gutter * 1.5;
+    height: my.$gutter * 1.5;
+  }
+
+  [id='menu-controller']:checked ~ &::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-color: my.palette('white');
+    opacity: 0.75;
+  }
+
+  @media screen and (min-width: my.breakpoint('toggle-menu')) {
+    display: none;
+  }
+}

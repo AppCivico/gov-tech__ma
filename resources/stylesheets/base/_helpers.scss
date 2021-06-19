@@ -1,0 +1,260 @@
+@use 'sass:map';
+
+@use '../abstracts' as my;
+
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/* CLASSES
+============================================================================ */
+%loading-bg {
+  background-image: my.image('loading.svg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-color: my.palette('loading', 'background');
+  background-attachment: fixed;
+}
+
+%loading-el {
+  overflow: hidden;
+
+  cursor: wait;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: my.layer('modal');
+
+    content: '';
+  }
+}
+
+/// Content which loads **after** the page does, should be informed to user.
+///
+/// `[aria-busy='true']` adds a loading background to any loading element
+/// which can't be a parent and a pseudo element over any element other than
+/// `html`.
+///
+/// Don't forget to customize it to your needs. Speacially the background
+/// color.
+///
+/// Already applied to `embed` and `img`, which can cause issues with
+/// transparent images.
+///
+/// @author Sobral
+/// @group helpers
+///
+/// @example html
+///
+/// <dialog open aria-busy="true">
+/// 	<form method="dialog">
+/// 		[...]
+/// 	</form>
+/// </dialog>
+///
+[aria-busy='true'] {
+  > body,
+  &:not(html):not(.skeleton) {
+    @extend %loading-el;
+
+    position: relative;
+
+    &::after {
+      @extend %loading-bg;
+    }
+  }
+}
+
+img,
+embed {
+  &::before {
+    @extend %loading-bg;
+
+    display: block;
+    content: '';
+    background-size: auto;
+  }
+
+  &::after {
+    /*
+     *	Future proof reset
+     */
+    content: none;
+  }
+}
+
+input,
+output,
+keygen,
+textarea {
+  &[aria-busy='true'] {
+    @extend %loading-bg;
+
+    background-size: auto;
+  }
+}
+
+.skeleton {
+  pointer-events: none;
+  background-color: transparent;
+
+  &.skeleton__bone--vertebra,
+  &.skeleton__bone,
+  .skeleton__bone--vertebra,
+  .skeleton__bone {
+    @include my.on-event(true) {
+      text-decoration: none;
+      border: 0;
+      border-radius: my.$rounded-corner;
+
+      &::before,
+      &::after {
+        all: unset;
+        position: static;
+        display: block;
+        height: 0;
+        content: '';
+        border: 0;
+      }
+
+      &::before {
+        height: 1em;
+      }
+    }
+  }
+
+  .skeleton__bone {
+    @include my.on-event(true) {
+      display: block;
+      background-color: #d9d9d9;
+      background-image: linear-gradient(to right, #d9d9d9 0%, rgba(0, 0, 0, 0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
+      background-repeat: no-repeat;
+      background-size: 450px 400px;
+      animation: shimmer 1s linear infinite;
+    }
+  }
+
+  .skeleton__bone--vertebra {
+    @include my.on-event(true) {
+      &::before,
+      &::after {
+        display: inline-block;
+        height: 1em;
+        background-color: #d9d9d9;
+        background-image: linear-gradient(to right, #d9d9d9 0%, rgba(0, 0, 0, 0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
+        background-repeat: no-repeat;
+        background-size: 450px 400px;
+        animation: shimmer 1s linear infinite;
+        box-decoration-break: clone;
+      }
+
+      &::before {
+        width: 100%;
+        max-width: 37.5em;
+        content: '\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0';
+      }
+
+      &::after {
+        width: 66%;
+        max-width: 22.5em;
+        content: '\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0 \0000a0\0000a0\0000a0\0000a0\0000a0';
+      }
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -450px 0;
+  }
+
+  100% {
+    background-position: 450px 0;
+  }
+}
+
+/// Load grid image background under the class `grid`
+///
+/// @author Sobral
+/// @group helpers
+///
+/// @example html
+/// <html class="grid">
+/// 	<body>
+/// 		[...]
+/// 	</body>
+/// </html>
+///
+.grid {
+  $n: my.$mobile-columns - 1;
+
+  &::after,
+  &:root::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    z-index: my.layer('modal');
+
+    font-size: 1rem;
+
+    pointer-events: none;
+
+    content: 'breakpoint: phone';
+  }
+
+  &::after {
+    @include my.grid-image($n);
+
+    background-position: center top;
+
+    content: '';
+  }
+
+  &:root::before {
+    padding: my.$gutter;
+
+    background-color: my.palette('feedback', 'danger');
+
+    content: 'breakpoint: #{$n}col';
+
+    opacity: 0.75;
+  }
+
+  @each $key, $value in my.$breakpoints {
+    $n: $n + 1;
+
+    @if map.get(my.$toggle-breakpoints, $key) ==null {
+
+      @media screen and (min-width: my.breakpoint($key)) {
+        &::after {
+          @include my.grid-image($n);
+        }
+
+        &:root::before {
+          content: 'breakpoint: #{$key}';
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: my.$max-width) {
+    &::after {
+      background-size: my.$max-width 100%;
+    }
+  }
+}
+
+.container {
+  max-width: my.$max-width;
+
+  padding-right: my.$gutter;
+  padding-left: my.$gutter;
+  margin-right: auto;
+  margin-left: auto;
+}

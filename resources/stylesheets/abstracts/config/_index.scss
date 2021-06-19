@@ -1,0 +1,12 @@
+////
+/// This file contains all application-wide Sass configuration variables
+/// @group config
+/// @todo Customize to match your design needs.
+////
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+@forward 'color-palettes';
+@forward 'grid-and-graphics';
+@forward 'typography';
+@use 'typography' as *;

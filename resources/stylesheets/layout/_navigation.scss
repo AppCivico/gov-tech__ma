@@ -1,0 +1,97 @@
+@use '../abstracts' as my;
+
+/* navigation
+---------------------------------------------------------------------------- */
+menu,
+nav {
+}
+
+menu ul,
+menu ol,
+nav ul,
+nav ol {
+  display: flex;
+
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  text-align: center;
+}
+
+menu li,
+nav li {
+  padding: 0;
+  margin: 0;
+
+  &::before {
+    content: none;
+  }
+}
+
+menu a,
+nav a {
+  @include my.link-undercover;
+
+  display: block;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  @media screen and (min-width: breakpoint('toggle-menu')) {
+    display: flex;
+
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0 my.$gutter;
+  }
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+
+    @supports (text-decoration-color: #{palette('accent')}) {
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-color: my.palette('accent');
+    }
+  }
+}
+
+.current > a {
+  pointer-events: none;
+}
+
+// /* access
+// ---------------------------------------------------------------------------- */
+// .skip-links {
+// }
+
+.skip-links a {
+  @include my.visually-hidden--focusable;
+}
+
+// /* pagination
+// ---------------------------------------------------------------------------- */
+.pagination {
+}
+
+.pagination__current {
+}
+
+.pagination__previous {
+}
+
+.pagination__next {
+}

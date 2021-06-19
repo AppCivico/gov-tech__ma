@@ -1,0 +1,70 @@
+@use '../abstracts' as my;
+
+@mixin progress-bar-bg {
+  &::-webkit-progress-bar {
+    @content;
+  }
+
+  @content;
+}
+
+@mixin progress-bar-fg {
+  &[value]::-moz-progress-bar {
+    @content;
+  }
+
+  &[value]::-webkit-progress-value {
+    @content;
+  }
+
+  > div {
+    @include my.hide-text;
+
+    float: left;
+
+    display: block;
+
+    height: 100%;
+    max-width: 100%;
+
+    line-height: inherit;
+
+    border-radius: 0;
+
+    @content;
+
+    &:first-child {
+      border-top-left-radius: my.$rounded-corner;
+      border-bottom-left-radius: my.$rounded-corner;
+    }
+
+    &:last-child {
+      border-top-right-radius: my.$rounded-corner;
+      border-bottom-right-radius: my.$rounded-corner;
+    }
+  }
+}
+
+progress,
+[role='progressbar'] {
+  @include progress-bar-fg {
+    background: linear-gradient(90deg, transparent 50%, my.palette('button', 'submit') 50%) center/50px 50px transparent;
+  }
+  @include progress-bar-bg {
+    background: linear-gradient(90deg, transparent 50%, my.palette('button', 'base') 50%) center/50px 50px transparent;
+  }
+
+  display: block;
+
+  width: 100%;
+  // Get rid of default border in Firefox.
+  height: my.$leading * 1em;
+
+  color: my.palette('button', 'submit');
+
+  background-color: my.palette('disabled', 'background');
+
+  border: 0;
+
+  appearance: none;
+}
