@@ -15,15 +15,7 @@
 @use 'base/helpers';
 
 // 4. Layout-related sections
-@use 'layout/lists';
-@use 'layout/navigation';
-@use 'layout/table';
-@use 'layout/form';
-@use 'layout/gallery';
-@use 'layout/main';
-@use 'layout/header';
-@use 'layout/footer';
-@use 'layout/h-feed';
+@use 'layout';
 
 // 5. Components
 @use 'components';

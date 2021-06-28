@@ -1,0 +1,41 @@
+<aside class="main-aside">
+    {exp:channel:categories channel="docs|events|news|services" category_group="1" disable="category_fields" show_empty="yes" status="open" style="linear" limit="3"}
+        {if count == 1}
+        <section class="main-aside__section">
+            <h5 class="main-aside__title">
+                Secretarias e órgãos
+            </h5>
+            <ul class="main-aside__list">
+        {/if}
+            <li class="main-aside__item">
+                <a class="main-aside__link" href="/secretarias/{category_url_title}">{category_name}</a>
+            </li>
+            {if count == total_results}
+            <li class="main-aside__item main-aside__item--read-more">
+                <a class="main-aside__link main-aside__link--read-more" href="#">Todos</a>
+            </li>
+            </ul>
+        </section>
+        {/if}
+    {/exp:channel:categories}
+
+    {exp:channel:categories channel="docs|events|news|services" category_group="3" disable="category_fields" show_empty="yes" status="open" style="linear" limit="3"}
+        {if count == 1}
+        <section class="main-aside__section">
+            <h5 class="main-aside__title">
+                Notícias
+            </h5>
+            <ul class="main-aside__list">
+        {/if}
+            <li class="main-aside__item">
+                <a class="main-aside__link" href="/secretarias/{category_url_title}">{category_name}</a>
+            </li>
+            {if count == total_results}
+            <li class="main-aside__item main-aside__item--read-more">
+                <a class="main-aside__link main-aside__link--read-more" href="#">Todos</a>
+            </li>
+            </ul>
+        </section>
+        {/if}
+    {/exp:channel:categories}
+</aside>

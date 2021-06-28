@@ -1,0 +1,106 @@
+@use '../abstracts' as my;
+
+///
+/// Aside
+///
+/// @group components
+///
+/// @example html
+/// <aside class="main-aside">
+///   <section class="main-aside__section">
+///     <h5 class="main-aside__title">
+///       Notícias
+///     </h5>
+///     <ul class="main-aside__list">
+///       <li class="main-aside__item">
+///           <a class="main-aside__link" href="/secretarias/calendario-oficial">calendário oficial</a>
+///       </li>
+///       <li class="main-aside__item">
+///           <a class="main-aside__link" href="/secretarias/campanha-de-vacinacaeo">campanha de vacinação</a>
+///       </li>
+///       <li class="main-aside__item">
+///           <a class="main-aside__link" href="/secretarias/licitacoes">Licitações</a>
+///       </li>
+///       <li class="main-aside__item main-aside__item--read-more">
+///           <a class="main-aside__link main-aside__link--read-more" href="#">Todos</a>
+///       </li>
+///     </ul>
+///   </section>
+///   <section class="main-aside__section">
+///     <h5 class="main-aside__title">
+///       Notícias
+///     </h5>
+///     <ul class="main-aside__list">
+///       <li class="main-aside__item">
+///           <a class="main-aside__link" href="/secretarias/calendario-oficial">calendário oficial</a>
+///       </li>
+///       <li class="main-aside__item">
+///           <a class="main-aside__link" href="/secretarias/campanha-de-vacinacaeo">campanha de vacinação</a>
+///       </li>
+///       <li class="main-aside__item main-aside__item--read-more">
+///           <a class="main-aside__link main-aside__link--read-more" href="#">Todos</a>
+///       </li>
+///     </ul>
+///   </section>
+/// </aside>
+///
+
+
+.main-aside {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(min(#{my.$column-basis}, 100%), 1fr));
+  grid-gap: my.$gutter * 2;
+}
+
+.main-aside__section {
+  margin-bottom: my.$gutter * 2;
+
+  font-weight: my.font-weight('bold');
+}
+
+.main-aside__title {
+  margin-bottom: my.$gutter;
+
+  font-size: my.ms(2);
+  font-weight: inherit;
+
+  border-bottom: my.$stroke__thick solid my.palette('brand', 'blue-medium');
+}
+
+.main-aside__list {
+  padding-right: my.$gutter * 0.5;
+  padding-left: my.$gutter * 0.5;
+  margin: 0;
+}
+
+.main-aside__item {
+  @include my.truncate;
+
+  display: block;
+
+
+  &::before {
+    content: none;
+  }
+}
+
+.main-aside__item--read-more {
+  color: my.palette('brand', 'blue-medium');
+}
+
+.main-aside__link {
+  @include my.link-undercover;
+
+  display: block;
+
+  line-height: my.$gutter * 2;
+
+  border-bottom: my.$stroke solid my.palette('neutral', 'light');
+}
+
+.main-aside__link--read-more {
+  font-size: my.ms(-1);
+
+  border-bottom: 0;
+}
