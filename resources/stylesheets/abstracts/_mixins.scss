@@ -135,10 +135,10 @@
 @mixin alt-ampersand {
   .amp { // stylelint-disable-line no-qualifying-elements
     @include _italic-overflow;
+    font-family: fs.$AMPERSAND-FONT-STACK;
 
     font-size: 2em;
     line-height: 0.25;
-    font-family: fs.$AMPERSAND-FONT-STACK;
 
     vertical-align: middle;
 
@@ -218,11 +218,12 @@
 @mixin inline-block-wrapper {
   // sass-lint:disable-block no-duplicate-properties
   $_inline-block-font-stack: 'FreeSans', 'Arimo', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
+  font-family: $_inline-block-font-stack;
 
   font-size: 0;
-  font-family: $_inline-block-font-stack;
   letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
   letter-spacing: normal\9; /* reset IE < 8 */
+
   word-spacing: -0.43em\9; /* IE < 8: collapse white-space between units */
 
   text-rendering: optimizeSpeed; /* Webkit: fixes text-rendering: optimizeLegibility */
@@ -263,15 +264,17 @@
 @mixin inline-block-item($align: 'top', $font-size: 1rem) {
   display: inline-block;
 
-  font-size: $font-size;
   font-family: c.$text-font-stack;
-  letter-spacing: normal;
-  word-spacing: normal;
 
-  text-rendering: auto;
+  font-size: $font-size;
+  letter-spacing: normal;
   vertical-align: string.unquote($align);
 
   zoom: 1;
+
+  word-spacing: normal;
+
+  text-rendering: auto;
 }
 
 /// Helper for an table grid layout.
@@ -369,11 +372,11 @@
 ///
 @mixin icon-font {
   @include _font-smoothing(true);
+  font-size: 14px; /* font-awesome pixel perfection is at 14px and multiples of 14 */ // stylelint-disable-line property-units
 
   font-style: normal;
-  font-variant: normal;
   font-weight: font-weight('normal');
-  font-size: 14px; /* font-awesome pixel perfection is at 14px and multiples of 14 */ // stylelint-disable-line property-units
+  font-variant: normal;
   line-height: 1;
 
   text-transform: none;
@@ -396,9 +399,9 @@
   &::after {
     display: table; /* 2 */
 
-    content: ''; /* 1 */
-
     border-collapse: collapse; /* 3 */
+
+    content: ''; /* 1 */
   }
 
   &::after {
@@ -414,9 +417,12 @@
   &,
   &:link,
   &:visited {
+    color: inherit;
     text-decoration: inherit;
 
-    color: inherit;
+    outline: 0;
+
+    box-shadow: none;
 
     @content;
   }
@@ -876,9 +882,9 @@ $no-viewport: false !default;
   }
 
   &::after {
-    clear: both;
-
     display: table;
+
+    clear: both;
 
     content: '';
   }
@@ -889,10 +895,10 @@ $no-viewport: false !default;
 /// @link http://codepen.io/timbrown/full/akXvRw/
 @mixin fluid-line-height(
   $font-size: null,
-  $min-line-height: map.get($leadings, 'min'),
-  $max-line-height: map.get($leadings, 'max'),
-  $line-length-lower-gate: map.get($line-lengths, 'min'),
-  $line-length-upper-gate: map.get($line-lengths, 'max')
+  $min-line-height: map.get(c.$leadings, 'min'),
+  $max-line-height: map.get(c.$leadings, 'max'),
+  $line-length-lower-gate: map.get(c.$line-lengths, 'min'),
+  $line-length-upper-gate: map.get(c.$line-lengths, 'max')
 ) {
   line-height: $min-line-height;
 
@@ -929,20 +935,41 @@ $no-viewport: false !default;
 }
 
 @mixin focused {
-  box-shadow: 0 0 0 0.25rem color.scale(f.palette('accent'), $alpha: 50%);
-
   outline: 0;
+  box-shadow: 0 0 0 0.25rem color.scale(f.palette('accent'), $alpha: 50%);
 }
 
 @mixin shadow {
-  box-shadow: 1px 12px 25px f.palette('effects','shadow');
+  box-shadow: 1px 12px 25px f.palette('effects', 'shadow');
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 @mixin columns {
   @include hyphens;
 
   column-fill: auto;
-  column-gap: $gutter;
-  column-width: map-get($line-lengths, 'column');
+
+  column-gap: c.$gutter;
+  column-width: map-get(c.$line-lengths, 'column');
+
   max-width: 100%;
+}
+
+@mixin container {
+  max-width: c.$max-width;
+
+  padding-right: c.$gutter;
+  padding-left: c.$gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin full-width {
+  position: relative;
+  right: 50%;
+  left: 50%;
+
+  width: 100vw;
+  margin-right: -50vw;
+  margin-left: -50vw;
 }

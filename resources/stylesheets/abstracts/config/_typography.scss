@@ -55,10 +55,35 @@ $code-font-stack: fs.$BASIC-CODE-FONT-STACK !default;
 /// @type number
 ///
 $body-font-size: 1em !default;
+
 @include utilities.add('sizes', 'typography', ('body-font-size': $body-font-size));
 
 
 /// Typographic modular scale
+///
+/// ms(16)    105.332px
+/// ms(15)    93.628px
+/// ms(14)    83.225px
+/// ms(13)    73.978px
+/// ms(12)    65.758px
+/// ms(11)    58.452px
+/// ms(10)    51.957px
+/// ms(9)     46.184px
+/// ms(8)     41.053px
+/// ms(7)     36.491px
+/// ms(6)     32.437px
+/// ms(5)     28.833px
+/// ms(4)     25.629px
+/// ms(3)     22.781px
+/// ms(2)     20.25px
+/// ms(1)     18px
+/// ms(0)     16px
+/// ms(-1)    14.222px
+/// ms(-2)    12.642px
+/// ms(-3)    11.237px
+/// ms(-4)     9.989px
+/// ms(-5)     8.879px
+/// ms(-6)     7.892px
 ///
 /// @access public
 /// @sizes modular-scale {text}
@@ -71,12 +96,14 @@ $modularscale: (
 );
 
 $_sizes: ();
+
 @for $i from -2 through 7 {
   $value: math.pow(map.get($modularscale, 'ratio'), $i) * map.get($modularscale, 'base');
   $name: if($i == 0, #{(math.div($value, 1rem) * 16px)} #{'(base)'}, #{(math.div($value, 1rem) * 16px)} #{'('} $i #{')'});
 
   $_sizes: map.set($_sizes, $name, $value);
 }
+
 @include utilities.add('sizes', 'modular-scale', $_sizes);
 
 
@@ -86,6 +113,7 @@ $_sizes: ();
 /// @type number
 ///
 $leading: 1.5 !default;
+
 @include utilities.add('ratios', 'leading', ('leading': $leading));
 
 
@@ -100,6 +128,7 @@ $leadings: (
   'min': 1.15,
   'max': 1.5,
 ) !default;
+
 @include utilities.add('ratios', 'flexible-leading', (
   'minimum leading': map.get($leadings, 'min'),
   'maximum leading': map.get($leadings, 'max'),
@@ -119,6 +148,7 @@ $line-lengths: (
   'max': 37.5em,
   'column': 22.5em, // ≅45chars width
 ) !default;
+
 @include utilities.add('sizes', 'line-lengths', (
   'minimum line width': map.get($line-lengths, 'min'),
   'maximum line width': map.get($line-lengths, 'max'),

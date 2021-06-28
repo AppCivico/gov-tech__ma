@@ -9,3 +9,9 @@
   $my-palette: config.$palette,
 );
 @forward 'mixins';
+
+@use '../vendor/modularscale' as * with (
+  $modularscale: config.$modularscale,
+);
+
+@forward '../vendor/modularscale' hide $modularscale;

@@ -81,7 +81,7 @@ $brand: (
   'blue-dark': hsl(206, 75%, 42%),
   'blue-medium': hsl(201, 76%, 48%),
   'green-dark': hsl(103, 43%, 36%),
-  'green-medium': #83BB42,
+  'green-medium': hsl(88, 48%, 50%),
 );
 $palette: map.set($palette, 'brand', $brand);
 
@@ -134,8 +134,8 @@ $feedback: (
   'primary': rgb(51, 122, 183),
   'success': #008612,
   'info': rgb(60, 127, 145),
-  'warning': #C15400,
-  'danger': #CB1030,
+  'warning': hsl(26, 100%, 38%),
+  'danger': hsl(350, 85%, 43%),
 );
 $palette: map.set($palette, 'feedback', $feedback);
 

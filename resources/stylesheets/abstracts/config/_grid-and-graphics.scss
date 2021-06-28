@@ -16,12 +16,14 @@
 /// Default border-radius
 /// @todo Customize it to match your design.
 /// @type number
-$rounded-corner: 0 !default;
+$rounded-corner: 8px !default;
+$rounded-corner--small: 6px !default;
 
 /// border default width
 /// @todo Customize it to match your design.
 /// @type number
 $stroke: 1px !default;
+$stroke__thick: 3px !default;
 
 
 /// gutter default width
@@ -55,9 +57,9 @@ $_i: $mobile-columns;
   @return $new-breakpoints;
 }
 
-/// Breakpoints map
+/// my.breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @prop {Map} values - Values are actual my.breakpoints expressed in pixels
 $breakpoints: _im-to-em(
   (
     'phone__portrait': 320px,
@@ -78,8 +80,8 @@ $breakpoints: map.merge($breakpoints, $toggle-breakpoints);
 
 /// Container's maximum width
 /// @type number
-$max-width: 80em !default; // 1180px
-$max-width--narrow: 40.75em; // 668 px
+$max-width: 70.5rem !default; // 1128px
+$max-width--narrow: 46.5rem; // 668 px
 
 $breakpoints: map.merge(
   $breakpoints,
@@ -88,7 +90,7 @@ $breakpoints: map.merge(
   )
 );
 
-@while $_device-width <= $max-width {
+@while $_device-width <= (math.div($max-width, 1rem) * 1em) {
   $_device-width: math.div($_device-width, $_i) * ($_i + 1);
   $_i: $_i + 1;
   $breakpoints: map-merge($breakpoints, ('#{$_i}col': $_device-width));
