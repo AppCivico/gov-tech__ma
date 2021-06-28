@@ -1,0 +1,170 @@
+<!doctype html>
+{if segment_1 == "-"}
+  {redirect="404"}
+{/if}
+<html class="no-js no-jquery {segment_1} {segment_2} {segment_3} {layout:root_class}" lang="{lang}">
+<head>
+  {tv-static_meta}
+
+  <!--http://simplebits.com/notebook/2009/02/13/iegone/-->
+  <!--[if gte IE 8]><!-->
+    <link rel="stylesheet" media="all" href="{stylesheet='-/styles'}" />
+<!--<![endif]-->
+
+    <title>{if layout:title}{layout:title} | {/if}{site_name}{if layout:title == ""} | {tv-head_disclaimer}{/if}</title>
+
+    {if layout:description}
+        <meta name="description" content="{layout:description}">
+    {/if}
+    <meta name="robots" content="{if layout:robots}{layout:robots}{if:else}index,follow,noarchive{/if}">
+    {if layout:canonical}
+        <link rel="canonical" href="{site_url}{layout:canonical}">
+    {/if}
+    {if cv-short_domain AND layout:entry_id}
+        <link rel="shortlink" href="{cv-short_domain}/e/{layout:entry_id}" />
+    {/if}
+{!-- Google + --}
+    <meta itemprop="name" content="{if layout:title}{layout:title} | {/if}{site_name}">
+    {if layout:description}
+        <meta itemprop="description" content="{layout:description}">
+    {/if}
+{!--  Facebook  --}
+    <meta property="og:title" content="{if layout:title}{layout:title} | {/if}{site_name}">
+    {if layout:canonical}
+        <meta property="og:url" content="{site_url}{layout:canonical}">
+    {/if}
+{!-- aspect ratio of 1.91:1 and minimum 600×315 --}
+    {if layout:sharing_cover}
+        <meta name="twitter:image" property="og:image" content="{site_url}{layout:sharing_cover}">{!-- aspect ratio of 1.91:1 and minimum 600×315 --}
+    {if:else}
+        <meta name="twitter:image" property="og:image" content="{site_url}/a/img/sharing_cover.jpg">
+    {/if}
+
+</head>
+<body>
+{tv-browse_happy}
+{tv-access}
+    <div class="main-header-and-search-form">
+        <div class="main-header-and-search-form__container">
+
+            <div role="banner" class="main-header">
+                <div class="site-info">
+                    <a href="{site_url}" class="main-header__logo">
+                        <img src="/assets/images/brand/gov__ma.svg" alt="{site_name}" width="122" height="64" />
+                    </a>
+                </div>
+            </div>
+
+            {exp:search:simple_form form_class="search-form" no_result_page="busca/sem_resultados" result_page="busca" search_in="entries" results="20"}
+                <p class="search-form__field-wrapper search-form__field-wrapper--text">
+                    <input type="text" id="keywords" placeholder="Digite o que procura" name="keywords" aria-label="Keywords" class="search-form__field search-form__field--text" />
+                </p>
+                <button type="reset" aria-label="reset" class="search-form__field search-form__field--reset">
+                    <img src="/assets/images/x.svg" width="14" height="14" />
+                </button>
+                <p class="search-form__field-wrapper search-form__field-wrapper--audio">
+                    <input type="file" id="soundFile" capture="user" accept="audio/*" aria-label="audio" class="search-form__field search-form__field--audio" />
+                </p>
+                <button type="submit" aria-label="search" class="search-form__field search-form__field--submit">
+                    <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
+                </button>
+            {/exp:search:simple_form}
+        </div>
+
+        <div role="navigation" class="nav" hidden>
+            <ul id="main-menu">
+                {tp-menu}
+            </ul>
+        </div>
+    </div><!-- .main-header-and-search-form -->
+
+
+    {layout:contents}
+
+
+    <div class="main-footer__wrapper">
+        <footer class="main-footer">
+            <div class="main-footer__social-and-menu">
+                <div class="container">
+                    <ul class="social-profiles">
+                        <li class="social-profiles__item">
+                            <a href="https://facebook.com/" class="social-profiles__link">facebook</a>
+                        </li>
+                        <li class="social-profiles__item">
+                            <a href="https://youtube.com/" class="social-profiles__link">youtube</a>
+                        </li>
+                        <li class="social-profiles__item">
+                            <a href="https://instagram.com/" class="social-profiles__link">instagram</a>
+                        </li>
+                        <li class="social-profiles__item">
+                            <a href="https://twitter.com/" class="social-profiles__link">twitter</a>
+                        </li>
+                    </ul>
+                    <nav class="main-footer__menu-wrapper">
+                        <ul class="main-footer__menu-list">
+                            <li class="main-footer__menu-item">
+                                <a href="#" class="main-footer__menu-link">
+                                    Guia de serviços
+                                </a>
+                            </li>
+                            <li class="main-footer__menu-item">
+                                <a href="#" class="main-footer__menu-link">
+                                    Notícias
+                                </a>
+                            </li>
+                            <li class="main-footer__menu-item">
+                                <a href="#" class="main-footer__menu-link">
+                                    Transparência
+                                </a>
+                            </li>
+                            <li class="main-footer__menu-item">
+                                <a href="#" class="main-footer__menu-link">
+                                    Ouvidoria
+                                </a>
+                            </li>
+                            <li class="main-footer__menu-item">
+                                <a href="#" class="main-footer__menu-link">
+                                    Mapa do site
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div><!-- .social-and-menu -->
+
+            <div class="license-and-powered-by" role="contentinfo">
+                <div class="license">
+                    <img src="/assets/images/licenses/by.png" width="403" height="141" alt="" aria-hidden="true" class="license__image" />
+                    Este obra está sob a
+                    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+                        Licença Creative Commons Atribuição 4.0 Internacional
+                    </a>
+                </div>
+                <div class="powered-by">
+                    <a href="https://appcivico.com/" target="_blank" class="powered-by__link">
+                        <img src="/assets/images/appcivico.svg" alt="AppCívico" width="151" height="28" class="powered-by__image" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+{if logged_in_group_id == 1}
+<!--
++-------------------------+----------------------------------------------+
+| Queries:                |   {total_queries}                            |
+| Elapsed Time:           |   {elapsed_time}s                            |
+| Memory Used:            |   {memory_usage}                             |
+| Date and time of parse: |   {current_time format="%Y %m %d %H:%i:%s"}  |
+| Debug Mode:             |   {debug_mode}                               |
+| App build:              |   {app_build}                                |
+| App version:            |   {app_version}                              |
++-------------------------+----------------------------------------------+
+-->
+{/if}
+
+<script src="{path='-/scripts'}"></script>
+
+{tv-browser_update}
+</body>
+</html>

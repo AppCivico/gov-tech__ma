@@ -1,0 +1,44 @@
+@use '../abstracts' as my;
+
+/* feed
+* @see http://microformats.org/wiki/h-feed
+*/
+.h-feed {
+}
+
+.h-feed__p-name {
+}
+
+.h-feed__p-summary {
+}
+
+.h-feed__p-author {
+}
+
+.h-feed__p-author.h-card {
+}
+
+.h-feed__u-url {
+}
+
+.h-feed__u-photo {
+}
+
+.h-feed {
+  .h-feed__h-entry {
+  }
+
+  .h-entry__p-name {
+    font-size: 1em;
+  }
+
+  .h-entry__u-photo {
+
+  }
+
+  .h-entry__dt-published {
+    margin-bottom: 0;
+
+    color: my.palette('neutral', 'dark');
+  }
+}

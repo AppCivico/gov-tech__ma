@@ -1,0 +1,27 @@
+{layout="-/_layout" root_class="page"}
+{if segment_2}
+    {redirect="404"}
+{if:else}
+    {exp:channel:entries channel="pages" disable="categories|category_fields|member_data|pagination" require_entry="yes"}
+        {tp-check_draft}
+        {layout:set name="title"}{title}{/layout:set}
+        {layout:set name="entry_id"}{entry_id}{/layout:set}
+        {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+        {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+        <article role="main" class="page-entry" id="entry-{entry_id}">
+            <h1>{title}</h1>
+            {if body}
+            <section class="main-section">
+                {body}
+            </section>
+            {/if}
+            {sections_grid}
+                <section class="section" id="section-{sections_grid:row_id}">
+                    {if sections_grid:section_title}<h2>{sections_grid:section_title}</h2>{/if}
+                    {sections_grid:section_body}
+                </section>
+            {/sections_grid}
+            <footer class="page-meta">{tp-entry_links}</footer>
+        </article>
+    {/exp:channel:entries}
+{/if}

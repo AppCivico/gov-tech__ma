@@ -1,0 +1,33 @@
+{layout="-/_layout" root_class="home" robots="index,follow,noarchive"}
+
+{if segment_1}
+    {redirect="404"}
+{if:else}
+    <main class="home-content">
+
+
+        <section class="last-news h-feed">
+            {exp:channel:entries channel="news" limit="6" disable="pagination|category_fields" status="open" dynamic="no"}
+                <a href="{relative_url}/{url_title}">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry">
+                        {gallery limit="1"}
+                            <img class="h-feed__u-photo u-photo" width="193" height="116" src="{gallery:image:entry_thumb}" />
+                        {/gallery}
+                        <h3 class="h-feed__p-name p-name">{title}</h3>
+                        <p class="h-feed__dt-published">
+                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                                {edit_date format="%d.%m.%Y"}
+                            </time>
+                        </p>
+                    </article>
+                </a>
+            {/exp:channel:entries}
+        </section>
+
+
+
+
+
+        {embed="-/_aside"}
+    </main>
+{/if}

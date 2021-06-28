@@ -1,7 +1,7 @@
 @use '../abstracts' as my;
 
-/* navigation
----------------------------------------------------------------------------- */
+// /* navigation
+// ---------------------------------------------------------------------------- */
 menu,
 nav {
 }
@@ -17,9 +17,9 @@ nav ol {
   padding: 0;
   margin: 0;
 
-  list-style: none;
-
   text-align: center;
+
+  list-style: none;
 }
 
 menu li,
@@ -35,22 +35,17 @@ nav li {
 menu a,
 nav a {
   @include my.link-undercover;
+  display: flex;
 
-  display: block;
+  align-items: center;
+
+  height: 100%;
+
+  padding: 0 my.$gutter;
 
   overflow: hidden;
 
   text-overflow: ellipsis;
-
-  @media screen and (min-width: breakpoint('toggle-menu')) {
-    display: flex;
-
-    align-items: center;
-
-    height: 100%;
-
-    padding: 0 my.$gutter;
-  }
 
   &:link {
     text-decoration: none;
@@ -75,8 +70,8 @@ nav a {
 
 // /* access
 // ---------------------------------------------------------------------------- */
-// .skip-links {
-// }
+.skip-links {
+}
 
 .skip-links a {
   @include my.visually-hidden--focusable;

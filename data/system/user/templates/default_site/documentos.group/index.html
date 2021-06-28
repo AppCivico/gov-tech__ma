@@ -1,0 +1,13 @@
+{layout="-/_layout" root_class="e-books"}
+{if segment_2}
+    {redirect="404"}
+{if:else}
+<main>
+    {exp:channel:entries channel='docs' limit='10' disable='categories|category_fields|member_data' dynamic='no' paginate='bottom'}
+        {if no_results}{redirect="404"}{/if}
+
+        {tp-pagination}
+    {/exp:channel:entries}
+
+</main>
+{/if}

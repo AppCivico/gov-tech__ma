@@ -2,7 +2,6 @@
 
 @use '../abstracts' as my;
 
-@use '../vendor/_modularscale.scss' as *;
 
 /**
  * 1. Add text decoration inheritance in all browsers (opinionated).
@@ -21,10 +20,10 @@
  * Basic typography style for copy text
  */
 body {
-  font-weight: my.font-weight('text');
-  font-size: my.$body-font-size;
-  line-height: my.$leading;
   font-family: my.$text-font-stack;
+  font-size: my.$body-font-size;
+  font-weight: my.font-weight('text');
+  line-height: my.$leading;
 
   color: my.palette('text', 'dark');
 }
@@ -45,15 +44,16 @@ h6,
 legend,
 caption,
 details > summary {
-  font-weight: my.font-weight('heading');
+  margin-top: my.$gutter * 2;
+  margin-bottom: my.$gutter;
+
   font-family: my.$title-font-stack;
+  font-weight: my.font-weight('heading');
   font-feature-settings: 'case' 1, 'cpsp' 1, 'cswh' 1, 'liga' 1, 'locl' 1, 'lnum' 1, 'pnum' 1, 'titl' 1, 'zero' 1;
+  text-overflow: ellipsis;
 
   break-after: avoid;
   page-break-after: avoid;
-
-  margin-top: my.$gutter * 2;
-  margin-bottom: my.$gutter;
 
   &:first-child {
     margin-top: 0;
@@ -61,38 +61,38 @@ details > summary {
 }
 
 h1 {
-  font-size: ms(9);
-  font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
+  font-size: my.ms(9);
+  // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
 
-  @media screen and (min-width: breakpoint('tablet')) {
-    font-size: ms(4);
-    font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    font-size: my.ms(4);
+    // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
   }
 
-  @media screen and (min-width: breakpoint('desktop')) {
-    font-size: ms(5);
-    font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
+  @media screen and (min-width: my.breakpoint('desktop')) {
+    font-size: my.ms(5);
+    // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
   }
 }
 
 h2 {
-  font-size: ms(6);
+  font-size: my.ms(6);
 }
 
 h3 {
-  font-size: ms(4);
+  font-size: my.ms(4);
 }
 
 h4 {
-  font-size: ms(2);
+  font-size: my.ms(2);
 }
 
 h5 {
-  font-size: ms(1);
+  font-size: my.ms(1);
 }
 
 h6 {
-  font-size: ms(0);
+  font-size: my.ms(0);
 }
 
 legend {
@@ -107,9 +107,10 @@ summary {
   details > & {
     margin-bottom: 0;
 
+    transition-timing-function: ease-out;
+
     transition-duration: 300ms;
     transition-property: margin-bottom;
-    transition-timing-function: ease-out;
   }
 
   [open] > & {
@@ -126,14 +127,12 @@ h6 a,
 legend a,
 caption a,
 dt a {
+  color: inherit;
   text-decoration: inherit;
 
-  color: inherit;
-
   &:link {
-    text-decoration: inherit;
-
     color: inherit;
+    text-decoration: inherit;
   }
 }
 
@@ -221,9 +220,9 @@ abbr {
  */
 dfn {
   @extend %abbr-title;
+  font-size: 1em;
 
   font-style: italic; /* 1 */
-  font-size: 1em;
 }
 
 /**
@@ -243,6 +242,7 @@ strong {
   font-weight: my.font-weight('bold');
   font-weight: inherit; /* 1 */
 }
+
 b,
 strong {
   font-weight: my.font-weight('bold'); /* 2 */
@@ -273,7 +273,7 @@ mark {
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: ms(-1);
+  font-size: my.ms(-1);
   line-height: inherit;
 }
 
@@ -286,7 +286,7 @@ sub,
 sup {
   position: relative;
 
-  font-size: ms(-1); /* 1 */
+  font-size: my.ms(-1); /* 1 */
   line-height: 0;
 
   vertical-align: baseline;
@@ -322,8 +322,8 @@ kbd,
 pre,
 samp,
 var {
-  font-size: 1em; /* 1 */
   font-family: my.$code-font-stack, monospace; /* 2 */
+  font-size: 1em; /* 1 */
 }
 
 // code {
@@ -437,6 +437,7 @@ del {
 /// 	</footer>
 /// </blockquote>
 ///
+
 blockquote {
 }
 
@@ -456,8 +457,8 @@ blockquote {
 }
 
 cite {
-  font-style: italic;
   font-size: 1em;
+  font-style: italic;
 }
 
 blockquote footer {

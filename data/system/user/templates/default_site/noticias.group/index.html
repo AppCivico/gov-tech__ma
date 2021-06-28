@@ -1,0 +1,71 @@
+{layout="-/_layout"}
+
+{if segment_2 == cv-category_word AND segment_3 == ""}
+lista de categorias
+{if:elseif segment_2 == "" OR segment_2 ~ "/^P\d+$/" OR segment_2 == cv-category_word}
+lisa de notícias
+{if:elseif segment_2 AND segment_3 == ""}
+    {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+
+    {exp:channel:entries channel="news" limit="1" require_entry="yes" disable="pagination|category_fields" status="open|draft" show_future_entries="yes"}
+        {tp-check_draft}
+
+        {layout:set name="title"}{title}{/layout:set}
+        {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+        {layout:set name="entry_id"}{entry_id}{/layout:set}
+        {layout:set name="author"}{author}{/layout:set}
+        {layout:set name="canonical"}/blog/{url_title}{/layout:set}
+        {gallery limit="1"}
+            {layout:set name="sharing_cover"}{gallery:image:facebook}{/layout:set}
+        {/gallery}
+
+        <article role="main" id="entry-{entry_id}" class="h-entry">
+            <header class="h-entry__header">
+                <h1 class="h-entry__p-name">{title}</h1>
+                {if subhead}
+                    <h2 class="h-entry__subhead">{subhead}</h2>
+                {/if}
+
+                {tp-entry_taxonomy}
+            </header>
+
+            {if gallery:total_rows}
+                {gallery limit="1"}
+                    <figure class="hero">
+                        <a href="{gallery:file}" target="_blank" class="hero__link" />
+                            <img src="{gallery:file}" width="744" height="311" alt="{gallery:alt}" class="hero__image" />
+                            {if gallery:caption}
+                                <figcaption class="hero__caption">{gallery:caption}</figcaption>
+                            {/if}
+                        </a>
+                    </figure>
+                {/gallery}
+            {/if}
+
+
+            {if summary}
+                <div class="h-entry__p-summary">{summary}</div>
+            {/if}
+
+            {if body}
+                <div class="h-entry__e-content e-content">{body}</div>
+            {/if}
+
+            {!--if gallery:total_rows}
+                <section class="gallery">
+                    {gallery}
+                        <figure class="gallery__item">
+                            <a href="{gallery:file}" target="_blank" class="gallery__link" />
+                                <img src="{gallery:file}" width="142" height="116" alt="{gallery:alt}" class="gallery__image" />
+                                {if gallery:caption}<figcaption>{gallery:caption}</figcaption>{/if}
+                            </a>
+                        </figure>
+                    {/gallery}
+                </section>
+            {/if--}
+            {embed="-/_related" this-entry="{entry_id}" this-cover="gallery"}
+        </article>
+    {/exp:channel:entries}
+{if:else}
+    {redirect="404"}
+{/if}

@@ -2,3 +2,24 @@
 
 /* GALLERY
 ============================================================================ */
+
+.gallery {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  margin-right: my.$gutter * -0.5;
+  margin-left: my.$gutter * -0.5;
+}
+
+.gallery__item {
+  margin-right: my.$gutter * 0.5;
+  margin-left: my.$gutter * 0.5;
+}
+
+.gallery__image {
+  max-width: none;
+}
+
+.figcaption {
+}

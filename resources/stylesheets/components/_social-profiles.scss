@@ -1,0 +1,74 @@
+@use '../abstracts' as my;
+
+$list: (
+  'facebook',
+  'instagram',
+  'twitter',
+  'youtube',
+);
+
+///
+/// Social profiles
+///
+/// @group components
+///
+/// @example html
+///  <ul class="social-profiles">
+///    <li class="social-profiles__item">
+///      <a href="https://facebook.com/" class="social-profiles__link"></a>
+///    </li>
+///    <li class="social-profiles__item">
+///      <a href="https://youtube.com/" class="social-profiles__link"></a>
+///    </li>
+///    <li class="social-profiles__item">
+///      <a href="https://instagram.com/" class="social-profiles__link"></a>
+///    </li>
+///    <li class="social-profiles__item">
+///      <a href="https://twitter.com/" class="social-profiles__link"></a>
+///    </li>
+///  </ul>
+///
+
+.social-profiles {
+  display: table;
+
+  padding: 0;
+  margin: 0;
+
+  border-spacing: my.$gutter * 0.666667;
+  border-collapse: separate;
+}
+
+.social-profiles__item {
+  display: table-cell;
+
+  padding: 0;
+  margin: 0;
+
+  vertical-align: middle;
+
+  border-radius: 50%;
+
+  &::before {
+    content: none;
+  }
+}
+
+.social-profiles__link {
+  @include my.link-undercover;
+  @include my.image-replacement;
+
+  display: block;
+
+  width: my.$gutter;
+  height: my.$gutter;
+
+  background-position: center center;
+
+  @each $network in $list {
+    &[href^='https://www.#{$network}'],
+    &[href^='https://#{$network}'] {
+      background-image: my.image('social/#{$network}.svg');
+    }
+  }
+}

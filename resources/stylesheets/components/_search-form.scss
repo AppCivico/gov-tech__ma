@@ -1,0 +1,124 @@
+@use '../abstracts' as my;
+
+///
+/// Search form
+///
+/// @group components
+///
+/// @example html
+/// <form action="" method="get" class="search-form">
+///   <p class="search-form__field-wrapper search-form__field-wrapper--text">
+///     <input type="text" placeholder="Digite o que procura" id="keywords" name="keywords" aria-label="Keywords" class="search-form__field search-form__field--text" />
+///   </p>
+///   <button type="reset" aria-label="reset" class="search-form__field search-form__field--reset">
+///     <img src="/assets/images/x.svg" width="14" height="14" />
+///   </button>
+///   <p class="search-form__field-wrapper search-form__field-wrapper--audio">
+///     <input type="file" id="soundFile" capture="user" accept="audio/*" aria-label="audio" class="search-form__field search-form__field--audio" />
+///   </p>
+///   <button type="submit" aria-label="search" class="search-form__field search-form__field--submit">
+///     <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
+///   </button>
+/// </form>
+///
+
+.search-form {
+  display: flex;
+
+  padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
+
+  background-color: transparent;
+
+  border: 1px solid my.palette('neutral');
+  border-radius: my.$rounded-corner;
+
+  &:focus-within {
+    background-color: my.palette('neutral', 'white');
+  }
+
+  > * {
+    flex-basis: my.$gutter * 2;
+    flex-grow: 0;
+
+    width: my.$gutter * 2;
+    padding: 0;
+    margin: 0;
+
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+}
+
+.search-form__field-wrapper {
+}
+
+.search-form__field {
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+
+  color: inherit;
+  text-align: center;
+
+  background-color: transparent;
+  border: 0;
+
+  opacity: 0.85;
+  appearance: none;
+
+  @include my.on-event {
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+    opacity: 1;
+  }
+}
+
+.search-form__field-wrapper--text {
+  flex-grow: 1;
+
+  width: auto;
+}
+
+.search-form__field--text {
+  text-align: left;
+}
+
+.search-form__field-wrapper--audio {
+  width: my.$gutter * 2;
+
+  background-image: my.image('microphone.svg');
+  background-position: 50% 50%;
+  background-size: 15px auto;
+  opacity: 0.85;
+
+  @include my.on-event {
+    opacity: 1;
+  }
+}
+
+.search-form__field--audio {
+  opacity: 0;
+
+  @include my.on-event {
+    opacity: 0;
+  }
+}
+
+.search-form__field--reset {
+  background-position: 50% 50%;
+  border-right: 1px solid my.palette('neutral', 'dark');
+  border-radius: 0;
+}
+
+.search-form__field--submit {
+  background-position: 50% 50%;
+}

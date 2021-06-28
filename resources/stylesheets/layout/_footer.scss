@@ -11,38 +11,115 @@
  *
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `contentinfo` role.
  */
+.main-footer__wrapper {
+  @include my.full-width;
+
+  margin-top: my.$gutter;
+  margin-bottom: my.$gutter * -1;
+
+  background-color: my.palette('neutral', 'light');
+}
+
 .main-footer {
+  font-size: my.ms(-1);
+
+  > * {
+    padding-right: my.$gutter;
+    padding-left: my.$gutter;
+  }
+}
+
+.main-footer__social-and-menu {
+  background-color: my.palette('neutral');
+}
+
+.main-footer__social-and-menu .container {
+  display: block;
+
+  > * {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    > * {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+.main-footer__menu-wrapper {}
+
+.main-footer__menu-list {
+  flex-wrap: wrap;
+
+  height: 100%;
+}
+
+.main-footer__menu-item {}
+
+.main-footer__menu-link {
+  padding: my.$gutter * 0.5;
+
+  white-space: nowrap;
 }
 
 [role='contentinfo'] {
 }
 
-.main-footer__nav {
+.license-and-powered-by {
+  @include my.container;
+
+  text-align: center;
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    padding-top: my.$gutter * 2;
+    padding-bottom: my.$gutter * 2;
+
+    text-align: left;
+  }
+
+  > * {
+    padding-top: my.$gutter;
+    padding-bottom: my.$gutter;
+  }
 }
 
-.main-footer__nav-list {
+.license {
+  flex-grow: 1;
 }
 
-.main-footer-nav__menu-item {
+.license__image {
+  display: block;
+
+  width: auto;
+  max-height: my.$gutter * 1.333333;
+  margin: my.$gutter * 0.5 auto;
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    display: inline;
+
+    vertical-align: middle;
+  }
 }
 
-.main-footer-nav__menu-link {
+.powered-by {}
+
+.powered-by__link {
+  display: block;
 }
 
-.main-footer__colophon {
-}
-
-.main-footer__social {
-}
-
-.main-footer__social-list {
-}
-
-.main-footer__social-item {
-}
-
-.main-footer__social-link {
-}
-
-.main-footer__disclaimer {
+.powered-by__image {
+  display: block;
 }

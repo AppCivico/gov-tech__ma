@@ -1,9 +1,9 @@
 @use 'sass:color';
 
-@use '../vendor/_modularscale.scss' as *;
-
 @use '../layout/form';
 @use '../abstracts' as my;
+
+
 
 /* text inputs
 ---------------------------------------------------------------------------- */
@@ -15,31 +15,32 @@
 %text-field-reset {
   @extend %os-element-reset;
 
+  box-sizing: inherit;
+
   display: flex;
 
   align-items: center;
+
   width: 100%;
   height: my.$gutter * 2;
 
   padding: my.$gutter * 0.5 0;
   margin: 0; // vertical margins break floating labels
 
-  cursor: text;
-
   color: my.palette('text', 'dark');
+
+  cursor: text;
 
   background-color: my.palette('text', 'light');
 
   border: solid my.$stroke my.palette('border');
 
-  box-sizing: inherit;
-
   appearance: none; /* 1 */
 
   &:placeholder-shown ~ label {
-    pointer-events: none;
-
     color: my.palette('neutral', 'base');
+
+    pointer-events: none;
 
     transform: translateY(calc(100% + #{my.$gutter * 0.5}));
   }
@@ -60,20 +61,21 @@
 
     overflow: hidden;
 
-    font-size: ms(-1);
+    font-size: my.ms(-1);
+
+    color: my.palette('text', 'faded');
 
     text-overflow: ellipsis;
     white-space: nowrap;
 
     pointer-events: auto;
 
-    color: my.palette('text', 'faded');
-
-    transform: translate(0, 0);
+    transition-timing-function: ease-out;
 
     transition-duration: 0.25s;
     transition-property: color, transform, opacity;
-    transition-timing-function: ease-out;
+
+    transform: translate(0, 0);
   }
 
   &:focus ~ label,
@@ -112,16 +114,12 @@
   ~ small {
   }
 
-  &:disabled {
-    cursor: not-allowed;
-
+  &:read-only {
     color: my.palette('disabled', 'foreground');
 
-    background: my.palette('disabled', 'background');
-  }
-
-  &:read-only {
     cursor: default;
+
+    background: my.palette('disabled', 'background');
   }
 }
 
@@ -225,10 +223,13 @@ textarea {
 
 .char-counter {
   display: block;
+
   padding: 0.25em;
   margin-right: 0;
   margin-left: auto;
-  font-size: ms(-2);
+
+  font-size: my.ms(-2);
+
   pointer-events: none;
 
   :invalid ~ & > output {
