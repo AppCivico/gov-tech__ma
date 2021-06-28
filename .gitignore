@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/vim,node,sass,linux,macos,emacs,windows,visualstudiocode,expressionengine
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,node,sass,linux,macos,emacs,windows,visualstudiocode,expressionengine
 
@@ -314,3 +313,7 @@ data/html/images
 data/system/*
 !data/system/user
 data/system/user/cache
+data/system/user/templates/default_site/-.group/scripts.js
+data/system/user/templates/default_site/-.group/styles.css
+data/system/user/templates/default_site/-.group/mix-manifest.json
+data/system/user/templates/default_site/-.group/manifest.js
