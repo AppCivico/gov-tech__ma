@@ -99,11 +99,6 @@ textarea,
   }
 }
 
-html,
-body {
-  height: 100%;
-  overflow-x: hidden;
-}
 
 /**
  * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
@@ -121,9 +116,10 @@ html {
 
   padding: 0;
   margin: 0;
+  overflow: auto;
 
   // overflow-y: auto; /* 3 */
-  overflow: auto;
+  overflow-x: hidden;
 
   font-size: 100.01%; /* 1 */
 
