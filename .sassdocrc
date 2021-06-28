@@ -2,7 +2,7 @@ autofill:
   - throw
   - content
   - require
-dest: "data/html/style-guide"
+dest: "data/html/design-guide"
 exclude:
   - "resources/stylesheets/vendor/*"
 
@@ -98,7 +98,7 @@ trackingCode: |
   </style>
 
 herman:
-  customCSS: "resources/stylesheets/compiledResults/base.css"
+  customCSS: "data/system/user/templates/default_site/-.group/styles.css"
 
   displayColors:
     - "hex"
@@ -111,7 +111,7 @@ herman:
   sass:
     includePaths:
       - "./resources/stylesheets/abstracts"
-    jsonFile: ./resources/stylesheets/compiledResults/json.css
+    jsonFile: ./docs/compiledTemp/json.css
     use:
       - file: config/typography
         namespace: "*"
