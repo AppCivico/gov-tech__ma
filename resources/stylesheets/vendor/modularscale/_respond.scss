@@ -22,7 +22,7 @@
     $important: ' !important';
   }
 
-  // loop through all settings with a breakpoint type value
+  // loop through all settings with a my.breakpoint type value
   @each $v, $s in $map {
     @if type-of($v) == number {
       @if unit($v) != '' {
@@ -36,7 +36,7 @@
           $last-break: $v;
         }
 
-        // Write intermediate breakpoints.
+        // Write intermediate my.breakpoints.
         @else {
           @media (min-width: $last-break) and (max-width: $v) {
             $val1: ms-function($val, $thread: $last-break, $settings: $map);
@@ -49,7 +49,7 @@
     }
   }
 
-  // Write the last breakpoint.
+  // Write the last my.breakpoint.
   @if $last-break {
     @media (min-width: $last-break) {
       #{$prop}: unquote("#{ms-function($val, $thread: $last-break, $settings: $map)}#{$important}");
