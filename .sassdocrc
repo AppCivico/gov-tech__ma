@@ -86,6 +86,7 @@ trackingCode: |
 
     .hljs-pre,
     .text-block pre {
+      font-size: smaller;
       background-color: hsl(200, 0%, 98.6%);
       border: 1px solid hsl(196, 0%, 87.1%);
       color: hsl(195, 0, 34.9%);
