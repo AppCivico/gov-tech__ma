@@ -26,15 +26,7 @@
 @use 'layout/h-feed';
 
 // 5. Components
-@use 'components/h-entry';
-@use 'components/figure';
-@use 'components/text-field';
-@use 'components/button';
-@use 'components/checkbox-and-radio';
-@use 'components/output';
-@use 'components/progress';
-@use 'components/select';
-@use 'components/slider';
+@use 'components';
 
 // 6. Page-specific styles
 @use 'pages/home';
