@@ -46,6 +46,8 @@ figure a {
 }
 
 figure img {
+  max-width: none;
+
   border-radius: my.$rounded-corner;
 }
 
