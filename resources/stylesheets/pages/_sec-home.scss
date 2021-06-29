@@ -1,0 +1,59 @@
+@use '../abstracts' as my;
+
+.sec-home {
+  .main-header-and-search-form {
+    position: relative;
+
+    margin-top: my.$gutter * 4;
+
+    background-image: my.image('lencois-maranhenses 1.png');
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .main-header-and-search-form__container {
+    display: block;
+
+    padding-bottom: my.$gutter * 3;
+  }
+
+  .site-info {
+  }
+
+  .main-header__logo {
+    @include my.full-width;
+
+    position: absolute;
+    bottom: 100%;
+
+    display: block;
+
+    padding: my.$gutter;
+
+    background-color: my.palette('neutral', 'white');
+  }
+
+  .search-form {
+    margin-left: 0;
+  }
+}
+
+.sec-home__main {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(min(#{my.$column-basis}, 100%), 1fr));
+  grid-gap: 0 #{my.$gutter * 2};
+
+  .last-news {
+    grid-row: span 2;
+    grid-column-end: -1;
+  }
+
+  .quick-links {
+    grid-row: 2;
+  }
+
+  .main-aside {
+    grid-column: 1/-1;
+  }
+}

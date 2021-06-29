@@ -1,0 +1,187 @@
+{layout="-/_layout" root_class="sec-home" cat_title="Secretaria de turismo"
+header_image="/assets/images/lencois-maranhenses 1.png" robots="index,follow,noarchive"}
+
+{if segment_2 == "cat"}{redirect="404"}{/if}
+
+<main class="sec-home__main">
+
+    <section class="main-services">
+        <h2 class="main-services__title">Principais serviços</h2>
+
+        <a href='#' class="main-services__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item main-services__item">
+                <img class="h-feed__u-photo u-photo main-services__thumb" width="20" height="18" src="/assets/images/icons/calendar.svg" />
+                <h3 class="h-feed__p-name p-name main-services__item-title">Agendamento</h3>
+                <p class="h-feed__dt-published main-services__summary">
+                    Breve descrição sobre serviço em uma linha
+                </p>
+            </article>
+        </a>
+
+        <a href='#' class="main-services__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item main-services__item">
+                <img class="h-feed__u-photo u-photo main-services__thumb" width="20" height="18" src="/assets/images/icons/board.svg" />
+                <h3 class="h-feed__p-name p-name main-services__item-title">Sefaz.net</h3>
+                <p class="h-feed__dt-published main-services__summary">
+                    Breve descrição sobre serviço em uma linha
+                </p>
+            </article>
+        </a>
+
+        <a href='#' class="main-services__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item main-services__item">
+                <img class="h-feed__u-photo u-photo main-services__thumb" width="18" height="16" src="/assets/images/icons/car.svg" />
+                <h3 class="h-feed__p-name p-name main-services__item-title">IPVA</h3>
+                <p class="h-feed__dt-published main-services__summary">
+                    Breve descrição sobre serviço em uma linha
+                </p>
+            </article>
+        </a>
+
+        <a href='#' class="main-services__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item main-services__item">
+                <img class="h-feed__u-photo u-photo main-services__thumb" width="20" height="20" src="/assets/images/icons/coin.svg" />
+                <h3 class="h-feed__p-name p-name main-services__item-title">ITCD</h3>
+                <p class="h-feed__dt-published main-services__summary">
+                    Breve descrição sobre serviço em uma linha
+                </p>
+            </article>
+        </a>
+    </section>
+
+    <section class="quick-links">
+        <h2 class="quick-links__title">Acesso rápidos</h2>
+
+        <a href='#' class="quick-links__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item quick-links__item">
+                <img class="h-feed__u-photo u-photo quick-links__thumb" width="19" height="20" src="/assets/images/icons/dialog-bubble.svg" />
+                <h3 class="h-feed__p-name p-name quick-links__item-title">E-SIC</h3>
+            </article>
+        </a>
+
+        <a href='#' class="quick-links__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item quick-links__item">
+                <img class="h-feed__u-photo u-photo quick-links__thumb" width="17" height="20" src="/assets/images/icons/printed-paper.svg" />
+                <h3 class="h-feed__p-name p-name quick-links__item-title">Portal da transparência</h3>
+            </article>
+        </a>
+
+        <a href='#' class="quick-links__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item quick-links__item">
+                <img class="h-feed__u-photo u-photo quick-links__thumb" width="20" height="21" src="/assets/images/icons/hammer.svg" />
+                <h3 class="h-feed__p-name p-name quick-links__item-title">Licitações</h3>
+            </article>
+        </a>
+
+        <a href='#' class="quick-links__link h-feed__link">
+            <article class="h-feed__h-entry h-feed__item quick-links__item">
+                <img class="h-feed__u-photo u-photo quick-links__thumb" width="24" height="12" src="/assets/images/icons/people.svg" />
+                <h3 class="h-feed__p-name p-name quick-links__item-title">Conferências e conselhos</h3>
+            </article>
+        </a>
+    </section>
+
+    <section class="last-news h-feed">
+        <h2 class="last-news__title">Últimas notícias</h2>
+
+        {exp:channel:entries channel="news" limit="6" disable="categories|category_fields|member_data|pagination" status="open" dynamic="no"}
+            <a href='{url_title_path="noticias"}' class="last-news__link h-feed__link">
+                <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__item last-news__item">
+                    {gallery limit="1"}
+                    <img class="h-feed__u-photo u-photo last-news__thumb" width="80" height="80"
+                        src="{gallery:file}" />
+                    {/gallery}
+                    <h3 class="h-feed__p-name p-name last-news__item-title">{title}</h3>
+                    <p class="h-feed__dt-published last-news__date">
+                        <time class="dt-published" datetime="{edit_date format=" {DATE_ISO8601}"}">
+                            {edit_date format="%d/%m/%Y"}
+                        </time>
+                    </p>
+                </article>
+            </a>
+        {/exp:channel:entries}
+
+        <a href="/noticias/mais-turismo" class="last-news__link h-feed__link">
+            <article id="entry-1" class="h-feed__h-entry h-feed__item last-news__item">
+                <img class="h-feed__u-photo u-photo last-news__thumb" src="/uploads/imgs/IMG-011.jpg" width="80" height="80">
+
+                <h3 class="h-feed__p-name p-name last-news__item-title">
+                    Última notícia da secretaria em até três linhas. Caso ultrapasse, recortar as últimas três letras e inserir três pontos no final.
+                </h3>
+                <p class="h-feed__dt-published last-news__date">
+                    <time class="dt-published" datetime="2021-06-21T17:56:16-03:00">
+                        02.06.2021
+                    </time>
+                </p>
+            </article>
+        </a>
+
+        <a href="/noticias/mais-turismo" class="last-news__link h-feed__link">
+            <article id="entry-1" class="h-feed__h-entry h-feed__item last-news__item">
+                <img class="h-feed__u-photo u-photo last-news__thumb" src="/uploads/imgs/IMG-011.jpg" width="80" height="80">
+
+                <h3 class="h-feed__p-name p-name last-news__item-title">
+                    Última notícia da secretaria em até três linhas. Caso ultrapasse, recortar as últimas três letras e inserir três pontos no final.
+                </h3>
+                <p class="h-feed__dt-published last-news__date">
+                    <time class="dt-published" datetime="2021-06-21T17:56:16-03:00">
+                        02.06.2021
+                    </time>
+                </p>
+            </article>
+        </a>
+
+        <a href="/noticias/mais-turismo" class="last-news__link h-feed__link">
+            <article id="entry-1" class="h-feed__h-entry h-feed__item last-news__item">
+                <img class="h-feed__u-photo u-photo last-news__thumb" src="/uploads/imgs/IMG-011.jpg" width="80" height="80">
+
+                <h3 class="h-feed__p-name p-name last-news__item-title">
+                    Última notícia da secretaria em até três linhas. Caso ultrapasse, recortar as últimas três letras e inserir três pontos no final.
+                </h3>
+                <p class="h-feed__dt-published last-news__date">
+                    <time class="dt-published" datetime="2021-06-21T17:56:16-03:00">
+                        02.06.2021
+                    </time>
+                </p>
+            </article>
+        </a>
+
+        <a href="/noticias/mais-turismo" class="last-news__link h-feed__link">
+            <article id="entry-1" class="h-feed__h-entry h-feed__item last-news__item">
+                <img class="h-feed__u-photo u-photo last-news__thumb" src="/uploads/imgs/IMG-011.jpg" width="80" height="80">
+
+                <h3 class="h-feed__p-name p-name last-news__item-title">
+                    Última notícia da secretaria em até três linhas. Caso ultrapasse, recortar as últimas três letras e inserir três pontos no final.
+                </h3>
+                <p class="h-feed__dt-published last-news__date">
+                    <time class="dt-published" datetime="2021-06-21T17:56:16-03:00">
+                        02.06.2021
+                    </time>
+                </p>
+            </article>
+        </a>
+
+        <a href="/noticias/mais-turismo" class="last-news__link h-feed__link">
+            <article id="entry-1" class="h-feed__h-entry h-feed__item last-news__item">
+                <img class="h-feed__u-photo u-photo last-news__thumb" src="/uploads/imgs/IMG-011.jpg" width="80" height="80">
+
+                <h3 class="h-feed__p-name p-name last-news__item-title">
+                    Última notícia da secretaria em até três linhas. Caso ultrapasse, recortar as últimas três letras e inserir três pontos no final.
+                </h3>
+                <p class="h-feed__dt-published last-news__date">
+                    <time class="dt-published" datetime="2021-06-21T17:56:16-03:00">
+                        02.06.2021
+                    </time>
+                </p>
+            </article>
+        </a>
+
+        <p class="read-more">
+            <a class="read-more__link"
+                href="#">Todos</a>
+        </p>
+
+    </section>
+
+    {embed="-/_aside"}
+</main>
