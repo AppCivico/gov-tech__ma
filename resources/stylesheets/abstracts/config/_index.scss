@@ -6,7 +6,9 @@
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:meta';
+
 @forward 'color-palettes';
 @forward 'grid-and-graphics';
 @forward 'typography';
+
 @use 'typography' as *;

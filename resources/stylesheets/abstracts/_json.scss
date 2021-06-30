@@ -31,7 +31,7 @@ $_fonts-list: (
   @if meta.type-of($v1) == 'map' {
     @include utilities.add('colors', $k1, $v1);
   } @else {
-    @include utilities.add('colors', 'palette', (#{$k1}: $v1));
+    @include utilities.add('colors', 'base', (#{$k1}: $v1));
   }
 }
 

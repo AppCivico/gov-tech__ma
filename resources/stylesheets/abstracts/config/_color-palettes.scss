@@ -11,7 +11,6 @@
 
 /// Store all available colors and tones.
 ///
-/// @colors palette
 /// @access private
 ///
 /// @prop {color | map} color.tone - Pure colors or returned color value of functions
@@ -20,29 +19,31 @@ $palette: () !default;
 
 $accent-color: hsl(330, 72%, 42%) !default;
 
-$palette: (
+///
+/// @colors base
+///
+$base: (
   'accent': $accent-color,
-  'border': (
-    'base': rgb(192, 192, 192),
-    'focus': rgb(0, 0, 0),
-  ),
-  'disabled': (
-    'foreground': hsl(0, 0%, 42%),
-    'background': hsl(0, 0%, 94%),
-  ),
-  'mark': (
-    'foreground': rgb(51, 51, 51),
-    'background': rgb(215, 255, 90),
-  ),
-  'placeholder': (
-    'base': hsl(0, 0%, 34%),
-    'focus': hsl(0, 0%, 56%),
-  ),
-  'selection': (
-    'foreground': rgb(255, 255, 255),
-    'background': rgb(20, 105, 140),
-  ),
 );
+$palette: map.merge($palette, $base);
+
+
+///
+/// @colors brand
+///
+$brand: (
+  'yellow-dark': hsl(43, 96%, 53%),
+  'yellow-medium': hsl(50, 98%, 51%),
+  'yellow-light': hsl(51, 100%, 97%),
+  'red-dark': hsl(0, 65%, 43%),
+  'red-medium': hsl(1, 69%, 50%),
+  'blue-dark': hsl(206, 75%, 42%),
+  'blue-medium': hsl(201, 76%, 48%),
+  'blue-light': hsl(206, 100%, 99%),
+  'green-dark': hsl(103, 43%, 36%),
+  'green-medium': hsl(88, 48%, 50%),
+);
+$palette: map.set($palette, 'brand', $brand);
 
 
 ///
@@ -61,29 +62,16 @@ $palette: map.set($palette, 'neutral', $neutral);
 
 
 ///
-/// @colors loading
+/// @colors text
 ///
-$loading: (
-  'foreground': map.get($neutral, 'x-dark'),
-  'background': map.get($neutral, 'base'),
+$text: (
+  'dark': hsl(0, 0%, 13%),
+  'title': $accent-color,
+  'faded': hsl(216, 11%, 32.5%),
+  'light': hsl(216, 11%, 91%),
+  'quotes': hsl(0, 0%, 34%),
 );
-$palette: map.set($palette, 'loading', $loading);
-
-
-///
-/// @colors brand
-///
-$brand: (
-  'yellow-dark': hsl(43, 96%, 53%),
-  'yellow-medium': hsl(50, 98%, 51%),
-  'red-dark': hsl(0, 65%, 43%),
-  'red-medium': hsl(1, 69%, 50%),
-  'blue-dark': hsl(206, 75%, 42%),
-  'blue-medium': hsl(201, 76%, 48%),
-  'green-dark': hsl(103, 43%, 36%),
-  'green-medium': hsl(88, 48%, 50%),
-);
-$palette: map.set($palette, 'brand', $brand);
+$palette: map.set($palette, 'text', $text);
 
 
 ///
@@ -113,17 +101,6 @@ $button: (
 );
 $palette: map.set($palette, 'button', $button);
 
-///
-/// @colors effects
-///
-$effects: (
-  'backdrop': rgba(0, 0, 0, 0.5),
-  'shadow': rgba(0, 0, 0, 0.15),
-  'tap-highlight': rgb(255, 94, 153),
-  'target-highlight': rgb(255, 255, 102),
-);
-$palette: map.set($palette, 'effects', $effects);
-
 
 ///
 /// @colors feedback
@@ -140,13 +117,72 @@ $palette: map.set($palette, 'feedback', $feedback);
 
 
 ///
-/// @colors text
+/// @colors border
 ///
-$text: (
-  'dark': hsl(0, 0%, 13%),
-  'title': $accent-color,
-  'faded': hsl(216, 11%, 32.5%),
-  'light': hsl(216, 11%, 91%),
-  'quotes': hsl(0, 0%, 34%),
+$border: (
+  'base': rgb(192, 192, 192),
+  'focus': rgb(0, 0, 0),
 );
-$palette: map.set($palette, 'text', $text);
+$palette: map.set($palette, 'border', $border);
+
+
+///
+/// @colors disabled
+///
+$disabled: (
+  'foreground': hsl(0, 0%, 42%),
+  'background': hsl(0, 0%, 94%),
+);
+$palette: map.set($palette, 'disabled', $disabled);
+
+
+///
+/// @colors loading
+///
+$loading: (
+  'foreground': map.get($neutral, 'x-dark'),
+  'background': map.get($neutral, 'base'),
+);
+$palette: map.set($palette, 'loading', $loading);
+
+
+///
+/// @colors placeholder
+///
+$placeholder: (
+  'base': hsl(0, 0%, 34%),
+  'focus': hsl(0, 0%, 56%),
+);
+$palette: map.set($palette, 'placeholder', $placeholder);
+
+
+///
+/// @colors effects
+///
+$effects: (
+  'backdrop': rgba(0, 0, 0, 0.5),
+  'shadow': rgba(0, 0, 0, 0.15),
+  'tap-highlight': rgb(255, 94, 153),
+  'target-highlight': rgb(255, 255, 102),
+);
+$palette: map.set($palette, 'effects', $effects);
+
+
+///
+/// @colors selection
+///
+$selection: (
+  'foreground': rgb(255, 255, 255),
+  'background': rgb(20, 105, 140),
+);
+$palette: map.set($palette, 'selection', $selection);
+
+
+///
+/// @colors mark
+///
+$mark: (
+  'foreground': rgb(51, 51, 51),
+  'background': rgb(215, 255, 90),
+);
+$palette: map.set($palette, 'mark', $mark);
