@@ -3,18 +3,13 @@
 {if segment_2 == "cat"}{redirect="404"}{/if}
 
 {exp:channel:category_heading channel="event|news|service" category_url_title="turismo"}
-    {layout:set name="cat_title"}
-    {category_name}
-    {/layout:set}
+    {layout:set name="header_title"}{category_name}{/layout:set}
+    {layout:set name="title"}{category_name}{/layout:set}
     {if category_description}
-        {layout:set name="description"}
-            {category_description}
-        {/layout:set}
+        {layout:set name="description"}{category_description}{/layout:set}
     {/if}
     {if category_image}
-        {layout:set name="header_image"}
-            {category_image}
-        {/layout:set}
+        {layout:set name="header_image"}{category_image}{/layout:set}
     {/if}
 {/exp:channel:category_heading}
 

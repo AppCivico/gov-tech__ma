@@ -4,14 +4,18 @@
 {/if}
 <html class="no-js no-jquery {segment_1} {segment_2} {segment_3} {layout:root_class}" lang="{lang}">
 <head>
-  {tv-static_meta}
+    {tv-static_meta}
 
-  <!--http://simplebits.com/notebook/2009/02/13/iegone/-->
-  <!--[if gte IE 8]><!-->
-    <link rel="stylesheet" media="all" href="{stylesheet='-/styles'}" />
-<!--<![endif]-->
+    <!--http://simplebits.com/notebook/2009/02/13/iegone/-->
+    <!--[if gte IE 8]><!-->
+        <link rel="stylesheet" media="all" href="{stylesheet='-/styles'}" />
+    <!--<![endif]-->
 
-    <title>{if layout:title}{layout:title} | {/if}{site_name}{if layout:title == ""} | {tv-head_disclaimer}{/if}</title>
+    <title>
+        {if layout:title}{layout:title} | {/if}
+        {site_name}
+        {if !layout:title AND tv-head_disclaimer} | {tv-head_disclaimer}{/if}
+    </title>
 
     {if layout:description}
         <meta name="description" content="{layout:description}">
@@ -44,6 +48,14 @@
 <body>
 {tv-browse_happy}
 {tv-access}
+{if layout:header_image}
+    <style>
+    .main-header-and-search-form {
+      background-image: url('{layout:header_image}');
+    }
+    </style>
+{/if}
+
     <div class="main-header-and-search-form">
         <div class="main-header-and-search-form__container">
 
@@ -52,6 +64,11 @@
                     <a href="{site_url}" class="main-header__logo">
                         <img src="/assets/images/brand/gov__ma.svg" alt="{site_name}" width="122" height="64" />
                     </a>
+                    {if layout:header_title}
+                        <h1 class="main-header__title">
+                            {layout:header_title}
+                        </h1>
+                    {/if}
                 </div>
             </div>
 
