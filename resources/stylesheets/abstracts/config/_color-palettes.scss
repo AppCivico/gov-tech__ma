@@ -4,7 +4,7 @@
 ////
 /// This file contains all application-wide Sass color palettes
 ///
-/// @group config-palettes
+/// @group config__palettes
 /// @prop {map} color - Map of colors
 /// @todo Customize to match the needs of your design.
 ////
@@ -86,7 +86,6 @@ $brand: (
 $palette: map.set($palette, 'brand', $brand);
 
 
-///
 ///
 /// @colors anchor
 ///

@@ -8,18 +8,20 @@ exclude:
 
 groups:
   undefined: General
-  components: CSS components
-  config: Configuration variables and maps
   font-stacks: Font-stacks
-  qa: Quality assurance
-  hacks: Dirty Hacks & Fixes
-  helpers: Helpers
-  normalizer: Normalization
 
   Design guide:
-    config-grid-and-graphics: General
-    config-palettes: Color Palettes
-    config-typography: Typography
+    config__palettes: Color Palettes
+    config__typography: Typography
+    config__grid-and-graphics: General
+    components__form: Forms
+    components: Components
+  Development:
+    hacks: Dirty Hacks & Fixes
+    config: Configuration variables and maps
+    normalizer: Normalization
+    helpers: Helpers
+    qa: Quality assurance
 
 package: "./package.json"
 
