@@ -130,10 +130,7 @@ $leadings: (
   'max': 1.5,
 ) !default;
 
-@include utilities.add('ratios', 'flexible-leading', (
-  'minimum leading': map.get($leadings, 'min'),
-  'maximum leading': map.get($leadings, 'max'),
-));
+@include utilities.add('ratios', 'flexible-leading', $leadings);
 
 
 /// Optimum line lengths
@@ -150,11 +147,7 @@ $line-lengths: (
   'column': 22.5em, // ≅45chars width
 ) !default;
 
-@include utilities.add('sizes', 'line-lengths', (
-  'minimum line width': map.get($line-lengths, 'min'),
-  'maximum line width': map.get($line-lengths, 'max'),
-  'column width': map.get($line-lengths, 'column'),
-));
+@include utilities.add('sizes', 'line-lengths', $line-lengths);
 
 
 /// Font weights map
