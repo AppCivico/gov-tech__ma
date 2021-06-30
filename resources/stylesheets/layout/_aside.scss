@@ -79,14 +79,9 @@
 
   display: block;
 
-
   &::before {
     content: none;
   }
-}
-
-.main-aside__item--read-more {
-  color: my.palette('brand', 'blue-medium');
 }
 
 .main-aside__link {
@@ -97,10 +92,4 @@
   line-height: my.$gutter * 2;
 
   border-bottom: my.$stroke solid my.palette('neutral', 'light');
-}
-
-.main-aside__link--read-more {
-  font-size: my.ms(-1);
-
-  border-bottom: 0;
 }

@@ -1,0 +1,22 @@
+@use '../abstracts' as my;
+
+///
+/// Read more
+///
+/// @group components
+///
+/// @example html
+/// <p class="read-more">
+///   <a class="read-more__link" href="#">Read all</a>
+/// </p>
+///
+
+.read-more {
+  font-size: my.ms(-1);
+
+  border-bottom: 0;
+
+  @include my.link-undercover {
+    color: my.palette('brand', 'blue-medium');
+  }
+}
