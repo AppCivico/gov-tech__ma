@@ -1,7 +1,22 @@
-{layout="-/_layout" root_class="sec-home" cat_title="Secretaria de turismo"
-header_image="/assets/images/lencois-maranhenses 1.png" robots="index,follow,noarchive"}
+{layout="-/_layout" root_class="sec-home" robots="index,follow,noarchive"}
 
 {if segment_2 == "cat"}{redirect="404"}{/if}
+
+{exp:channel:category_heading channel="event|news|service" category_url_title="turismo"}
+    {layout:set name="cat_title"}
+    {category_name}
+    {/layout:set}
+    {if category_description}
+        {layout:set name="description"}
+            {category_description}
+        {/layout:set}
+    {/if}
+    {if category_image}
+        {layout:set name="header_image"}
+            {category_image}
+        {/layout:set}
+    {/if}
+{/exp:channel:category_heading}
 
 <main class="sec-home__main">
 
