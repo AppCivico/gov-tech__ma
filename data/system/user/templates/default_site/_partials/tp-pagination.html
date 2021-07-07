@@ -1,25 +1,47 @@
 {paginate}
-  {pagination_links}
-    <div class="nav pagination">
-      <ul>
+    {pagination_links}
+        <nav class="pagination">
+            <ul class="pagination__list">
+                {first_page}
+                    <li class="pagination__item pagination__item--first-page">
+                        <a class="pagination__link" href="{pagination_url}/" title="página 1">
+                            ❰
+                        </a>
+                    </li>
+                {/first_page}
 
-        {first_page}
-          <li class="first-page"><a href="{pagination_url}/">página <span class="number">1</span></a></li>
-        {/first_page}
-        {previous_page}
-          <li class="previous-page"><a href="{pagination_url}/">página anterior</a></li>
-        {/previous_page}
-        {page}
-          <li class="page-{pagination_page_number} {if current_page}current-page{/if}"><a href="{pagination_url}/">{pagination_page_number}</a></li>
-        {/page}
-        {next_page}
-          <li class="next-page"><a href="{pagination_url}/">página seguinte</a></li>
-        {/next_page}
-        {last_page}
-        <li class="last-page"><a href="{pagination_url}/">página <span class="number">{total_pages}</span></a></li>
-        {/last_page}
+                {previous_page}
+                    <li class="pagination__item pagination__item--previous-page">
+                        <a class="pagination__link" href="{pagination_url}/" title="página anterior">
+                            ❮
+                        </a>
+                    </li>
+                {/previous_page}
 
-      </ul>
-    </div>
-  {/pagination_links}
+                {page}
+                    <li class="pagination__item  {if current_page}pagination__item--current{/if}">
+                        <a class="pagination__link" href="{pagination_url}/" title="página {pagination_page_number}">
+                            {pagination_page_number}
+                        </a>
+                </li>
+                {/page}
+
+                {next_page}
+                    <li class="pagination__item pagination__item--next-page">
+                        <a class="pagination__link" href="{pagination_url}/" title="página seguinte">
+                            ❯
+                        </a>
+                    </li>
+                {/next_page}
+
+                {last_page}
+                    <li class="pagination__item pagination__item--last-page">
+                        <a class="pagination__link" href="{pagination_url}/" title="página {total_pages}">
+                            ❱
+                        </a>
+                    </li>
+                {/last_page}
+            </ul>
+        </nav>
+    {/pagination_links}
 {/paginate}

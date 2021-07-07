@@ -23,18 +23,19 @@
 ///
 
 .search-form {
+}
+
+.search-form__fieldset {
+  @include my.shadow;
+  position: relative;
+
   display: flex;
 
   padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
 
-  background-color: transparent;
-
+  background-color: my.palette('neutral', 'white');
   border: 1px solid my.palette('neutral');
   border-radius: my.$rounded-corner;
-
-  &:focus-within {
-    background-color: my.palette('neutral', 'white');
-  }
 
   > * {
     flex-basis: my.$gutter * 2;
@@ -49,7 +50,25 @@
   }
 }
 
-.search-form__field-wrapper {
+%focused {
+  background-color: transparent;
+  outline: 0;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.search-form__legend {
+  position: absolute;
+  right: my.$gutter;
+  bottom: 100%;
+  left: my.$gutter;
+
+  flex-basis: 100%;
+
+  width: 100%;
+  margin-bottom: my.$gutter;
+
+  text-align: center;
 }
 
 .search-form__field {
@@ -60,7 +79,7 @@
   width: 100%;
   min-width: 0;
   max-width: none;
-  height: 100%;
+  height: my.$gutter * 2;
   min-height: 0;
   padding: 0;
   margin: 0;
@@ -75,10 +94,11 @@
   appearance: none;
 
   @include my.on-event {
-    background-color: transparent;
-    outline: 0;
-    box-shadow: none;
-    opacity: 1;
+    @extend %focused;
+  }
+
+  &:focus-within {
+    @extend %focused;
   }
 }
 
@@ -89,6 +109,8 @@
 }
 
 .search-form__field--text {
+  padding-left: my.$gutter;
+
   text-align: left;
 }
 

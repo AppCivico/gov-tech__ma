@@ -77,16 +77,91 @@ nav a {
   @include my.visually-hidden--focusable;
 }
 
-// /* pagination
-// ---------------------------------------------------------------------------- */
+
+///
+/// Pagination
+///
+/// @group components
+///
+/// @example html
+///   <nav class="pagination">
+///     <ul class="pagination__list">
+///       <li class="pagination__item pagination__item--current">
+///         <a class="pagination__link" href="/results/436ad7a4a3cb2a19a7659f1df1fcbfc8/" title="página 1">1</a>
+///       </li>
+///       <li class="pagination__item">
+///         <a class="pagination__link" href="/results/436ad7a4a3cb2a19a7659f1df1fcbfc8/P1/" title="página 2">2</a>
+///       </li>
+///       <li class="pagination__item">
+///         <a class="pagination__link" href="/results/436ad7a4a3cb2a19a7659f1df1fcbfc8/P2/" title="página 3">3</a>
+///       </li>
+///       <li class="pagination__item pagination__item--next-page">
+///         <a class="pagination__link" href="/results/436ad7a4a3cb2a19a7659f1df1fcbfc8/P1/"
+///           title="página seguinte">&gt;</a>
+///       </li>
+///       <li class="pagination__item pagination__item--last-page">
+///         <a class="pagination__link" href="/results/436ad7a4a3cb2a19a7659f1df1fcbfc8/P12/"
+///           title="página 13">&gt;&gt;</a>
+///       </li>
+///     </ul>
+///   </nav>
+///
+
 .pagination {
+  display: table;
+
+  margin-top: my.$gutter * 3;
+
+  margin-right: auto;
+  margin-bottom: my.$gutter * 3;
+  margin-left: auto;
+
+  font-weight: my.font-weight('bold');
+
+  border-collapse: collapse;
 }
 
-.pagination__current {
+.pagination__list {
+  display: table-row;
 }
 
-.pagination__previous {
+.pagination__item {
+  display: table-cell;
+
+  width: my.$gutter * 2;
+  height: my.$gutter * 2;
+  padding: 0;
+  overflow: hidden;
+
+  line-height: my.$gutter * 2;
+  text-align: center;
+  text-overflow: ellipsis;
+
+  border-radius: 100%;
 }
 
-.pagination__next {
+.pagination__item--first-page {}
+
+.pagination__item--previous-page {}
+
+.pagination__item--current {
+  color: my.palette('neutral', 'white');
+
+  background-color: my.palette('brand', 'blue-dark');
+}
+
+.pagination__item--next-page {}
+
+.pagination__item--last-page {}
+
+.pagination__link {
+  @include my.link-undercover;
+
+  display: block;
+
+  justify-content: center;
+
+  padding: 0;
+
+  text-align: center;
 }
