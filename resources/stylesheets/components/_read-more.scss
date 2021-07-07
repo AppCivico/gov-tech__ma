@@ -12,9 +12,18 @@
 ///
 
 .read-more {
+  overflow: hidden;
+
   font-size: my.ms(-1);
+  font-weight: my.font-weight('bold');
+  line-height: my.$gutter * 2;
+  text-overflow: ellipsis;
 
   border-bottom: 0;
+}
+
+.read-more__link {
+  display: block;
 
   @include my.link-undercover {
     color: my.palette('brand', 'blue-medium');
