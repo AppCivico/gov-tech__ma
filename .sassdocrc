@@ -2,7 +2,7 @@ autofill:
   - throw
   - content
   - require
-dest: "data/html/design-guide"
+dest: "data/html/docs"
 exclude:
   - "resources/stylesheets/vendor/*"
 
