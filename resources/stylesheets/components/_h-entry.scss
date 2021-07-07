@@ -37,6 +37,11 @@
   p {
     max-width: none;
   }
+
+  figure {
+    float: left;
+    margin-right: my.$gutter * 0.5;
+  }
 }
 
 // when the entry was published
