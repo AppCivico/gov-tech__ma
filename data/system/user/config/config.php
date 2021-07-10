@@ -143,23 +143,35 @@ $config['updater_allow_advanced'] = 'y';
 // $config['upload_blocked_file_names'] = array('logo.png');
 
 $config['upload_preferences'] = array(
-  5 => array(                                       // ID of upload destination
-    'name'        => 'Documentos',                  // Display name in control panel
-    'server_path' => '/var/www/html/uploads/docs/', // Server path to upload directory
-    'url'         => '/uploads/docs/'               // URL of upload directory
+  5 => array(                                               // ID of upload destination
+    'name'        => 'Documentos',                          // Display name in control panel
+    'server_path' => '/var/www/html/uploads/docs/',         // Server path to upload directory
+    'url'         => '/uploads/docs/'                       // URL of upload directory
   ),
 
-  6 => array(                                       // ID of upload destination
-    'name'        => 'Imagens',                     // Display name in control panel
-    'server_path' => '/var/www/html/uploads/imgs/', // Server path to upload directory
-    'url'         => '/uploads/imgs/'               // URL of upload directory
+  6 => array(                                               // ID of upload destination
+    'name'        => 'Imagens',                             // Display name in control panel
+    'server_path' => '/var/www/html/uploads/imgs/',         // Server path to upload directory
+    'url'         => '/uploads/imgs/'                       // URL of upload directory
   ),
 
-  7 => array(                                       // ID of upload destination
-    'name'        => 'Anúncios',                    // Display name in control panel
-    'server_path' => '/var/www/html/uploads/ads/',  // Server path to upload directory
-    'url'         => '/uploads/ads/'                // URL of upload directory
-  )
+  7 => array(                                               // ID of upload destination
+    'name'        => 'Anúncios',                            // Display name in control panel
+    'server_path' => '/var/www/html/uploads/ads/',          // Server path to upload directory
+    'url'         => '/uploads/ads/'                        // URL of upload directory
+  ),
+
+  8 => array(                                               // ID of upload destination
+    'name'        => 'Secretarias',                         // Display name in control panel
+    'server_path' => '/var/www/html/uploads/secretarias/',  // Server path to upload directory
+    'url'         => '/uploads/secretarias/'                // URL of upload directory
+  ),
+
+  9 => array(                                               // ID of upload destination
+    'name'        => 'Ícones',                              // Display name in control panel
+    'server_path' => '/var/www/html/uploads/icons/',        // Server path to upload directory
+    'url'         => '/uploads/icons/'                      // URL of upload directory
+  ),
 );
 
 $config['use_category_name'] = 'y';
