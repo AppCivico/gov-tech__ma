@@ -1,34 +1,36 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-// $protocol = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-// $port = $_SERVER["SERVER_PORT"];
+$config['enable_devlog_alerts'] = 'n';
+$config['index_page'] = '';
+$protocol = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+$port = $_SERVER["SERVER_PORT"];
 
 
 /**
  * @see https://stackoverflow.com/a/42387790
  */
-// if (isset($_SERVER['HTTP_CF_VISITOR'])) {
-//   $cf_visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
+if (isset($_SERVER['HTTP_CF_VISITOR'])) {
+  $cf_visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
 
-//   if (isset($cf_visitor->scheme) && $cf_visitor->scheme == 'https') {
-//     $protocol  = "https://";
-//   }
-// }
+  if (isset($cf_visitor->scheme) && $cf_visitor->scheme == 'https') {
+    $protocol  = "https://";
+  }
+}
 
 /**
  * @see https://ellislab.com/blog/entry/http-host-and-server-name-security-issues
  */
-switch ($_SERVER['HTTP_HOST']) {
-  case 'ma.gov.br':
-  case 'ma.appcivico.com.br':
-    $domain = $_SERVER['HTTP_HOST'];
-    break;
-  default:
-    $domain = 'localhost';
-    $port = '50025';
-}
+$allowed_domains = array(
+  'ma.gov.br',
+  'ma.appcivico.com.br',
+  'localhost',
+);
 
-// $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $port : $protocol . $domain;
+$domain = in_array($_SERVER['HTTP_HOST'], $allowed_domains)
+  ? $_SERVER['HTTP_HOST']
+  : 'localhost';
+
+$site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $port : $protocol . $domain;
 
 // ExpressionEngine Config Items
 // Find more configs and overrides at
@@ -108,7 +110,6 @@ $config['force_redirect'] = 'y';
 $config['hidden_template_404'] = 'y';
 $config['htaccess_path'] = '/var/www/html/.htaccess';
 $config['ignore_entry_stats'] = 'n';
-$config['index_page'] = '';
 $config['profile_trigger'] = rand(0, time());
 $config['pw_min_len'] = '16';
 // $config['redis'] = array(
@@ -129,8 +130,8 @@ $config['show_ee_news'] = 'n';
 $config['show_profiler'] = 'n';
 $config['sig_allow_img_hotlink'] = 'n';
 $config['site_404'] = '-/404';
-// $config['site_url'] = $site_url . '/';
-$config['site_url'] = '/';
+$config['site_index'] = '';
+$config['site_url'] = $site_url;
 $config['spellcheck_language_code'] = 'pt';
 $config['strict_urls'] = 'y';
 $config['template_group'] = '-';
