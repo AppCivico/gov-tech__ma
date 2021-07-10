@@ -106,11 +106,16 @@ herman:
   displayColors:
     - "hex"
     - "hsl"
+
+  extraDocs:
+    - 'docs/extraDocs/routes.md'
+
   extraLinks:
     - name: "Governo do Estado do Maranhão"
       url: "https://ma.gov.br"
     - name: "AppCívico"
       url: "https://appcivico.com"
+
   sass:
     includePaths:
       - "./resources/stylesheets/abstracts"
