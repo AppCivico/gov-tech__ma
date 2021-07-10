@@ -76,9 +76,9 @@ trackingCode: |
       text-decoration-color: hsl(330, 0%, 85.5%);
     }
 
-    [href]:hover,
-    [href]:focus {
-      text-decoration: underline;
+    .text-block ol ol,
+    .text-block ul ul {
+      margin-bottom: 0;
     }
 
     .code-header {
