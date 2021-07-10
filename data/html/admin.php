@@ -145,9 +145,4 @@ elseif (!file_exists(SYSPATH . 'ee/ExpressionEngine/Boot/boot.php')) {
 } else {
     require_once SYSPATH . 'ee/ExpressionEngine/Boot/boot.php';
 }
-?><style>
-    .login__logo {
-        display: none;
-    }
-</style><?php
 // EOF
