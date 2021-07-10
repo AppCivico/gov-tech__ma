@@ -1,59 +1,69 @@
 {exp:channel:entries related_categories_mode="yes" custom_fields="yes" limit="3" channel="event|news|service"}
     {if count == 1}
-    <aside role="complementary" class="related-content h-feed">
-        <h2 class="related-content__title">Related</h2>
+        <aside role="complementary" class="related-content h-feed">
+            <h2 class="related-content__title">Relacionados</h2>
+
+            <div class="related-content__list">
     {/if}
-        <a href="{relative_url}/{url_title}" class="related-content__link">
-            <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
-                {gallery limit="1"}
-                <img class="h-feed__u-photo u-photo related-content__thumb" width="193" height="116" src="{gallery:image:entry_thumb}" />
-                {/gallery}
-                <h3 class="h-feed__p-name p-name">{title}</h3>
-                <p class="h-feed__dt-published related-content__date">
-                    <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
-                          {edit_date format="%d/%m/%Y"}
-                    </time>
-                </p>
-            </article>
-        </a>
+                <a href="{relative_url}/{url_title}" class="related-content__link">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
+                        <img class="h-entry__u-photo u-photo related-content__thumb" width="193" height="116"
+                        decoding="async"
+                            src="{gallery limit='1'}{gallery:image:crop width='193' height='116' maintain_ratio='n'}{/gallery}"
+                        />
+                        <h3 class="h-entry__p-name p-name">{title}</h3>
+                        <p class="h-entry__dt-published related-content__date">
+                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                                    {edit_date format="%d/%m/%Y"}
+                            </time>
+                        </p>
+                    </article>
+                </a>
     {if count == total_results}
-    </aside>
+            </div>
+        </aside>
     {/if}
     {if no_results}
     <aside role="complementary" class="related-content h-feed">
-        <h2 class="related-content__title">Related</h2>
-        <a href="{relative_url}/{url_title}" class="related-content__link">
-        <article class="h-feed__h-entry related-content__item">
-            <img class="h-feed__u-photo u-photo related-content__thumb" width="193" height="116"
-                src="/uploads/imgs/IMG-011.jpg" />
-            <h3 class="h-feed__p-name p-name">Sample title</h3>
-            <p class="h-feed__dt-published related-content__date">
-            <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
-            </p>
-        </article>
-        </a>
+        <h2 class="related-content__title">Relacionados</h2>
 
-        <a href="{relative_url}/{url_title}" class="related-content__link">
-        <article class="h-feed__h-entry related-content__item">
-            <img class="h-feed__u-photo u-photo related-content__thumb" width="193" height="116"
-                src="/uploads/imgs/IMG-031.jpg" />
-            <h3 class="h-feed__p-name p-name">Sample title</h3>
-            <p class="h-feed__dt-published related-content__date">
-            <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
-            </p>
-        </article>
-        </a>
+        <div class="related-content__list">
+            <a href="{relative_url}/{url_title}" class="related-content__link">
+                <article class="h-feed__h-entry related-content__item">
+                    <img class="h-entry__u-photo u-photo related-content__thumb" width="193" height="116"
+                    decoding="async"
+                        src="/uploads/imgs/IMG-011.jpg" />
+                    <h3 class="h-entry__p-name p-name">Sample title</h3>
+                    <p class="h-entry__dt-published related-content__date">
+                    <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
+                    </p>
+                </article>
+            </a>
 
-        <a href="{relative_url}/{url_title}" class="related-content__link">
-        <article class="h-feed__h-entry related-content__item">
-            <img class="h-feed__u-photo u-photo related-content__thumb" width="193" height="116"
-                src="/uploads/imgs/IMG-041.jpg" />
-            <h3 class="h-feed__p-name p-name">Sample title</h3>
-            <p class="h-feed__dt-published related-content__date">
-            <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
-            </p>
-        </article>
-        </a>
+            <a href="{relative_url}/{url_title}" class="related-content__link">
+                <article class="h-feed__h-entry related-content__item">
+                    <img class="h-entry__u-photo u-photo related-content__thumb" width="193" height="116"
+                    decoding="async"
+                        src="/uploads/imgs/IMG-031.jpg" />
+                    <h3 class="h-entry__p-name p-name">Sample title</h3>
+                    <p class="h-entry__dt-published related-content__date">
+                    <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
+                    </p>
+                </article>
+            </a>
+
+            <a href="{relative_url}/{url_title}" class="related-content__link">
+                <article class="h-feed__h-entry related-content__item">
+                    <img class="h-entry__u-photo u-photo related-content__thumb" width="193" height="116"
+                    decoding="async"
+                        src="/uploads/imgs/IMG-041.jpg" />
+                    <h3 class="h-entry__p-name p-name">Sample title</h3>
+                    <p class="h-entry__dt-published related-content__date">
+                    <time class="dt-published" datetime="2012-06-22T09:45:57-07:00">June 21, 2012</time>
+                    </p>
+                </article>
+            </a>
+        </div>
     </aside>
     {/if}
 {/exp:channel:entries}
