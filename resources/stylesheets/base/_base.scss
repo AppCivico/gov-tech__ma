@@ -415,6 +415,12 @@ object {
   outline: none;
 }
 
+iframe {
+  display: block;
+
+  width: 100%;
+}
+
 img,
 embed,
 object,
