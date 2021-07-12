@@ -506,6 +506,13 @@ object > img {
   &[src]::after {
     content: '(url:' attr(src) ')';
   }
+
+
+  &:-moz-broken {// sometimes, Firefox ignores pseudo elements styles
+    color: my.palette('loading', 'foreground');
+
+    background-color: my.palette('loading', 'background');
+  }
 }
 
 /**
