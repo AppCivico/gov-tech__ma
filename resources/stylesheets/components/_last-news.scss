@@ -1,0 +1,57 @@
+@use '../abstracts' as my;
+
+.last-news {
+  grid-gap: 0 #{my.$gutter * 2};
+
+  margin-bottom: my.$gutter * 2;
+}
+
+.last-news__title {
+  grid-column: 1/-1;
+
+  font-size: my.ms(4);
+  font-weight: inherit;
+  color: my.palette('accent');
+}
+
+.last-news__link {
+  @include my.link-undercover;
+}
+
+.last-news__item {
+  @include my.clearfix;
+
+  padding-top: my.$gutter;
+  padding-bottom: my.$gutter;
+
+  border-bottom: my.$stroke solid my.palette('neutral', 'base');
+}
+
+.last-news__item-title {
+  margin: 0;
+
+  font-size: my.ms(-1);
+}
+
+.last-news__thumb {
+  float: left;
+  width: 5rem;
+  height: unset;
+  height: 5rem;
+  margin-right: my.$gutter;
+  overflow: hidden;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  ~ * {
+    margin-left: #{5rem + my.$gutter};
+  }
+}
+
+.last-news__date {
+  margin-bottom: 0;
+
+  font-size: my.ms(-2);
+  font-style: inherit;
+}

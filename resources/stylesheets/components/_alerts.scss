@@ -1,0 +1,67 @@
+@use '../abstracts' as my;
+
+///
+/// Alerts
+///
+/// @group components
+///
+/// @example html
+///  <div class="alerts">
+///    <h2 class="alerts__title">Informações importantes!</h2>
+///    <ul class="alerts__list">
+///      <li class="alerts__item">
+///        <a href="#" class="alerts__link">
+///          Governo do Maranhão começa a vacinar os trabalhadores
+///        </a>
+///      </li>
+///      <li class="alerts__item">
+///        <a href="#" class="alerts__link">
+///          Cadastre-se até o dia 31/06/21 para receber o auxílio
+///        </a>
+///      </li>
+///    </ul>
+///  </div>
+///
+
+.alerts {
+  padding: (my.$gutter * 0.5) my.$gutter;
+
+  font-weight: my.font-weight('bold');
+
+  background-color: my.palette('brand', 'blue-light');
+  border-radius: my.$rounded-corner;
+}
+
+.alerts__title {
+  font-size: my.ms(2);
+  font-weight: inherit;
+}
+
+.alerts__list {
+  padding: 0;
+  margin: 0;
+}
+
+.alerts__item {
+  display: block;
+
+  padding: 0;
+  margin: 0;
+
+  border-top: my.$stroke solid my.palette('brand', 'blue-medium');
+}
+
+.alerts__link {
+  @include my.link-undercover;
+  @include my.truncate;
+
+  display: block;
+
+  line-height: my.$gutter * 2;
+
+  &::before {
+    margin-right: 1em;
+
+    content: my.image('icons/triangle-alert.svg');
+  }
+}
