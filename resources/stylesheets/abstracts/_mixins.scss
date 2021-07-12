@@ -937,8 +937,9 @@ $no-viewport: false !default;
 }
 
 @mixin focused {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem color.scale(f.palette('accent'), $alpha: 50%);
+  outline: 1px dotted currentColor;
+  outline-offset: 0.25rem;
+  // box-shadow: 0 0 0 0.25rem color.scale(f.palette('accent'), $alpha: 50%);
 }
 
 @mixin shadow {
