@@ -1,0 +1,62 @@
+@use '../abstracts' as my;
+
+.quick-links {
+  grid-gap: 0 #{my.$gutter * 2};
+
+  padding: my.$gutter;
+  margin-bottom: my.$gutter * 2;
+
+  background-color: my.palette('brand', 'yellow-light');
+  border-radius: my.$rounded-corner;
+}
+
+.quick-links__title {
+  grid-column: 1/-1;
+
+  font-size: my.ms(4);
+  font-weight: inherit;
+}
+
+.quick-links__link {
+  @include my.link-undercover;
+}
+
+.quick-links__item {
+  @include my.clearfix;
+  margin: 0;
+  overflow: hidden;
+
+  line-height: my.$gutter * 2;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.quick-links__item-title {
+  height: auto;
+  min-height: 0;
+  margin: 0;
+
+  font-size: my.ms(-1);
+  line-height: inherit;
+}
+
+.quick-links__thumb {
+  float: left;
+  width: auto;
+  height: unset;
+  height: auto;
+  margin-top: my.$gutter * 0.5;
+  margin-right: my.$gutter;
+  overflow: hidden;
+  object-fit: cover;
+
+  ~ * {
+    margin-left: #{my.$gutter * 2};
+  }
+}
+
+.quick-links__date {
+  font-size: my.ms(-2);
+  font-style: inherit;
+}

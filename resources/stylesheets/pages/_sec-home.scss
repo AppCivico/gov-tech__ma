@@ -4,6 +4,7 @@
   .main-header-and-search-form {
     position: relative;
 
+    min-height: 20rem;
     margin-top: my.$gutter * 4;
 
     background-color: my.palette('neutral', 'base');

@@ -50,7 +50,7 @@
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(min(#{my.$column-basis}, 100%), 1fr));
-  grid-gap: my.$gutter * 2;
+  grid-gap: 0 #{my.$gutter * 2};
 }
 
 .main-aside__section {

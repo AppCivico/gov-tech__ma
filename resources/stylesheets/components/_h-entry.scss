@@ -13,10 +13,11 @@
 
 // entry name/title
 .h-entry__p-name {
-  margin: 0;
+  margin: 0 0 my.$gutter 0;
 
   font-size: my.ms(8);
   font-weight: inherit;
+  line-height: 1;
 }
 
 .h-entry__subhead {
@@ -33,6 +34,7 @@
 // full content of the entry
 .h-entry__e-content {
   @include my.hyphens;
+  @include my.clearfix;
 
   p {
     max-width: none;
@@ -42,10 +44,17 @@
     float: left;
     margin-right: my.$gutter * 0.5;
   }
+
+  [style*='text-align'] {
+    text-align: inherit !important;
+  }
 }
 
 // when the entry was published
 .h-entry__dt-published {
+  height: my.$gutter;
+
+  line-height: my.$gutter;
 }
 
 // when the entry was updated

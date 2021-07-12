@@ -1,5 +1,61 @@
 @use '../abstracts' as my;
 
-// -----------------------------------------------------------------------------
-// This file contains styles that are specific to the home page.
-// -----------------------------------------------------------------------------
+.home {
+  .main-header-and-search-form {
+    position: relative;
+
+    min-height: 0;
+
+    background-color: my.palette('brand', 'blue-light');
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  .main-header-and-search-form__container {
+    position: relative;
+
+    display: block;
+  }
+
+  .site-info {
+    margin-bottom: my.$gutter * 3;
+  }
+
+  .main-header__logo {
+    display: block;
+
+    width: max-content;
+    padding: my.$gutter;
+    margin-right: auto;
+    margin-left: auto;
+
+    background-color: transparent;
+  }
+
+  .search-form {
+    position: absolute;
+    right: my.$gutter;
+    left: my.$gutter;
+
+    margin-left: 0;
+  }
+}
+
+.home__main {
+  max-width: my.$max-width;
+
+  .related-content {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .related-content__title {
+    color: my.palette('accent');
+
+    background-color: transparent;
+  }
+
+  .related-content__link {
+    min-width: 168px;
+  }
+}

@@ -22,11 +22,6 @@
 
 .main-footer {
   font-size: my.ms(-1);
-
-  > * {
-    padding-right: my.$gutter;
-    padding-left: my.$gutter;
-  }
 }
 
 .main-footer__social-and-menu {
@@ -98,6 +93,13 @@
 
 .license {
   flex-grow: 1;
+
+  a {
+    @include my.link-undercover {
+      font-weight: my.font-weight('bold');
+      color: my.palette('brand', 'blue-medium');
+    }
+  }
 }
 
 .license__image {
