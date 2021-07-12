@@ -525,6 +525,8 @@
 /// }
 ///
 @mixin truncate {
+  display: block;
+
   overflow: hidden;
 
   text-overflow: ellipsis;
