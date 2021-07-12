@@ -976,3 +976,9 @@ $no-viewport: false !default;
   margin-right: -50vw;
   margin-left: -50vw;
 }
+
+@mixin fluid-font($min: 9px, $max: 0) {
+  min-height: 0;
+
+  font-size: calc(#{$min} + #{f.strip-unit($max - $min)} * ((100vw - 20em) / #{f.strip-unit(100em - 20em)}));
+}
