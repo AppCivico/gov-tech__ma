@@ -110,6 +110,7 @@ $config['force_redirect'] = 'y';
 $config['hidden_template_404'] = 'y';
 $config['htaccess_path'] = '/var/www/html/.htaccess';
 $config['ignore_entry_stats'] = 'n';
+$config['multiple_sites_enabled'] = 'y';
 $config['profile_trigger'] = rand(0, time());
 $config['pw_min_len'] = '16';
 // $config['redis'] = array(
