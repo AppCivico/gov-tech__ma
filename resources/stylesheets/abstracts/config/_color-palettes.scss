@@ -161,7 +161,7 @@ $palette: map.set($palette, 'placeholder', $placeholder);
 ///
 $effects: (
   'backdrop': rgba(0, 0, 0, 0.5),
-  'shadow': rgba(0, 0, 0, 0.15),
+  'shadow': hsla(0, 0%, 0%, 0.161),
   'tap-highlight': rgb(255, 94, 153),
   'target-highlight': rgb(255, 255, 102),
 );
