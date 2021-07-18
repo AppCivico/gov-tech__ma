@@ -27,8 +27,7 @@
 ///   </form>
 ///
 
-.search-form {
-}
+.search-form {}
 
 .search-form__fieldset {
   @include my.shadow;
@@ -38,10 +37,11 @@
   display: flex;
 
   padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
+  margin-bottom: 0;
 
   background-color: my.palette('neutral', 'white');
   border: 1px solid my.palette('neutral');
-  border-radius: my.$rounded-corner;
+  border-radius: 999em;
 
   > * {
     flex-basis: my.$gutter * 2;
@@ -124,6 +124,7 @@
 .search-form__field--text {
   padding-left: my.$gutter;
 
+  font-size: my.ms(4);
   text-align: left;
 }
 
@@ -178,28 +179,44 @@
 .search-form__suggestions-list {}
 
 .search-form__suggestions-item {
-  display: inline;
+  display: inline-flex;
 
-  padding-right: 0.25rem;
-  padding-left: 0.25rem;
+  &::after {
+    content: ', ';
+  }
+
+  &:last-child::after {
+    content: none;
+  }
 }
 
 .search-form__suggestions-button {
   @include my.truncate;
+
   display: inline;
 
   width: auto;
   min-height: 0;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding: 0;
+  margin: 0;
 
-  font-size: my.ms(-1);
+  font-size: 1em;
   font-weight: my.font-weight('bold');
-  line-height: my.$gutter * 1.5;
-  color: my.palette('brand', 'blue-medium');
-  vertical-align: middle;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  vertical-align: baseline;
 
-  background-color: my.palette('neutral', 'white');
-  border: my.$stroke solid currentColor;
-  border-radius: my.$rounded-corner;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+
+  @include my.on-event {
+    color: inherit;
+    text-decoration: inherit;
+
+    background: transparent;
+    outline: 0;
+    box-shadow: none;
+  }
 }
