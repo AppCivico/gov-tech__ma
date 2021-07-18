@@ -1,0 +1,41 @@
+    {tv-static_meta}
+
+    <!--http://simplebits.com/notebook/2009/02/13/iegone/-->
+    <!--[if gte IE 8]><!-->
+        <link rel="stylesheet" media="all" href="{stylesheet='-/styles'}" />
+    <!--<![endif]-->
+
+    <link rel="preload" as="script" href="{path='-/scripts'}"/>
+
+    <title>
+        {if layout:title}{layout:title} | {/if}
+        {site_name}
+        {if !layout:title AND tv-head_disclaimer} | {tv-head_disclaimer}{/if}
+    </title>
+
+    {if layout:description}
+        <meta name="description" content="{layout:description}" />
+    {/if}
+    <meta name="robots" content="{if layout:robots}{layout:robots}{if:else}index,follow,noarchive{/if}" />
+    {if layout:canonical}
+        <link rel="canonical" href="{site_url}{layout:canonical}" />
+    {/if}
+    {if cv-short_domain AND layout:entry_id}
+        <link rel="shortlink" href="{cv-short_domain}/e/{layout:entry_id}" />
+    {/if}
+{!-- Google + --}
+    <meta itemprop="name" content="{if layout:title}{layout:title} | {/if}{site_name}" />
+    {if layout:description}
+        <meta itemprop="description" content="{layout:description}" />
+    {/if}
+{!-- Facebook --}
+    <meta property="og:title" content="{if layout:title}{layout:title} | {/if}{site_name}" />
+    {if layout:canonical}
+        <meta property="og:url" content="{site_url}{layout:canonical}" />
+    {/if}
+{!-- aspect ratio of 1.91:1 and minimum 600×315 --}
+    {if layout:sharing_cover}
+        <meta name="twitter:image" property="og:image" content="{site_url}{layout:sharing_cover}" />{!-- aspect ratio of 1.91:1 and minimum 600×315 --}
+    {if:else}
+        <meta name="twitter:image" property="og:image" content="{site_url}/a/img/sharing_cover.jpg" />
+    {/if}
