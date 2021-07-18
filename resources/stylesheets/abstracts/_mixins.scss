@@ -136,10 +136,8 @@
   .amp { // stylelint-disable-line no-qualifying-elements
     @include _italic-overflow;
     font-family: fs.$AMPERSAND-FONT-STACK;
-
     font-size: 2em;
     line-height: 0.25;
-
     vertical-align: middle;
 
     @content;
@@ -219,7 +217,6 @@
   // sass-lint:disable-block no-duplicate-properties
   $_inline-block-font-stack: 'FreeSans', 'Arimo', 'Droid Sans', 'Helvetica', 'Arial', sans-serif;
   font-family: $_inline-block-font-stack;
-
   font-size: 0;
   letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
   letter-spacing: normal\9; /* reset IE < 8 */
@@ -265,7 +262,6 @@
   display: inline-block;
 
   font-family: c.$text-font-stack;
-
   font-size: $font-size;
   letter-spacing: normal;
   vertical-align: string.unquote($align);
@@ -378,7 +374,6 @@
   font-weight: font-weight('normal');
   font-variant: normal;
   line-height: 1;
-
   text-transform: none;
 
   speak: none;
@@ -400,7 +395,6 @@
     display: table; /* 2 */
 
     border-collapse: collapse; /* 3 */
-
     content: ''; /* 1 */
   }
 
@@ -421,7 +415,6 @@
     text-decoration: inherit;
 
     outline: 0;
-
     box-shadow: none;
 
     @content;
@@ -471,10 +464,8 @@
 
   width: 1px !important;
   height: 1px !important;
-
   padding: 0 !important;
   margin: -1px;
-
   overflow: hidden !important;
   clip: rect(1px 1px 1px 1px) !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
@@ -494,9 +485,7 @@
 
     width: auto !important;
     height: auto !important;
-
     margin: auto;
-
     overflow: visible !important;
     clip: auto !important;
     clip-path: none !important;
@@ -590,7 +579,6 @@
 	 *    See: https://code.google.com/p/chromium/issues/detail?id=457146
 	 */
   padding: 0; /* 1 */
-
   overflow: hidden;
 
   text-indent: 101%;
@@ -609,9 +597,7 @@
     direction: ltr;
   } @else {
     font: 0/0;
-
     text-shadow: none;
-
     color: transparent;
 
     border: 0;
@@ -857,8 +843,8 @@ $no-viewport: false !default;
   } @else if list.length($ratio) < 2 and list.length($ratio) > 3 {
     @error '`aspect-ratio` function expecting a list with 2 or 3 items for `$ratio`; `#{list.length($ratio)}` given.';
   } @else {
-    $w: nth($ratio, 1);
-    $h: if(length($ratio) == 3, nth($ratio, 3), nth($ratio, 2));
+    $w: list.nth($ratio, 1);
+    $h: if(length($ratio) == 3, list.nth($ratio, 3), list.nth($ratio, 2));
   }
 
   @if meta.type-of($w) != 'number' {
@@ -877,7 +863,6 @@ $no-viewport: false !default;
 
   &::before {
     float: left;
-
     padding-top: (math.div($h, $w) * 100%);
 
     content: '';
@@ -961,7 +946,6 @@ $no-viewport: false !default;
 @mixin container {
   width: 100%;
   max-width: c.$max-width;
-
   padding-right: c.$gutter;
   padding-left: c.$gutter;
   margin-right: auto;
