@@ -1,62 +1,101 @@
 @use '../abstracts' as my;
 
-.quick-links {
-  grid-gap: 0 #{my.$gutter * 2};
+.h-feed--quick-links {
+  display: block;
 
-  padding: my.$gutter;
-  margin-bottom: my.$gutter * 2;
-
-  background-color: my.palette('brand', 'yellow-light');
-  border-radius: my.$rounded-corner;
-}
-
-.quick-links__title {
   grid-column: 1/-1;
 
-  font-size: my.ms(4);
-  font-weight: inherit;
+  margin-bottom: my.$gutter * 2;
 }
 
-.quick-links__link {
-  @include my.link-undercover;
+.h-feed__p-name--quick-links {
+  border-color: my.palette('brand', 'green-medium');
 }
 
-.quick-links__item {
-  @include my.clearfix;
+.quick-links__list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: space-evenly;
+
+  padding: 0;
   margin: 0;
-  overflow: hidden;
-
-  line-height: my.$gutter * 2;
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
 }
 
-.quick-links__item-title {
+.h-entry--quick-links {
+  @include my.shadow;
+
+  position: relative;
+
+  display: flex;
+
+  flex-basis: 0;
+
+  align-items: flex-end;
+
+  min-width: 280px;
+  min-height: 150px;
+  padding: 0;
+  margin: 0 (my.$gutter * 2) (my.$gutter * 2) my.$gutter;
+
+  font-weight: my.font-weight('bold');
+  line-height: my.$gutter * 1.5;
+  text-align: left;
+
+  background-color: my.palette('white');
+  background-image: my.image('quick-links/pedidos-de-acesso-a-informacao.svg');
+  background-position: 100% 0.75rem;
+
+  &::after {
+    position: absolute;
+    top: my.$gutter;
+    right: my.$gutter * -1;
+    bottom: my.$gutter * -1;
+    left: my.$gutter;
+    z-index: my.layer('below');
+
+    color: my.palette('brand', 'red-medium');
+
+    content: '';
+
+    background-color: currentColor;
+  }
+
+  &:first-child {
+    background-image: my.image('quick-links/portal-da-transparencia.svg');
+
+    &::after {
+      color: my.palette('brand', 'blue-medium');
+    }
+  }
+
+  &:last-child {
+    background-image: my.image('quick-links/ouvidoria.svg');
+
+    &::after {
+      color: my.palette('brand', 'yellow-medium');
+    }
+  }
+}
+
+.h-entry__u-url--quick-links {
+  @include my.link-undercover;
+
+  display: block;
+
+  padding: my.$gutter;
+  margin: 0;
+}
+
+.h-entry__p-name--quick-links {
+  display: block;
+
   height: auto;
   min-height: 0;
   margin: 0;
 
-  font-size: my.ms(-1);
-  line-height: inherit;
-}
-
-.quick-links__thumb {
-  float: left;
-  width: auto;
-  height: unset;
-  height: auto;
-  margin-top: my.$gutter * 0.5;
-  margin-right: my.$gutter;
-  overflow: hidden;
-  object-fit: cover;
-
-  ~ * {
-    margin-left: #{my.$gutter * 2};
-  }
-}
-
-.quick-links__date {
-  font-size: my.ms(-2);
-  font-style: inherit;
+  font-size: my.ms(4);
+  line-height: 1;
+  text-overflow: ellipsis;
 }

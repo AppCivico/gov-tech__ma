@@ -1,8 +1,6 @@
 @use '../abstracts' as my;
 
 .last-news {
-  grid-gap: 0 #{my.$gutter * 2};
-
   margin-bottom: my.$gutter * 2;
 }
 
@@ -16,42 +14,61 @@
 
 .last-news__link {
   @include my.link-undercover;
+
+  &:first-child {
+    position: relative;
+
+    grid-column: 1/-1;
+  }
 }
 
 .last-news__item {
-  @include my.clearfix;
+  &:first-child {
+    position: relative;
+  }
+}
 
-  padding-top: my.$gutter;
-  padding-bottom: my.$gutter;
-
-  border-bottom: my.$stroke solid my.palette('neutral', 'base');
+.last-news__item-thumb {
 }
 
 .last-news__item-title {
   margin: 0;
 
   font-size: my.ms(-1);
-}
 
-.last-news__thumb {
-  float: left;
-  width: 5rem;
-  height: unset;
-  height: 5rem;
-  margin-right: my.$gutter;
-  overflow: hidden;
+  .last-news__link:first-child img + & {
+    position: absolute;
+    bottom: my.$gutter * 2;
+    left: 50%;
 
-  border-radius: 50%;
-  object-fit: cover;
+    max-width: 40rem;
+    margin-right: auto;
+    margin-left: auto;
 
-  ~ * {
-    margin-left: #{5rem + my.$gutter};
+    font-size: my.ms(5);
+    font-weight: my.font-weight('black');
+    color: my.palette('neutral', 'white');
+    text-align: center;
+
+    transform: translateX(-50%);
   }
 }
 
 .last-news__date {
-  margin-bottom: 0;
+  color: inherit;
 
-  font-size: my.ms(-2);
-  font-style: inherit;
+  .last-news__link:first-child img ~ & {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    height: my.$gutter * 2;
+
+    font-size: my.ms(0);
+    font-weight: my.font-weight('light');
+    line-height: my.$gutter * 2;
+    color: inherit;
+
+    transform: translateX(-50%);
+  }
 }

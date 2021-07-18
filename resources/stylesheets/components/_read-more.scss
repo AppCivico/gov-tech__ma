@@ -27,5 +27,6 @@
 
   @include my.link-undercover {
     color: my.palette('brand', 'blue-medium');
+    text-decoration: underline;
   }
 }

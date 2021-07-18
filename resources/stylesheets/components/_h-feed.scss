@@ -5,23 +5,38 @@
 */
 .h-feed {
   .h-feed__h-entry {
+    margin-bottom: my.$gutter;
   }
 
   .h-entry__p-name {
+    margin: 0;
+
     font-size: my.ms(-1);
   }
 
   .h-entry__u-photo {
+    width: 100%;
+  }
+
+  .h-entry__u-url {
+    @include my.link-undercover;
   }
 
   .h-entry__dt-published {
     margin-bottom: 0;
+
+    font-size: my.ms(-2);
 
     color: my.palette('neutral', 'dark');
   }
 }
 
 .h-feed__p-name {
+  font-size: my.ms(2);
+  font-weight: my.font-weight('bold');
+  text-transform: uppercase;
+
+  border-bottom: my.$stroke solid;
 }
 
 .h-feed__p-summary {
@@ -39,7 +54,7 @@
 .h-feed__u-photo {
 }
 
-.h-feed__link {
+.h-entry__u-url {
 }
 
 .h-feed__list {
@@ -47,7 +62,7 @@
 
   grid-template-columns: repeat(auto-fit, minmax(min(#{my.$column-basis}, 100%), 1fr));
   grid-auto-rows: min-content;
-  grid-gap: 0 #{my.$gutter * 2};
+  grid-gap: 0 my.$gutter;
 }
 
 .h-feed__read-more {

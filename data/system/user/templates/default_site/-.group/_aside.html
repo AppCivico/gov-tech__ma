@@ -1,41 +1,144 @@
 <aside class="main-aside">
-    {exp:channel:categories channel="document|event|news|service" category_group="1" disable="category_fields" show_empty="yes" status="open" style="linear" limit="3"}
-        {if count == 1}
-        <section class="main-aside__section">
-            <h5 class="main-aside__title">
-                Secretarias e órgãos
-            </h5>
-            <ul class="main-aside__list">
-        {/if}
-            <li class="main-aside__item">
-                <a class="main-aside__link" href="/secretarias/{category_url_title}">{category_name}</a>
-            </li>
-            {if count == total_results}
-            <li class="main-aside__item main-aside__item--read-more h-feed__item--read-more">
-                <a class="main-aside__link main-aside__link--read-more h-feed__link h-feed__link--read-more read-more" href="#">Todas as secretárias e órgãos</a>
-            </li>
-            </ul>
-        </section>
-        {/if}
-    {/exp:channel:categories}
 
-    {exp:channel:categories channel="document|event|news|service" category_group="3" disable="category_fields" show_empty="yes" status="open" style="linear" limit="3"}
+    {exp:channel:entries channel="document|event|news|service" cache="yes" disable="categories|category_fields|member_data|pagination" category_group="4" category="13" status="open" limit="3"}
         {if count == 1}
-        <section class="main-aside__section">
-            <h5 class="main-aside__title">
-                Notícias
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                Cidadão
             </h5>
             <ul class="main-aside__list">
         {/if}
-            <li class="main-aside__item">
-                <a class="main-aside__link" href="/secretarias/{category_url_title}">{category_name}</a>
+            <li class="main-aside__item h-entry">
+                <a class="main-aside__link h-entry__u-url u-url" href="{relative_url}/{url_title}">{title}</a>
             </li>
-            {if count == total_results}
+        {if count == total_results}
             <li class="main-aside__item main-aside__item--read-more h-feed__item--read-more read-more">
-                <a class="main-aside__link main-aside__link--read-more h-feed__link h-feed__link--read-more read-more__link" href="#">Todas notícias</a>
+                <a class="main-aside__link main-aside__link--read-more h-feed__u-url h-feed__u-url--read-more read-more__link" href="#">Acessar tudo para "Cidadão"</a>
             </li>
             </ul>
         </section>
         {/if}
-    {/exp:channel:categories}
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="document|event|news|service" cache="yes" disable="categories|category_fields|member_data|pagination" category_group="4" category="14" status="open" limit="3"}
+        {if count == 1}
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                Turista
+            </h5>
+            <ul class="main-aside__list">
+        {/if}
+            <li class="main-aside__item h-entry">
+                <a class="main-aside__link h-entry__u-url u-url" href="{relative_url}/{url_title}">{title}</a>
+            </li>
+        {if count == total_results}
+            <li class="main-aside__item main-aside__item--read-more h-feed__item--read-more read-more">
+                <a class="main-aside__link main-aside__link--read-more h-feed__u-url h-feed__u-url--read-more read-more__link" href="#">Acessar tudo para "Turista"</a>
+            </li>
+            </ul>
+        </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="document|event|news|service" cache="yes" disable="categories|category_fields|member_data|pagination" category_group="4" category="16" status="open" limit="3"}
+        {if count == 1}
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                Negócios
+            </h5>
+            <ul class="main-aside__list">
+        {/if}
+            <li class="main-aside__item h-entry">
+                <a class="main-aside__link h-entry__u-url u-url" href="{relative_url}/{url_title}">{title}</a>
+            </li>
+        {if count == total_results}
+            <li class="main-aside__item main-aside__item--read-more h-feed__item--read-more read-more">
+                <a class="main-aside__link main-aside__link--read-more h-feed__u-url h-feed__u-url--read-more read-more__link" href="#">Acessar tudo para "Negócios"</a>
+            </li>
+            </ul>
+        </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="document|event|news|service" cache="yes" disable="categories|category_fields|member_data|pagination" category_group="4" category="15" status="open" limit="3"}
+        {if count == 1}
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                Programas
+            </h5>
+            <ul class="main-aside__list">
+        {/if}
+            <li class="main-aside__item h-entry">
+                <a class="main-aside__link h-entry__u-url u-url" href="{relative_url}/{url_title}">{title}</a>
+            </li>
+        {if count == total_results}
+            <li class="main-aside__item main-aside__item--read-more h-feed__item--read-more read-more">
+                <a class="main-aside__link main-aside__link--read-more h-feed__u-url h-feed__u-url--read-more read-more__link" href="#">Acessar tudo para "Programas"</a>
+            </li>
+            </ul>
+        </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="news" limit="5" disable="categories|category_fields|member_data|pagination" status="open"}
+        {if count == 1}
+        <section class="last-news h-feed">
+            <h2 class="last-news__title h-feed__p-name p-name">Destaques</h2>
+            <div class="h-feed__list">
+        {/if}
+                <a href='{relative_url}/{url_title}' class="last-news__link h-entry__u-url">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
+                        {if count == 1}
+                            {gallery limit="1"}
+                                <img
+                                    width="1116" height="512"
+                                    sizes="(max-width: 1116px) 100vw, 1116px"
+                                    srcset="
+                                        {gallery:file:crop width='300' height='150' maintain_ratio='n'} 300w,
+                                        {gallery:file:crop width='635' height='318' maintain_ratio='n'} 635w,
+                                        {gallery:file:crop width='886' height='443' maintain_ratio='n'} 886w,
+                                        {gallery:file:crop width='1079' height='540' maintain_ratio='n'} 1079w,
+                                        {gallery:file:crop width='1116' height='558' maintain_ratio='n'} 1116w"
+                                    src="{gallery:file:crop width='1116' height='512' maintain_ratio='n'}"
+                                    decoding="async" loading="lazy" class="h-entry__u-photo u-photo last-news__item-thumb"
+                                    alt="{gallery:alt}"
+                                />
+                            {/gallery}
+                        {if:else}
+                            {gallery limit="1"}
+                                <img
+                                    width="260" height="200"
+                                    src="{gallery:file:crop width='260' height='200' maintain_ratio='n'}"
+                                    decoding="async" loading="lazy" class="h-entry__u-photo u-photo"
+                                    alt="{gallery:alt}"
+                                />
+                            {/gallery}
+                        {/if}
+
+                        <h3 class="h-entry__p-name p-name last-news__item-title">{title}</h3>
+                        <p class="h-entry__dt-published last-news__date">
+                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                            {if count == 1}
+                                {edit_date format="%d de %F de %Y"}
+                            {if:else}
+                                {edit_date format="%d/%m/%Y"}
+                            {/if}
+                            </time>
+                        </p>
+                    </article>
+                </a>
+
+        {if count == total_results}
+                <p class="h-feed__read-more read-more">
+                    <a class="read-more__link"
+                    href="#">Acesso a todas as notícias</a>
+                </p>
+            </div>
+        </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {tp-quick-links}
+
+
 </aside>

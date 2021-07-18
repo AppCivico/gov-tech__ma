@@ -54,7 +54,12 @@
 .h-entry__dt-published {
   height: my.$gutter;
 
+  font-size: my.ms(-1);
   line-height: my.$gutter;
+
+  time {
+    font-style: inherit;
+  }
 }
 
 // when the entry was updated
@@ -116,6 +121,7 @@
 
 // one or more photos that is/are considered the primary content of the entry, unless there is a p-location h-card, which is still considered a "checkin" (i.e. with a photo). Otherwise the presence of a u-photo means the name of the entry should be interpreted as a caption on the photo, and the summary/content should be interpreted as a description of the photo.
 .h-entry__u-photo {
+  display: block;
 }
 
 // special u- parsing rules for <video src> & <source src>

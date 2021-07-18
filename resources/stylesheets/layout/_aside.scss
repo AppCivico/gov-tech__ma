@@ -47,9 +47,13 @@
 
 
 .main-aside {
+  $column-basis: my.$column-basis * 1.5;
+
+  @include my.container;
+
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(min(#{my.$column-basis}, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(#{$column-basis}, 100%), 1fr));
   grid-gap: 0 #{my.$gutter * 2};
 }
 
@@ -86,10 +90,17 @@
 
 .main-aside__link {
   @include my.link-undercover;
+  @include my.truncate;
 
   display: block;
 
   line-height: my.$gutter * 2;
 
   border-bottom: my.$stroke solid my.palette('neutral', 'light');
+}
+
+.main-aside__link--read-more {
+  font-size: 1em;
+
+  border-bottom: 0;
 }
