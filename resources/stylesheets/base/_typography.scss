@@ -10,7 +10,6 @@
 ::before,
 ::after {
   line-height: inherit;
-
   text-decoration: inherit; /* 1 */
   vertical-align: inherit; /* 2 */
 }
@@ -23,7 +22,6 @@ body {
   font-size: my.$body-font-size;
   font-weight: my.font-weight('text');
   line-height: my.$leading;
-
   color: my.palette('text', 'dark');
 }
 
@@ -100,14 +98,12 @@ legend {
 
 summary {
   color: my.palette('accent');
-
   text-decoration: none;
 
   details > & {
     margin-bottom: 0;
 
     transition-timing-function: ease-out;
-
     transition-duration: 300ms;
     transition-property: margin-bottom;
   }
@@ -220,7 +216,6 @@ abbr {
 dfn {
   @extend %abbr-title;
   font-size: 1em;
-
   font-style: italic; /* 1 */
 }
 
@@ -287,7 +282,6 @@ sup {
 
   font-size: my.ms(-1); /* 1 */
   line-height: 0;
-
   vertical-align: baseline;
 }
 
@@ -366,7 +360,6 @@ s {
 %updated {
   &::before {
     font-weight: my.font-weight('bold');
-
     text-decoration: none;
 
     content: '[update] ';
@@ -451,7 +444,6 @@ blockquote > p {
 q,
 blockquote {
   font-style: italic;
-
   color: my.palette('quotes');
 }
 
@@ -487,7 +479,6 @@ blockquote.verse p { // stylelint-disable-line no-qualifying-elements
   display: inline-block;
 
   width: auto;
-
   margin-right: auto;
   margin-left: auto;
 

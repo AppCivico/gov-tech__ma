@@ -25,7 +25,6 @@
   margin: 0;
 
   font-size: my.ms(2);
-
   line-height: my.$gutter * 3;
 }
 
@@ -47,11 +46,9 @@
   padding-right: my.$gutter;
 
   line-height: my.$gutter * 2;
-
   color: inherit;
 
   background-image: my.image('icons/to-bottom.svg');
-
   background-position: right center;
 
   &::before {

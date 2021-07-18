@@ -4,6 +4,7 @@ const recessConfigWithEmptyLine = recessConfig.rules['order/properties-order'].m
   return {
     ...group,
     emptyLineBefore: 'always',
+    noEmptyLineBetween: true,
   }
 });
 
