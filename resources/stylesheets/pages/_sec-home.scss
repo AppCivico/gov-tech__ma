@@ -1,39 +1,5 @@
 @use '../abstracts' as my;
 
-.sec-home {
-  .main-header-and-search-form {
-    position: relative;
-
-    // min-height: 20rem;
-
-    background-color: my.palette('neutral', 'base');
-    background-position: 50% 50%;
-    background-size: cover;
-  }
-
-  .main-header-and-search-form__container {
-    display: block;
-
-    min-height: 596px;
-
-    padding-bottom: my.$gutter * 3;
-  }
-
-  .site-info {
-  }
-
-  .main-header__logo {
-    display: block;
-
-    float: left;
-    padding: my.$gutter;
-  }
-
-  .search-form {
-    margin-left: 0;
-  }
-}
-
 .sec-home__main {
   $column-basis: my.$column-basis * 1.5;
 

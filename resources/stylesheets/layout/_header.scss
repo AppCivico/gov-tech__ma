@@ -13,6 +13,7 @@
  */
 
 .main-header-and-search-form {
+  position: relative;
   z-index: my.layer('default'); // to move menu forward on Z axis
 
   padding: my.$gutter my.$gutter 0 my.$gutter;
@@ -23,12 +24,22 @@
 
   color: my.palette('neutral', 'white');
 
-  background-color: my.palette('neutral', 'dark');
+  background-color: my.palette('neutral', 'base');
   background-image: url('/uploads/secretarias/shutterstock_1659111457.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+
+  .going-to-search-results & {
+    z-index: auto;
+  }
 }
 
 .main-header-and-search-form__container {
   @include my.container;
+  display: block;
+
+  min-height: 596px;
+  padding-bottom: my.$gutter * 3;
 
   > * {
     margin-right: auto;
@@ -70,6 +81,11 @@
 }
 
 .main-header__logo {
+  display: block;
+
+  float: left;
+  padding: my.$gutter;
+
   > img {
     display: block;
 
@@ -84,6 +100,10 @@
   font-size: my.ms(7);
   font-weight: my.font-weight('bold');
   text-align: center;
+}
+
+.search-form {
+  margin-left: 0;
 }
 
 .main-nav {
@@ -120,6 +140,10 @@
   transition-duration: 0.5s;
   transition-property: transform;
   transform: translateY(-100%);
+
+  .going-to-search-results & {
+    z-index: auto;
+  }
 
   [id='menu-controller']:checked ~ & {
     box-shadow: 8px 12px 24px 0 rgba(0, 0, 0, 0.1);
@@ -184,7 +208,6 @@
     white-space: normal;
 
     cursor: default;
-
     visibility: hidden;
 
     background-color: my.palette('neutral', 'white');
@@ -251,6 +274,10 @@
   z-index: my.layer('default');
 
   background-color: my.palette('white');
+
+  .going-to-search-results & {
+    z-index: auto;
+  }
 
   > svg {
     display: block;
