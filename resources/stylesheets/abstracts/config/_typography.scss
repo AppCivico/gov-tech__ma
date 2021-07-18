@@ -26,7 +26,7 @@
 ///   font-family: $title-font-stack;
 /// }
 ///
-$title-font-stack: 'PT Sans', fs.$NATIVE-FONT-STACK !default;
+$title-font-stack: 'Public Sans', fs.$NATIVE-FONT-STACK !default;
 
 
 /// Text body font stack
@@ -37,7 +37,7 @@ $title-font-stack: 'PT Sans', fs.$NATIVE-FONT-STACK !default;
 ///   font-family: $text-font-stack;
 /// }
 ///
-$text-font-stack: 'PT Sans', fs.$NATIVE-FONT-STACK !default;
+$text-font-stack: 'Public Sans', fs.$NATIVE-FONT-STACK !default;
 
 
 /// Code (monospace) font stack
@@ -158,8 +158,11 @@ $line-lengths: (
 /// @type Map
 ///
 $font-weights: (
+  'light': 300,
+  'regular': 400,
   'text': 400,
-  'bold': 600,
-  'extrabold': 800,
-  'heading': 600,
+  'medium': 500,
+  'bold': 700,
+  'heading': 700,
+  'black': 900,
 );
