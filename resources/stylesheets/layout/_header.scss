@@ -13,13 +13,18 @@
  */
 
 .main-header-and-search-form {
-  @include my.full-width;
+  z-index: my.layer('default'); // to move menu forward on Z axis
 
-  padding: my.$gutter;
+  padding: my.$gutter my.$gutter 0 my.$gutter;
   margin-top: my.$gutter * -1;
+  margin-right: my.$gutter * -1;
   margin-bottom: my.$gutter * 6;
+  margin-left: my.$gutter * -1;
 
-  background-color: my.palette('neutral', 'x-light');
+  color: my.palette('neutral', 'white');
+
+  background-color: my.palette('neutral', 'dark');
+  background-image: url('/uploads/secretarias/shutterstock_1659111457.jpg');
 }
 
 .main-header-and-search-form__container {
@@ -60,6 +65,10 @@
 [role='banner'] {
 }
 
+.site-info {
+  @include my.clearfix;
+}
+
 .main-header__logo {
   > img {
     display: block;
@@ -70,20 +79,31 @@
 }
 
 .main-header__title {
-  font-size: my.ms(8);
-  font-weight: inherit;
+  clear: both;
+
+  font-size: my.ms(7);
+  font-weight: my.font-weight('bold');
+  text-align: center;
 }
 
 .main-nav {
-  font-weight: bold;
+  font-weight: inherit;
+  color: my.palette('neutral', 'black');
 
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
-    margin-right: 0;
-    margin-left: auto;
+    @include my.shadow;
+
+    margin-right: my.$gutter * -1;
+    margin-left: my.$gutter * -1;
+
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    background-color: my.palette('neutral', 'white');
   }
 }
 
-.main-nav__menu {
+.main-nav__list {
   position: fixed;
   top: 0;
   right: 0;
@@ -110,9 +130,14 @@
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     position: static;
 
-    display: flex;
+    display: table;
 
+    width: 100%;
     height: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    table-layout: fixed;
 
     box-shadow: none;
 
@@ -120,13 +145,97 @@
   }
 }
 
-.main-nav__menu-item {
+.main-nav__list > li {
+  position: relative;
+
+  display: table-cell;
+
   width: 100%;
+
+  font-weight: my.font-weight('medium');
+  line-height: my.$gutter * 3;
+
+  cursor: pointer;
 
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     width: auto;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 }
+
+.main-nav__list > li > ul {
+  @media screen and (min-width: my.breakpoint('toggle-menu')) {
+    @include my.shadow;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: #{my.layer('dropdown') - 1};
+
+    padding: my.$gutter;
+    clip-path: polygon(-60px #{my.$stroke__thick * -1}, calc(100% + 60px) #{my.$stroke__thick * -1}, calc(100% + 60px) calc(100% + 60px), -60px calc(100% + 60px));
+
+    font-weight: my.font-weight('medium');
+    line-height: 1;
+    text-align: left;
+    white-space: normal;
+
+    cursor: default;
+
+    visibility: hidden;
+
+    background-color: my.palette('neutral', 'white');
+    opacity: 0;
+
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+    transition-property: opacity transform;
+    transform: scale(0);
+    transform-origin: 50% 0;
+
+    &::before {
+      position: absolute;
+      top: my.$stroke__thick * -1;
+      right: 0;
+      left: 0;
+
+      height: my.$stroke__thick;
+
+      content: '';
+    }
+  }
+}
+
+.main-nav__list > li:hover ul {
+  display: block;
+
+  visibility: visible;
+
+  opacity: 1;
+
+  transform: scale(1) translateY(my.$stroke__thick);
+}
+
+.main-nav__list > li li {
+  display: flex;
+
+  align-items: center;
+}
+
+.main-nav__list a {
+  display: block;
+
+  width: 100%;
+  padding: my.$gutter * 0.25;
+
+  text-overflow: ellipsis;
+
+  cursor: pointer;
+}
+
 
 /// .menu-controller styles
 ///
