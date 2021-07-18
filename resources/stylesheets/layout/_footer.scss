@@ -12,20 +12,93 @@
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `contentinfo` role.
  */
 .main-footer__wrapper {
-  @include my.full-width;
-
+  padding-top: my.$gutter * 3;
+  padding-bottom: my.$gutter * 2;
   margin-top: my.$gutter;
+  margin-right: my.$gutter * -1;
   margin-bottom: my.$gutter * -1;
+  margin-left: my.$gutter * -1;
 
   background-color: my.palette('neutral', 'light');
 }
 
 .main-footer {
-  font-size: my.ms(-1);
+  @include my.container;
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: flex-start;
+  justify-content: stretch;
+
+  font-size: my.ms(2);
 }
 
+.main-footer > * {}
+
+.main-footer__menu-wrapper {
+  display: block;
+
+  flex-basis: 25%;
+
+  padding-right: my.$gutter * 0.5;
+  padding-left: my.$gutter * 0.5;
+}
+
+.main-footer__menu-list {
+  display: block;
+
+  height: 100%;
+
+  text-align: left;
+}
+
+.main-footer__menu-item {
+  display: block;
+}
+
+.main-footer__menu-link {
+  display: block;
+
+  padding: (my.$gutter * 0.5) 0;
+
+  white-space: nowrap;
+}
+
+
+.colophon {
+  flex-basis: 75%;
+}
+
+.h-card {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  align-items: flex-start;
+  // grid-auto-flow: dense;
+  overflow: hidden;
+}
+
+.h-card > * {
+  flex-basis: 33%;
+
+  align-items: flex-start;
+
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.p-adr {
+  grid-row: span 3;
+}
+
+.u-email {}
+.social-profiles {}
+.social-profiles__item {}
+.social-profiles__link {}
+
 .main-footer__social-and-menu {
-  background-color: my.palette('neutral');
 }
 
 .main-footer__social-and-menu .container {
@@ -50,33 +123,20 @@
   }
 }
 
-.main-footer__menu-wrapper {}
-
-.main-footer__menu-list {
-  flex-wrap: wrap;
-
-  height: 100%;
-}
-
-.main-footer__menu-item {}
-
-.main-footer__menu-link {
-  padding: my.$gutter * 0.5;
-
-  white-space: nowrap;
-}
-
 [role='contentinfo'] {
 }
 
 .license-and-powered-by {
   @include my.container;
 
+  font-size: my.ms(0);
+
   text-align: center;
 
   @media screen and (min-width: my.breakpoint('tablet__portrait')) {
     display: flex;
 
+    flex-basis: 100%;
     flex-wrap: wrap;
 
     padding-top: my.$gutter * 2;
@@ -119,7 +179,11 @@
 .powered-by {}
 
 .powered-by__link {
-  display: block;
+  display: flex;
+
+  align-items: center;
+
+  height: 100%;
 }
 
 .powered-by__image {

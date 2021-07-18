@@ -959,6 +959,7 @@ $no-viewport: false !default;
 }
 
 @mixin container {
+  width: 100%;
   max-width: c.$max-width;
 
   padding-right: c.$gutter;
