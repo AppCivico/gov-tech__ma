@@ -1,60 +1,109 @@
 @use '../abstracts' as my;
 
-.h-feed.main-services {
+.main-services {
+  @include my.clearfix;
+
   position: relative;
 
   margin-bottom: my.$gutter * 3;
 
+  font-size: my.ms(2);
+
+  .h-feed__p-name {
+    margin-bottom: my.$gutter * 3;
+
+    border-bottom-color: my.palette('brand', 'blue-medium');
+  }
+
   .main-services__title {
-    border-color: my.palette('brand', 'green-medium');
+    @include my.truncate;
+
+    font-size: my.ms(5);
+    color: my.palette('brand', 'blue-medium');
+    text-decoration: underline;
+    text-transform: none;
+    white-space: nowrap;
   }
 
-  .main-services__list {
-    // display: flex;
-    // flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-    grid-gap: 0 my.$gutter;
+  .main-services__lists, // reset lists
+  .main-services__lists ul,
+  .main-services__lists li {
+    display: block;
+
+    padding: 0;
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
   }
 
-  .main-services__link {
-    @include my.link-undercover;
-
-    // flex-basis: 0;
-
-    // margin: 0 (my.$gutter * 0.5) (my.$gutter * 2) (my.$gutter * 0.5);
-    margin: 0 0 (my.$gutter * 2) 0;
-  }
-
-  .main-services__item {
-    @include my.clearfix;
-
+  .main-services__lists {
     display: flex;
 
-    align-items: center;
+    flex-wrap: wrap;
 
-    padding-top: my.$gutter * 0.5;
-    padding-bottom: my.$gutter * 0.5;
-    margin: 0;
+    margin-right: my.$gutter * -1;
+    margin-left: my.$gutter * -1;
   }
 
-  .main-services__item-title {
-    margin: 0;
+  .main-services__lists > li {
+    position: relative;
 
-    font-size: my.ms(0);
+    flex-basis: calc(50% - #{my.$gutter * 2});
+    flex-grow: 1;
+
+    min-width: 10em;
+    margin: 0 my.$gutter my.$gutter my.$gutter;
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      flex-basis: 0;
+    }
+
+    &::after {
+      position: absolute;
+      top: my.$gutter * 2;
+      right: my.$gutter * -1;
+      bottom: my.$gutter * 2;
+
+      content: '';
+
+      border-right: my.$stroke__thin solid my.palette('neutral', 'base');
+    }
+  }
+
+  .main-services__lists a {
+    @include my.link-undercover;
+  }
+
+  .main-services__lists ul {
+  }
+
+  .main-services__lists li:last-child ul {
+    &::after {
+      content: none;
+    }
+  }
+
+  .main-services__lists ul li {
+    margin: 0 0 my.$gutter * 0.5 0;
+  }
+
+  .read-more {
+    float: right;
+    padding-right: my.$gutter * 0.5;
+    padding-left: my.$gutter * 0.5;
+    margin-right: 0;
+    margin-left: auto;
+
     font-weight: my.font-weight('bold');
+    line-height: inherit;
+    text-transform: uppercase;
+
+    border-top: my.$stroke solid my.palette('brand', 'green-medium');
   }
 
-  .main-services__thumb {
-    // float: left;
-    width: 55px;
-    height: unset;
-    height: auto;
-    margin-right: my.$gutter;
-    overflow: hidden;
-    object-fit: cover;
-
-    // ~ * {
-    //   margin-left: #{my.$gutter * 2};
-    // }
+  .read-more__link {
+    @include my.link-undercover;
   }
 }

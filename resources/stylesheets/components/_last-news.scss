@@ -14,18 +14,9 @@
 
 .last-news__link {
   @include my.link-undercover;
-
-  &:first-child {
-    position: relative;
-
-    grid-column: 1/-1;
-  }
 }
 
 .last-news__item {
-  &:first-child {
-    position: relative;
-  }
 }
 
 .last-news__item-thumb {
@@ -35,40 +26,8 @@
   margin: 0;
 
   font-size: my.ms(-1);
-
-  .last-news__link:first-child img + & {
-    position: absolute;
-    bottom: my.$gutter * 2;
-    left: 50%;
-
-    max-width: 40rem;
-    margin-right: auto;
-    margin-left: auto;
-
-    font-size: my.ms(5);
-    font-weight: my.font-weight('black');
-    color: my.palette('neutral', 'white');
-    text-align: center;
-
-    transform: translateX(-50%);
-  }
 }
 
-.last-news__date {
+.last-news__date * {
   color: inherit;
-
-  .last-news__link:first-child img ~ & {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-
-    height: my.$gutter * 2;
-
-    font-size: my.ms(0);
-    font-weight: my.font-weight('light');
-    line-height: my.$gutter * 2;
-    color: inherit;
-
-    transform: translateX(-50%);
-  }
 }

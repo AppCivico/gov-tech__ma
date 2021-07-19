@@ -1,12 +1,113 @@
 @use '../abstracts' as my;
 
-.sec-home__main {
-  $column-basis: my.$column-basis * 1.5;
+.sec-home {
+  main {
+    $column-basis: my.$column-basis * 1.5;
 
-  display: grid;
+    display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(min(#{$column-basis}, 100%), 1fr));
-  grid-gap: 0 #{my.$gutter * 2};
+    grid-template-columns: repeat(auto-fit, minmax(min(#{$column-basis}, 100%), 1fr));
+    grid-gap: 0 #{my.$gutter * 2};
+  }
+
+  .last-news__link {
+    &:first-child {
+      position: relative;
+
+      grid-column: 1/-1;
+    }
+  }
+
+  .last-news__item {
+    &:first-child {
+      position: relative;
+    }
+  }
+
+  .main-services__title {
+    text-decoration: none;
+
+    border-color: my.palette('brand', 'green-medium');
+  }
+
+  .main-services__list {
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    grid-gap: 0 my.$gutter;
+  }
+
+  .main-services__link {
+    @include my.link-undercover;
+
+    margin: 0 0 (my.$gutter * 2) 0;
+  }
+
+  .main-services__item {
+    @include my.clearfix;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: my.$gutter * 0.5;
+    padding-bottom: my.$gutter * 0.5;
+    margin: 0;
+  }
+
+  .main-services__item-title {
+    margin: 0;
+
+    font-size: my.ms(0);
+    font-weight: my.font-weight('bold');
+  }
+
+  .main-services__thumb {
+    width: 55px;
+    height: unset;
+    height: auto;
+    margin-right: my.$gutter;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .last-news__link:first-child img {
+    + .last-news__item-title {
+      position: absolute;
+      bottom: my.$gutter * 2;
+      left: 50%;
+
+      width: 100%;
+      max-width: 40rem;
+      padding-right: my.$gutter;
+      padding-left: my.$gutter;
+      margin-right: auto;
+      margin-left: auto;
+
+      font-size: my.ms(5);
+      font-weight: my.font-weight('black');
+      color: my.palette('neutral', 'white');
+      text-align: center;
+
+      transform: translateX(-50%);
+    }
+
+    ~ .last-news__date {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+
+      width: 100%;
+      height: my.$gutter * 2;
+      padding-right: my.$gutter;
+      padding-left: my.$gutter;
+
+      font-size: my.ms(0);
+      font-weight: my.font-weight('light');
+      line-height: my.$gutter * 2;
+      color: inherit;
+
+      transform: translateX(-50%);
+    }
+  }
 
   .last-news {
     grid-row: span 2;

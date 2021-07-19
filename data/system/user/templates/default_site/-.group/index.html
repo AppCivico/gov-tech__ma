@@ -1,30 +1,64 @@
 {layout="-/_layout" root_class="home" robots="index,follow,noarchive"}
 
 <main class="home__main">
-    {exp:channel:entries custom_fields="yes" limit="5" dynamic="no" channel="news"}
-        {if count == 1}
-            <div class="related-content h-feed">
-                <h2 class="related-content__title">Últimas notícias</h2>
+    <section class="main-services h-feed h-feed--main-services">
+        <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
 
-                <div class="related-content__list">
+        {exp:channel:category_archive site="not 1" channel="service" show_empty="no" disable="category_fields"
+        style="nested" status="open" _category_group="4|10" class="main-services__lists" limit="5"}
+            {categories}
+                <h3 class="main-services__title">{category_name}</h3>
+            {/categories}
+
+            {entry_titles}
+                <a href="{path='servicos/index'}">{title}</a><br />
+            {/entry_titles}
+        {/exp:channel:category_archive}
+
+        <p class="read-more">
+            <a href="#" class="read-more__link">Todos os serviços</a>
+        </p>
+    </section>
+
+    {exp:channel:entries channel="news" site="not 0" limit="4" disable="categories|category_fields|member_data|pagination" status="not closed"}
+        {if count == 1}
+        <section class="last-news h-feed">
+            <h2 class="last-news__title h-feed__p-name p-name">Últimas notícias</h2>
+            <div class="h-feed__list h-feed__list--last-news">
         {/if}
-                    <a href="{url_title_path='noticias/index'}" class="related-content__link">
-                        <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
-                            <img width="168" height="121"
-                                src="{gallery limit='1'}{gallery:image::crop width='168' height='121' maintain_ratio='n'}{/gallery}"
-                            decoding="async" loading="lazy" class="h-entry__u-photo u-photo related-content__thumb"
+                <a href='{relative_url}/{url_title}' class="last-news__link h-entry__u-url">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
+
+                        {gallery limit="1"}
+                            <img
+                                width="1116" height="512"
+                                sizes="(max-width: 1116px) 100vw, 1116px"
+                                srcset="
+                                    {gallery:file:crop width='300' height='150' maintain_ratio='n'} 300w,
+                                    {gallery:file:crop width='635' height='318' maintain_ratio='n'} 635w,
+                                    {gallery:file:crop width='886' height='443' maintain_ratio='n'} 886w,
+                                    {gallery:file:crop width='1079' height='540' maintain_ratio='n'} 1079w,
+                                    {gallery:file:crop width='1116' height='558' maintain_ratio='n'} 1116w"
+                                src="{gallery:file:crop width='1116' height='512' maintain_ratio='n'}"
+                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo last-news__item-thumb"
+                                alt="{gallery:alt}"
                             />
-                            <h3 class="h-entry__p-name p-name">{title}</h3>
-                            <p class="h-entry__dt-published related-content__date">
-                                <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
-                                        {edit_date format="%d/%m/%Y"}
-                                </time>
-                            </p>
-                        </article>
-                    </a>
+                        {/gallery}
+
+                        <h3 class="h-entry__p-name p-name last-news__item-title">{title}</h3>
+                        <p class="h-entry__dt-published last-news__date">
+                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                                {edit_date format="%d de %F de %Y"}
+                            </time>
+                        </p>
+                    </article>
+                </a>
+
         {if count == total_results}
-                </div>
             </div>
+        </section>
         {/if}
     {/exp:channel:entries}
+
+    {tp-quick-links}
 </main>

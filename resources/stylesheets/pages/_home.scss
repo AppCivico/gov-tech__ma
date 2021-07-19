@@ -1,4 +1,6 @@
-@use '../abstracts' as my;
+@use 'sass:math';
+
+@use '../abstracts'as my;
 
 .home {
   .main-header-and-search-form {
@@ -44,18 +46,99 @@
 .home__main {
   max-width: my.$max-width;
 
-  .related-content {
-    background-color: transparent;
-    box-shadow: none;
+  .last-news {
+    display: block;
   }
 
-  .related-content__title {
-    color: my.palette('accent');
+  .h-feed__list--last-news {
+    $column: calc(my.breakpoint('phone__landscape') - #{my.$gutter * 3});
 
-    background-color: transparent;
+    display: grid;
+
+    grid-gap: my.$gutter;
+
+    // @media screen and (min-width: my.breakpoint('phone__landscape')) {
+    //   grid-template-columns: repeat(auto-fit, minmax($column, 1fr));
+    // }
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      $column: math.div(my.$max-width, 4) - my.$gutter * 4;
+
+      grid-template-columns: repeat(auto-fit, minmax(min(#{$column}, 100%), 1fr));
+    }
   }
 
-  .related-content__link {
-    min-width: 168px;
+  .last-news__link {
+    @include my.aspect-ratio(1 x 1);
+
+    position: relative;
+
+    text-align: center;
+
+    @media screen and (min-width: my.breakpoint('phone__landscape')) {
+      &:first-child {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+
+      &:nth-child(2) {
+        @include my.aspect-ratio(2 x 1);
+
+        grid-column: span 2;
+      }
+
+      &:nth-child(3) {
+        grid-column-start: -3;
+      }
+    }
+  }
+
+  .last-news__item {
+    height: 100%;
+    margin: 0;
+
+    color: my.palette('neutral', 'white');
+  }
+
+  .last-news__item-title {
+    position: absolute;
+    bottom: my.$gutter * 2;
+    left: 50%;
+
+    width: 100%;
+    max-width: 40rem;
+    padding-right: my.$gutter;
+    padding-left: my.$gutter;
+    margin-right: auto;
+    margin-left: auto;
+    // font-size: my.ms(5);
+    font-weight: my.font-weight('black');
+    color: inherit;
+    text-align: center;
+
+    transform: translateX(-50%);
+  }
+
+  .h-entry__u-photo {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .last-news__date {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 100%;
+    height: my.$gutter * 2;
+    padding-right: my.$gutter;
+    padding-left: my.$gutter;
+
+    font-size: my.ms(0);
+    font-weight: my.font-weight('light');
+    line-height: my.$gutter * 2;
+    color: inherit;
+
+    transform: translateX(-50%);
   }
 }
