@@ -27,7 +27,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     z-index: my.layer('modal');
 
     content: '';
@@ -191,25 +190,28 @@ textarea {
 /// </html>
 ///
 .grid {
-  $n: my.$mobile-columns - 1;
+  $n: map.get(my.$columns-per-breakpoint, 'phone__portrait');
 
   &::after,
   &:root::before {
     position: fixed;
     top: 0;
     right: 0;
-
     z-index: my.layer('modal');
 
     font-size: 1rem;
 
     pointer-events: none;
-
     content: 'breakpoint: phone';
   }
 
   &::after {
     @include my.grid-image($n);
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     content: '';
 
@@ -222,20 +224,21 @@ textarea {
     content: 'breakpoint: #{$n}col';
 
     background-color: my.palette('feedback', 'danger');
-
     opacity: 0.75;
   }
 
   @each $key, $value in my.$breakpoints {
-    $n: $n + 1;
+    $n: map.get(my.$columns-per-breakpoint, $key);
 
-    @if map.get(my.$toggle-breakpoints, $key) ==null {
+    // let's avoid create grid for menu and table toggles
+    // also, avoid to created grid beyond the max width
+    @if map.get(my.$toggle-breakpoints, $key) == null and $n != null {
       @media screen and (min-width: my.breakpoint($key)) {
-        &::after {
+        &::after { // stylelint-disable-line max-nesting-depth
           @include my.grid-image($n);
         }
 
-        &:root::before {
+        &:root::before { // stylelint-disable-line max-nesting-depth
           content: 'breakpoint: #{$key}';
         }
       }

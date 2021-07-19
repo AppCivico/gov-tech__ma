@@ -72,6 +72,15 @@ $breakpoints: _im-to-em(
   )
 ) !default;
 
+$columns-per-breakpoint: (
+  'phone__portrait': 2,
+  'phone__landscape': 4,
+  'tablet__portrait': 6,
+  'tablet__landscape': 12,
+  'desktop': 12,
+  'wide': 12,
+);
+
 $toggle-breakpoints: (
   'toggle-table-layout': 48em,
   'toggle-menu': 64em,
@@ -91,11 +100,6 @@ $breakpoints: map.merge(
   )
 );
 
-@while $_device-width <= (math.div($max-width, 1rem) * 1em) {
-  $_device-width: math.div($_device-width, $_i) * ($_i + 1);
-  $_i: $_i + 1;
-  $breakpoints: map-merge($breakpoints, ('#{$_i}col': $_device-width));
-}
 
 /// Z-indexes map, gathering all Z layers of the application. Avoid to edit it.
 /// @access public
@@ -112,6 +116,7 @@ $layers: (
 /// @type String
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
+///
 $base-url: '/assets/' !default;
 
 @function _im-to-px($breakpoints, $base-value: 16px) {
