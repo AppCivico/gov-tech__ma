@@ -112,16 +112,13 @@ html {
   box-sizing: border-box;
 
   height: 100%; /* 2 */
-
   padding: 0;
   margin: 0;
   overflow: auto;
 
   // overflow-y: auto; /* 3 */
-  overflow-x: hidden;
 
   font-size: 100.01%; /* 1 */
-
   tab-size: 4;
 
   background: my.palette('white');
@@ -149,7 +146,6 @@ body {
 
   height: 100vh; /* 2 */
   min-height: 100%;
-  padding: my.$gutter;
   margin: 0;
   // overflow: hidden;
   // overflow-x: hidden;
@@ -226,7 +222,6 @@ summary {
       height: auto;
 
       pointer-events: none;
-
       content: '';
     }
   }
@@ -328,15 +323,11 @@ hr {
   @include my.fallback('margin', calc(#{my.$leading * 1em} - 1px) 0 #{my.$leading * 1em}, #{my.$leading * 1em} 0);
 
   box-sizing: content-box; /* 1 */
-
   display: block;
 
   height: 0; /* 1 */
-
   padding: 0;
-
   overflow: visible; /* 2 */
-
   clear: both;
 
   color: my.palette('neutral');
@@ -439,7 +430,6 @@ video > source {
 .ie:not(.ie6-8),
 object > img {
   position: relative;
-
   z-index: my.layer('below');
 
   font-size: 1em;
@@ -562,7 +552,6 @@ a {
   // sass-lint:disable-block property-sort-order
 
   color: my.palette('anchor', 'base');
-
   vertical-align: baseline;
 
   @include my.on-event {
@@ -639,11 +628,9 @@ address {
 pre {
   padding: my.$leading * 0.5rem my.$gutter * 0.5;
   margin: 0 0 my.$leading * 1rem;
-
   overflow: auto;
 
   font-size: my.ms(-1);
-
   color: my.palette('text', 'light');
 
   background-color: my.palette('text', 'dark');

@@ -15,9 +15,6 @@
   padding-top: my.$gutter * 3;
   padding-bottom: my.$gutter * 2;
   margin-top: my.$gutter;
-  margin-right: my.$gutter * -1;
-  margin-bottom: my.$gutter * -1;
-  margin-left: my.$gutter * -1;
 
   background-color: my.palette('neutral', 'light');
 }
@@ -40,9 +37,6 @@
   display: block;
 
   flex-basis: 25%;
-
-  padding-right: my.$gutter * 0.5;
-  padding-left: my.$gutter * 0.5;
 }
 
 .main-footer__menu-list {
@@ -127,8 +121,6 @@
 }
 
 .license-and-powered-by {
-  @include my.container;
-
   font-size: my.ms(0);
 
   text-align: center;

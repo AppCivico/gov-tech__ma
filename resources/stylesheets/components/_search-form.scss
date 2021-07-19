@@ -37,7 +37,7 @@
   display: flex;
 
   padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
-  margin-bottom: 0;
+  margin: 0;
 
   background-color: my.palette('neutral', 'white');
   border: 1px solid my.palette('neutral');
@@ -79,7 +79,6 @@
   margin-bottom: my.$gutter;
 
   font-weight: inherit;
-
   text-align: center;
   text-transform: none;
 }
@@ -102,7 +101,6 @@
 
   background-color: transparent;
   border: 0;
-
   opacity: 0.85;
   appearance: none;
 
@@ -161,6 +159,8 @@
 
 .search-form__suggestions {
   display: block;
+
+  margin: 0;
 
   line-height: my.$gutter * 2;
 
