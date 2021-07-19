@@ -103,7 +103,8 @@
       font-size: my.ms(0);
       font-weight: my.font-weight('light');
       line-height: my.$gutter * 2;
-      color: inherit;
+      color: my.palette('neutral', 'white');
+      text-align: center;
 
       transform: translateX(-50%);
     }
