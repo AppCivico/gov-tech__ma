@@ -30,7 +30,7 @@ display:
     - public
   alias: true
   watermark: false
-  shortcutIcon: https://www.ma.gov.br/wp-content/uploads/2021/03/Governo_MA-Logo2021.png
+  shortcutIcon: /favicon-32x32.png
   descriptionPath: "README.md"
 
 trackingCode: |
