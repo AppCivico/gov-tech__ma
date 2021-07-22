@@ -1,10 +1,6 @@
 {layout="-/_layout"}
 
-{if segment_2 == cv-category_word AND segment_3 == ""}
-lista de categorias
-{if:elseif segment_2 == "" OR segment_2 ~ "/^P\d+$/" OR segment_2 == cv-category_word}
-lisa de notícias
-{if:elseif segment_2 AND segment_3 == ""}
+{if segment_2 AND segment_3 == ""}
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
     {exp:channel:entries channel="news" limit="1" require_entry="yes" disable="pagination|category_fields" status="open|draft" show_future_entries="yes"}
@@ -14,7 +10,7 @@ lisa de notícias
         {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
         {layout:set name="entry_id"}{entry_id}{/layout:set}
         {layout:set name="author"}{author}{/layout:set}
-        {layout:set name="canonical"}/blog/{url_title}{/layout:set}
+        {layout:set name="canonical"}/noticias/{url_title}{/layout:set}
         {gallery limit="1"}
             {layout:set name="sharing_cover"}{gallery:file:facebook}{/layout:set}
         {/gallery}
@@ -29,29 +25,26 @@ lisa de notícias
                 {tp-entry_taxonomy}
             </header>
 
-            {if gallery:total_rows}
-                {gallery limit="1"}
-                    <figure class="hero">
-                        <a href="{gallery:file}" target="_blank" class="hero__link" />
-                            <img
-                                sizes="(max-width: 744px) 100vw, 744px"
-                                srcset="
-                                    {gallery:file:300w} 300w,
-                                    {gallery:file:635w} 635w,
-                                    {gallery:file:744w} 744w"
-                                src="{gallery:file:744w}"
-                                decoding="async" loading="lazy"
-                                alt="{gallery:alt}"
-                                width="744" height="311" alt="{gallery:alt}"
-                            decoding="async" loading="lazy" class="hero__image" />
-                            {if gallery:caption}
-                                <figcaption class="hero__caption">{gallery:caption}</figcaption>
-                            {/if}
-                        </a>
-                    </figure>
-                {/gallery}
-            {/if}
-
+            {gallery limit="1"}
+                <figure class="hero">
+                    <a href="{gallery:file}" target="_blank" class="hero__link" />
+                        <img
+                            sizes="(max-width: 744px) 100vw, 744px"
+                            srcset="
+                                {gallery:file:300w} 300w,
+                                {gallery:file:635w} 635w,
+                                {gallery:file:744w} 744w"
+                            src="{gallery:file:744w}"
+                            decoding="async" loading="lazy"
+                            alt="{gallery:alt}"
+                            width="744" height="311" alt="{gallery:alt}"
+                        decoding="async" loading="lazy" class="hero__image" />
+                        {if gallery:caption}
+                            <figcaption class="hero__caption">{gallery:caption}</figcaption>
+                        {/if}
+                    </a>
+                </figure>
+            {/gallery}
 
             {if summary}
                 <div class="h-entry__p-summary">{summary}</div>
@@ -61,9 +54,9 @@ lisa de notícias
                 <div class="h-entry__e-content e-content">{body}</div>
             {/if}
 
-            {!--if gallery:total_rows}
+            {if gallery:total_rows > 1}
                 <section class="gallery">
-                    {gallery}
+                    {gallery offset="1"}
                         <figure class="gallery__item">
                             <a href="{gallery:file}" target="_blank" class="gallery__link" />
                                 <img src="{gallery:file:thumb--gallery}"
@@ -74,7 +67,8 @@ lisa de notícias
                         </figure>
                     {/gallery}
                 </section>
-            {/if--}
+            {/if}
+
             {embed="-/_related" this-entry="{entry_id}" this-cover="gallery"}
         </article>
     {/exp:channel:entries}
