@@ -8,6 +8,7 @@
 </style>
 {/if}
 
+<input type="checkbox" hidden="hidden" id="menu-controller" />
     <div class="main-header-and-search-form">
         <div class="main-header-and-search-form__container">
             <div role="banner" class="main-header">
@@ -32,9 +33,59 @@
                         </h1>
                     {/if}
                 </div>
-            </div>
+            </div><!-- .main-header -->
 
-            {exp:search:simple_form form_class="search-form" result_page="busca/resultados" no_result_page="busca/resultados" search_in="entries" results="10"}
+            <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
+                aria-label="Menu"
+                onclick="
+                    this.classList.toggle('opened');
+                    this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                "
+            >
+                <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
+                    <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                </svg>
+            </label>
+
+            {tv-menu}
+
+            <ul class="social-profiles social-profiles--header">
+                <li class="social-profiles__item">
+                    <a href="https://tiktok.com/" class="u-url social-profiles__link">
+                        TikTok
+                    </a>
+                </li>
+                <li class="social-profiles__item">
+                    <a href="https://telegram.com/" class="u-url social-profiles__link">
+                        telegram
+                    </a>
+                </li>
+                <li class="social-profiles__item">
+                    <a href="https://youtube.com/" class="u-url social-profiles__link">
+                        YouTube
+                    </a>
+                </li>
+                <li class="social-profiles__item">
+                    <a href="https://facebook.com/" class="u-url social-profiles__link">
+                        facebook
+                    </a>
+                </li>
+                <li class="social-profiles__item">
+                    <a href="https://instagram.com/" class="u-url social-profiles__link">
+                        instagram
+                    </a>
+                </li>
+                <li class="social-profiles__item">
+                    <a href="https://twitter.com/" class="u-url social-profiles__link">
+                        twitter
+                    </a>
+                </li>
+            </ul>
+
+            {exp:search:simple_form form_class="search-form search-form--header" result_page="busca/resultados" no_result_page="busca/sem_resultados" search_in="entries" results="10"}
                 <fieldset class="search-form__fieldset">
                     <p class="search-form__field-wrapper search-form__field-wrapper--text">
                         <input type="text" id="keywords" placeholder="Digite o que procura" autocomplete="on" name="keywords"
@@ -116,9 +167,9 @@
             {/exp:search:simple_form}
         </div><!-- .main-header-and-search-form__container -->
 
-        <nav class="main-nav">
-            {exp:channel:category_archive channel="goverment_member|page" show_empty="no" disable="category_fields"
-            style="nested" category_group="5" id="main-menu" class="main-nav__list"}
+        <nav class="header-nav">
+            {exp:channel:category_archive channel="government_member|page" show_empty="no" disable="category_fields"
+            style="nested" category_group="5" class="header-nav__list"}
                 {categories}
                     {category_name}
                 {/categories}

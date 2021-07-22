@@ -1,0 +1,75 @@
+@use '../abstracts' as my;
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: my.layer('modal');
+
+  flex-wrap: wrap;
+
+  align-content: flex-start;
+  align-items: flex-start;
+
+  padding: my.$gutter;
+  padding-top: my.$gutter * 6;
+  overflow: auto;
+
+  color: my.palette('neutral', 'black');
+  text-align: left;
+
+  visibility: hidden;
+
+  background-color: my.palette('neutral', 'white');
+  opacity: 0;
+
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-property: opacity transform;
+  transform: scale(0);
+  transform-origin: 50% 0;
+
+  [id='menu-controller']:checked + * & {
+    display: block;
+
+    visibility: visible;
+
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+.main-nav__title {
+  @include my.container;
+
+  font-size: 1em;
+  font-weight: my.font-weight('bold');
+  text-transform: uppercase;
+
+  border-bottom: my.$stroke__thin solid my.palette('brand', 'green-medium');
+}
+
+.main-nav__list {
+  @include my.columns;
+  @include my.container;
+
+  column-width: 20em;
+
+  display: block;
+
+  width: 100%;
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+.main-nav li {
+  margin-bottom: my.$gutter;
+}
+
+.main-nav__list a {
+  padding: 0;
+}
