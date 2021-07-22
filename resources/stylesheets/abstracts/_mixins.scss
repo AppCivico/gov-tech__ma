@@ -935,7 +935,7 @@ $no-viewport: false !default;
 @mixin columns {
   @include hyphens;
 
-  column-fill: auto;
+  column-fill: balance;
 
   column-gap: c.$gutter;
   column-width: map-get(c.$line-lengths, 'column');
