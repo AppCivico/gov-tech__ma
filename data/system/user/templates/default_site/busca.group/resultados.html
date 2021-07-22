@@ -1,17 +1,13 @@
 {layout="-/_layout" root_class="search" robots="index,follow,noarchive"}
 
-{layout:set name="title"}Busca por {exp:search:keywords}{/layout:set}
+{layout:set name="title"}Busca por '{exp:search:keywords}'{/layout:set}
 
 <main class="search__main">
     <section class="search-results h-feed">
-        <h2 class="search-results__title h-feed__p-name">Confira outros resultados</h2>
+        <h2 class="search-results__title h-feed__p-name">Confira outros resultados para "{exp:search:keywords}"</h2>
 
         <p class="h-feed__e-content">
-            {if "{exp:search:total_results}"}
-                Encontramos {exp:search:total_results} resultados relacionados.
-            {if:else}
-                Não foram encontrados resultados
-            {/if}
+            Encontramos <b>{exp:search:total_results}</b> resultados relacionados.
         </p>
 
         {exp:search:search_results}

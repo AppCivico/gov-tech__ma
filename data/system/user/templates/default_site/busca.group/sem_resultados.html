@@ -1,10 +1,14 @@
-{layout="-/_layout" root_class="search no-results" robots="noindex,noarchive,follow" title="Busca"}
+{layout="-/_layout" root_class="search" robots="index,follow,noarchive"}
 
-{layout:set name="description"}{exp:html_attribute_content limit="155"}Busca por '{exp:search:keywords}'{/exp:html_attribute_content}{/layout:set}
+{layout:set name="title"}Busca por '{exp:search:keywords}'{/layout:set}
 
-<div class="page-entry">
-    <h1>Busca</h1>
-    <div class="main-section">
-        <p class="error">Sua busca não retornou resultados. Quer tentar uma busca diferente?</p>
-    </div>
-</div>
+<main class="search__main">
+    <section class="search-results h-feed">
+        <h2 class="search-results__title h-feed__p-name">Sem resultados para "{exp:search:keywords}"</h2>
+
+        <p class="h-feed__e-content">
+            Não foram encontrados resultados.
+        </p>
+
+    </section>
+</main>
