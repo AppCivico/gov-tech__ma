@@ -70,6 +70,12 @@
 
       border-right: my.$stroke__thin solid my.palette('neutral', 'base');
     }
+
+    &:last-child {
+      &::after {
+        content: none;
+      }
+    }
   }
 
   .main-services__lists a {
@@ -77,12 +83,6 @@
   }
 
   .main-services__lists ul {
-  }
-
-  .main-services__lists li:last-child ul {
-    &::after {
-      content: none;
-    }
   }
 
   .main-services__lists ul li {
