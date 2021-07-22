@@ -11,4 +11,79 @@
         </p>
 
     </section>
+
+    <aside class="main-aside">
+        {exp:channel:entries limit="3" dynamic="no" channel="news" category_group="2" category="1"}
+        {if count == 1}
+        <div class="alerts">
+            <h2 class="alerts__title">Informações importantes!</h2>
+            <ul class="alerts__list">
+                {/if}
+                <li class="alerts__item">
+                    <a href="#" class="alerts__link">
+                        Governo do Maranhão começa a vacinar os trabalhadores
+                    </a>
+                </li>
+                <li class="alerts__item">
+                    <a href="#" class="alerts__link">
+                        Cadastre-se até o dia 31/06/21 para receber o auxílio
+                    </a>
+                </li>
+                {if count == total_results}
+            </ul>
+        </div>
+        {/if}
+        {/exp:channel:entries}
+
+        {exp:channel:entries custom_fields="yes" limit="3" dynamic="no" channel="news"}
+        {if count == 1}
+        <div class="related-content h-feed">
+            <h2 class="related-content__title">Últimas notícias</h2>
+
+            <div class="related-content__list">
+                {/if}
+                <a href="{relative_url}/{url_title}" class="related-content__link">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
+                        <img width="193" height="116"
+                            src="{gallery limit='1'}{gallery:image::crop width='193' height='116' maintain_ratio='n'}{/gallery}"
+                            class="h-entry__u-photo u-photo related-content__thumb" />
+                        <h3 class="h-entry__p-name p-name">{title}</h3>
+                        <p class="h-entry__dt-published related-content__date">
+                            <time class="dt-published" datetime="{edit_date format=" {DATE_ISO8601}"}">
+                                {edit_date format="%d/%m/%Y"}
+                            </time>
+                        </p>
+                    </article>
+                </a>
+                {if count == total_results}
+            </div>
+        </div>
+        {/if}
+        {/exp:channel:entries}
+
+        {exp:channel:entries custom_fields="yes" limit="3" dynamic="no" channel="news|service|event|document"
+        category_group="6" category="8"}
+        {if count == 1}
+        <div class="accordions">
+            <h2 class="accordions__title">
+                Você pode se interessar por:
+            </h2>
+            {/if}
+            <details class="accordions__item">
+                <summary class="accordions__summary">
+                    {title}
+                </summary>
+                <div class="accordions__detail">
+                    {if summary}
+                    <p>{summary:limit characters="120"}</p>
+                    {if:else}
+                    {body:limit characters="120"}
+                    {/if}
+                </div>
+            </details>
+            {if count == total_results}
+        </div>
+        {/if}
+        {/exp:channel:entries}
+    </aside>
 </main>
