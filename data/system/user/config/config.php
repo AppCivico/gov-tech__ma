@@ -202,6 +202,36 @@ $config['upload_preferences'] = array(
     'server_path' => '/var/www/html/uploads/icons/',        // Server path to upload directory
     'url'         => '/uploads/icons/'                      // URL of upload directory
   ),
+
+  11 => array(                                              // ID of upload destination
+    'name'        => 'Documentos',                          // Display name in control panel
+    'server_path' => '/var/www/html/setur/uploads/docs/',   // Server path to upload directory
+    'url'         => '/setur/uploads/docs/'                 // URL of upload directory
+  ),
+
+  13 => array(                                              // ID of upload destination
+    'name'        => 'Imagens',                             // Display name in control panel
+    'server_path' => '/var/www/html/setur/uploads/imgs/',   // Server path to upload directory
+    'url'         => '/setur/uploads/imgs/'                 // URL of upload directory
+  ),
+
+  10 => array(                                              // ID of upload destination
+    'name'        => 'Anúncios',                            // Display name in control panel
+    'server_path' => '/var/www/html/setur/uploads/ads/',    // Server path to upload directory
+    'url'         => '/setur/uploads/ads/'                  // URL of upload directory
+  ),
+
+  14 => array(                                              // ID of upload destination
+    'name'        => 'Secretarias',                         // Display name in control panel
+    'server_path' => '/var/www/html/setur/uploads/secretarias/',  // Server path to upload directory
+    'url'         => '/setur/uploads/secretarias/'          // URL of upload directory
+  ),
+
+  12 => array(                                              // ID of upload destination
+    'name'        => 'Ícones',                              // Display name in control panel
+    'server_path' => '/var/www/html/setur/uploads/icons/',  // Server path to upload directory
+    'url'         => '/setur/uploads/icons/'                // URL of upload directory
+  ),
 );
 
 $config['use_category_name'] = 'y';
