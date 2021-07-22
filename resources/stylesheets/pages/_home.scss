@@ -6,24 +6,19 @@
   .main-header-and-search-form {
     position: relative;
 
-    min-height: 0;
-
     background-color: my.palette('brand', 'blue-light');
     background-position: 50% 50%;
     background-size: cover;
   }
 
 
-
   .site-info {
-    margin-bottom: my.$gutter * 3;
   }
 
   .main-header__logo {
     display: block;
 
     width: max-content;
-    padding: my.$gutter;
     margin-right: auto;
     margin-left: auto;
 
@@ -31,11 +26,6 @@
   }
 
   .search-form {
-    position: absolute;
-    right: my.$gutter;
-    left: my.$gutter;
-
-    margin-left: 0;
   }
 }
 
@@ -51,20 +41,14 @@
   }
 
   .h-feed__list--last-news {
-    $column: calc(my.breakpoint('phone__landscape') - #{my.$gutter * 3});
-
     display: grid;
 
     grid-gap: my.$gutter;
 
-    // @media screen and (min-width: my.breakpoint('phone__landscape')) {
-    //   grid-template-columns: repeat(auto-fit, minmax($column, 1fr));
-    // }
+    padding-bottom: my.$gutter;
 
     @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      $column: math.div(my.$max-width, 4) - my.$gutter * 4;
-
-      grid-template-columns: repeat(auto-fit, minmax(min(#{$column}, 100%), 1fr));
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -108,7 +92,6 @@
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: my.layer('default');
 
       content: '';
 
@@ -137,6 +120,7 @@
     position: absolute;
     bottom: my.$gutter * 2;
     left: 50%;
+    z-index: my.layer('default');
 
     width: 100%;
     max-width: 40rem;
@@ -161,6 +145,7 @@
     position: absolute;
     bottom: 0;
     left: 50%;
+    z-index: my.layer('default');
 
     width: 100%;
     height: my.$gutter * 2;

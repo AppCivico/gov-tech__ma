@@ -34,8 +34,8 @@
 
   align-items: flex-end;
 
-  min-width: 280px;
-  min-height: 150px;
+  min-width: 238px;
+  min-height: 110px;
   padding: 0;
   margin: 0 (my.$gutter * 2) (my.$gutter * 2) my.$gutter;
 
@@ -45,7 +45,7 @@
 
   background-color: my.palette('white');
   background-image: my.image('quick-links/pedidos-de-acesso-a-informacao.svg');
-  background-position: 100% 0.75rem;
+  background-position: 100% -0.75rem;
 
   &::after {
     position: absolute;
