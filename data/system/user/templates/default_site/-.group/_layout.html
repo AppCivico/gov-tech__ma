@@ -2,7 +2,10 @@
 {if segment_1 == "-"}
   {redirect="404"}
 {/if}
-<html class="no-js no-jquery {segment_1} {segment_2} {segment_3} {layout:root_class} {if site_url == 'http://localhost'}grid{/if}" lang="{lang}">
+<html
+    class="no-js no-jquery {segment_1} {segment_2} {layout:root_class} {if site_url == 'http://localhost'}grid{/if} {site_short_name}"
+    lang="{lang}"
+>
 
 <head>
 {tp-head}
@@ -10,9 +13,7 @@
 <body>
     {tp-header}
 
-
     {layout:contents}
-
 
     {tp-footer}
 

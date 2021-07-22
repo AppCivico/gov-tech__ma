@@ -1,10 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$config['enable_devlog_alerts'] = 'n';
-$config['index_page'] = '';
+/**
+ * @see  https://gist.github.com/464756
+ */
+global $assign_to_config; // Make this global so we can add some of the config variables here
+
+// make sure our global vars config exists
+if (!isset($assign_to_config['global_vars']))
+  $assign_to_config['global_vars'] = array(); // This array must be associative
+
 $protocol = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 $port = $_SERVER["SERVER_PORT"];
-
 
 /**
  * @see https://stackoverflow.com/a/42387790
@@ -20,17 +26,40 @@ if (isset($_SERVER['HTTP_CF_VISITOR'])) {
 /**
  * @see https://ellislab.com/blog/entry/http-host-and-server-name-security-issues
  */
-$allowed_domains = array(
-  'ma.gov.br',
-  'ma.appcivico.com.br',
-  'localhost',
-);
+$site_name = '';
+$cp_url = '/admin.php';
+$domain = $_SERVER['HTTP_HOST'];
 
-$domain = in_array($_SERVER['HTTP_HOST'], $allowed_domains)
-  ? $_SERVER['HTTP_HOST']
-  : 'localhost';
+switch ($_SERVER['HTTP_HOST']) {
+    case 'detran.ma.gov.br':
+    case 'detran.ma.gov.local':
+    case 'detran-ma.appcivico.com.br':
+        $site_name = 'detran';
+        break;
+
+    case 'turismo.ma.gov.br':
+    case 'turismo.ma.gov.local':
+    case 'turismo-ma.appcivico.com.br':
+        $site_name = 'setur';
+        break;
+
+    case 'ma.gov.br':
+    case 'ma.gov.local':
+    case 'ma.appcivico.com.br':
+        $site_name = 'default_site';
+        break;
+
+    default:
+        $site_name = 'default_site';
+        $domain = 'localhost';
+        break;
+}
 
 $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $port : $protocol . $domain;
+
+$assign_to_config['site_name'] = $site_name;
+$assign_to_config['cp_url']    = $site_url . $cp_url;
+$assign_to_config['site_url']  = $site_url;
 
 // ExpressionEngine Config Items
 // Find more configs and overrides at
@@ -67,8 +96,8 @@ $config['avatar_max_width'] = '512';
 $config['avatar_path'] = '/var/www/html/images/avatars/'; // docker volume path
 $config['avatar_url'] = '/images/avatars';
 $config['base_path'] = '/var/www/html/'; // docker volume path
-$config['base_url'] = '';
 // $config['cache_driver'] = 'redis';
+$config['base_url'] = '/';
 $config['captcha_url'] = '/images/captchas';
 // $config['censored_words'] = 'dagnabbit|consarnit|golly gee willikers';
 $config['channel_form_overwrite'] = 'y';
