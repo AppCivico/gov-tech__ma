@@ -62,74 +62,74 @@ $gutter: my.$gutter * 0.5;
 
   background-color: my.palette('neutral', 'light');
   border-radius: my.$rounded-corner;
-}
 
-.related-content__title {
-  display: flex;
+  .related-content__title {
+    display: flex;
 
-  align-items: center;
+    align-items: center;
 
-  padding: my.$gutter;
+    padding: my.$gutter;
 
-  font-size: my.ms(2);
-  font-weight: my.font-weight('bold');
-  line-height: 1;
-  color: my.palette('neutral', 'white');
+    font-size: my.ms(2);
+    font-weight: my.font-weight('bold');
+    line-height: 1;
+    color: my.palette('neutral', 'white');
 
-  background-color: my.palette('accent');
-}
-
-.related-content__list {
-  display: flex;
-
-  align-items: stretch;
-
-  min-width: calc((#{$item-min-width} + #{my.$gutter}) * 3);
-
-  * + * {
-    margin-top: my.$gutter;
+    background-color: my.palette('accent');
   }
-}
 
-.related-content__link {
-  @include my.link-undercover;
+  .related-content__list {
+    display: flex;
 
-  display: block;
+    align-items: stretch;
 
-  flex-basis: 0;
-  flex-grow: 1;
+    min-width: calc((#{$item-min-width} + #{my.$gutter}) * 3);
 
-  min-width: $item-min-width;
-  padding: $gutter;
-  margin: 0 $gutter my.$gutter $gutter;
-  overflow: hidden;
-
-  border: my.$stroke solid my.palette('neutral');
-  border-radius: my.$rounded-corner;
-}
-
-.related-content__item {
-  display: flex;
-
-  flex-direction: column;
-
-  font-size: my.ms(-1);
-
-  * + * {
-    margin-top: $gutter;
+    * + * {
+      margin-top: my.$gutter;
+    }
   }
-}
 
-.related-content__thumb {
-  display: block;
+  .related-content__link {
+    @include my.link-undercover;
 
-  width: calc(100% + #{$gutter * 2});
-  max-width: none;
-  margin: ($gutter * -1) ($gutter * -1) 0 ($gutter * -1);
+    display: block;
 
-  background-color: my.palette('neutral', 'dark');
-}
+    flex-basis: 0;
+    flex-grow: 1;
 
-.related-content__date {
-  margin-bottom: 0;
+    min-width: $item-min-width;
+    padding: $gutter;
+    margin: 0 $gutter my.$gutter $gutter;
+    overflow: hidden;
+
+    border: my.$stroke solid my.palette('neutral');
+    border-radius: my.$rounded-corner;
+  }
+
+  .related-content__item {
+    display: flex;
+
+    flex-direction: column;
+
+    font-size: my.ms(-1);
+
+    * + * {
+      margin-top: $gutter;
+    }
+  }
+
+  .related-content__thumb {
+    display: block;
+
+    width: calc(100% + #{$gutter * 2});
+    max-width: none;
+    margin: ($gutter * -1) ($gutter * -1) 0 ($gutter * -1);
+
+    background-color: my.palette('neutral', 'dark');
+  }
+
+  .related-content__date {
+    margin-bottom: 0;
+  }
 }
