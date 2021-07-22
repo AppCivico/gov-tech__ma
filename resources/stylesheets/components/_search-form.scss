@@ -27,196 +27,198 @@
 ///   </form>
 ///
 
-.search-form {}
+.search-form {
+  .search-form__fieldset {
+    @include my.shadow;
 
-.search-form__fieldset {
-  @include my.shadow;
+    position: relative;
 
-  position: relative;
+    display: flex;
 
-  display: flex;
-
-  padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
-  margin: 0;
-
-  background-color: my.palette('neutral', 'white');
-  border: 1px solid my.palette('neutral');
-  border-radius: 999em;
-
-  > * {
-    flex-basis: my.$gutter * 2;
-    flex-grow: 0;
-
-    width: my.$gutter * 2;
-    padding: 0;
+    padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
     margin: 0;
 
-    text-overflow: ellipsis;
-    vertical-align: middle;
-  }
-}
+    background-color: my.palette('neutral', 'white');
+    border: 1px solid my.palette('neutral');
+    border-radius: 999em;
 
-%focused {
-  background-color: transparent;
-  outline: 0;
-  box-shadow: none;
-  opacity: 1;
-}
+    > * {
+      flex-basis: my.$gutter * 2;
+      flex-grow: 0;
 
-.search-form__legend {
-  $min-font: my.ms(2);
-  $max-font: my.ms(9);
+      width: my.$gutter * 2;
+      padding: 0;
+      margin: 0;
 
-  @include my.truncate;
-  @include my.fluid-font($min: $min-font, $max: $max-font);
-
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-  left: 0;
-
-  width: auto;
-  margin-bottom: my.$gutter;
-
-  font-weight: inherit;
-  text-align: center;
-  text-transform: none;
-}
-
-.search-form__field {
-  display: flex;
-
-  justify-content: center;
-
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  height: my.$gutter * 2;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-
-  color: my.palette('neutral', 'black');
-  text-align: center;
-
-  background-color: transparent;
-  border: 0;
-  opacity: 0.85;
-  appearance: none;
-
-  @include my.on-event {
-    @extend %focused;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
   }
 
-  &:focus-within {
-    @extend %focused;
-  }
-}
-
-.search-form__field-wrapper--text {
-  flex-grow: 1;
-
-  width: auto;
-}
-
-.search-form__field--text {
-  padding-left: my.$gutter;
-
-  font-size: my.ms(3);
-  text-align: left;
-}
-
-.search-form__field-wrapper--audio {
-  width: my.$gutter * 2;
-
-  background-image: my.image('microphone.svg');
-  background-position: 50% 50%;
-  background-size: 15px auto;
-  opacity: 0.85;
-
-  @include my.on-event {
-    opacity: 1;
-  }
-}
-
-.search-form__field--audio {
-  opacity: 0;
-
-  @include my.on-event {
-    opacity: 0;
-  }
-}
-
-.search-form__field--reset {
-  background-position: 50% 50%;
-  border-right: 1px solid my.palette('neutral', 'dark');
-  border-radius: 0;
-}
-
-.search-form__field--submit {
-  background-position: 50% 50%;
-}
-
-.search-form__suggestions {
-  display: block;
-
-  margin: 0;
-
-  line-height: my.$gutter * 2;
-
-  border: 0;
-
-  > * {
-    display: inline;
-
-    padding: 0;
-    margin: 0;
-  }
-}
-
-.search-form__suggestions-title {}
-
-.search-form__suggestions-list {}
-
-.search-form__suggestions-item {
-  display: inline-flex;
-
-  &::after {
-    content: ', ';
-  }
-
-  &:last-child::after {
-    content: none;
-  }
-}
-
-.search-form__suggestions-button {
-  @include my.truncate;
-
-  display: inline;
-
-  width: auto;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-
-  font-size: 1em;
-  font-weight: my.font-weight('bold');
-  line-height: inherit;
-  color: inherit;
-  text-decoration: underline;
-  vertical-align: baseline;
-
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-
-  @include my.on-event {
-    color: inherit;
-    text-decoration: inherit;
-
-    background: transparent;
+  %focused {
+    background-color: transparent;
     outline: 0;
     box-shadow: none;
+    opacity: 1;
+  }
+
+  .search-form__legend {
+    $min-font: my.ms(2);
+    $max-font: my.ms(9);
+
+    @include my.truncate;
+    @include my.fluid-font($min: $min-font, $max: $max-font);
+
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+
+    width: auto;
+    margin-bottom: my.$gutter;
+
+    font-weight: inherit;
+    text-align: center;
+    text-transform: none;
+  }
+
+  .search-form__field {
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: my.$gutter * 2;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+
+    color: my.palette('neutral', 'black');
+    text-align: center;
+
+    background-color: transparent;
+    border: 0;
+    opacity: 0.85;
+    appearance: none;
+
+    @include my.on-event {
+      @extend %focused;
+    }
+
+    &:focus-within {
+      @extend %focused;
+    }
+  }
+
+  .search-form__field-wrapper--text {
+    flex-grow: 1;
+
+    width: auto;
+  }
+
+  .search-form__field--text {
+    padding-left: my.$gutter;
+
+    font-size: my.ms(3);
+    text-align: left;
+  }
+
+  .search-form__field-wrapper--audio {
+    width: my.$gutter * 2;
+
+    background-image: my.image('microphone.svg');
+    background-position: 50% 50%;
+    background-size: 15px auto;
+    opacity: 0.85;
+
+    @include my.on-event {
+      opacity: 1;
+    }
+  }
+
+  .search-form__field--audio {
+    opacity: 0;
+
+    @include my.on-event {
+      opacity: 0;
+    }
+  }
+
+  .search-form__field--reset {
+    background-position: 50% 50%;
+    border-right: 1px solid my.palette('neutral', 'dark');
+    border-radius: 0;
+  }
+
+  .search-form__field--submit {
+    margin-right: my.$gutter * 0.5;
+
+    background-position: 50% 50%;
+  }
+
+  .search-form__suggestions {
+    display: block;
+
+    margin: 0;
+
+    line-height: my.$gutter * 2;
+
+    border: 0;
+
+    > * {
+      display: inline;
+
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .search-form__suggestions-title {}
+
+  .search-form__suggestions-list {}
+
+  .search-form__suggestions-item {
+    display: inline-flex;
+
+    &::after {
+      content: ', ';
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  .search-form__suggestions-button {
+    @include my.truncate;
+
+    display: inline;
+
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+
+    font-size: 1em;
+    font-weight: my.font-weight('bold');
+    line-height: inherit;
+    color: inherit;
+    text-decoration: underline;
+    vertical-align: baseline;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+
+    @include my.on-event {
+      color: inherit;
+      text-decoration: inherit;
+
+      background: transparent;
+      outline: 0;
+      box-shadow: none;
+    }
   }
 }
