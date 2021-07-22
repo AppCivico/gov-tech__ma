@@ -32,10 +32,12 @@
 
 .main-header-and-search-form__container {
   @include my.container;
+  @include my.clearfix;
 
   display: block;
 
   min-height: 596px;
+  padding-top: my.$gutter * 5;
   padding-bottom: my.$gutter * 3;
 
   > * {
@@ -43,34 +45,21 @@
     margin-bottom: 0;
     margin-left: auto;
   }
-
-  > * + * {
-    margin-top: my.$gutter;
-  }
-
-  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-
-
-
-
-  }
 }
 
 .main-header {
+  float: left;
 }
 
 [role='banner'] {
 }
 
 .site-info {
-  @include my.clearfix;
+  margin-top: my.$gutter * -2;
 }
 
 .main-header__logo {
   display: block;
-
-  float: left;
-  padding: my.$gutter;
 
   > img {
     display: block;
@@ -88,17 +77,24 @@
   text-align: center;
 }
 
-.search-form {
-  margin-left: 0;
+.social-profiles--header {
+  margin-right: 0;
+  margin-left: auto;
+
+  filter: brightness(100);
 }
 
-.main-nav {
+.search-form--header {
+  margin-top: my.$gutter * 5;
+  clear: both;
+}
+
+.header-nav {
   font-weight: inherit;
   color: my.palette('neutral', 'black');
 
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     @include my.shadow;
-
 
     text-transform: uppercase;
     white-space: nowrap;
@@ -107,7 +103,7 @@
   }
 }
 
-.main-nav__list {
+.header-nav__list {
   position: fixed;
   top: 0;
   right: 0;
@@ -154,7 +150,7 @@
   }
 }
 
-.main-nav__list > li {
+.header-nav__list > li {
   position: relative;
 
   display: table-cell;
@@ -175,14 +171,15 @@
   }
 }
 
-.main-nav__list > li > ul {
+.header-nav__list > li > ul {
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     @include my.shadow;
+
     position: absolute;
     top: 100%;
     right: 0;
     left: 0;
-    z-index: #{my.layer('dropdown') - 1};
+    z-index: my.layer('dropdown') - 1;
 
     padding: my.$gutter;
     clip-path: polygon(-60px #{my.$stroke__thick * -1}, calc(100% + 60px) #{my.$stroke__thick * -1}, calc(100% + 60px) calc(100% + 60px), -60px calc(100% + 60px));
@@ -217,7 +214,7 @@
   }
 }
 
-.main-nav__list > li:hover ul {
+.header-nav__list > li:hover ul {
   display: block;
 
   visibility: visible;
@@ -227,13 +224,13 @@
   transform: scale(1) translateY(my.$stroke__thick);
 }
 
-.main-nav__list > li li {
+.header-nav__list > li li {
   display: flex;
 
   align-items: center;
 }
 
-.main-nav__list a {
+.header-nav__list a {
   display: block;
 
   width: 100%;
@@ -253,12 +250,13 @@
 /// <label for="menu-controller" onclick>menu</label>
 ///
 [for='menu-controller'] {
-  position: fixed;
-  top: my.$gutter * 0.25;
-  left: my.$gutter * 0.25;
+  position: relative;
   z-index: my.layer('default');
 
-  background-color: my.palette('white');
+  float: right;
+  margin: 0;
+
+  color: inherit;
 
   .going-to-search-results & {
     z-index: auto;
@@ -267,24 +265,13 @@
   > svg {
     display: block;
 
-    width: my.$gutter * 1.5;
-    height: my.$gutter * 1.5;
+    fill: currentColor;
+    stroke: currentColor;
   }
 
-  [id='menu-controller']:checked ~ &::after {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  [id='menu-controller']:checked + * & {
+    z-index: my.layer('modal') + 1;
 
-    content: '';
-
-    background-color: my.palette('white');
-    opacity: 0.75;
-  }
-
-  @media screen and (min-width: my.breakpoint('toggle-menu')) {
-    display: none;
+    color: my.palette('brand', 'green-medium');
   }
 }
