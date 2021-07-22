@@ -7,10 +7,14 @@
     {/if}
                 <a href="{relative_url}/{url_title}" class="related-content__link">
                     <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
-                        <img class="h-entry__u-photo u-photo related-content__thumb" width="193" height="116"
-                        decoding="async"
-                            src="{gallery limit='1'}{gallery:image:crop width='193' height='116' maintain_ratio='n'}{/gallery}"
-                        />
+                        {gallery limit="1"}
+                            <img class="h-entry__u-photo u-photo related-content__thumb"
+                                width="193" height="116"
+                                src="{gallery:file:thumb--related}"
+                                decoding="async" loading="lazy"
+                                alt="{gallery:alt}"
+                            />
+                        {/gallery}
                         <h3 class="h-entry__p-name p-name">{title}</h3>
                         <p class="h-entry__dt-published related-content__date">
                             <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">

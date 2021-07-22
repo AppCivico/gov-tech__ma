@@ -16,7 +16,7 @@ lisa de notícias
         {layout:set name="author"}{author}{/layout:set}
         {layout:set name="canonical"}/blog/{url_title}{/layout:set}
         {gallery limit="1"}
-            {layout:set name="sharing_cover"}{gallery:image:facebook}{/layout:set}
+            {layout:set name="sharing_cover"}{gallery:file:facebook}{/layout:set}
         {/gallery}
 
         <article role="main" id="entry-{entry_id}" class="h-entry">
@@ -33,7 +33,15 @@ lisa de notícias
                 {gallery limit="1"}
                     <figure class="hero">
                         <a href="{gallery:file}" target="_blank" class="hero__link" />
-                            <img src="{gallery:file:crop width='744' height='311' maintain_ratio='n'}"
+                            <img
+                                sizes="(max-width: 744px) 100vw, 744px"
+                                srcset="
+                                    {gallery:file:300w} 300w,
+                                    {gallery:file:635w} 635w,
+                                    {gallery:file:744w} 744w"
+                                src="{gallery:file:744w}"
+                                decoding="async" loading="lazy"
+                                alt="{gallery:alt}"
                                 width="744" height="311" alt="{gallery:alt}"
                             decoding="async" loading="lazy" class="hero__image" />
                             {if gallery:caption}
@@ -58,7 +66,7 @@ lisa de notícias
                     {gallery}
                         <figure class="gallery__item">
                             <a href="{gallery:file}" target="_blank" class="gallery__link" />
-                                <img src="{gallery:file:crop width='142' height='116' maintain_ratio='n'}"
+                                <img src="{gallery:file:thumb--gallery}"
                                     width="142" height="116" alt="{gallery:alt}"
                                 decoding="async" loading="lazy" class="gallery__image" />
                                 {if gallery:caption}<figcaption>{gallery:caption}</figcaption>{/if}

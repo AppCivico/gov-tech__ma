@@ -31,16 +31,28 @@
 
                         {gallery limit="1"}
                             <img
-                                width="1116" height="512"
-                                sizes="(max-width: 1116px) 100vw, 1116px"
-                                srcset="
-                                    {gallery:file:crop width='300' height='150' maintain_ratio='n'} 300w,
-                                    {gallery:file:crop width='635' height='318' maintain_ratio='n'} 635w,
-                                    {gallery:file:crop width='886' height='443' maintain_ratio='n'} 886w,
-                                    {gallery:file:crop width='1079' height='540' maintain_ratio='n'} 1079w,
-                                    {gallery:file:crop width='1116' height='558' maintain_ratio='n'} 1116w"
-                                src="{gallery:file:crop width='1116' height='512' maintain_ratio='n'}"
-                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo last-news__item-thumb"
+                                {if count == 1}
+                                    sizes="(max-width: 544px) 100vw, 544px"
+                                    srcset="
+                                        {gallery:file:featured__square--small} 246w,
+                                        {gallery:file:featured__square--large} 554w
+                                    "
+                                    width="554" height="512"
+                                    src="{gallery:file:featured__square--large}"
+                                {if:elseif count == 2}
+                                    sizes="(max-width: 544px) 100vw, 544px"
+                                    srcset="
+                                        {gallery:file:featured__square--small} 246w,
+                                        {gallery:file:featured__wide} 554w
+                                    "
+                                    width="554" height="246"
+                                    src="{gallery:file:featured__wide}"
+                                {if:else}
+                                    width="246" height="246"
+                                    src="{gallery:file:featured__square--small}"
+                                {/if}
+                                decoding="async" loading="lazy"
+                                class="h-entry__u-photo u-photo last-news__item-thumb"
                                 alt="{gallery:alt}"
                             />
                         {/gallery}
