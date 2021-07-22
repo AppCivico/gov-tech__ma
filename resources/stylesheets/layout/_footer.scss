@@ -28,7 +28,7 @@
   align-items: flex-start;
   justify-content: stretch;
 
-  font-size: my.ms(2);
+  font-size: my.ms(-1);
 }
 
 .main-footer > * {}
@@ -118,8 +118,6 @@
 }
 
 .license-and-powered-by {
-  font-size: my.ms(0);
-
   text-align: center;
 
   @media screen and (min-width: my.breakpoint('tablet__portrait')) {

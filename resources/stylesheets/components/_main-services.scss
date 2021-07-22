@@ -7,8 +7,6 @@
 
   margin-bottom: my.$gutter * 3;
 
-  font-size: my.ms(2);
-
   .h-feed__p-name {
     margin-bottom: my.$gutter * 3;
 
@@ -18,7 +16,7 @@
   .main-services__title {
     @include my.truncate;
 
-    font-size: my.ms(5);
+    font-size: my.ms(4);
     color: my.palette('brand', 'blue-medium');
     text-decoration: underline;
     text-transform: none;
