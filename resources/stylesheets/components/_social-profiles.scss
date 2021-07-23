@@ -38,8 +38,7 @@ $list: (
   margin: 0;
 
   table-layout: fixed;
-  border-spacing: (my.$gutter * 0.5) 0;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
 .social-profiles__item {
@@ -61,8 +60,9 @@ $list: (
 
   display: block;
 
-  max-width: 30px;
-  height: my.$leading * 1em;
+  width: my.$gutter * 2;
+  min-width: 30px;
+  height: my.$gutter * 2;
   min-height: 24px;
   margin-right: auto;
   margin-left: auto;

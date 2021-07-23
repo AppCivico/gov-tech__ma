@@ -1,6 +1,14 @@
 @use '../abstracts' as my;
 
 [for='menu-controller'] {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: my.$gutter * 2;
+  height: my.$gutter * 2;
+
   .menu-controller__line {
     transition-duration: 300ms;
     transition-property: fill opacity stroke transform;
