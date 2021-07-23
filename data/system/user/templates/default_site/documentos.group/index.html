@@ -3,7 +3,7 @@
 {if segment_2 AND segment_3 == ""}
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:entries channel="news" limit="1" require_entry="yes" disable="pagination|category_fields" status="open|draft" show_future_entries="yes"}
+    {exp:channel:entries channel="document" limit="1" require_entry="yes" disable="pagination|category_fields" status="open|draft" show_future_entries="yes"}
         {tp-check_draft}
 
         {layout:set name="title"}{title}{/layout:set}
