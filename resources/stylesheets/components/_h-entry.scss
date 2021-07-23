@@ -43,6 +43,7 @@
   figure {
     float: left;
     margin-right: my.$gutter * 0.5;
+    clear: left;
   }
 
   [style*='text-align'] {
