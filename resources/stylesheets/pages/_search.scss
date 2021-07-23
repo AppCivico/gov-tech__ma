@@ -9,7 +9,7 @@
   $diameter: calc(100vh + 100vw);
   $radius: calc(-50vh - 50vw);
 
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   z-index: my.layer('default');
@@ -47,7 +47,7 @@
   overflow: hidden;
 
   &::before {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -91,7 +91,7 @@
   main::before,
   [role='main']::after,
   main::after {
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     z-index: my.layer('modal');
@@ -106,6 +106,7 @@
 
     animation-name: fade-in;
     animation-delay: 1s;
+    animation-fill-mode: both;
   }
 
   [role='main']::before,
@@ -206,6 +207,7 @@
 
     .h-entry__u-photo {
       float: left;
+      width: auto;
       margin-right: my.$gutter;
 
       border-radius: my.$rounded-corner;
