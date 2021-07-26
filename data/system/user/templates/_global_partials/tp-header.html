@@ -52,43 +52,22 @@
 
             {tv-menu}
 
-            <ul class="social-profiles social-profiles--header">
-                <li class="social-profiles__item">
-                    <a href="https://tiktok.com/" class="u-url social-profiles__link">
-                        TikTok
-                    </a>
-                </li>
-                <li class="social-profiles__item">
-                    <a href="https://telegram.com/" class="u-url social-profiles__link">
-                        telegram
-                    </a>
-                </li>
-                <li class="social-profiles__item">
-                    <a href="https://youtube.com/" class="u-url social-profiles__link">
-                        YouTube
-                    </a>
-                </li>
-                <li class="social-profiles__item">
-                    <a href="https://facebook.com/" class="u-url social-profiles__link">
-                        facebook
-                    </a>
-                </li>
-                <li class="social-profiles__item">
-                    <a href="https://instagram.com/" class="u-url social-profiles__link">
-                        instagram
-                    </a>
-                </li>
-                <li class="social-profiles__item">
-                    <a href="https://twitter.com/" class="u-url social-profiles__link">
-                        twitter
-                    </a>
-                </li>
-            </ul>
+            {if settings__social_profiles:total_rows}
+                <ul class="social-profiles social-profiles--header">
+                    {settings__social_profiles}
+                        <li class="social-profiles__item">
+                            <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                {settings__social_profiles:url}
+                            </a>
+                        </li>
+                    {/settings__social_profiles}
+                </ul>
+            {/if}
 
             {exp:search:simple_form form_class="search-form search-form--header" result_page="busca/resultados" site="not 0" no_result_page="busca/sem_resultados" search_in="entries" results="10"}
                 <fieldset class="search-form__fieldset">
                     <p class="search-form__field-wrapper search-form__field-wrapper--text">
-                        <input type="text" id="keywords" placeholder="Digite o que procura" autocomplete="on" name="keywords"
+                        <input type="text" id="keywords" placeholder="{settings__search_placeholder}" autocomplete="on" name="keywords"
                             aria-label="Keywords" class="search-form__field search-form__field--text"
                             value="{exp:search:keywords}" />
                     </p>
@@ -102,63 +81,26 @@
                         <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
                     </button>
                 </fieldset>
-
-                <fieldset class="search-form__suggestions">
-                    <p class="search-form__suggestions-title">
-                        Sugestões:
-                    </p>
-                    <ul class="search-form__suggestions-list">
-                        <li class="search-form__suggestions-item">
-                            <button type="submit" name="keywords"
-                                value="turismo"
-                                title="procurar por 'turismo'"
-                                class="search-form__suggestions-button"
-                            >
-                                turismo
-                            </button>
-                        </li>
-
-                        <li class="search-form__suggestions-item">
-                            <button type="submit" name="keywords"
-                                value="SETUR"
-                                title="procurar por 'SETUR'"
-                                class="search-form__suggestions-button"
-                            >
-                                SETUR
-                            </button>
-                        </li>
-
-                        <li class="search-form__suggestions-item">
-                            <button type="submit" name="keywords"
-                                value="São Luís"
-                                title="procurar por São 'Luís'"
-                                class="search-form__suggestions-button"
-                            >
-                                São Luís
-                            </button>
-                        </li>
-
-                        <li class="search-form__suggestions-item">
-                            <button type="submit" name="keywords"
-                                value="curso"
-                                title="procurar por 'curso'"
-                                class="search-form__suggestions-button"
-                            >
-                                curso
-                            </button>
-                        </li>
-
-                        <li class="search-form__suggestions-item">
-                            <button type="submit" name="keywords"
-                                value="Coronavírus"
-                                title="procurar por 'Coronavírus'"
-                                class="search-form__suggestions-button"
-                            >
-                                Coronavírus
-                            </button>
-                        </li>
-                    </ul>
-                </fieldset>
+                {if settings__search_suggestions:total_rows}
+                    <fieldset class="search-form__suggestions">
+                        <p class="search-form__suggestions-title">
+                            Sugestões:
+                        </p>
+                        <ul class="search-form__suggestions-list">
+                            {settings__search_suggestions}
+                            <li class="search-form__suggestions-item">
+                                <button type="submit" name="keywords"
+                                    value="turismo"
+                                    title="procurar por '{settings__search_suggestions:term}'"
+                                    class="search-form__suggestions-button"
+                                >
+                                    {settings__search_suggestions:term}
+                                </button>
+                            </li>
+                            {/settings__search_suggestions}
+                        </ul>
+                    </fieldset>
+                {/if}
             {/exp:search:simple_form}
         </div><!-- .main-header-and-search-form__container -->
 

@@ -11,11 +11,14 @@
 {tp-head}
 </head>
 <body>
+
+{exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings"}
     {tp-header}
 
     {layout:contents}
 
     {tp-footer}
+{/exp:channel:entries}
 
 {if logged_in_group_id == 1}
 <!--

@@ -32,48 +32,29 @@
 
             <div class="colophon">
                 <div class="h-card">
-                    <div class="p-adr">
-                        Av. Dom Pedro II,<br />
-                        Pça da Mãe d'Água,<br />
-                        Nº. 32 - Centro<br />
-                        CEP: 65010-450<br />
-                        São Luís - Maranhão
-                    </div>
-                    <div class="u-email">
-                        ascomseturma@gmail.com
-                    </div>
-                    <ul class="social-profiles">
-                        <li class="social-profiles__item">
-                            <a href="https://tiktok.com/" class="u-url social-profiles__link">
-                                TikTok
+                    {if settings__address}
+                        <div class="p-adr">
+                            {settings__address}
+                        </div>
+                    {/if}
+                    {if settings__email}
+                        <div class="u-email">
+                            <a href="mailto:{settings__email}">
+                                {settings__email}
                             </a>
-                        </li>
-                        <li class="social-profiles__item">
-                            <a href="https://telegram.com/" class="u-url social-profiles__link">
-                                telegram
-                            </a>
-                        </li>
-                        <li class="social-profiles__item">
-                            <a href="https://youtube.com/" class="u-url social-profiles__link">
-                                YouTube
-                            </a>
-                        </li>
-                        <li class="social-profiles__item">
-                            <a href="https://facebook.com/" class="u-url social-profiles__link">
-                                facebook
-                            </a>
-                        </li>
-                        <li class="social-profiles__item">
-                            <a href="https://instagram.com/" class="u-url social-profiles__link">
-                                instagram
-                            </a>
-                        </li>
-                        <li class="social-profiles__item">
-                            <a href="https://twitter.com/" class="u-url social-profiles__link">
-                                twitter
-                            </a>
-                        </li>
-                    </ul>
+                        </div>
+                    {/if}
+                    {if settings__social_profiles:total_rows}
+                        <ul class="social-profiles">
+                            {settings__social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                        {settings__social_profiles:url}
+                                    </a>
+                                </li>
+                            {/settings__social_profiles}
+                        </ul>
+                    {/if}
                 </div>
             </div>
 
