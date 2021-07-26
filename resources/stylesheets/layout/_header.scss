@@ -16,17 +16,25 @@
   position: relative;
   z-index: my.layer('default'); // to move menu forward on Z axis
 
-  margin-bottom: my.$gutter * 6;
+  margin-bottom: my.$gutter * 3;
 
   color: my.palette('neutral', 'white');
 
   background-color: my.palette('neutral', 'base');
-  background-image: url('/uploads/secretarias/shutterstock_1659111457.jpg');
+  background-image: my.image('shutterstock_1659111457_Blue_3.jpg');
   background-position: 50% 50%;
   background-size: cover;
 
+  .setur:root & {
+    background-image: my.image('shutterstock_1659111457.jpg');
+  }
+
   .going-to-search-results & {
     z-index: auto;
+  }
+
+  @media screen and (min-width: my.breakpoint('desktop')) {
+    margin-bottom: my.$gutter * 6;
   }
 }
 
