@@ -124,6 +124,8 @@ $config['css_js_settings'] = [
             content: url("/assets/images/brand/gov__ma.svg");
             display: block;
             grid-column: 2/-2;
+            margin-right: auto;
+            margin-left: auto;
         }
         .beta-welcome-banner {
             display: none;
