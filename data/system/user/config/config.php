@@ -35,18 +35,27 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'detran.ma.gov.local':
     case 'detran-ma.appcivico.com.br':
         $site_name = 'detran';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '';
         break;
 
     case 'turismo.ma.gov.br':
     case 'turismo.ma.gov.local':
     case 'turismo-ma.appcivico.com.br':
         $site_name = 'setur';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '11';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '14';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '30';
         break;
 
     case 'ma.gov.br':
     case 'ma.gov.local':
     case 'ma.appcivico.com.br':
         $site_name = 'default_site';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '2';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
         break;
 
     default:
@@ -60,6 +69,8 @@ $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $p
 $assign_to_config['site_name'] = $site_name;
 $assign_to_config['cp_url']    = $site_url . $cp_url;
 $assign_to_config['site_url']  = $site_url;
+$config['index_page'] = '';
+$config['site_index'] = '';
 
 // ExpressionEngine Config Items
 // Find more configs and overrides at
@@ -105,7 +116,6 @@ $config['cookie_domain'] = $domain;
 $config['cookie_prefix'] = 'ma_';
 $config['cookie_samesite'] = 'Strict';
 // $config['cookie_secure'] = 'y';
-$config['cp_url'] = '/admin.php';
 
 $config['css_js_settings'] = [
     'js' => '',
@@ -160,8 +170,6 @@ $config['show_ee_news'] = 'n';
 $config['show_profiler'] = 'n';
 $config['sig_allow_img_hotlink'] = 'n';
 $config['site_404'] = '-/404';
-$config['site_index'] = '';
-$config['site_url'] = $site_url;
 $config['spellcheck_language_code'] = 'pt';
 $config['strict_urls'] = 'y';
 $config['template_group'] = '-';
@@ -203,6 +211,7 @@ $config['upload_preferences'] = array(
     'url'         => '/uploads/icons/'                      // URL of upload directory
   ),
 
+// setur
   11 => array(                                              // ID of upload destination
     'name'        => 'Documentos',                          // Display name in control panel
     'server_path' => '/var/www/html/setur/uploads/docs/',   // Server path to upload directory
