@@ -96,6 +96,7 @@
       content: '';
 
       background: transparent linear-gradient(180deg, #ffffff00 0%, #83838200 60%, #000000 100%) 0% 0% no-repeat padding-box;
+      mix-blend-mode: multiply;
       opacity: 0.68;
     }
   }

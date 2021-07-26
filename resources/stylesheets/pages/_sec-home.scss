@@ -19,8 +19,25 @@
   }
 
   .last-news__item {
-    &:first-child {
-      position: relative;
+  }
+
+  :first-child > .last-news__item {
+    position: relative;
+
+    margin-bottom: 0;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      content: '';
+
+      background: transparent linear-gradient(180deg, #ffffff00 0%, #83838200 60%, #000000 100%) 0% 0% no-repeat padding-box;
+      mix-blend-mode: multiply;
+      opacity: 0.68;
     }
   }
 
@@ -74,6 +91,7 @@
       position: absolute;
       bottom: my.$gutter * 2;
       left: 50%;
+      z-index: my.layer('default');
 
       width: 100%;
       max-width: 40rem;
@@ -94,6 +112,7 @@
       position: absolute;
       bottom: 0;
       left: 50%;
+      z-index: my.layer('default');
 
       width: 100%;
       height: my.$gutter * 2;
