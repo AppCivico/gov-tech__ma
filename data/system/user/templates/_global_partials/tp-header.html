@@ -104,15 +104,5 @@
             {/exp:search:simple_form}
         </div><!-- .main-header-and-search-form__container -->
 
-        <nav class="header-nav">
-            {exp:channel:category_archive channel="government_member|page" show_empty="no" disable="category_fields"
-            style="nested" category_group="5" class="header-nav__list"}
-                {categories}
-                    {category_name}
-                {/categories}
-                {entry_titles}
-                    <a href="{path='SITE_INDEX'}">{title}</a><br />
-                {/entry_titles}
-            {/exp:channel:category_archive}
-        </nav>
+        {embed="-/_cascade-menu"}
     </div><!-- .main-header-and-search-form -->

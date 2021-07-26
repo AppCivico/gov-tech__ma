@@ -1,0 +1,19 @@
+<nav class="main-footer__menu-wrapper">
+    <ul class="main-footer__menu-list">
+        {exp:channel:category_archive show_empty="no" disable="category_fields"
+        style="linear" category_group="{global:interface-category-group}" show="{global:footer-menu-category}"}
+            {entry_titles}
+                <li class="main-footer__menu-item">
+                    <a
+                        {if page_uri}
+                            href="{page_uri}"
+                        {/if}
+                        class="main-footer__menu-link"
+                    >
+                        {title}
+                    </a>
+                </li>
+            {/entry_titles}
+        {/exp:channel:category_archive}
+    </ul>
+</nav>

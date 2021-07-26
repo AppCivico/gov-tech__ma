@@ -1,0 +1,12 @@
+<nav class="header-nav">
+    {exp:channel:category_archive show_empty="no" disable="category_fields"
+    style="nested" category_group="{global:cascade-menu-group}" parse="inward" class="header-nav__list"}
+        {categories}
+            {category_name}
+        {/categories}
+
+        {entry_titles}
+            <a href="{path='SITE_INDEX'}">{title}</a><br />
+        {/entry_titles}
+    {/exp:channel:category_archive}
+</nav>
