@@ -111,28 +111,5 @@
             {/if}
         {/exp:channel:entries}
 
-        {exp:channel:entries custom_fields="yes" limit="3" dynamic="no" channel="news|service|event|document" category_group="6" category="8"}
-            {if count == 1}
-        <div class="accordions">
-            <h2 class="accordions__title">
-                Você pode se interessar por:
-            </h2>
-            {/if}
-            <details class="accordions__item">
-                <summary class="accordions__summary">
-                    {title}
-                </summary>
-                <div class="accordions__detail">
-                    {if summary}
-                        <p>{summary:limit characters="120"}</p>
-                    {if:else}
-                        {body:limit characters="120"}
-                    {/if}
-                </div>
-            </details>
-            {if count == total_results}
-        </div>
-            {/if}
-        {/exp:channel:entries}
     </aside>
 </main>
