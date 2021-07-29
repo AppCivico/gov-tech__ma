@@ -1,0 +1,18 @@
+{if gallery:total_rows > 1}
+    <section class="gallery">
+        {gallery offset="1"}
+            <figure class="gallery__item">
+                {gallery:file}
+                    <a href="{url}" target="_blank" class="gallery__link" />
+                        <img src="{url:thumb--gallery}"
+                            data-width="142" data-height="116"
+                            width="{width}" height="{height}"
+                            alt="{description}"
+                        decoding="async" loading="lazy" class="gallery__image" />
+                        {if gallery:caption}<figcaption>{gallery:caption}</figcaption>{/if}
+                    </a>
+                {/gallery:file}
+            </figure>
+        {/gallery}
+    </section>
+{/if}

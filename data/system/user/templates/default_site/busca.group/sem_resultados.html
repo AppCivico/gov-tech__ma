@@ -45,11 +45,15 @@
                 <a href="https:/{relative_url}/{url_title}" class="related-content__link">
                     <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
                         {gallery limit="1"}
-                            <img width="193" height="116"
-                                src="{gallery:file:thumb--related}"
-                                decoding="async" loading="lazy"
-                                alt="{gallery:alt}"
-                                class="h-entry__u-photo u-photo related-content__thumb" />
+                            {gallery:file}
+                                <img src="{url:thumb--related}"
+                                    data-width="193" data-height="116"
+                                    width="{width}" height="{height}"
+                                    decoding="async" loading="lazy"
+                                    alt="{description}"
+                                    class="h-entry__u-photo u-photo related-content__thumb"
+                                />
+                            {/gallery:file}
                         {/gallery}
                         <h3 class="h-entry__p-name p-name">{title}</h3>
                         <p class="h-entry__dt-published related-content__date">

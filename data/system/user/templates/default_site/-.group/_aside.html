@@ -78,28 +78,34 @@
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
                         {if count == 1}
                             {gallery limit="1"}
-                                <img
-                                    width="1116" height="512"
-                                    sizes="(max-width: 1116px) 100vw, 1116px"
-                                    srcset="
-                                        {gallery:file:300w} 300w,
-                                        {gallery:file:635w} 635w,
-                                        {gallery:file:886w} 886w,
-                                        {gallery:file:1079w} 1079w,
-                                        {gallery:file:1116w} 1116w"
-                                    src="{gallery:file:1116w}"
-                                    decoding="async" loading="lazy" class="h-entry__u-photo u-photo last-news__item-thumb"
-                                    alt="{gallery:alt}"
-                                />
+                                {gallery:file}
+                                    <img
+                                        data-width="1116" data-height="512"
+                                        width="{width}" height="{height}"
+                                        sizes="(max-width: 1116px) 100vw, 1116px"
+                                        srcset="
+                                            {url:300w} 300w,
+                                            {url:635w} 635w,
+                                            {url:886w} 886w,
+                                            {url:1079w} 1079w,
+                                            {url:1116w} 1116w"
+                                        src="{url:1116w}"
+                                        decoding="async" loading="lazy" class="h-entry__u-photo u-photo last-news__item-thumb"
+                                        alt="{description}"
+                                    />
+                                {/gallery:file}
                             {/gallery}
                         {if:else}
                             {gallery limit="1"}
-                                <img
-                                    width="260" height="200"
-                                    src="{gallery:file:thumb--aside'}"
-                                    decoding="async" loading="lazy" class="h-entry__u-photo u-photo"
-                                    alt="{gallery:alt}"
-                                />
+                                {gallery:file}
+                                    <img
+                                        data-width="260" data-height="200"
+                                        width="{width}" height="{height}"
+                                        src="{url:thumb--aside'}"
+                                        decoding="async" loading="lazy" class="h-entry__u-photo u-photo"
+                                        alt="{description}"
+                                    />
+                                {/gallery:file}
                             {/gallery}
                         {/if}
 
