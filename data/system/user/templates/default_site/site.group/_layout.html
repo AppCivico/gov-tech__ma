@@ -6,7 +6,6 @@
     class="no-js no-jquery {segment_1} {segment_2} {layout:root_class} {if site_url == 'http://localhost'}grid{/if} {site_short_name}"
     lang="{lang}"
 >
-
 <head>
 {tp-head}
 </head>
@@ -23,19 +22,20 @@
 {if logged_in_group_id == 1}
 <!--
 +-------------------------+----------------------------------------------+
-| Queries:                |   {total_queries}                            |
-| Elapsed Time:           |   {elapsed_time}s                            |
-| Memory Used:            |   {memory_usage}                             |
-| Date and time of parse: |   {current_time format="%Y %m %d %H:%i:%s"}  |
-| Debug Mode:             |   {debug_mode}                               |
-| App build:              |   {app_build}                                |
-| App version:            |   {app_version}                              |
+| Queries:                |   {total_queries}
+| Elapsed Time:           |   {elapsed_time}s
+| Memory Used:            |   {memory_usage}
+| Date and time of parse: |   {current_time format="%Y %m %d %H:%i:%s"}
+| Debug Mode:             |   {debug_mode}
+| App build:              |   {app_build}
+| App version:            |   {app_version}
 +-------------------------+----------------------------------------------+
 -->
 {/if}
 
-<script src="{path='-/scripts'}"></script>
+<script src="{path='site/scripts'}"></script>
 
-{tv-browser_update}
+{tv-static_footer}
+
 </body>
 </html>

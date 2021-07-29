@@ -1,4 +1,4 @@
-{layout="-/_layout"}
+{layout="default_site:site/_layout"}
 
 {if segment_2 AND segment_3 == ""}
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
@@ -37,7 +37,7 @@
 
             {tp-gallery}
 
-            {embed="-/_related" this-entry="{entry_id}" this-cover="gallery"}
+            {embed="default_site:site/_related"}
         </article>
     {/exp:channel:entries}
 {if:else}

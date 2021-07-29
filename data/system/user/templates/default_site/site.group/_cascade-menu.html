@@ -1,12 +1,12 @@
 <nav class="header-nav">
     {exp:channel:category_archive show_empty="no" disable="category_fields"
-    style="nested" category_group="{global:cascade-menu-group}" parse="inward" class="header-nav__list"}
+    style="nested" category_group="{global:cascade-menu-group}" class="header-nav__list"}
         {categories}
             {category_name}
         {/categories}
 
         {entry_titles}
-            <a href="{path='SITE_INDEX'}">{title}</a><br />
+            <a href="{channel_url}/{url_title}">{title}</a>
         {/entry_titles}
     {/exp:channel:category_archive}
 </nav>

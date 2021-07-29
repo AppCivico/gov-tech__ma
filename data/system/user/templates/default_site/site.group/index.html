@@ -1,4 +1,4 @@
-{layout="-/_layout" root_class="home" robots="index,follow,noarchive"}
+{layout="default_site:site/_layout" root_class="home" robots="index,follow,noarchive"}
 
 <main id="main" class="home__main">
     <section class="main-services h-feed h-feed--main-services">
@@ -11,7 +11,9 @@
             {/categories}
 
             {entry_titles}
-                <a href="{path='servicos/index'}">{title}</a><br />
+                <a
+                path="{path}"
+                href="//turismo-ma.appcivico.com.br/servicos/{url_title}">{title}</a><br />
             {/entry_titles}
         {/exp:channel:category_archive}
     </section>
@@ -22,7 +24,17 @@
             <h2 class="last-news__title h-feed__p-name p-name">Últimas notícias</h2>
             <div class="h-feed__list h-feed__list--last-news">
         {/if}
-                <a href='{relative_url}/{url_title}' class="last-news__link h-entry__u-url">
+                <a
+                    entry_site_id="{entry_site_id}"
+                    {if entry_site_id == 1}
+                        href="https://ma.appcivico.com.br/noticias/{url_title}"
+                    {if:elseif entry_site_id == 2}
+                        href="https://turismo-ma.appcivico.com.br/noticias/{url_title}"
+                    {if:else}
+                        href='{url_title_path="noticias/index"}'
+                    {/if}
+                    class="last-news__link h-entry__u-url"
+                >
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
 
                         {gallery limit="1"}

@@ -1,15 +1,21 @@
-{layout="-/_layout" root_class="page"}
+{layout="default_site:site/_layout" root_class="page"}
 
 {if segment_2}
     {redirect="404"}
 {if:else}
-    {exp:channel:entries channel="pages" disable="categories|category_fields|member_data|pagination" require_entry="yes"}
+    {exp:channel:entries channel="page" disable="pagination|category_fields|member_data" status="open|draft" limit="1" require_entry="yes" show_future_entries="yes"}
         {tp-check_draft}
+
+        {layout:set name="author"}{author}{/layout:set}
+        {layout:set name="canonical"}/noticias/{url_title}{/layout:set}
+        {gallery limit="1"}
+            {layout:set name="sharing_cover"}{gallery:file:facebook}{/layout:set}
+        {/gallery}
         {layout:set name="title"}{title}{/layout:set}
         {layout:set name="entry_id"}{entry_id}{/layout:set}
         {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
         {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
-        <article role="main" id="main" class="page-entry">
+        <article role="main" id="main" class="h-entry">
             <header class="h-entry__header">
                 <h1 class="h-entry__p-name">{title}</h1>
                 {if subhead}
