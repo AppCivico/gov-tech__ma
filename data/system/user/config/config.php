@@ -148,7 +148,6 @@ $config['emoticon_url'] = '/images/smileys';
 $config['enable_censoring'] = 'y';
 $config['enable_hit_tracking'] = 'n';
 $config['enable_template_routes'] = 'y';
-$config['enable_throttling'] = 'y';
 $config['filename_increment'] = 'y';
 $config['force_redirect'] = 'y';
 $config['hidden_template_404'] = 'y';
