@@ -168,7 +168,7 @@ $config['relaxed_track_views'] = 'y';
 $config['require_cookie_consent'] = 'n';
 $config['require_secure_passwords'] = 'y';
 // $config['require_terms_of_service'] = 'y';
-$config['reserved_category_word'] = 'secretarias';
+$config['reserved_category_word'] = 'categorias';
 $config['share_analytics'] = 'n';
 $config['show_ee_news'] = 'n';
 $config['show_profiler'] = 'n';
@@ -183,70 +183,60 @@ $config['theme_folder_url'] = '/themes/';
 $config['time_format'] = '24';
 $config['updater_allow_advanced'] = 'y';
 // $config['upload_blocked_file_names'] = array('logo.png');
-
 $config['upload_preferences'] = array(
-  5 => array(                                               // ID of upload destination
-    'name'        => 'Documentos',                          // Display name in control panel
-    'server_path' => '/var/www/html/uploads/docs/',         // Server path to upload directory
-    'url'         => '/uploads/docs/'                       // URL of upload directory
-  ),
-
-  6 => array(                                               // ID of upload destination
-    'name'        => 'Imagens',                             // Display name in control panel
-    'server_path' => '/var/www/html/uploads/imgs/',         // Server path to upload directory
-    'url'         => '/uploads/imgs/'                       // URL of upload directory
-  ),
-
-  7 => array(                                               // ID of upload destination
-    'name'        => 'Anúncios',                            // Display name in control panel
-    'server_path' => '/var/www/html/uploads/ads/',          // Server path to upload directory
-    'url'         => '/uploads/ads/'                        // URL of upload directory
-  ),
-
-  8 => array(                                               // ID of upload destination
-    'name'        => 'Secretarias',                         // Display name in control panel
-    'server_path' => '/var/www/html/uploads/secretarias/',  // Server path to upload directory
-    'url'         => '/uploads/secretarias/'                // URL of upload directory
-  ),
-
-  9 => array(                                               // ID of upload destination
-    'name'        => 'Ícones',                              // Display name in control panel
-    'server_path' => '/var/www/html/uploads/icons/',        // Server path to upload directory
-    'url'         => '/uploads/icons/'                      // URL of upload directory
-  ),
+    5 => array(                                               // ID of upload destination
+        'name'        => 'Documentos',                          // Display name in control panel
+        'server_path' => '/var/www/html/uploads/docs/',         // Server path to upload directory
+        'url'         => '/uploads/docs/'                       // URL of upload directory
+    ),
+    6 => array(                                               // ID of upload destination
+        'name'        => 'Imagens',                             // Display name in control panel
+        'server_path' => '/var/www/html/uploads/imgs/',         // Server path to upload directory
+        'url'         => '/uploads/imgs/'                       // URL of upload directory
+    ),
+    7 => array(                                               // ID of upload destination
+        'name'        => 'Anúncios',                            // Display name in control panel
+        'server_path' => '/var/www/html/uploads/ads/',          // Server path to upload directory
+        'url'         => '/uploads/ads/'                        // URL of upload directory
+    ),
+    8 => array(                                               // ID of upload destination
+        'name'        => 'Secretarias',                         // Display name in control panel
+        'server_path' => '/var/www/html/uploads/secretarias/',  // Server path to upload directory
+        'url'         => '/uploads/secretarias/'                // URL of upload directory
+    ),
+    9 => array(                                               // ID of upload destination
+        'name'        => 'Ícones',                              // Display name in control panel
+        'server_path' => '/var/www/html/uploads/icons/',        // Server path to upload directory
+        'url'         => '/uploads/icons/'                      // URL of upload directory
+    ),
 
 // setur
-  11 => array(                                              // ID of upload destination
-    'name'        => 'Documentos',                          // Display name in control panel
-    'server_path' => '/var/www/html/setur/uploads/docs/',   // Server path to upload directory
-    'url'         => '/setur/uploads/docs/'                 // URL of upload directory
-  ),
-
-  13 => array(                                              // ID of upload destination
-    'name'        => 'Imagens',                             // Display name in control panel
-    'server_path' => '/var/www/html/setur/uploads/imgs/',   // Server path to upload directory
-    'url'         => '/setur/uploads/imgs/'                 // URL of upload directory
-  ),
-
-  10 => array(                                              // ID of upload destination
-    'name'        => 'Anúncios',                            // Display name in control panel
-    'server_path' => '/var/www/html/setur/uploads/ads/',    // Server path to upload directory
-    'url'         => '/setur/uploads/ads/'                  // URL of upload directory
-  ),
-
-  14 => array(                                              // ID of upload destination
-    'name'        => 'Secretarias',                         // Display name in control panel
-    'server_path' => '/var/www/html/setur/uploads/secretarias/',  // Server path to upload directory
-    'url'         => '/setur/uploads/secretarias/'          // URL of upload directory
-  ),
-
-  12 => array(                                              // ID of upload destination
-    'name'        => 'Ícones',                              // Display name in control panel
-    'server_path' => '/var/www/html/setur/uploads/icons/',  // Server path to upload directory
-    'url'         => '/setur/uploads/icons/'                // URL of upload directory
-  ),
+    11 => array(                                              // ID of upload destination
+        'name'        => 'Documentos',                          // Display name in control panel
+        'server_path' => '/var/www/html/setur/uploads/docs/',   // Server path to upload directory
+        'url'         => '/setur/uploads/docs/'                 // URL of upload directory
+    ),
+    13 => array(                                              // ID of upload destination
+        'name'        => 'Imagens',                             // Display name in control panel
+        'server_path' => '/var/www/html/setur/uploads/imgs/',   // Server path to upload directory
+        'url'         => '/setur/uploads/imgs/'                 // URL of upload directory
+    ),
+    10 => array(                                              // ID of upload destination
+        'name'        => 'Anúncios',                            // Display name in control panel
+        'server_path' => '/var/www/html/setur/uploads/ads/',    // Server path to upload directory
+        'url'         => '/setur/uploads/ads/'                  // URL of upload directory
+    ),
+    14 => array(                                              // ID of upload destination
+        'name'        => 'Secretarias',                         // Display name in control panel
+        'server_path' => '/var/www/html/setur/uploads/secretarias/',  // Server path to upload directory
+        'url'         => '/setur/uploads/secretarias/'          // URL of upload directory
+    ),
+    12 => array(                                              // ID of upload destination
+        'name'        => 'Ícones',                              // Display name in control panel
+        'server_path' => '/var/www/html/setur/uploads/icons/',  // Server path to upload directory
+        'url'         => '/setur/uploads/icons/'                // URL of upload directory
+    ),
 );
-
 $config['use_category_name'] = 'y';
 $config['word_separator'] = 'dash';
 $config['xml_lang'] = 'pt';
