@@ -47,7 +47,7 @@
                                             {url:featured__square--large} {width:featured__square--large}w
                                         "
                                         data-width="554" data-height="512"
-                                        width="{width}" height="{height}"
+                                        width="{width:featured__square--large}" height="{height:featured__square--large}"
                                         src="{url:featured__square--large}"
                                     {if:elseif count == 2}
                                         sizes="(max-width: 544px) 100vw, 544px"
@@ -56,11 +56,11 @@
                                             {url:featured__wide} {width:featured__wide}w
                                         "
                                         data-width="554" data-height="246"
-                                        width="{width}" height="{height}"
+                                        width="{width:featured__wide}" height="{height:featured__wide}"
                                         src="{url:featured__wide}"
                                     {if:else}
                                         data-width="246" data-height="246"
-                                        width="{width}" height="{height}"
+                                        width="{width:featured__square--small}" height="{height:featured__square--small}"
                                         src="{url:featured__square--small}"
                                     {/if}
                                     decoding="async" loading="lazy"
