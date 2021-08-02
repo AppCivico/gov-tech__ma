@@ -35,9 +35,9 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'detran.ma.gov.local':
     case 'detran-ma.appcivico.com.br':
         $site_name = 'detran';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '15';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '16';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '40';
         break;
 
     case 'turismo.ma.gov.br':
@@ -61,6 +61,9 @@ switch ($_SERVER['HTTP_HOST']) {
     default:
         $site_name = 'default_site';
         $domain = 'localhost';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '2';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
         break;
 }
 
