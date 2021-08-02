@@ -1,3 +1,107 @@
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
+
+/* public-sans-200 - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 200;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-200.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-200.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-200.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-200.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-200.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-200.svg#PublicSans') format('svg');
+}
+
+/* public-sans-regular - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-regular.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-regular.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-regular.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-regular.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-regular.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-regular.svg#PublicSans') format('svg');
+}
+
+/* public-sans-700 - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 700;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-700.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-700.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-700.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-700.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-700.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-700.svg#PublicSans') format('svg');
+}
+
+/* public-sans-900 - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 900;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-900.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-900.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-900.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-900.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-900.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-900.svg#PublicSans') format('svg');
+}
+
+/* public-sans-200italic - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 200;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-200italic.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-200italic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-200italic.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-200italic.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-200italic.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-200italic.svg#PublicSans') format('svg');
+}
+
+/* public-sans-italic - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 400;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-italic.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-italic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-italic.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-italic.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-italic.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-italic.svg#PublicSans') format('svg');
+}
+
+/* public-sans-700italic - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 700;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-700italic.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-700italic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-700italic.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-700italic.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-700italic.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-700italic.svg#PublicSans') format('svg');
+}
+
+/* public-sans-900italic - latin */
+@font-face {
+  font-display: swap;
+
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 900;
+  /* IE9 Compat Modes */
+  src: url('/assets/fonts/public-sans-v5-latin-900italic.eot');
+  /* IE6-IE8; Super Modern Browsers; Modern Browsers; Safari, Android, iOS; Legacy iOS */
+  src: local(''), url('/assets/fonts/public-sans-v5-latin-900italic.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/public-sans-v5-latin-900italic.woff2') format('woff2'), url('/assets/fonts/public-sans-v5-latin-900italic.woff') format('woff'), url('/assets/fonts/public-sans-v5-latin-900italic.ttf') format('truetype'), url('/assets/fonts/public-sans-v5-latin-900italic.svg#PublicSans') format('svg');
+}
