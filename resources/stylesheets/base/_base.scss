@@ -449,7 +449,7 @@ object > img {
 
   overflow: hidden;
 
-  font-size: my.ms(-1);
+  font-size: my.ms(-2);
   font-style: normal;
   color: my.palette('loading', 'foreground');
   text-align: center;
@@ -474,7 +474,7 @@ object > img {
 
     align-items: flex-end;
 
-    padding-bottom: my.$gutter;
+    padding-bottom: my.$gutter * 0.25;
 
     content: 'Broken Image';
   }
@@ -488,7 +488,7 @@ object > img {
 
     align-items: flex-start;
 
-    padding-top: my.$gutter;
+    padding-top: my.$gutter * 0.25;
 
     content: none;
   }
