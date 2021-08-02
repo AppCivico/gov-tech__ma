@@ -2,6 +2,8 @@
 
 .hero {
   display: block;
+}
 
-  max-width: none;
+.hero__image {
+  max-width: 100%;
 }
