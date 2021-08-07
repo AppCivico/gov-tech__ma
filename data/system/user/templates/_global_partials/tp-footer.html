@@ -6,7 +6,10 @@
                 <div class="h-card">
                     {if settings__address}
                         <div class="p-adr">
-                            {settings__address}
+                            <a href="https://maps.apple.com/?daddr={settings__address:attr_safe:url_encode plus_encoded_spaces='yes'}"
+                                target="_blank" rel="noopener noreferrer">
+                                {settings__address}
+                            </a>
                         </div>
                     {/if}
                     {if settings__email}
