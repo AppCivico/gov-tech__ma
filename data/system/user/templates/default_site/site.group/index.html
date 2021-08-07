@@ -36,39 +36,36 @@
                     class="last-news__link h-entry__u-url"
                 >
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
-
-                        {gallery limit="1"}
-                            {gallery:file}
-                                <img
-                                    {if count == 1}
-                                        sizes="(max-width: 544px) 100vw, 544px"
-                                        srcset="
-                                            {url:featured__square--small} {width:featured__square--small}w,
-                                            {url:featured__square--large} {width:featured__square--large}w
-                                        "
-                                        data-width="554" data-height="512"
-                                        width="{width:featured__square--large}" height="{height:featured__square--large}"
-                                        src="{url:featured__square--large}"
-                                    {if:elseif count == 2}
-                                        sizes="(max-width: 544px) 100vw, 544px"
-                                        srcset="
-                                            {url:featured__square--small} {width:featured__square--small}w,
-                                            {url:featured__wide} {width:featured__wide}w
-                                        "
-                                        data-width="554" data-height="246"
-                                        width="{width:featured__wide}" height="{height:featured__wide}"
-                                        src="{url:featured__wide}"
-                                    {if:else}
-                                        data-width="246" data-height="246"
-                                        width="{width:featured__square--small}" height="{height:featured__square--small}"
-                                        src="{url:featured__square--small}"
-                                    {/if}
-                                    decoding="async" loading="lazy"
-                                    class="h-entry__u-photo u-photo last-news__item-thumb"
-                                    alt="{description}"
-                                />
-                            {/gallery:file}
-                        {/gallery}
+                        {thumbnail}
+                            <img
+                                {if count == 1}
+                                    sizes="(max-width: 544px) 100vw, 544px"
+                                    srcset="
+                                        {url:featured__square--small} {width:featured__square--small}w,
+                                        {url:featured__square--large} {width:featured__square--large}w
+                                    "
+                                    data-width="554" data-height="512"
+                                    width="{width:featured__square--large}" height="{height:featured__square--large}"
+                                    src="{url:featured__square--large}"
+                                {if:elseif count == 2}
+                                    sizes="(max-width: 544px) 100vw, 544px"
+                                    srcset="
+                                        {url:featured__square--small} {width:featured__square--small}w,
+                                        {url:featured__wide} {width:featured__wide}w
+                                    "
+                                    data-width="554" data-height="246"
+                                    width="{width:featured__wide}" height="{height:featured__wide}"
+                                    src="{url:featured__wide}"
+                                {if:else}
+                                    data-width="246" data-height="246"
+                                    width="{width:featured__square--small}" height="{height:featured__square--small}"
+                                    src="{url:featured__square--small}"
+                                {/if}
+                                decoding="async" loading="lazy"
+                                class="h-entry__u-photo u-photo last-news__item-thumb"
+                                alt="{description}"
+                            />
+                        {/thumbnail}
 
                         <h3 class="h-entry__p-name p-name last-news__item-title">{title}</h3>
                         <p class="h-entry__dt-published last-news__date">

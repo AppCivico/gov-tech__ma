@@ -8,9 +8,9 @@
 
         {layout:set name="author"}{author}{/layout:set}
         {layout:set name="canonical"}/noticias/{url_title}{/layout:set}
-        {gallery limit="1"}
-            {layout:set name="sharing_cover"}{gallery:file:facebook}{/layout:set}
-        {/gallery}
+        {thumbnail}
+            {layout:set name="sharing_cover"}{url:facebook}{/layout:set}
+        {/thumbnail}
         {layout:set name="title"}{title}{/layout:set}
         {layout:set name="entry_id"}{entry_id}{/layout:set}
         {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}

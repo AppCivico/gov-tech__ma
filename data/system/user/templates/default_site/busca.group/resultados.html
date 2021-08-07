@@ -34,16 +34,15 @@
                                     {edit_date format="%d/%m/%Y"}
                                 </time>
                             </p>
-                            {gallery limit="1"}
-                                {gallery:file}
-                                    <img src="{url:crop width='80' height='68' maintain_ratio='n'}"
-                                        data-width="80" data-height="68"
-                                        width="{width}" height="{height}"
-                                        class="h-entry__u-photo u-photo search-results__thumb"
+                            {if thumbnail}
+                                <img src="{thumbnail:crop width='80' height='68' maintain_ratio='n'}"
+                                    width="80" height="68"
+                                    class="h-entry__u-photo u-photo search-results__thumb"
+                                    {thumbnail}
                                         alt="{description}"
-                                    />
-                                {/gallery:file}
-                            {/gallery}
+                                    {/thumbnail}
+                                />
+                            {/if}
                             <div class="h-entry__p-summary">
                                 {if summary}
                                     <p>{summary:limit characters="120"}</p>
@@ -93,8 +92,8 @@
             {/if}
                         <a href="https:/{relative_url}/{url_title}" class="related-content__link">
                             <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
-                                {gallery limit="1"}
-                                    {gallery:file}
+                                {thumbnail limit="1"}
+                                    {thumbnail}
                                         <img
                                             src="{url:thumb--related}"
                                             data-width="193" data-height="116"
@@ -103,8 +102,8 @@
                                             alt="{description}"
                                             class="h-entry__u-photo u-photo related-content__thumb"
                                         />
-                                    {/gallery:file}
-                                {/gallery}
+                                    {/thumbnail}
+                                {/thumbnail}
                                 <h3 class="h-entry__p-name p-name">{title}</h3>
                                 <p class="h-entry__dt-published related-content__date">
                                     <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
