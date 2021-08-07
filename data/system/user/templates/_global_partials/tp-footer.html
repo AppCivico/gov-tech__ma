@@ -11,7 +11,7 @@
                     {/if}
                     {if settings__email}
                         <div class="u-email">
-                            <a href="mailto:{settings__email}">
+                            <a href="mailto:{settings__email:attr_safe:trim}">
                                 {settings__email}
                             </a>
                         </div>
