@@ -4,18 +4,31 @@
     <section class="main-services h-feed h-feed--main-services">
         <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
 
-        {exp:channel:category_archive site="not 1" channel="service" show_empty="no" disable="category_fields"
-        style="nested" status="open" category_group="4|10" class="main-services__lists" limit="5"}
-            {categories}
-                <h3 class="main-services__title">{category_name}</h3>
-            {/categories}
-
-            {entry_titles}
-                <a
-                path="{path}"
-                href="//turismo-ma.appcivico.com.br/servicos/{url_title}">{title}</a><br />
-            {/entry_titles}
-        {/exp:channel:category_archive}
+        {exp:query
+        sql="SELECT ec.cat_id, ec.cat_name, COUNT(ecp.entry_id) AS total_entries
+            FROM exp_categories ec
+            JOIN exp_category_groups cg ON ec.group_id = cg.group_id
+            JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
+            JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
+            JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
+            WHERE ec2.channel_name = 'service'
+                AND LOWER(cg.group_name) = 'perfil do cidadao'
+                AND ect.status = 'open'
+            GROUP BY ec.cat_url_title
+            ORDER BY COUNT(ecp.entry_id) DESC
+            LIMIT 4"
+            parse="inward"
+        }
+            <div class="main-services__category">
+                <h3 class="main-services__title">{cat_name}</h3>
+                <ul class="main-services__list">
+                {exp:channel:entries channel="service" site="not 0" category="{cat_id}"
+                disable="custom_fields|categories|category_fields|member_data|pagination" status="open" limit="5"}
+                    <li class="main-services__item"><a href="{relative_url}/{url_title}">{title}</a></li>
+                {/exp:channel:entries}
+                </ul>
+            </div>
+        {/exp:query}
     </section>
 
     {exp:channel:entries channel="news" limit="4" disable="categories|category_fields|member_data|pagination" status="not closed"}

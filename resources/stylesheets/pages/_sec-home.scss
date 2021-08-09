@@ -55,18 +55,14 @@
   .main-services__link {
     @include my.link-undercover;
 
-    margin: 0 0 (my.$gutter * 2) 0;
+    margin: 0 0 my.$gutter 0;
   }
 
   .main-services__item {
-    @include my.clearfix;
-
     display: flex;
 
-    align-items: center;
+    align-items: flex-start;
 
-    padding-top: my.$gutter * 0.5;
-    padding-bottom: my.$gutter * 0.5;
     margin: 0;
   }
 
@@ -78,12 +74,22 @@
   }
 
   .main-services__thumb {
+    flex-shrink: 0;
+
     width: 55px;
     height: unset;
     height: auto;
     margin-right: my.$gutter;
     overflow: hidden;
     object-fit: cover;
+  }
+
+  .special-entries__title {
+    margin-bottom: my.$gutter * 2;
+
+    text-decoration: none;
+
+    border-color: my.palette('brand', 'red-medium');
   }
 
   .last-news__link:first-child img {
@@ -133,6 +139,14 @@
     grid-row: span 2;
     grid-column: 1/-1;
   }
+
+  .h-feed__list {
+    display: grid;
+    // TK: ask for the minimum width of the thumbs
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    grid-gap: my.$gutter;
+  }
+
 
   .quick-links {
     grid-row: 2;
