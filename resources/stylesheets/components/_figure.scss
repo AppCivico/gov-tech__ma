@@ -30,9 +30,8 @@
 figure {
   @include my.fallback('margin', my.$gutter 0); /* 1 */
 
-  width: min-content;
   max-width: 100%;
-  margin: 0 0 my.$gutter 0;
+  margin: 0;
 
   > * {
     display: block;
@@ -46,16 +45,16 @@ figure a {
 figure img {
   display: block;
 
-  max-width: none;
-
-  border-radius: my.$rounded-corner;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 figcaption {
   display: block;
 
+  margin: 0.25em 0 my.$gutter 0;
+
   font-size: my.ms(-1);
-  line-height: 1;
   color: my.palette('neutral', 'dark');
   text-align: center;
 }
