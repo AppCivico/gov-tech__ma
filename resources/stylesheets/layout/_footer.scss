@@ -83,7 +83,16 @@
   grid-row: span 3;
 }
 
-.u-email {}
+.p-adr a {
+  @include my.link-undercover;
+
+  display: block;
+}
+
+.u-email {
+  @include my.link-undercover;
+}
+
 .social-profiles {}
 .social-profiles__item {}
 .social-profiles__link {}
