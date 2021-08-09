@@ -19,7 +19,7 @@ if (isset($_SERVER['HTTP_CF_VISITOR'])) {
   $cf_visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
 
   if (isset($cf_visitor->scheme) && $cf_visitor->scheme == 'https') {
-    $protocol  = "https://";
+    $protocol = "https://";
   }
 }
 
@@ -32,38 +32,61 @@ $domain = $_SERVER['HTTP_HOST'];
 
 switch ($_SERVER['HTTP_HOST']) {
     case 'detran.ma.gov.br':
+    case 'transito.ma.gov.br':
     case 'detran.ma.gov.local':
+    case 'transito.ma.gov.local':
     case 'detran-ma.appcivico.com.br':
+    case 'transito-ma.appcivico.com.br':
         $site_name = 'detran';
         $assign_to_config['global_vars']['global:interface-category-group'] = '15';
+        $assign_to_config['global_vars']['global:home-services-category'] = '';
+        $assign_to_config['global_vars']['global:home-special-category'] = '';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '16';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '40';
+        $assign_to_config['global_vars']['global:citizen-category-group'] = '';
         break;
 
+    case 'sedihpop.ma.gov.br':
+    case 'direitos.ma.gov.local':
+    case 'sedihpop.ma.gov.local':
+    case 'direitos-ma.appcivico.com.br':
+    case 'sedihpop-ma.appcivico.com.br':
+        $site_name = 'sedihpop';
+        $assign_to_config['global_vars']['global:interface-category-group'] = '18';
+        $assign_to_config['global_vars']['global:home-services-category'] = '43';
+        $assign_to_config['global_vars']['global:home-special-category'] = '45';
+        $assign_to_config['global_vars']['global:cascade-menu-group'] = '44';
+        $assign_to_config['global_vars']['global:footer-menu-category'] = '41';
+        $assign_to_config['global_vars']['global:citizen-category-group'] = '22';
+        break;
+
+    case 'setur.ma.gov.br':
     case 'turismo.ma.gov.br':
+    case 'setur.ma.gov.local':
     case 'turismo.ma.gov.local':
+    case 'setur-ma.appcivico.com.br':
     case 'turismo-ma.appcivico.com.br':
         $site_name = 'setur';
         $assign_to_config['global_vars']['global:interface-category-group'] = '11';
+        $assign_to_config['global_vars']['global:home-services-category'] = '42';
+        $assign_to_config['global_vars']['global:home-special-category'] = '21';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '14';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '30';
+        $assign_to_config['global_vars']['global:citizen-category-group'] = '10';
         break;
 
     case 'ma.gov.br':
     case 'ma.gov.local':
     case 'ma.appcivico.com.br':
-        $site_name = 'default_site';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '2';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
-        break;
-
+    case 'localhost':
     default:
         $site_name = 'default_site';
-        $domain = 'localhost';
         $assign_to_config['global_vars']['global:interface-category-group'] = '2';
+        $assign_to_config['global_vars']['global:home-services-category'] = '';
+        $assign_to_config['global_vars']['global:home-special-category'] = '';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
+        $assign_to_config['global_vars']['global:citizen-category-group'] = '4';
         break;
 }
 
