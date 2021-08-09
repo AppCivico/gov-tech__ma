@@ -68,7 +68,7 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:channel:entries channel="news" limit="5" disable="categories|category_fields|member_data|pagination" status="open"}
+    {exp:channel:entries channel="news" limit="5" disable="categories|category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
         {if count == 1}
         <section class="last-news h-feed">
             <h2 class="last-news__title h-feed__p-name p-name">Destaques</h2>
