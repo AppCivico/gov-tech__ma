@@ -5,17 +5,28 @@
 // */
 
 .h-entry {
+  h2 {
+    margin-top: my.$gutter * 3;
+    margin-bottom: my.$gutter * 1.5;
+
+    font-size: my.ms(2);
+    line-height: my.$leading * 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 .h-entry__header {
-  margin: 0 0 (my.$gutter * 3) 0;
+  margin: 0 0 my.$gutter 0;
 }
 
 // entry name/title
 .h-entry__p-name {
   margin: 0 0 my.$gutter 0;
 
-  font-size: my.ms(8);
+  font-size: my.ms(6);
   font-weight: inherit;
   line-height: 1.25;
 }
@@ -23,7 +34,6 @@
 .h-entry__subhead {
   margin: 0 0 (my.$gutter * 1.5) 0;
 
-  font-size: my.ms(-1);
   font-weight: inherit;
 }
 
