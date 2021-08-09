@@ -1,3 +1,42 @@
-.hiddenFields {
+@use '../abstracts' as my;
+
+.hiddenFields {// stylelint-disable-line selector-class-pattern
   display: none;
+}
+
+// RTE
+.image {
+  display: block;
+
+  margin-bottom: my.$gutter * 3;
+}
+
+.image-style-side {}
+
+.image-style-align-center {
+  display: block;
+
+  margin-right: auto;
+  margin-bottom: my.$gutter;
+  margin-left: auto;
+}
+
+.image-style-align-right {
+  float: right;
+  margin-bottom: my.$gutter;
+  margin-left: my.$gutter * 1.5;
+  clear: right;
+}
+
+.image-style-align-left {
+  float: left;
+  margin-right: my.$gutter * 1.5;
+  margin-bottom: my.$gutter;
+  clear: left;
+}
+
+.image_resized {// stylelint-disable-line selector-class-pattern
+  img {
+    max-width: 100%;
+  }
 }
