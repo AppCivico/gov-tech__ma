@@ -10,14 +10,181 @@
 {tp-head}
 </head>
 <body>
+{tv-browse_happy}
+{tv-access}
+<input type="checkbox" hidden="hidden" id="menu-controller" />
+    <div class="main-header-and-search-form">
+        <div class="main-header-and-search-form__container">
+            <div role="banner" class="main-header">
+                <div class="site-info">
+                    <a href="{site_url}" class="main-header__logo">
+                        {if !site_short_name || site_short_name == "default_site"}
+                            <img
+                                src="/assets/images/brand/gov__ma.png"
+                                srcset="/assets/images/brand/gov__ma@2x.png 2x"
+                                alt="{site_name}" width="261" height="123" />
+                        {if:else}
+                            <img
+                                src="/assets/images/brand/{site_short_name}.png"
+                                srcset="/assets/images/brand/{site_short_name}@2x.png 2x"
+                                alt="{site_name}" width="380" height="113"
+                            />
+                        {/if}
+                    </a>
+                    {if layout:header_title}
+                        <h1 class="main-header__title">
+                            {layout:header_title}
+                        </h1>
+                    {/if}
+                </div>
+            </div><!-- .main-header -->
 
-{exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-    {tp-header}
+            <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
+                aria-label="Menu"
+                onclick="
+                    this.classList.toggle('opened');
+                    this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                "
+            >
+                <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
+                    <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                </svg>
+            </label>
+
+            {tv-menu}
+
+            {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
+                {if settings__social_profiles:total_rows}
+                    <ul class="social-profiles social-profiles--header">
+                        {settings__social_profiles}
+                            <li class="social-profiles__item">
+                                <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                    {settings__social_profiles:url}
+                                </a>
+                            </li>
+                        {/settings__social_profiles}
+                    </ul>
+                {/if}
+            {/exp:channel:entries}
+
+            {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination" parse="inward"}
+                {exp:search:simple_form form_class="search-form search-form--header" result_page="busca/resultados" site="not 0" no_result_page="busca/sem_resultados" search_in="entries" results="10"}
+                    <fieldset class="search-form__fieldset">
+                        <p class="search-form__field-wrapper search-form__field-wrapper--text">
+                            <input type="text" id="keywords" placeholder="{settings__search_placeholder}" autocomplete="on" name="keywords"
+                                aria-label="Keywords" class="search-form__field search-form__field--text"
+                                value="{exp:search:keywords}" />
+                        </p>
+                        <button type="reset" aria-label="reset" class="search-form__field search-form__field--reset">
+                            <img src="/assets/images/x.svg" width="14" height="14" />
+                        </button>
+                        <p class="search-form__field-wrapper search-form__field-wrapper--audio">
+                            <input type="file" id="soundFile" capture="user" accept="audio/*" aria-label="audio" class="search-form__field search-form__field--audio" />
+                        </p>
+                        <button type="submit" aria-label="search" class="search-form__field search-form__field--submit">
+                            <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
+                        </button>
+                    </fieldset>
+                    {if settings__search_suggestions:total_rows}
+                        <fieldset class="search-form__suggestions">
+                            <p class="search-form__suggestions-title">
+                                Sugestões:
+                            </p>
+                            <ul class="search-form__suggestions-list">
+                                {settings__search_suggestions}
+                                <li class="search-form__suggestions-item">
+                                    <button type="submit" name="keywords"
+                                        value="turismo"
+                                        title="procurar por '{settings__search_suggestions:term}'"
+                                        class="search-form__suggestions-button"
+                                    >
+                                        {settings__search_suggestions:term}
+                                    </button>
+                                </li>
+                                {/settings__search_suggestions}
+                            </ul>
+                        </fieldset>
+                    {/if}
+                {/exp:search:simple_form}
+            {/exp:channel:entries}
+        </div><!-- .main-header-and-search-form__container -->
+
+        {embed="default_site:site/_cascade-menu"}
+    </div><!-- .main-header-and-search-form -->
+
 
     {layout:contents}
 
-    {tp-footer}
-{/exp:channel:entries}
+
+    <div class="main-footer__wrapper">
+        <footer class="main-footer">
+            {embed="default_site:site/_footer-menu"}
+
+            {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
+
+                {settings__header}
+                    <style data-js="custom-header" data-idx="{settings__header:count}">
+            .main-header-and-search-form[data-header-idx='{settings__header:count}'] {
+              background-image: url('{settings__header:file}');
+              background-color: color: {settings__header:bg;};
+              color: {settings__header:fg;};
+            }
+                    </style>
+                {/settings__header}
+
+                <div class="colophon">
+                    <div class="h-card">
+                        {if settings__address}
+                            <div class="p-adr">
+                                <a href="https://maps.apple.com/?daddr={settings__address:attr_safe:url_encode plus_encoded_spaces='yes'}"
+                                    target="_blank" rel="noopener noreferrer">
+                                    {settings__address}
+                                </a>
+                            </div>
+                        {/if}
+                        {if settings__email}
+                            <div class="u-email">
+                                <a href="mailto:{settings__email:attr_safe:trim}">
+                                    {settings__email}
+                                </a>
+                            </div>
+                        {/if}
+                        {if settings__social_profiles:total_rows}
+                            <ul class="social-profiles">
+                                {settings__social_profiles}
+                                    <li class="social-profiles__item">
+                                        <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                            {settings__social_profiles:url}
+                                        </a>
+                                    </li>
+                                {/settings__social_profiles}
+                            </ul>
+                        {/if}
+                    </div>
+                </div>
+            {/exp:channel:entries}
+
+            <div class="license-and-powered-by" role="contentinfo">
+                <div class="license">
+                    <img src="/assets/images/licenses/by.png" width="403" height="141" alt="" aria-hidden="true"
+                        class="license__image" />
+                    Este obra está sob a
+                    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+                        Licença Creative Commons Atribuição 4.0 Internacional
+                    </a>
+                </div>
+                <div class="powered-by">
+                    <a href="https://appcivico.com/" target="_blank" class="powered-by__link">
+                        <img src="/assets/images/appcivico.svg" alt="AppCívico" width="151" height="28"
+                            class="powered-by__image" />
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 {if logged_in_group_id == 1}
 <!--
