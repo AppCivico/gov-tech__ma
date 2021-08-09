@@ -15,8 +15,8 @@
                 <div class="h-feed__list">
             {/if}
                     <a
-                        {if channel_name *= "document|goverment_member|service|staff"}
-                            href="/secretarias/turismo{auto_path}"
+                        {if channel_short_name == "page"}
+                            href="{page_uri}"
                         {if:else}
                             href="{auto_path}"
                         {/if}
