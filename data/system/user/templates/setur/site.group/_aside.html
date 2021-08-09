@@ -1,0 +1,92 @@
+<aside class="main-aside">
+
+<!-- most filled services :start -->
+    {exp:query
+    sql="SELECT ec.cat_id, ec.cat_name, COUNT(ecp.entry_id) AS total_entries
+        FROM exp_categories ec
+        JOIN exp_category_groups cg ON ec.group_id = cg.group_id
+        JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
+        JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
+        JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
+        WHERE ec.site_id = '{site_id}'
+            AND LOWER(cg.group_name) = 'perfil do cidadao'
+            AND ect.status = 'open'
+            AND ec2.channel_name = 'service'
+        GROUP BY ec.cat_id
+        ORDER BY COUNT(ecp.entry_id) DESC
+        LIMIT 4"
+        parse="inward"
+    }
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                {cat_name}
+            </h5>
+            <ul class="main-aside__list" data-total-entries="{total_entries}">
+                {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{cat_id}" status="open" limit="3"}
+                    <li class="main-aside__item h-entry">
+                        <a class="main-aside__link h-entry__u-url u-url" href="https:/{relative_url}/{url_title}">{title}</a>
+                    </li>
+                {/exp:channel:entries}
+            </ul>
+        </section>
+    {/exp:query}
+<!-- most filled services :end -->
+
+    {exp:channel:entries channel="news" limit="5" disable="categories|category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
+        {if count == 1}
+        <section class="last-news h-feed">
+            <h2 class="last-news__title h-feed__p-name p-name">Destaques</h2>
+            <div class="h-feed__list">
+        {/if}
+                <a
+                    href="{url_title_path='noticias/index'}"
+                    class="last-news__link h-entry__u-url"
+                >
+                    <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
+                        {if count == 1}
+                            <img
+                                width="1116" height="512"
+                                sizes="(max-width: 1116px) 100vw, 1116px"
+                                srcset="
+                                    {thumbnail:crop width='300' height='150' maintain_ratio='n'} 300w,
+                                    {thumbnail:crop width='635' height='318' maintain_ratio='n'} 635w,
+                                    {thumbnail:crop width='886' height='443' maintain_ratio='n'} 886w,
+                                    {thumbnail:crop width='1079' height='540' maintain_ratio='n'} 1079w,
+                                    {thumbnail:crop width='1116' height='558' maintain_ratio='n'} 1116w"
+                                src="{thumbnail:crop width='1116' height='512' maintain_ratio='n'}"
+                                decoding="async" loading="lazy"
+                                class="h-entry__u-photo u-photo last-news__item-thumb"
+                                {thumbnail}alt="{description}"{/thumbnail}
+                            />
+                        {if:else}
+                            <img
+                                width="260" height="200"
+                                src="{thumbnail:crop width='260' height='200' maintain_ratio='n'}"
+                                decoding="async" loading="lazy"
+                                class="h-entry__u-photo u-photo"
+                                {thumbnail}alt="{description}"{/thumbnail}
+                            />
+                        {/if}
+
+                        <h3 class="h-entry__p-name p-name last-news__item-title">{title}</h3>
+                        <p class="h-entry__dt-published last-news__date">
+                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                            {if count == 1}
+                                {edit_date format="%d de %F de %Y"}
+                            {if:else}
+                                {edit_date format="%d/%m/%Y"}
+                            {/if}
+                            </time>
+                        </p>
+                    </article>
+                </a>
+
+        {if count == total_results}
+            </div>
+        </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {tp-quick-links}
+
+</aside>
