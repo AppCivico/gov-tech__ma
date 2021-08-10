@@ -24,7 +24,9 @@
                 <ul class="main-services__list">
                 {exp:channel:entries channel="service" site="not 0" category="{cat_id}"
                 disable="custom_fields|categories|category_fields|member_data|pagination" status="open" limit="5"}
-                    <li class="main-services__item"><a href="{relative_url}/{url_title}">{title}</a></li>
+                    <li class="main-services__item">
+                        <a href="https://{relative_url}/{url_title}">{title}</a>
+                    </li>
                 {/exp:channel:entries}
                 </ul>
             </div>
@@ -38,14 +40,7 @@
             <div class="h-feed__list h-feed__list--last-news">
         {/if}
                 <a
-                    entry_site_id="{entry_site_id}"
-                    {if entry_site_id == 1}
-                        href="https://ma.appcivico.com.br/noticias/{url_title}"
-                    {if:elseif entry_site_id == 2}
-                        href="https://turismo-ma.appcivico.com.br/noticias/{url_title}"
-                    {if:else}
-                        href='{url_title_path="noticias/index"}'
-                    {/if}
+                    href='https://{relative_url}/{url_title}'
                     class="last-news__link h-entry__u-url"
                 >
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
