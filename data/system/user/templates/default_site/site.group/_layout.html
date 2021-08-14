@@ -176,6 +176,23 @@
                 {/settings__header}
 
                 <div class="colophon">
+                    <div class="site-info site-info--footer">
+                        <a href="{site_url}" class="main-header__logo">
+                            {if !site_short_name || site_short_name == "default_site"}
+                                <img
+                                    src="/assets/images/brand/gov__ma.png"
+                                    srcset="/assets/images/brand/gov__ma@2x.png 2x"
+                                    alt="{site_name}" width="261" height="123" />
+                            {if:else}
+                                <img
+                                    src="/assets/images/brand/{site_short_name}.png"
+                                    srcset="/assets/images/brand/{site_short_name}@2x.png 2x"
+                                    alt="{site_name}" width="380" height="113"
+                                />
+                            {/if}
+                        </a>
+                    </div>
+
                     <div class="h-card">
                         {if settings__address}
                             <div class="p-adr">
@@ -192,18 +209,18 @@
                                 </a>
                             </div>
                         {/if}
-                        {if settings__social_profiles:total_rows}
-                            <ul class="social-profiles">
-                                {settings__social_profiles}
-                                    <li class="social-profiles__item">
-                                        <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
-                                            {settings__social_profiles:url}
-                                        </a>
-                                    </li>
-                                {/settings__social_profiles}
-                            </ul>
-                        {/if}
                     </div>
+                    {if settings__social_profiles:total_rows}
+                        <ul class="social-profiles">
+                            {settings__social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                        {settings__social_profiles:url}
+                                    </a>
+                                </li>
+                            {/settings__social_profiles}
+                        </ul>
+                    {/if}
                 </div>
             {/exp:channel:entries}
 
@@ -211,9 +228,9 @@
                 <div class="license">
                     <img src="/assets/images/licenses/by.png" width="403" height="141" alt="" aria-hidden="true"
                         class="license__image" />
-                    Este obra está sob a
+                    Este obra está sob a Licença
                     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
-                        Licença Creative Commons Atribuição 4.0 Internacional
+                        Creative Commons Atribuição 4.0 Internacional
                     </a>
                 </div>
                 <div class="powered-by">

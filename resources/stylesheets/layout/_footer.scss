@@ -12,7 +12,7 @@
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `contentinfo` role.
  */
 .main-footer__wrapper {
-  padding-top: my.$gutter * 3;
+  padding-top: 0;
   padding-bottom: my.$gutter * 2;
   margin-top: my.$gutter;
 
@@ -22,63 +22,147 @@
 .main-footer {
   @include my.container;
 
-  display: flex;
 
-  flex-wrap: wrap;
 
-  align-items: flex-start;
-  justify-content: stretch;
 
   font-size: my.ms(-1);
+
+  .social-profiles {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .social-profiles__item {}
+
+  .social-profiles__link {}
 }
 
 .main-footer > * {}
 
 .main-footer__menu-wrapper {
+  @include my.full-width;
+
   display: block;
 
-  flex-basis: 25%;
+  flex-basis: 100%;
 
+  margin-bottom: my.$gutter * 3;
   overflow: hidden;
+
+  font-size: ms(-1);
+  font-weight: my.font-weight('black');
+  color: my.palette('neutral', 'white');
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: my.palette('brand', 'blue-medium');
 }
 
 .main-footer__menu-list {
-  display: block;
+  @include my.container;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
 
   height: 100%;
+  margin-top: my.$gutter * 0.5;
+  margin-bottom: my.$gutter * 0.5;
+  overflow: hidden;
 
-  text-align: left;
+  > li {
+    display: block;
+
+    @supports (display: contents) {
+      display: contents;
+    }
+  }
+
+  > li:focus,
+  > li:focus-within,
+  > li:active {
+    pointer-events: none;
+
+    > ul {
+      display: flex;
+
+      order: 1;
+
+      text-transform: none;
+
+      pointer-events: auto;
+
+      li {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  > li ul {
+    display: none;
+
+    flex-basis: 100%;
+
+    justify-content: center;
+
+    padding-top: my.$gutter * 0.5;
+    margin-top: my.$gutter * 0.5;
+
+    border-top: my.$stroke__thin solid my.palette('neutral', 'white');
+  }
 }
 
-.main-footer__menu-item {
-  display: block;
-}
 
-.main-footer__menu-link {
+.main-footer__menu-item-link,
+.main-footer__menu-item-container {
   display: block;
 
-  padding: (my.$gutter * 0.5) 0;
+  flex-grow: 1;
+
+  justify-content: center;
+
+  padding: my.$gutter * 0.5;
+  margin-top: my.$gutter * 0.5;
+  margin-right: my.$gutter * 0.5;
+  margin-bottom: my.$gutter * 0.5;
+  margin-left: my.$gutter *  0.5;
 
   white-space: nowrap;
+
+  border: my.$stroke__thin solid my.palette('neutral', 'white');
+
+  &:hover,
+  &:focus {
+    color: my.palette('neutral', 'black');
+    text-decoration: inherit;
+
+    background-color: my.palette('neutral', 'white');
+  }
 }
 
-.colophon {
-  flex-basis: 75%;
 .main-footer__menu-item-icon {
   width: auto;
   max-height: my.$leading * 1em;
   margin-right: 0.25em;
 }
 
-.h-card {
-  display: grid;
+.colophon {
+  display: flex;
 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: my.$gutter 0;
+  flex-wrap: wrap;
 
   align-items: flex-start;
+}
 
-  overflow: hidden;
+.site-info--footer {
+  margin-top: -0.75rem;
+}
+
+.h-card {
+  padding-right: my.$gutter;
+  padding-left: my.$gutter;
 }
 
 .h-card > * {}
@@ -93,13 +177,9 @@
   display: block;
 }
 
-.u-email {
+.u-email > a {
   @include my.link-undercover;
 }
-
-.social-profiles {}
-.social-profiles__item {}
-.social-profiles__link {}
 
 .main-footer__social-and-menu {}
 
@@ -154,7 +234,6 @@
   a {
     @include my.link-undercover {
       font-weight: my.font-weight('bold');
-      color: my.palette('brand', 'blue-medium');
     }
   }
 }
