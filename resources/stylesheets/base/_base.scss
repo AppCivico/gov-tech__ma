@@ -117,6 +117,7 @@ html {
   overflow: auto;
 
   // overflow-y: auto; /* 3 */
+  overflow-x: hidden;
 
   font-size: 100.01%; /* 1 */
   tab-size: 4;
@@ -148,7 +149,6 @@ body {
   min-height: 100%;
   margin: 0;
   // overflow: hidden;
-  // overflow-x: hidden;
 
   color: my.palette('black');
 
