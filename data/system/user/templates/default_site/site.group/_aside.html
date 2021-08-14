@@ -2,7 +2,7 @@
 
 <!-- most filled services :start -->
     {exp:query
-    sql="SELECT ec.cat_id, ec.cat_name, COUNT(ecp.entry_id) AS total_entries
+    sql="SELECT ec.cat_id, ec.cat_name, ec.cat_url_title, ec2.channel_url
         FROM exp_categories ec
         JOIN exp_category_groups cg ON ec.group_id = cg.group_id
         JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
@@ -28,6 +28,11 @@
                     </li>
                 {/exp:channel:entries}
             </ul>
+
+            <p class="read-more">
+                <a class="read-more__link" href="/servicos/{config:reserved_category_word}/{cat_url_title}">+ Serviços para
+                    {cat_name}</a>
+            </p>
         </section>
     {/exp:query}
 <!-- most filled services :end -->
@@ -48,12 +53,12 @@
                                 width="1116" height="512"
                                 sizes="(max-width: 1116px) 100vw, 1116px"
                                 srcset="
-                                    {thumbnail:crop width='300' height='150' maintain_ratio='n'} 300w,
-                                    {thumbnail:crop width='635' height='318' maintain_ratio='n'} 635w,
-                                    {thumbnail:crop width='886' height='443' maintain_ratio='n'} 886w,
-                                    {thumbnail:crop width='1079' height='540' maintain_ratio='n'} 1079w,
-                                    {thumbnail:crop width='1116' height='558' maintain_ratio='n'} 1116w"
-                                src="{thumbnail:crop width='1116' height='512' maintain_ratio='n'}"
+                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='300' height='150'} 300w,
+                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='635' height='318'} 635w,
+                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='886' height='443'} 886w,
+                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1079' height='540'} 1079w,
+                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1116' height='558'} 1116w"
+                                src="{thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1116' height='512'}"
                                 decoding="async" loading="lazy"
                                 class="h-entry__u-photo u-photo last-news__item-thumb"
                                 {thumbnail}alt="{description}"{/thumbnail}
@@ -61,7 +66,7 @@
                         {if:else}
                             <img
                                 width="260" height="200"
-                                src="{thumbnail:crop width='260' height='200' maintain_ratio='n'}"
+                                src="{thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='260' height='200'}"
                                 decoding="async" loading="lazy"
                                 class="h-entry__u-photo u-photo"
                                 {thumbnail}alt="{description}"{/thumbnail}
@@ -82,11 +87,13 @@
                 </a>
 
         {if count == total_results}
+
             </div>
+            <p class="read-more">
+                <a class="read-more__link" href="/noticias/{url_title}">+ Notícias</a>
+            </p>
         </section>
         {/if}
     {/exp:channel:entries}
-
-    {tp-quick-links}
 
 </aside>
