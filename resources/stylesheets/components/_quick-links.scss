@@ -13,6 +13,8 @@
 }
 
 .quick-links__list {
+  @include my.container;
+
   display: flex;
 
   flex-wrap: wrap;
@@ -20,7 +22,8 @@
   justify-content: space-evenly;
 
   padding: 0;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .h-entry--quick-links {
