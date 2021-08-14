@@ -55,15 +55,28 @@
   }
 }
 
+.main-header__root-site-link {
+  @include my.link-undercover;
+
+  display: block;
+
+  float: left;
+
+  font-size: my.ms(2);
+  font-weight: my.font-weight('bold');
+  white-space: nowrap;
+}
+
 .main-header {
   float: left;
+  clear: left;
 }
 
 [role='banner'] {
 }
 
 .site-info {
-  margin-top: my.$gutter * -2;
+  margin-top: my.$gutter * -1;
 }
 
 .main-header__logo {

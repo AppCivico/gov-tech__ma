@@ -15,6 +15,11 @@
 <input type="checkbox" hidden="hidden" id="menu-controller" />
     <div class="main-header-and-search-form">
         <div class="main-header-and-search-form__container">
+            {if site_id != 1}
+                <a class="main-header__root-site-link">
+                    ❰ ma.gov.br
+                </a>
+            {/if}
             <div role="banner" class="main-header">
                 <div class="site-info">
                     <a href="{site_url}" class="main-header__logo">
