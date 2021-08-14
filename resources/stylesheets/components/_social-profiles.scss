@@ -1,12 +1,13 @@
+@use 'sass:list';
 @use '../abstracts' as my;
 
 $list: (
-  'facebook',
-  'instagram',
-  'telegram',
-  'tiktok',
-  'twitter',
-  'youtube',
+  ('facebook'),
+  ('instagram'),
+  ('telegram', 't.me'),
+  ('tiktok'),
+  ('twitter'),
+  ('youtube'),
 );
 
 ///
@@ -70,9 +71,17 @@ $list: (
   background-position: center center;
 
   @each $network in $list {
-    &[href^='https://www.#{$network}'],
-    &[href^='https://#{$network}'] {
-      background-image: my.image('social/#{$network}.svg');
+    @at-root {
+      %background-#{list.nth($network, 1)} {
+        background-image: my.image('social/#{list.nth($network, 1)}.svg');
+      }
+    }
+
+    @each $domain in $network {
+      &[href^='https://www.#{$domain}'],
+      &[href^='https://#{$domain}'] {
+        @extend %background-#{list.nth($network, 1)};
+      }
     }
   }
 }
