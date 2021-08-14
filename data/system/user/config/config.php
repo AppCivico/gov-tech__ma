@@ -195,7 +195,7 @@ $config['relaxed_track_views'] = 'y';
 $config['require_cookie_consent'] = 'n';
 $config['require_secure_passwords'] = 'y';
 // $config['require_terms_of_service'] = 'y';
-$config['reserved_category_word'] = 'categorias';
+$config['reserved_category_word'] = $assign_to_config['global_vars']['config:reserved_category_word'] = 'categorias';
 $config['share_analytics'] = 'n';
 $config['show_ee_news'] = 'n';
 $config['show_profiler'] = 'n';
