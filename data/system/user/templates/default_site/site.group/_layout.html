@@ -166,13 +166,13 @@
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
 
                 {settings__header}
-                    <style data-js="custom-header" data-idx="{settings__header:count}">
-            .main-header-and-search-form[data-header-idx='{settings__header:count}'] {
-              background-image: url('{settings__header:file}');
-              background-color: color: {settings__header:bg;};
-              color: {settings__header:fg;};
-            }
-                    </style>
+<style data-js="custom-header" data-idx="{settings__header:count}">
+  .main-header-and-search-form[data-header-idx='{settings__header:count}'] {
+    background-image: url('{settings__header:file}');
+    background-color: {settings__header:bg}; /* stylelint-disable-line declaration-block-trailing-semicolon */
+    color: {settings__header:fg}; /* stylelint-disable-line declaration-block-trailing-semicolon */
+  }
+</style>
                 {/settings__header}
 
                 <div class="colophon">
