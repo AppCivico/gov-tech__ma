@@ -1,0 +1,84 @@
+@use '../abstracts' as my;
+
+///
+/// Accessibility bar
+///
+/// @group components
+///
+/// @example html
+/// <div class="a11y-bar">
+///   <ul class="a11y-bar__list">
+///     <li class="a11y-bar__item">
+///       <button type="button" class="a11y-bar__button a11y-bar__button--theme">
+///         tema claro/escuro
+///       </button>
+///     </li>
+///     <li class="a11y-bar__item">
+///       <button type="button" class="a11y-bar__button a11y-bar__button--sign-transcription">
+///         <abbr title="Língua Brasileira de Sinais">LIBRAS</abbr>
+///       </button>
+///     </li>
+///     <li class="a11y-bar__item">
+///       <button type="button" class="a11y-bar__button a11y-bar__button--increase-font">
+///         aumentar corpo de texto
+///       </button>
+///     </li>
+///     <li class="a11y-bar__item">
+///       <button type="button" class="a11y-bar__button a11y-bar__button--decrease-font">
+///         diminuir corpo de texto
+///       </button>
+///     </li>
+///   </ul>
+/// </div>
+
+.a11y-bar {}
+
+.a11y-bar__list {
+  display: table;
+
+  padding: 0;
+  margin: 0;
+
+  border-spacing: my.$gutter * 0.5;
+  border-collapse: separate;
+}
+
+.a11y-bar__item {
+  display: table-cell;
+
+  padding: 0;
+  margin: 0;
+}
+
+.a11y-bar__button {
+  @include my.image-replacement;
+
+  display: block;
+
+  width: my.$gutter;
+  height: my.$gutter;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  background-color: my.palette('neutral', 'white');
+  background-position: 50% 50%;
+  border-radius: my.$rounded-corner--small;
+}
+
+.a11y-bar__button--theme {
+  background-image: my.image('icons/theme.svg');
+}
+
+.a11y-bar__button--sign-transcription {
+  background-image: my.image('icons/sign-transcription.svg');
+}
+
+.a11y-bar__button--increase-font {
+  background-image: my.image('icons/increase-font.svg');
+}
+
+.a11y-bar__button--decrease-font {
+  background-image: my.image('icons/decrease-font.svg');
+}
