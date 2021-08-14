@@ -1,13 +1,19 @@
 <nav class="main-footer__menu-wrapper">
-    {exp:channel:category_archive show_empty="yes" disable="category_fields"
+    {exp:channel:category_archive show_empty="yes"
         channel="page|government_member|service|news|staff"
         style="nested" category_group="{global:footer-menu-group}"
         class="main-footer__menu-list"
     }
         {categories}
-            <span class="main-footer__menu-item-container" tabindex="-1">
-                {category_name}
-            </span>
+            {if url}
+                <a href="{url:url}" class="main-footer__menu-item-link">
+                    {category_name}
+                </a>
+            {if:else}
+                <span class="main-footer__menu-item-container" tabindex="-1">
+                    {category_name}
+                </span>
+            {/if}
         {/categories}
 
         {entry_titles}

@@ -61,14 +61,20 @@
                 </label>
 
                 <nav class="main-nav">
-                    {exp:channel:category_archive disable="category_fields" id="main-menu"
+                    {exp:channel:category_archive id="main-menu"
                         channel="page|government_member|service|news|staff|special"
                         style="nested" category_group="{global:main-menu-group}" class="main-nav__list"
                     }
                         {categories}
-                            <span class="main-nav__menu-item-container" tabindex="-1">
-                                {category_name}
-                            </span>
+                            {if url}
+                                <a href="{url:url}" class="main-nav__menu-item-link">
+                                    {category_name}
+                                </a>
+                            {if:else}
+                                <span class="main-nav__menu-item-container" tabindex="-1">
+                                    {category_name}
+                                </span>
+                            {/if}
                         {/categories}
 
                         {entry_titles}
