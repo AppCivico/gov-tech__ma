@@ -43,6 +43,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:home-special-category'] = '';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '16';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '40';
+        $assign_to_config['global_vars']['global:main-menu-group'] = '';
         $assign_to_config['global_vars']['global:citizen-category-group'] = '';
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
@@ -58,6 +59,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:home-special-category'] = '45';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '44';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '41';
+        $assign_to_config['global_vars']['global:main-menu-group'] = '26';
         $assign_to_config['global_vars']['global:citizen-category-group'] = '22';
         $assign_to_config['global_vars']['global:editorial-group'] = '21';
         break;
@@ -74,6 +76,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:home-special-category'] = '21';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '14';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '30';
+        $assign_to_config['global_vars']['global:main-menu-group'] = '28';
         $assign_to_config['global_vars']['global:citizen-category-group'] = '10';
         $assign_to_config['global_vars']['global:editorial-group'] = '9';
         break;
@@ -89,6 +92,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:home-special-category'] = '';
         $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
         $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
+        $assign_to_config['global_vars']['global:main-menu-group'] = '30';
         $assign_to_config['global_vars']['global:citizen-category-group'] = '4';
         $assign_to_config['global_vars']['global:editorial-group'] = '3';
         break;
