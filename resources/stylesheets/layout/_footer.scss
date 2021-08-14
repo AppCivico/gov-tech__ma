@@ -64,6 +64,10 @@
 
 .colophon {
   flex-basis: 75%;
+.main-footer__menu-item-icon {
+  width: auto;
+  max-height: my.$leading * 1em;
+  margin-right: 0.25em;
 }
 
 .h-card {

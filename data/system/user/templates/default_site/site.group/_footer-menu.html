@@ -7,10 +7,16 @@
         {categories}
             {if url}
                 <a href="{url:url}" class="main-footer__menu-item-link">
+                    {if category_image}
+                        <img src="{category_image}" aria-hidden="true" alt="" />
+                    {/if}
                     {category_name}
                 </a>
             {if:else}
                 <span class="main-footer__menu-item-container" tabindex="-1">
+                    {if category_image}
+                        <img src="{category_image}" aria-hidden="true" alt="" class="main-footer__menu-item-icon" />
+                    {/if}
                     {category_name}
                 </span>
             {/if}
