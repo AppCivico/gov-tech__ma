@@ -4,11 +4,25 @@
         style="nested" category_group="{global:cascade-menu-group}" class="header-nav__list"
     }
         {categories}
-            {category_name}
+            <span class="header-nav__menu-item-container" tabindex="-1">
+                {category_name}
+            </span>
         {/categories}
 
         {entry_titles}
-            <a href="{channel_url}/{url_title}">{title}</a>
+            <a
+            channel_short_name="{channel_short_name}"
+                {if page_uri}
+                    href="{page_uri}"
+                {if:elseif channel_short_name == "page"}
+                    href="/{url_title}"
+                {if:else}
+                    href="{channel_url}/{url_title}"
+                {/if}
+                class="header-nav__menu-link"
+            >
+                {title}
+            </a>
         {/entry_titles}
     {/exp:channel:category_archive}
 </nav>
