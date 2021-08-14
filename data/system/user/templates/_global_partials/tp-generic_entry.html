@@ -1,0 +1,92 @@
+{layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+
+{exp:channel:entries channel="{pr-channels}" limit="1" require_entry="yes" disable="pagination|category_fields|member_data" status="open|draft" show_future_entries="yes"}
+    {tp-check_draft}
+
+    {layout:set name="title"}{title}{/layout:set}
+    {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+    {layout:set name="entry_id"}{entry_id}{/layout:set}
+
+    {layout:set name="canonical"}/{segment_1}/{url_title}{/layout:set}
+    {thumbnail}
+        {layout:set name="sharing_cover"}{url:facebook}{/layout:set}
+    {/thumbnail}
+
+    <article role="main" id="main" class="h-entry">
+        <header class="h-entry__header">
+            <h1 class="h-entry__p-name">{title}</h1>
+            {if subhead}
+                <h2 class="h-entry__subhead">{subhead}</h2>
+            {/if}
+            {if config:editorial_group}
+                {categories limit="1" show_group="{config:editorial_group}"}
+                    <ul class="h-entry__p-category-list">
+                {/categories}
+
+                    {categories show_group="{config:editorial_group}"}
+                        <li class="h-entry__p-category-item" {if color}style="background-color: {color};"{/if}>
+                            <a class="h-entry__p-category-link" href="{path='categorias/index'}">
+                                {category_name}
+                            </a>
+                        </li>
+                    {/categories}
+
+                {categories limit="1" show_group="{config:editorial_group}"}
+                    </ul>
+                {/categories}
+            {/if}
+        </header>
+
+        <!-- {gallery limit="1"}
+            <figure class="hero">
+                {gallery:file}
+                    <img
+                        sizes="(max-width: 744px) 100vw, 744px"
+                        srcset="
+                            {url:300w} 300w,
+                            {url:635w} 635w,
+                            {url:744w} 744w"
+                        src="{url:744w}"
+                        decoding="async"
+                        data-width="744" data-height="311"
+                        width="{width:744w}" height="{height:744w}"
+                        alt="{description}"
+                        class="hero__image"
+                    />
+                {/gallery:file}
+
+                {if gallery:caption}
+                    <figcaption class="hero__caption">{gallery:caption}</figcaption>
+                {/if}
+            </figure>
+        {/gallery} -->
+
+        {if summary}
+            <section class="h-entry__p-summary">{summary}</section>
+        {/if}
+
+        {if body}
+            <section class="h-entry__e-content e-content">{body}</section>
+        {/if}
+
+        {if gallery:total_rows}
+            <section class="gallery">
+                {gallery}
+                    <figure class="gallery__item">
+                        {gallery:file}
+                            <a href="{url}" target="_blank" class="gallery__link" />
+                                <img src="{url:thumb--gallery}"
+                                    data-width="142" data-height="116"
+                                    width="{width:thumb--gallery}" height="{height:thumb--gallery}"
+                                    alt="{description}"
+                                decoding="async" loading="lazy" class="gallery__image" />
+                                {if gallery:caption}<figcaption>{gallery:caption}</figcaption>{/if}
+                            </a>
+                        {/gallery:file}
+                    </figure>
+                {/gallery}
+            </section>
+        {/if}
+
+    </article>
+{/exp:channel:entries}

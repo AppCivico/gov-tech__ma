@@ -1,0 +1,66 @@
+<main class="h-feed">
+    <header class="h-feed__header">
+        {layout:set name="canonical"}{site_url}/{segment_1}/{/layout:set}
+
+        {exp:channel:info channel="{pr-channels}"}
+            <h1 class="h-feed__p-name">{channel_title}</h1>
+
+            {layout:set name="title"}{channel_title}{/layout:set}
+            {layout:set name="description"}{channel_description:attr_safe limit="155"}{/layout:set}
+
+            {if channel_description}
+                <p class="h-feed__e-content">
+                    {channel_description}
+                </p>
+            {/if}
+        {/exp:channel:info}
+
+    {exp:channel:entries channel="{pr-channels}" limit="10" disable="category_fields|member_data" status="open" paginate="inline"}
+        {if no_results}
+            </header>
+        {/if}
+        {if count == "1"}
+            {paginate}
+                <h2 class="h-feed__subhead">
+                    Página {current_page}/{total_pages}
+                </h2>
+            {/paginate}
+        </header>
+
+        <section class="h-feed__list">
+        {/if}
+            <a
+                {if channel_short_name == "page" || page_uri}
+                    href="{page_uri}"
+                {if:else}
+                    href="{segment_1}/{url_title}"
+                {/if}
+                class="h-entry__u-url"
+            >
+                <article id="entry-{entry_id}" class="h-feed__h-entry h-entry">
+                    <header class="h-entry__header">
+                        <h3 class="h-entry__p-name p-name">{title}</h3>
+                        {if channel_short_name != "page"}
+                            <div role="doc-subtitle" class="h-entry__subhead">{channel}</div>
+                        {/if}
+                        <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                            {edit_date format="%d/%m/%Y"}
+                        </time>
+                    </header>
+
+                    <div class="h-entry__p-summary">
+                        {if summary}
+                            <p>{summary:limit characters="280" end_char="…"}</p>
+                        {if:else}
+                            {body:limit characters="280" end_char="…"}
+                        {/if}
+                    </div>
+                </article>
+            </a>
+        {if count == total_results}
+            </section>
+            {tp-pagination}
+        {/if}
+    {/exp:channel:entries}
+
+</main>
