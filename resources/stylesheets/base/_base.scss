@@ -128,6 +128,10 @@ html {
 
   background: my.palette('white');
 
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-property: font-size;
+
   text-size-adjust: 100%; /* 4 */
 
   scroll-padding: calc(3em + 1vh) 0;
