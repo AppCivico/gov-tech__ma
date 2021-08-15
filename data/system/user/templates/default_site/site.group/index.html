@@ -5,15 +5,15 @@
         <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
 
         {exp:query
-        sql="SELECT ec.cat_id, ec.cat_name, COUNT(ecp.entry_id) AS total_entries
+        sql="SELECT GROUP_CONCAT(DISTINCT ec.cat_id SEPARATOR '|') cat_ids, ec.cat_url_title, ec.cat_name
             FROM exp_categories ec
-            JOIN exp_category_groups cg ON ec.group_id = cg.group_id
+            JOIN exp_category_groups cg ON cg.group_id = ec.group_id
             JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
             JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
             JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
-            WHERE ec2.channel_name = 'service'
-                AND LOWER(cg.group_name) = 'perfil do cidadao'
-                AND ect.status = 'open'
+            WHERE LOWER(cg.group_name) = 'perfil do cidadao'
+            AND ec2.channel_name = 'service'
+            AND ect.status != 'closed'
             GROUP BY ec.cat_url_title
             ORDER BY COUNT(ecp.entry_id) DESC
             LIMIT 4"
@@ -22,8 +22,8 @@
             <div class="main-services__category">
                 <h3 class="main-services__title">{cat_name}</h3>
                 <ul class="main-services__list">
-                {exp:channel:entries channel="service" site="not 0" category="{cat_id}"
-                disable="custom_fields|categories|category_fields|member_data|pagination" status="open" limit="5"}
+                {exp:channel:entries channel="service" site="not 0" category="{cat_ids}"
+                disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"}
                     <li class="main-services__item">
                         <a href="https://{relative_url}/{url_title}">{title}</a>
                     </li>
@@ -33,7 +33,8 @@
         {/exp:query}
     </section>
 
-    {exp:channel:entries channel="news" limit="4" disable="categories|category_fields|member_data|pagination" status="not closed"}
+    {exp:channel:entries channel="news" site="not 0" limit="4"
+    disable="categories|category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
         {if count == 1}
         <section class="last-news h-feed">
             <h2 class="last-news__title h-feed__p-name p-name">Últimas notícias</h2>
