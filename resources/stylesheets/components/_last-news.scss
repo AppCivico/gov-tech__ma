@@ -1,6 +1,7 @@
 @use '../abstracts' as my;
 
 .last-news {
+  @include my.clearfix;
   margin-bottom: my.$gutter * 2;
 }
 
@@ -9,6 +10,7 @@
 
   font-size: my.ms(3);
   font-weight: inherit;
+  text-transform: uppercase;
 }
 
 .last-news__link {
@@ -21,12 +23,34 @@
 .last-news__item-thumb {
 }
 
-.last-news__item-title {
+.h-entry__p-name--last-news {
   margin: 0;
 
   font-size: my.ms(-1);
 }
 
-.last-news__date * {
-  color: inherit;
+.last-news__date {
+  * {
+    color: inherit;
+  }
+
+  .dt-published {
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.read-more--last-news {
+  float: right;
+
+  line-height: my.$leading;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border-top: my.$stroke--thin solid my.palette('brand', 'green-medium');
+
+  .read-more__link {
+    @include my.link-undercover;
+  }
 }

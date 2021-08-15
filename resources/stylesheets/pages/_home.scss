@@ -37,13 +37,15 @@
   }
 
   .last-news__title {
-    border-color: my.palette('brand', 'yellow-medium');
+    margin-bottom: my.$gutter;
+
+    border-bottom: my.$stroke solid my.palette('brand', 'yellow-medium');
   }
 
   .h-feed__list--last-news {
     display: grid;
 
-    grid-gap: my.$gutter;
+    grid-gap: my.$gutter * 0.5;
 
     padding-bottom: my.$gutter;
 
@@ -123,9 +125,9 @@
     }
   }
 
-  .last-news__item-title {
+  .last-news__item-header {
     position: absolute;
-    bottom: my.$gutter * 2;
+    bottom: my.$gutter;
     left: 50%;
     z-index: my.layer('default');
 
@@ -136,11 +138,39 @@
     margin-right: auto;
     margin-left: auto;
 
-    font-weight: my.font-weight('black');
+    font-weight: my.font-weight('heading');
     color: inherit;
-    text-align: center;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
 
     transform: translateX(-50%);
+  }
+
+  .h-entry__p-category-list--last-news {
+    margin: 0;
+  }
+
+  .h-entry__p-name--last-news {
+    margin: 0;
+
+    font-size: my.ms(1);
+    font-weight: my.font-weight('heading');
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  @media screen and (min-width: my.breakpoint('phone__landscape')) {
+    .last-news__link:first-child .h-entry__p-name--last-news,
+    .last-news__link:nth-child(2) .h-entry__p-name--last-news {
+      font-size: my.ms(3);
+    }
+  }
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    .last-news__link:first-child .h-entry__p-name--last-news {
+      font-size: my.ms(5);
+    }
   }
 
   .h-entry__u-photo {
@@ -150,21 +180,15 @@
   }
 
   .last-news__date {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    z-index: my.layer('default');
-
     width: 100%;
-    height: my.$gutter * 2;
-    padding-right: my.$gutter;
-    padding-left: my.$gutter;
+    height: auto;
+    margin: 0;
 
     font-size: my.ms(0);
     font-weight: my.font-weight('light');
-    line-height: my.$gutter * 2;
+    line-height: my.$leading;
     color: inherit;
-
-    transform: translateX(-50%);
+    text-align: left;
+    text-transform: lowercase;
   }
 }
