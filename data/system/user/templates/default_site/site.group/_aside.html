@@ -11,7 +11,7 @@
         WHERE ec.site_id = '{site_id}'
             AND LOWER(cg.group_name) = 'perfil do cidadao'
             AND ect.status = 'open'
-            AND ec2.channel_name = 'service'
+            AND ec2.channel_name IN ('service', 'special')
         GROUP BY ec.cat_id
         ORDER BY COUNT(ecp.entry_id) DESC
         LIMIT 4"
@@ -87,7 +87,6 @@
                 </a>
 
         {if count == total_results}
-
             </div>
             <p class="read-more">
                 <a class="read-more__link" href="/noticias/{url_title}">+ Notícias</a>
