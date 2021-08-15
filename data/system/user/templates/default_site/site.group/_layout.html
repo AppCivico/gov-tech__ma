@@ -40,35 +40,6 @@
                 </ul>
             </div>
 
-            {if site_id != 1}
-                <a class="main-header__root-site-link">
-                    ❰ ma.gov.br
-                </a>
-            {/if}
-            <div role="banner" class="main-header">
-                <div class="site-info site-info--header">
-                    <a href="{site_url}" class="main-header__logo">
-                        {if !site_short_name || site_short_name == "default_site"}
-                            <img
-                                src="/assets/images/brand/gov__ma.png"
-                                srcset="/assets/images/brand/gov__ma@2x.png 2x"
-                                alt="{site_name}" width="261" height="123" />
-                        {if:else}
-                            <img
-                                src="/assets/images/brand/{site_short_name}.png"
-                                srcset="/assets/images/brand/{site_short_name}@2x.png 2x"
-                                alt="{site_name}" width="380" height="113"
-                            />
-                        {/if}
-                    </a>
-                    {if layout:header_title}
-                        <h1 class="main-header__title">
-                            {layout:header_title}
-                        </h1>
-                    {/if}
-                </div>
-            </div><!-- .main-header -->
-
             {exp:query sql="SELECT cat_id FROM exp_categories ec WHERE group_id = '{global:main-menu-group}' LIMIT 1;" parse="inward"}
                 <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
                     aria-label="Menu"
@@ -134,6 +105,36 @@
                 {/if}
             {/exp:channel:entries}
 
+            {if site_id != 1}
+                <a class="main-header__root-site-link">
+                    ❰ ma.gov.br
+                </a>
+            {/if}
+
+            <div role="banner" class="main-header">
+                <div class="site-info site-info--header">
+                    <a href="{site_url}" class="main-header__logo">
+                        {if !site_short_name || site_short_name == "default_site"}
+                            <img
+                                src="/assets/images/brand/gov__ma.png"
+                                srcset="/assets/images/brand/gov__ma@2x.png 2x"
+                                alt="{site_name}" width="261" height="123" />
+                        {if:else}
+                            <img
+                                src="/assets/images/brand/{site_short_name}.png"
+                                srcset="/assets/images/brand/{site_short_name}@2x.png 2x"
+                                alt="{site_name}" width="380" height="113"
+                            />
+                        {/if}
+                    </a>
+                    {if site_id != 1}
+                        <h1 class="main-header__title">
+                            {site_name}
+                        </h1>
+                    {/if}
+                </div>
+            </div><!-- .main-header -->
+
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination" parse="inward"}
                 {exp:search:simple_form form_class="search-form search-form--header" result_page="busca/resultados" site="not 0" no_result_page="busca/sem_resultados" search_in="entries" results="10"}
                     <fieldset class="search-form__fieldset">
@@ -178,7 +179,6 @@
 
         {embed="default_site:site/_cascade-menu"}
     </div><!-- .main-header-and-search-form -->
-
 
     {layout:contents}
 

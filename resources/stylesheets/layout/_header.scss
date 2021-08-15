@@ -45,8 +45,8 @@
   display: block;
 
   min-height: 596px;
-  padding-top: my.$gutter * 5;
-  padding-bottom: my.$gutter * 3;
+  padding-top: my.$gutter;
+  padding-bottom: my.$gutter * 2;
 
   > * {
     margin-right: auto;
@@ -68,7 +68,6 @@
 }
 
 .main-header {
-  float: left;
   clear: left;
 }
 
@@ -82,10 +81,14 @@
 .main-header__logo {
   display: block;
 
+  float: left;
+  margin-top: my.$gutter * -0.5;
+  margin-bottom: my.$gutter * 3;
+
   > img {
     display: block;
 
-    margin: auto;
+    margin: 0;
     object-fit: contain;
   }
 }
@@ -95,19 +98,33 @@
 
   font-size: my.ms(7);
   font-weight: my.font-weight('bold');
+  line-height: 1;
   text-align: center;
 }
 
 .social-profiles--header {
+  float: right;
+  margin-top: my.$gutter;
   margin-right: 0;
+  margin-right: 0;
+  margin-bottom: my.$gutter;
+  margin-left: auto;
   margin-left: auto;
 
+  filter: brightness(100);
   filter: brightness(100);
 }
 
 .search-form--header {
-  margin-top: my.$gutter * 5;
+  max-width: my.$max-width--narrow;
   clear: both;
+}
+
+.a11y-bar--header {
+  .a11y-bar__list {
+    margin-right: 0;
+    margin-left: auto;
+  }
 }
 
 .header-nav {
@@ -203,6 +220,7 @@
     z-index: my.layer('dropdown') - 1;
 
     padding: my.$gutter;
+    overflow: hidden;
     clip-path: polygon(-60px #{my.$stroke__thick * -1}, calc(100% + 60px) #{my.$stroke__thick * -1}, calc(100% + 60px) calc(100% + 60px), -60px calc(100% + 60px));
 
     font-weight: my.font-weight('medium');
@@ -275,7 +293,7 @@
   z-index: my.layer('default');
 
   float: right;
-  margin: 0 0 my.$gutter 0;
+  margin: my.$gutter 0 0 0;
 
   color: inherit;
 
