@@ -11,7 +11,6 @@
     background-size: cover;
   }
 
-
   .site-info {
   }
 
@@ -26,6 +25,32 @@
   }
 
   .search-form {
+  }
+
+  .h-feed__p-name--main-services {
+    font-size: my.ms(2);
+  }
+
+  .main-services__title {
+    font-size: my.ms(5);
+    font-weight: my.font-weight('bold');
+  }
+
+  .main-services__list {
+    &::after {
+      position: absolute;
+      top: my.$gutter * 0.5;
+      right: my.$gutter * -1;
+      bottom: my.$gutter * 0.5;
+
+      content: '';
+
+      border-right: my.$stroke__thin solid my.palette('neutral', 'base');
+    }
+  }
+
+  :last-child > .main-services__list::after {
+    content: none;
   }
 }
 
