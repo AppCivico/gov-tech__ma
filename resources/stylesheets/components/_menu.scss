@@ -27,17 +27,22 @@
 
   transition-timing-function: ease-out;
   transition-duration: 300ms;
-  transition-property: opacity transform;
+  transition-property: opacity, transform;
   transform: scale(0);
   transform-origin: 50% 0;
 
   [id='menu-controller']:checked + * & {
-    display: block;
+    display: flex;
+
+    align-content: center;
 
     visibility: visible;
 
     opacity: 1;
 
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+    transition-property: opacity, transform;
     transform: scale(1);
   }
 }
@@ -53,23 +58,68 @@
 }
 
 .main-nav__list {
-  @include my.columns;
   @include my.container;
-
-  column-width: 20em;
 
   display: block;
 
   width: 100%;
   margin: 0 auto;
 
-  text-align: left;
+  font-weight: my.font-weight('bold');
+  text-align: center;
+  text-align: center;
 }
 
 .main-nav li {
-  margin-bottom: my.$gutter;
+  display: block;
+
+  margin-bottom: 0;
+
+  [tabindex] {
+    cursor: pointer;
+  }
+}
+
+.main-nav li ul {
+  display: block;
+
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  font-weight: my.font-weight(normal);
+
+  opacity: 0;
+
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-property: margin-top, max-height, opacity;
+}
+
+.main-nav li:focus,
+.main-nav li:focus-within {
+  pointer-events: none;
+}
+
+.main-nav li:focus-within ul,
+.main-nav li:focus ul {
+  max-height: 999em;
+  margin-top: my.$gutter;
+
+  pointer-events: auto;
+
+  opacity: 1;
+
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-property: margin-top, max-height, opacity;
 }
 
 .main-nav__list a {
-  padding: 0;
+  display: inline-flex;
+
+  justify-content: center;
+
+  padding: my.$gutter * 0.5;
 }
