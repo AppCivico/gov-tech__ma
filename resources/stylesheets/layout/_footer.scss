@@ -23,8 +23,6 @@
   @include my.container;
 
 
-
-
   font-size: my.ms(-1);
 
   .social-profiles {
@@ -50,7 +48,7 @@
   overflow: hidden;
 
   font-size: ms(-1);
-  font-weight: my.font-weight('black');
+  font-weight: my.font-weight('heading');
   color: my.palette('neutral', 'white');
   text-align: center;
   text-transform: uppercase;
