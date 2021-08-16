@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../abstracts' as my;
 
 /* feed
@@ -45,6 +46,8 @@
   }
 
   .h-entry__p-summary {
+    max-width: map.get(my.$line-lengths, 'max');
+
     font-size: my.ms(-1);
   }
 }
