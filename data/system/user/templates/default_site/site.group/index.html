@@ -47,7 +47,7 @@
         {/if}
                 <a
                     href='https://{relative_url}/{url_title}'
-                    class="h-entry__u-url h-entry__u-url--last-news"
+                    class="h-entry__u-url h-entry__u-url--last-news h-entry__u-url--featured"
                 >
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--last-news h-entry h-feed__h-entry--featured">
                         {if count == 1}
@@ -107,7 +107,7 @@
                                 {/categories}
                             {/if}
                             <h3 class="h-entry__p-name p-name h-entry__p-name--last-news">{title}</h3>
-                            <p class="h-entry__dt-published last-news__date">
+                            <p class="h-entry__dt-published h-entry__dt-published--last-news">
                                 <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
                                     {edit_date format="%d de %F de %Y"}
                                 </time>

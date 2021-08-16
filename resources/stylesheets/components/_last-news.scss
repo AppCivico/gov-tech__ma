@@ -105,7 +105,9 @@
     object-fit: cover;
   }
 
-  .last-news__date {
+  .h-entry__dt-published--last-news {
+    margin-bottom: 0;
+
     text-transform: lowercase;
 
     * {
@@ -115,14 +117,6 @@
     .dt-published {
       &::before {
         content: none;
-      }
-    }
-  }
-
-  .read-more--last-news {
-    .read-more__link {
-      &::before {
-        color: my.palette('brand', 'green-medium');
       }
     }
   }
