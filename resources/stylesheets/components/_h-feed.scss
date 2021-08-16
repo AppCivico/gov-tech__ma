@@ -4,14 +4,24 @@
 * @see http://microformats.org/wiki/h-feed
 */
 .h-feed {
-  .h-feed__h-entry {
-    margin-bottom: my.$gutter;
+  color: my.palette('neutral', 'dark');
+
+  .h-entry__subhead {
+    display: inline;
+
+    margin: 0;
   }
 
   .h-entry__p-name {
-    margin: 0;
+    display: block;
 
-    font-size: my.ms(-1);
+    max-width: 25em;
+    margin-bottom: my.$gutter * 0.5;
+
+    font-size: my.ms(3);
+    font-weight: my.font-weight('bold');
+    color: my.palette('neutral', 'black');
+    text-decoration: underline;
   }
 
   .h-entry__u-photo {
@@ -22,20 +32,52 @@
     @include my.link-undercover;
   }
 
-  .h-entry__dt-published {
+  .dt-published {
+    display: inline;
+
     margin-bottom: 0;
 
-    font-size: my.ms(-2);
-    color: my.palette('neutral', 'dark');
+    font-style: inherit;
+
+    &::before {
+      content: '• ';
+    }
+  }
+
+  .h-entry__p-summary {
+    font-size: my.ms(-1);
   }
 }
 
-.h-feed__p-name {
-  font-size: my.ms(2);
-  font-weight: my.font-weight('bold');
-  text-transform: uppercase;
+.h-feed__header {
+  margin-bottom: my.$gutter;
+}
 
-  border-bottom: my.$stroke solid;
+.h-feed__subhead {
+  display: inline;
+
+  margin: 0;
+
+  font-size: my.ms(-2);
+  font-weight: inherit;
+  text-transform: uppercase;
+}
+
+.h-feed__p-name {
+  margin: 0 0 my.$gutter 0;
+
+  font-size: my.ms(4);
+  font-weight: inherit;
+  color: my.palette('neutral', 'black');
+
+  border-bottom: 0;
+}
+
+.h-feed__e-content {
+}
+
+.h-feed__h-entry {
+  margin-bottom: my.$gutter * 3;
 }
 
 .h-feed__p-summary {

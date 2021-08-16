@@ -43,65 +43,57 @@
   .read-more__link {
     @include my.link-undercover;
   }
-}
 
-.h-feed__p-name--main-services {
-  flex-basis: 100%;
+  .h-feed__p-name--main-services {
+    flex-basis: 100%;
 
-  margin-bottom: my.$gutter * 2;
+    margin-bottom: my.$gutter * 2;
 
-  border-bottom-color: my.palette('brand', 'blue-medium');
-}
+    font-weight: my.font-weight('bold');
+    text-transform: uppercase;
 
-.main-services__title {
-  @include my.truncate;
-
-  font-size: my.ms(2);
-  color: my.palette('brand', 'blue-medium');
-  text-decoration: underline;
-  white-space: nowrap;
-}
-
-.main-services__category {
-  flex-basis: calc(50% - #{my.$gutter * 2});
-  flex-grow: 1;
-
-  min-width: 10em;
-  padding-right: my.$gutter;
-  padding-left: my.$gutter;
-
-  @media screen and (min-width: my.breakpoint('tablet__landscape')) {
-    flex-basis: 0;
-  }
-}
-
-.main-services__list {
-  position: relative;
-
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-
-  &::after {
-    position: absolute;
-    top: my.$gutter * 0.5;
-    right: my.$gutter * -1;
-    bottom: my.$gutter * 0.5;
-
-    content: '';
-
-    border-right: my.$stroke__thin solid my.palette('neutral', 'base');
+    border-bottom: my.$stroke solid my.palette('brand', 'blue-medium');
   }
 
-  :last-child > & {
-    &::after {
-      content: none;
+  .main-services__title {
+    @include my.truncate;
+
+    font-size: my.ms(2);
+    color: my.palette('brand', 'blue-medium');
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  .main-services__category {
+    flex-basis: calc(50% - #{my.$gutter * 2});
+    flex-grow: 1;
+
+    min-width: 10em;
+    padding-right: my.$gutter;
+    padding-left: my.$gutter;
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      flex-basis: 0;
     }
   }
-}
+
+  .main-services__list {
+    position: relative;
+
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+
+    :last-child > & {
+      &::after {
+        content: none;
+      }
+    }
+  }
 
 
-.main-services__item {
-  padding: 0;
-  margin: 0 0 my.$gutter * 0.5 0;
+  .main-services__item {
+    padding: 0;
+    margin: 0 0 my.$gutter * 0.5 0;
+  }
 }
