@@ -221,7 +221,7 @@
     clip-path: polygon(-60px #{my.$stroke__thick * -1}, calc(100% + 60px) #{my.$stroke__thick * -1}, calc(100% + 60px) calc(100% + 60px), -60px calc(100% + 60px));
 
     font-weight: my.font-weight('medium');
-    line-height: 1;
+    line-height: 1.25;
     text-align: left;
     white-space: normal;
 
