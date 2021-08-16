@@ -30,21 +30,26 @@
                 {/exp:channel:entries}
                 </ul>
             </div>
+            <!-- <p class="read-more">
+                <a class="read-more__link" href="/servicos/{config:reserved_category_word}/{cat_url_title}">+ Serviços
+                    para
+                    {cat_name}</a>
+            </p> -->
         {/exp:query}
     </section>
 
     {exp:channel:entries channel="news" site="not 0" limit="4"
-    disable="categories|category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
+    disable="category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
         {if count == 1}
         <section class="last-news h-feed">
-            <h2 class="last-news__title h-feed__p-name p-name">Últimas notícias</h2>
+            <h2 class="h-feed__p-name--last-news h-feed__p-name p-name">Últimas notícias</h2>
             <div class="h-feed__list h-feed__list--last-news">
         {/if}
                 <a
                     href='https://{relative_url}/{url_title}'
-                    class="last-news__link h-entry__u-url"
+                    class="h-entry__u-url h-entry__u-url--last-news"
                 >
-                    <article id="entry-{entry_id}" class="h-feed__h-entry h-entry last-news__item">
+                    <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--last-news h-entry h-feed__h-entry--featured">
                         {if count == 1}
                             {thumbnail}
                                 <img
@@ -54,7 +59,7 @@
                                 width="{width:featured__square--large}" height="{height:featured__square--large}"
                                 src="{url:featured__square--large}"
                                 decoding="async" loading="lazy"
-                                class="h-entry__u-photo u-photo last-news__item-thumb"
+                                class="h-entry__u-photo u-photo h-entry__u-photo--featured"
                                 alt="{description}"
                             />
                             {/thumbnail}
@@ -70,7 +75,7 @@
                                     width="{width:featured__wide}" height="{height:featured__wide}"
                                     src="{url:featured__wide}"
                                     decoding="async" loading="lazy"
-                                    class="h-entry__u-photo u-photo last-news__item-thumb"
+                                    class="h-entry__u-photo u-photo h-entry__u-photo--featured"
                                     alt="{description}"
                                 />
                             {/thumbnail}
@@ -81,29 +86,42 @@
                                     width="{width:featured__square--small}" height="{height:featured__square--small}"
                                     src="{url:featured__square--small}"
                                     decoding="async" loading="lazy"
-                                    class="h-entry__u-photo u-photo last-news__item-thumb"
+                                    class="h-entry__u-photo u-photo h-entry__u-photo--featured"
                                     alt="{description}"
                                 />
                             {/thumbnail}
                         {/if}
-                        {if config:editorial_group}
-                            {categories limit="1" show_group="{config:editorial_group}"}
-                                <h4 class="h-entry__subhead">
-                                    {category_name}
-                                </h4>
-                            {/categories}
-                        {/if}
-                        <h3 class="h-entry__p-name p-name last-news__item-title">{title}</h3>
-                        <p class="h-entry__dt-published last-news__date">
-                            <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
-                                {edit_date format="%d de %F de %Y"}
-                            </time>
-                        </p>
+
+                        <div class="h-entry__header--featured">
+                            {if global:editorial-group}
+                                {categories limit="1" show_group="{global:editorial-group}"}
+                                    <ul class="h-entry__p-category-list h-entry__p-category-list--last-news">
+                                {/categories}
+                                    {categories limit="1" show_group="{global:editorial-group}"}
+                                        <li class="h-entry__p-category-item">
+                                            {category_name}
+                                        </li>
+                                    {/categories}
+                                {categories limit="1" show_group="{global:editorial-group}"}
+                                    </ul>
+                                {/categories}
+                            {/if}
+                            <h3 class="h-entry__p-name p-name h-entry__p-name--last-news">{title}</h3>
+                            <p class="h-entry__dt-published last-news__date">
+                                <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
+                                    {edit_date format="%d de %F de %Y"}
+                                </time>
+                            </p>
+                        </div>
                     </article>
                 </a>
 
         {if count == total_results}
             </div>
+
+            <p class="read-more read-more--last-news">
+                <a class="read-more__link" href="/noticias">+ Notícias</a>
+            </p>
         </section>
         {/if}
     {/exp:channel:entries}

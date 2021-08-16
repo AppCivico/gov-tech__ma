@@ -18,12 +18,12 @@
             {if subhead}
                 <h2 class="h-entry__subhead">{subhead}</h2>
             {/if}
-            {if config:editorial_group}
-                {categories limit="1" show_group="{config:editorial_group}"}
+            {if global:editorial-group}
+                {categories limit="1" show_group="{global:editorial-group}"}
                     <ul class="h-entry__p-category-list">
                 {/categories}
 
-                    {categories show_group="{config:editorial_group}"}
+                    {categories show_group="{global:editorial-group}"}
                         <li class="h-entry__p-category-item" {if color}style="background-color: {color};"{/if}>
                             <a class="h-entry__p-category-link" href="{path='categorias/index'}">
                                 {category_name}
@@ -31,7 +31,7 @@
                         </li>
                     {/categories}
 
-                {categories limit="1" show_group="{config:editorial_group}"}
+                {categories limit="1" show_group="{global:editorial-group}"}
                     </ul>
                 {/categories}
             {/if}

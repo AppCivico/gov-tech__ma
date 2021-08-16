@@ -4,26 +4,24 @@
 
 <main id="main" class="sec-home__main">
     {exp:channel:entries channel="service" limit="8" category="{global:home-services-category}" status="open"
-        disable="categories|category_fields|member_data|pagination" category_group="{global:interface-category-group}"
-        search:icon="not IS_EMPTY"
-    }
+        disable="categories|category_fields|member_data|pagination}
         {if count == 1}
-        <section class="h-feed main-services">
-            <h2 class="h-feed__p-name p-name main-services__title">Mais serviços</h2>
-            <div class="h-feed__list main-services__list">
+        <section class="h-feed home-services">
+            <h2 class="h-feed__p-name h-feed__p-name--home-services p-name">Serviços</h2>
+            <div class="h-feed__list h-feed__list--home-services">
         {/if}
                 <a
                     href='{url_title_path="servicos/index"}'
-                    class="main-services__link h-entry__u-url"
+                    class="h-entry__u-url--home-services h-entry__u-url"
                 >
-                    <article class="h-feed__h-entry h-entry main-services__item">
-                        <img
-                            {icon}
+                    <article class="h-feed__h-entry h-entry h-feed__h-entry--home-services">
+                        {icon}
+                            <img
                                 width="{width}" height="{height}" src="{url}" alt="{description}"
-                            {/icon}
-                            decoding="async" loading="lazy" class="h-entry__u-photo u-photo main-services__thumb"
-                        />
-                        <h3 class="h-entry__p-name p-name main-services__item-title">{title}</h3>
+                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo home-services__thumb"
+                            />
+                        {/icon}
+                        <h3 class="h-entry__p-name p-name h-entry__p-name--home-services">{title}</h3>
                     </article>
                 </a>
         {if count == total_results}
@@ -32,27 +30,27 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:channel:entries channel="special" limit="10" category="{global:home-special-category}" status="open"
+    {exp:channel:entries channel="special" limit="10" category="{global:home-special-category}" status="not closed"
         disable="categories|category_fields|member_data|pagination" category_group="{global:interface-category-group}"
-        search:thumbnail="not IS_EMPTY"
+        search:icon="not IS_EMPTY" orderby="title" sort="asc"
     }
         {if count == 1}
         <section class="h-feed special-entries">
-            <h2 class="h-feed__p-name p-name special-entries__title">{channel}</h2>
-            <div class="h-feed__list special-entries__list">
+            <h2 class="h-feed__p-name p-name h-feed__p-name--special-entries">{channel}</h2>
+            <div class="h-feed__list h-feed__list--special-entries">
         {/if}
                 <a
                     href='{url_title_path="programas-e-campanhas/index"}'
-                    class="special-entries__link h-entry__u-url"
+                    class="h-entry__u-url--special-entries h-entry__u-url"
                     title="{title}"
                 >
-                    <article class="h-feed__h-entry h-entry special-entries__item">
+                    <article class="h-feed__h-entry h-entry h-feed__h-entry--special-entries">
                         <img
-                            width="130" height="76"
-                            {thumbnail}
+                            data-width="130" data-height="76"
+                            {icon}
                                 width="{width}" height="{height}" src="{url}" alt="{description}"
-                            {/thumbnail}
-                            decoding="async" loading="lazy" class="h-entry__u-photo u-photo special-entries__thumb"
+                            {/icon}
+                            decoding="async" loading="lazy" class="h-entry__u-photo u-photo h-entry__u-photo--special-entries"
                         />
                     </article>
                 </a>
