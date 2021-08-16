@@ -12,21 +12,55 @@
 ///
 
 .read-more {
+  @include my.clearfix;
+
+  grid-column: 1/-1;
+
   overflow: hidden;
 
-  font-size: my.ms(-1);
   font-weight: my.font-weight('bold');
-  line-height: my.$gutter * 2;
+  text-align: right;
   text-overflow: ellipsis;
 
   border-bottom: 0;
 }
 
 .read-more__link {
+  @include my.link-undercover;
+
+  position: relative;
+
   display: block;
 
-  @include my.link-undercover {
-    color: my.palette('brand', 'blue-medium');
-    text-decoration: underline;
+  float: right;
+  padding-right: my.$gutter * 0.5;
+  padding-left: my.$gutter * 0.5;
+  margin-top: my.$gutter;
+  margin-bottom: my.$gutter;
+
+  @include my.on-event {
+    &::before {
+      bottom: 0;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: my.layer('below');
+
+    color: my.palette('brand', 'green-medium');
+
+    content: '';
+
+    background-color: currentColor;
+    border-top: my.$stroke__thin solid currentColor;
+
+    transition-timing-function: ease-out;
+    transition-duration: 100ms;
+    transition-property: bottom;
   }
 }
