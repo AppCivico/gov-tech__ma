@@ -52,10 +52,10 @@ $palette: map.set($palette, 'brand', $brand);
 $neutral: (
   'white': hsl(0, 0%, 100%),
   'x-light': color.scale(hsl(0, 0%, 97%), $whiteness: 10%),
-  'light': hsl(0, 0%, 97%),
+  'light': hsl(0, 0%, 95%),
   'base': hsl(0, 0%, 78%),
   'dark': hsl(0, 0%, 35%),
-  'x-dark': color.scale(hsl(0, 0%, 35%), $blackness: 10%),
+  'x-dark': color.scale(hsl(345, 6%, 13%), $whiteness: 10%),
   'black': hsl(345, 6%, 13%),
 );
 $palette: map.set($palette, 'neutral', $neutral);

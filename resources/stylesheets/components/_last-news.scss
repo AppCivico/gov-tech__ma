@@ -17,7 +17,6 @@
   }
 
   .h-feed__list--last-news {
-    padding-bottom: my.$gutter;
   }
 
   .h-entry__u-url--last-news {
@@ -39,6 +38,7 @@
   }
 
   .h-feed__h-entry--last-news {
+    margin-bottom: my.$gutter;
   }
 
   .h-feed__h-entry--featured {
@@ -66,16 +66,14 @@
 
   .h-entry__header--featured {
     position: absolute;
-    bottom: my.$gutter;
-    left: 0;
+    right: auto;
+    bottom: my.$gutter * 0.5;
+    left: my.$gutter * 0.5;
     z-index: my.layer('default');
 
-    width: 100%;
-    max-width: 40rem;
-    padding-right: my.$gutter;
-    padding-left: my.$gutter;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: calc(100% - #{my.$gutter});
+    padding: my.$gutter * 0.5;
+    margin: 0 auto;
 
     color: inherit;
     text-align: left;

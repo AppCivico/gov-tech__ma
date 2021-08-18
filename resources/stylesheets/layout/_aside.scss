@@ -93,7 +93,7 @@
 
     line-height: my.$gutter * 2;
 
-    border-bottom: my.$stroke solid my.palette('neutral', 'light');
+    border-bottom: my.$stroke__thin solid my.palette('neutral', 'light');
   }
 
   .main-aside__link--read-more {

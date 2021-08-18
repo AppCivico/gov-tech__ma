@@ -8,9 +8,11 @@
   left: 0;
   z-index: my.layer('modal');
 
+  display: flex;
+
   flex-wrap: wrap;
 
-  align-content: flex-start;
+  align-content: center;
   align-items: flex-start;
 
   padding: my.$gutter;
@@ -32,10 +34,6 @@
   transform-origin: 50% 0;
 
   [id='menu-controller']:checked + * & {
-    display: flex;
-
-    align-content: center;
-
     visibility: visible;
 
     opacity: 1;

@@ -124,6 +124,7 @@ html {
   overflow-x: hidden;
 
   font-size: 100.01%; /* 1 */
+  color: my.palette('black');
   tab-size: 4;
 
   background: my.palette('white');
@@ -131,9 +132,7 @@ html {
   transition-timing-function: ease-out;
   transition-duration: 300ms;
   transition-property: font-size;
-
   text-size-adjust: 100%; /* 4 */
-
   scroll-padding: calc(3em + 1vh) 0;
 
   &:focus-within {
@@ -158,7 +157,7 @@ body {
   margin: 0;
   // overflow: hidden;
 
-  color: my.palette('black');
+  color: inherit;
 
   > * {
     flex-shrink: 0; /* 1 */

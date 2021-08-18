@@ -19,7 +19,7 @@
             LIMIT 4"
             parse="inward"
         }
-            <div class="main-services__category">
+            <div class="main-services__category main-services__category--{cat_url_title}">
                 <h3 class="main-services__title">{cat_name}</h3>
                 <ul class="main-services__list">
                 {exp:channel:entries channel="service" site="not 0" category="{cat_ids}"

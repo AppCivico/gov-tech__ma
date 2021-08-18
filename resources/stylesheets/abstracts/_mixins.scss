@@ -968,3 +968,17 @@ $no-viewport: false !default;
 
   font-size: calc(#{$min} + #{f.strip-unit($max - $min)} * ((100vw - 20em) / #{f.strip-unit(100em - 20em)}));
 }
+
+@mixin headings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  legend,
+  caption,
+  details > summary {
+    @content;
+  }
+}

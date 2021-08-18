@@ -129,7 +129,9 @@
 
   white-space: nowrap;
 
-  border: my.$stroke__thin solid my.palette('neutral', 'white');
+  border-color: currentColor;
+  border-style: solid;
+  border-width: my.$stroke__thin;
 
   &:hover,
   &:focus {

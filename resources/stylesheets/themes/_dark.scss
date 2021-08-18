@@ -1,0 +1,51 @@
+@use '../abstracts' as my;
+
+[data-theme='dark']:root {
+  color-scheme: dark;
+}
+
+[data-theme='light']:root {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color: my.palette('neutral', 'white');
+
+    background-color: my.palette('neutral', 'black');
+
+    .header-nav,
+    .header-nav__list> li> ul,
+    .main-nav {
+      color: my.palette('neutral', 'white');
+
+      background-color: my.palette('neutral', 'x-dark');
+    }
+
+    .h-entry__header--featured {
+      color: my.palette('neutral', 'black');
+
+      background-color: my.palette('neutral', 'white');
+    }
+
+    .h-entry--quick-links,
+    .main-footer__menu-wrapper {
+      color: my.palette('neutral', 'black');
+
+      background-color: my.palette('neutral', 'white');
+    }
+
+    .main-footer__wrapper {
+      background-color: my.palette('neutral', 'black');
+    }
+
+    .main-header-and-search-form {
+      background-color: my.palette('neutral', 'x-dark');
+    }
+
+    .main-footer__wrapper .powered-by__image,
+    .main-footer__wrapper .social-profiles__link {
+      filter: invert(100%);
+    }
+  }
+}

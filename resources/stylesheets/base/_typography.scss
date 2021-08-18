@@ -14,6 +14,10 @@
   vertical-align: inherit; /* 2 */
 }
 
+html {
+  color: my.palette('text', 'dark');
+}
+
 /**
  * Basic typography style for copy text
  */
@@ -22,7 +26,6 @@ body {
   font-size: my.$body-font-size;
   font-weight: my.font-weight('text');
   line-height: my.$leading;
-  color: my.palette('text', 'dark');
 }
 
 /* HEADINGS AND TITLES */
@@ -32,15 +35,7 @@ body {
  * @see https://bugzilla.mozilla.org/show_bug.cgi?id=458634
  * @see https://bugzilla.mozilla.org/show_bug.cgi?id=611780
  */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-legend,
-caption,
-details > summary {
+@include my.headings {
   margin-top: my.$gutter * 2;
   margin-bottom: my.$gutter;
 

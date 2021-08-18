@@ -5,8 +5,6 @@
 * @see http://microformats.org/wiki/h-feed
 */
 .h-feed {
-  color: my.palette('neutral', 'dark');
-
   .h-entry__subhead {
     display: inline;
 
@@ -21,7 +19,6 @@
 
     font-size: my.ms(3);
     font-weight: my.font-weight('bold');
-    color: my.palette('neutral', 'black');
     text-decoration: underline;
   }
 
@@ -71,7 +68,6 @@
 
   font-size: my.ms(4);
   font-weight: inherit;
-  color: my.palette('neutral', 'black');
 
   border-bottom: 0;
 }
