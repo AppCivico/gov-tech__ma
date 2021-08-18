@@ -8,8 +8,16 @@
   color-scheme: light;
 }
 
+@mixin transition {
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-property: background-color, color;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
+    @include transition;
+
     color: my.palette('neutral', 'white');
 
     background-color: my.palette('neutral', 'black');
@@ -17,12 +25,16 @@
     .header-nav,
     .header-nav__list> li> ul,
     .main-nav {
+      @include transition;
+
       color: my.palette('neutral', 'white');
 
       background-color: my.palette('neutral', 'x-dark');
     }
 
     .h-entry__header--featured {
+      @include transition;
+
       color: my.palette('neutral', 'black');
 
       background-color: my.palette('neutral', 'white');
@@ -30,21 +42,29 @@
 
     .h-entry--quick-links,
     .main-footer__menu-wrapper {
+      @include transition;
+
       color: my.palette('neutral', 'black');
 
       background-color: my.palette('neutral', 'white');
     }
 
     .main-footer__wrapper {
+      @include transition;
+
       background-color: my.palette('neutral', 'black');
     }
 
     .main-header-and-search-form {
+      @include transition;
+
       background-color: my.palette('neutral', 'x-dark');
     }
 
     .main-footer__wrapper .powered-by__image,
     .main-footer__wrapper .social-profiles__link {
+      @include transition;
+
       filter: invert(100%);
     }
   }
