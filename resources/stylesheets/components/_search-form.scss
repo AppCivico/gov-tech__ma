@@ -35,7 +35,7 @@
 
     display: flex;
 
-    padding: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) (my.$gutter * 0.5);
+    padding: (my.$gutter * 0.25) 0 (my.$gutter * 0.25) (my.$gutter * 0.5);
     margin: 0;
 
     background-color: my.palette('neutral', 'white');
@@ -64,7 +64,7 @@
 
   .search-form__legend {
     $min-font: my.ms(2);
-    $max-font: my.ms(9);
+    $max-font: my.ms(5);
 
     @include my.truncate;
     @include my.fluid-font($min: $min-font, $max: $max-font);
@@ -75,9 +75,8 @@
     left: 0;
 
     width: auto;
-    margin-bottom: my.$gutter;
+    margin-bottom: my.$gutter * 0.5;
 
-    font-weight: inherit;
     text-align: center;
     text-transform: none;
   }
@@ -121,7 +120,7 @@
   .search-form__field--text {
     padding-left: my.$gutter;
 
-    font-size: my.ms(3);
+    font-size: my.ms(2);
     text-align: left;
   }
 
