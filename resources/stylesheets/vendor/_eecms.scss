@@ -8,17 +8,23 @@
 .image {
   display: block;
 
-  margin-bottom: my.$gutter * 3;
+  margin-bottom: 0;
 }
 
-.image-style-side {}
+.image-style-side {
+  float: left;
+  margin-right: my.$gutter * 1.5;
+  margin-bottom: my.$gutter;
+  clear: none;
+}
 
 .image-style-align-center {
   display: block;
 
   margin-right: auto;
-  margin-bottom: my.$gutter;
+  margin-bottom: my.$gutter * 3;
   margin-left: auto;
+  clear: both;
 }
 
 .image-style-align-right {
