@@ -15,7 +15,7 @@
             {/if}
         {/exp:channel:info}
 
-    {exp:channel:entries channel="{pr-channels}" limit="10" disable="category_fields|member_data" status="open" paginate="inline"}
+    {exp:channel:entries channel="{pr-channels}" site="{if site_id == 1}not 0{/if}" limit="10" disable="category_fields|member_data" status="open" paginate="inline" parse="inward"}
         {if no_results}
             </header>
         {/if}
@@ -33,7 +33,7 @@
                 {if channel_short_name == "page" || page_uri}
                     href="{page_uri}"
                 {if:else}
-                    href="/{segment_1}/{url_title}"
+                    href="https:/{relative_url}/{url_title}"
                 {/if}
                 class="h-entry__u-url"
             >
