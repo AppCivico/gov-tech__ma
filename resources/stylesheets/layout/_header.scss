@@ -42,16 +42,25 @@
   @include my.container;
   @include my.clearfix;
 
-  display: block;
+  display: flex;
+  display: flex;
 
-  min-height: 596px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  align-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+
+  height: 70vh;
+  min-height: my.$gutter * 20; // 480px
+  max-height: my.$gutter * 27; // 648px
   padding-top: my.$gutter;
-  padding-bottom: my.$gutter * 2;
+  padding-bottom: my.$gutter;
 
   > * {
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-left: auto;
+    width: 100%;
   }
 }
 
@@ -75,15 +84,20 @@
 }
 
 .site-info--header {
+  float: left;
+  width: max-content;
   margin-top: my.$gutter * -1;
 }
 
 .main-header__logo {
   display: block;
 
-  float: left;
   margin-top: my.$gutter * -0.5;
-  margin-bottom: my.$gutter * 3;
+  margin-right: auto;
+  margin-bottom: my.$gutter;
+  margin-left: auto;
+
+  background-color: transparent;
 
   > img {
     display: block;
@@ -114,7 +128,9 @@
 
 .search-form--header {
   max-width: my.$max-width--narrow;
-  clear: both;
+  height: auto;
+  padding-top: my.$gutter;
+  margin: auto;
 }
 
 .a11y-bar--header {

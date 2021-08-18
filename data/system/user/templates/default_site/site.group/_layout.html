@@ -42,79 +42,79 @@
                 </ul>
             </div>
 
-            {exp:query sql="SELECT cat_id FROM exp_categories ec WHERE group_id = '{global:main-menu-group}' LIMIT 1;" parse="inward"}
-                <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
-                    aria-label="Menu"
-                    onclick="
-                        this.classList.toggle('opened');
-                        this.setAttribute('aria-expanded', this.classList.contains('opened'))
-                    "
-                >
-                    <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
-                        <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
-                        <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                        <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                        <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
-                    </svg>
-                </label>
+            <div class="main-header">
+                {exp:query sql="SELECT cat_id FROM exp_categories ec WHERE group_id = '{global:main-menu-group}' LIMIT 1;" parse="inward"}
+                    <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
+                        aria-label="Menu"
+                        onclick="
+                            this.classList.toggle('opened');
+                            this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                        "
+                    >
+                        <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
+                            <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                            <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                        </svg>
+                    </label>
 
-                <nav class="main-nav">
-                    {exp:channel:category_archive id="main-menu"
-                        channel="page|government_member|service|news|staff|special"
-                        style="nested" category_group="{global:main-menu-group}" class="main-nav__list"
-                    }
-                        {categories}
-                            {if url}
-                                <a href="{url:url}" class="main-nav__menu-item-link">
-                                    {category_name}
-                                </a>
-                            {if:else}
-                                <span class="main-nav__menu-item-container" tabindex="-1">
-                                    {category_name}
-                                </span>
-                            {/if}
-                        {/categories}
-
-                        {entry_titles}
-                            <a
-                                {if page_uri}
-                                    href="{page_uri}"
-                                {if:elseif channel_short_name == "page"}
-                                    href="/{url_title}"
+                    <nav class="main-nav">
+                        {exp:channel:category_archive id="main-menu"
+                            channel="page|government_member|service|news|staff|special"
+                            style="nested" category_group="{global:main-menu-group}" class="main-nav__list"
+                        }
+                            {categories}
+                                {if url}
+                                    <a href="{url:url}" class="main-nav__menu-item-link">
+                                        {category_name}
+                                    </a>
                                 {if:else}
-                                    href="{channel_url}/{url_title}"
+                                    <span class="main-nav__menu-item-container" tabindex="-1">
+                                        {category_name}
+                                    </span>
                                 {/if}
-                                class="main-nav__menu-link"
-                            >
-                                {title}
-                            </a>
-                        {/entry_titles}
-                    {/exp:channel:category_archive}
-                </nav>
-            {/exp:query}
+                            {/categories}
 
-            {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-                {if settings__social_profiles:total_rows}
-                    <ul class="social-profiles social-profiles--header">
-                        {settings__social_profiles}
-                            <li class="social-profiles__item">
-                                <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
-                                    {settings__social_profiles:url}
+                            {entry_titles}
+                                <a
+                                    {if page_uri}
+                                        href="{page_uri}"
+                                    {if:elseif channel_short_name == "page"}
+                                        href="/{url_title}"
+                                    {if:else}
+                                        href="{channel_url}/{url_title}"
+                                    {/if}
+                                    class="main-nav__menu-link"
+                                >
+                                    {title}
                                 </a>
-                            </li>
-                        {/settings__social_profiles}
-                    </ul>
+                            {/entry_titles}
+                        {/exp:channel:category_archive}
+                    </nav>
+                {/exp:query}
+
+                {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
+                    {if settings__social_profiles:total_rows}
+                        <ul class="social-profiles social-profiles--header">
+                            {settings__social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
+                                        {settings__social_profiles:url}
+                                    </a>
+                                </li>
+                            {/settings__social_profiles}
+                        </ul>
+                    {/if}
+                {/exp:channel:entries}
+
+                {if site_id != 1}
+                    <a class="main-header__root-site-link">
+                       ❮ ma.gov.br
+                    </a>
                 {/if}
-            {/exp:channel:entries}
 
-            {if site_id != 1}
-                <a class="main-header__root-site-link">
-                   ❮ ma.gov.br
-                </a>
-            {/if}
-
-            <div role="banner" class="main-header">
-                <div class="site-info site-info--header">
+                <div role="banner" class="site-info site-info--header">
                     <a href="{site_url}" class="main-header__logo">
                         {if !site_short_name || site_short_name == "default_site"}
                             <img
