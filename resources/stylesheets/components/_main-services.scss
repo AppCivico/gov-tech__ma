@@ -26,21 +26,18 @@
   }
 
   .read-more {
-    float: right;
-    padding-right: my.$gutter * 0.5;
-    padding-left: my.$gutter * 0.5;
+    flex-basis: 100%;
+
     margin-right: 0;
     margin-left: auto;
-
-    font-weight: my.font-weight('bold');
-    line-height: inherit;
-    text-transform: uppercase;
-
-    border-top: my.$stroke solid my.palette('brand', 'green-medium');
   }
 
   .read-more__link {
     @include my.link-undercover;
+
+    &::before {
+      color: my.palette('brand', 'green-medium');
+    }
   }
 
   .h-feed__p-name--main-services {
@@ -57,7 +54,8 @@
   .main-services__title {
     @include my.truncate;
 
-    font-size: my.ms(2);
+    font-size: my.ms(4);
+    font-weight: my.font-weight('bold');
     color: my.palette('brand', 'blue-medium');
     text-decoration: underline;
     white-space: nowrap;
@@ -82,12 +80,6 @@
     padding: 0;
     margin: 0;
     overflow: visible;
-
-    :last-child > & {
-      &::after {
-        content: none;
-      }
-    }
   }
 
 

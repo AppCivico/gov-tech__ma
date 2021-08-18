@@ -24,12 +24,9 @@
     font-size: my.ms(2);
   }
 
-  .main-services__title {
-    font-size: my.ms(5);
-    font-weight: my.font-weight('bold');
-  }
-
   .main-services__list {
+    position: relative;
+
     &::after {
       position: absolute;
       top: my.$gutter * 0.5;
@@ -38,11 +35,11 @@
 
       content: '';
 
-      border-right: my.$stroke solid my.palette('neutral', 'base');
+      border-right: my.$stroke__thin solid my.palette('neutral', 'base');
     }
   }
 
-  :last-child > .main-services__list::after {
+  :last-of-type > .main-services__list::after {
     content: none;
   }
 }
