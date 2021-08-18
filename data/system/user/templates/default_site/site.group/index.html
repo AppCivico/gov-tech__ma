@@ -30,11 +30,11 @@
                 {/exp:channel:entries}
                 </ul>
             </div>
-            <!-- <p class="read-more">
-                <a class="read-more__link" href="/servicos/{config:reserved_category_word}/{cat_url_title}">+ Serviços
-                    para
-                    {cat_name}</a>
-            </p> -->
+            {if count == total_results}
+                <p class="read-more read-more--main-services">
+                    <a class="read-more__link" href="/servicos/">+ Serviços</a>
+                </p>
+            {/if}
         {/exp:query}
     </section>
 
