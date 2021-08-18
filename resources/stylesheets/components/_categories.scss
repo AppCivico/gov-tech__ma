@@ -30,9 +30,9 @@
   padding: 0;
   margin: 0 0 my.$gutter 0;
 
+  font-size: my.ms(-1);
   font-weight: my.font-weight('bold');
   color: my.palette('neutral', 'white');
-  text-overflow: ellipsis;
   text-transform: uppercase;
   vertical-align: middle;
 }
@@ -40,12 +40,15 @@
 .h-entry__p-category-item {
   display: inline-block;
 
-  padding: my.$rounded-corner--small (my.$gutter * 0.5);
+  max-width: 100%;
+  padding: 0 0.75rem;
   margin-right: my.$gutter * 0.33;
   margin-bottom: my.$gutter * 0.33;
   overflow: hidden;
 
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   background-color: my.palette('brand', 'red-medium');
 
