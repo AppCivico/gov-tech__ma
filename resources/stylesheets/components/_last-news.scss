@@ -3,7 +3,7 @@
 .last-news {
   @include my.clearfix;
 
-  margin-bottom: my.$gutter * 2;
+  margin-bottom: my.$gutter;
 
   .h-feed__p-name--last-news {
     margin-bottom: my.$gutter;

@@ -9,13 +9,12 @@
 
   flex-wrap: wrap;
 
-  margin-bottom: my.$gutter * 3;
+  margin-bottom: my.$gutter;
 
   // reset lists
   ul,
   li {
     display: block;
-
 
     &::before {
       content: none;
