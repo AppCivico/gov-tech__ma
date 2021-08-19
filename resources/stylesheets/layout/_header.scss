@@ -43,13 +43,9 @@
   @include my.clearfix;
 
   display: flex;
-  display: flex;
 
   flex-direction: column;
-  flex-wrap: wrap;
-  flex-wrap: wrap;
 
-  align-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
 
@@ -96,6 +92,7 @@
 .site-info--header {
   float: left;
   width: max-content;
+  max-width: 100%;
   margin-top: my.$gutter * -1;
   clear: left;
 }
