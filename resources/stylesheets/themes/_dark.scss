@@ -40,6 +40,11 @@
       background-color: my.palette('neutral', 'white');
     }
 
+    .main-services .main-services__title {
+      color: inherit;
+      text-decoration-color: my.palette('brand', 'blue-medium');
+    }
+
     .h-entry--quick-links,
     .main-footer__menu-wrapper {
       @include transition;
