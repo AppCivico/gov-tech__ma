@@ -55,24 +55,28 @@
                             <img
                                 width="1116" height="512"
                                 sizes="(max-width: 1116px) 100vw, 1116px"
-                                srcset="
-                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='300' height='150'} 300w,
-                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='635' height='318'} 635w,
-                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='886' height='443'} 886w,
-                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1079' height='540'} 1079w,
-                                    {thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1116' height='558'} 1116w"
-                                src="{thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='1116' height='512'}"
-                                decoding="async" loading="lazy"
-                                class="h-entry__u-photo u-photo h-entry__u-photo--featured"
-                                {thumbnail}alt="{description}"{/thumbnail}
+                                {thumbnail}
+                                    srcset="
+                                        {url:300w} 300w,
+                                        {url:635w} 635w,
+                                        {url:886w} 886w,
+                                        {url:1079w} 1079w,
+                                        {url:1116w} 1116w"
+                                    src="{url:1116w}"
+                                    decoding="async" loading="lazy"
+                                    class="h-entry__u-photo u-photo h-entry__u-photo--featured"
+                                    alt="{description}"
+                                {/thumbnail}
                             />
                         {if:else}
                             <img
-                                width="260" height="200"
-                                src="{thumbnail:resize_crop resize:master_dim='width' crop:maintain_ratio='n' width='260' height='200'}"
-                                decoding="async" loading="lazy"
-                                class="h-entry__u-photo h-entry__u-photo--last-news u-photo"
-                                {thumbnail}alt="{description}"{/thumbnail}
+                                {thumbnail}
+                                    width="260" height="200"
+                                    src="{url:thumb-aside}"
+                                    decoding="async" loading="lazy"
+                                    class="h-entry__u-photo h-entry__u-photo--last-news u-photo"
+                                    alt="{description}"
+                                {/thumbnail}
                             />
                         {/if}
 
