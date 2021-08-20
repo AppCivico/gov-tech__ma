@@ -978,7 +978,7 @@ $no-viewport: false !default;
   h6,
   legend,
   caption,
-  details > summary {
+  summary {
     @content;
   }
 }

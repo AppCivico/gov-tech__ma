@@ -143,10 +143,10 @@ html {
 }
 
 /**
- * 1. Set sticky footer
- * 2. Prevents IE10-11 flex container bug
- * https: //github.com/philipwalton/flexbugs#flexbug-3
- */
+  * 1. Set sticky footer
+  * 2. Prevents IE10-11 flex container bug
+  * https: //github.com/philipwalton/flexbugs#flexbug-3
+  */
 body {
   display: flex; /* 1 */
 
@@ -236,30 +236,37 @@ summary {
   &:hover,
   &:focus {
     &::before {
-      @include my.triangle('bottom', my.palette('black'), 0.25em);
     }
   }
 
   &::before {
-    @include my.triangle('left', my.palette('neutral', 'base'), 0.25em);
-
     position: absolute;
-    top: my.$leading * 0.5em;
-    right: 0;
+    left: my.$gutter;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: my.$gutter;
+    height: my.$leading * 1em;
+
+    color: my.palette('brand', 'blue-medium');
+    text-align: center;
 
     content: '';
+
+    background-image: my.image('icons/plus.svg');
+    background-position: 50% 50%;
   }
 
   details[open] > &::before {
-    @include my.triangle('bottom', my.palette('neutral', 'base'), 0.25em);
-
-    content: '';
+    background-image: my.image('icons/minus.svg');
   }
 
   details[open] > &:hover,
   details[open] > &:focus {
     &::before {
-      @include my.triangle('left', my.palette('black'), 0.25em);
     }
   }
 
@@ -286,6 +293,20 @@ summary {
         opacity: 1;
       }
     }
+  }
+}
+
+details {
+  summary {
+    padding-left: my.$gutter * 3;
+
+    + * {
+      padding-left: my.$gutter * 3;
+    }
+  }
+
+  + details {
+    border-top: my.$stroke__thin solid my.palette('neutral', 'light');
   }
 }
 
