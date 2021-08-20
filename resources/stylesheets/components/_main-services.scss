@@ -1,4 +1,8 @@
+@use 'sass:math';
+
 @use '../abstracts' as my;
+
+$column-width: 10em;
 
 .main-services {
   @include my.clearfix;
@@ -65,7 +69,7 @@
     flex-basis: calc(50% - #{my.$gutter * 2});
     flex-grow: 1;
 
-    min-width: 10em;
+    min-width: $column-width;
     padding-right: my.$gutter;
     padding-left: my.$gutter;
 
@@ -75,13 +79,39 @@
   }
 
   .main-services__list {
+    $column-width: $column-width * math.div(my.ms(4), 1rem);
+
     position: relative;
 
     padding: 0;
     margin: 0;
     overflow: visible;
+
+    &::after {
+      position: absolute;
+      top: my.$gutter * 0.5;
+      right: my.$gutter * -1;
+      bottom: my.$gutter * 0.5;
+
+      border-right: my.$stroke__thin solid my.palette('neutral', 'base');
+    }
+
+    @media screen and (min-width: #{$column-width * 2}) {
+      &:nth-child(odd)::after {
+        content: '';
+      }
+    }
+
+    @media screen and (min-width: #{$column-width * 4}) {
+      &::after {
+        content: '';
+      }
+    }
   }
 
+  :last-of-type > .main-services__list::after {
+    content: none;
+  }
 
   .main-services__item {
     padding: 0;
