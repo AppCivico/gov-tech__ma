@@ -20,7 +20,6 @@
     color: transparent;
 
     background: transparent;
-
     border-color: transparent;
 
     @if meta.type-of($height) != 'number' or math.is-unitless($height) {
@@ -102,7 +101,6 @@
   display: block;
 
   width: 100%; /* 1 */
-
   padding: 0;
 
   vertical-align: middle;
@@ -110,7 +108,6 @@
   cursor: pointer;
 
   background: transparent;
-
   border: 0; /* 1 */
 
   appearance: none;
@@ -125,7 +122,6 @@
 
   @include range-thumb($height: 1.5rem, $track-height: 0.125rem) { // stylelint-disable-line mixins-before-declarations
     background-color: my.palette('button', 'slider');
-
     border: 0;
   }
 

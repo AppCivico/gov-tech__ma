@@ -15,11 +15,9 @@ td {
   height: auto;
 
   font-size: 1em;
-
   vertical-align: top;
 
   background-color: transparent;
-
   border: 0;
 
   @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
@@ -34,13 +32,11 @@ table {
   margin-left: 0;
 
   font-family: inherit;
-
   font-size: 100%;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 0;
 
   empty-cells: show;
   border-spacing: 0;
-
   border-collapse: separate;
 
   border-radius: my.$rounded-corner;

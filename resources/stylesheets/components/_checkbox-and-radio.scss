@@ -21,7 +21,6 @@ fieldset ul li {
   margin: 0;
 
   white-space: nowrap;
-
   list-style-type: none;
 
   &::before {
@@ -32,9 +31,9 @@ fieldset ul li {
 li label {
   display: inline;
 
-  white-space: normal;
-
   padding: 0 0.5em;
+
+  white-space: normal;
 }
 
 /**
@@ -48,16 +47,15 @@ li label {
  */
 [type='checkbox'],
 [type='radio'] {
+  box-sizing: border-box; /* 1 */
+
   width: auto;
   height: auto; /* 3 */
-
   padding: 0; /* 2 */
 
   vertical-align: middle;
 
   cursor: pointer;
-
-  box-sizing: border-box; /* 1 */
 
   &:hover {
   }
@@ -97,7 +95,7 @@ li :checked + label {
 
 [disabled] + label,
 :disabled + label {
-  cursor: default;
-
   color: my.palette('disabled', 'foreground');
+
+  cursor: default;
 }
