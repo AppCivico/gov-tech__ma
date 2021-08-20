@@ -108,13 +108,16 @@ herman:
     - "hsl"
 
   extraDocs:
-    - 'docs/extraDocs/routes.md'
+    - 'docs/extraDocs/assets.md'
+    - 'docs/extraDocs/routes-and-templates.md'
 
   extraLinks:
     - name: "Governo do Estado do Maranhão"
       url: "https://ma.gov.br"
     - name: "AppCívico"
       url: "https://appcivico.com"
+    - name: "github"
+      url: "https://github.com/appCivico/gov-tech__ma"
 
   sass:
     includePaths:
