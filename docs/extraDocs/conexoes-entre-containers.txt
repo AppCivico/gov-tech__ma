@@ -4,22 +4,27 @@ externo->nginx: Recebe request
 nginx->apache: envia request
 note right of nginx: analisa rate-limit e cache
 
-opt
+opt consulta o cache
 apache->redis: consulta o cache
 redis->apache: resposta cache
 end
 
-opt
+opt consulta o banco
 apache->db: consulta o banco
 db->apache: resposta queries
 end
 
-opt serviço de busca
+opt serviço de busca NLP
 apache->pythia: consulta o pythia
 pythia->dialogflow: consulta dialogflow
 note right of dialogflow: serviço externo
 dialogflow->pythia: responde JSON
 pythia->apache: responde HTML
+end
+opt serviço de e-mail SMTP
+apache->SMTP: envia o body do email
+note left of SMTP: Serviço externo, precisa ser configurado.
+SMTP->apache: resposta OK
 end
 
 apache->nginx: responde

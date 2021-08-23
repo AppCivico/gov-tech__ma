@@ -15,6 +15,9 @@ Existirá uma pequena parte escrita em Go, que é para fazer a comunicação com
 
 # Deploy com docker-compose
 
+Containers:
+<img src="https://raw.githubusercontent.com/AppCivico/gov-tech__ma/main/docs/extraDocs/container_ma_gov.svg">
+
 Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os seguintes componentes:
 
 - redis: redis-server 5 para cache do CMS
@@ -23,8 +26,10 @@ Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os
 - pythia: API para autenticar os requests de busca para o Dialogflow
 - nginx: Aplica regras de cache/rate-liming e load-balance entre as instancias do apache
 
+Comunicação entre os containers:
+<img src="https://github.com/AppCivico/gov-tech__ma/blob/main/docs/extraDocs/conexoes-entre-containers.png?raw=true">
 
-Na maquina onde ficará hospedado o docker, é necessário haver um serviço (pode ser nginx, ou outro de preferencia) para fazer a terminação HTTPS e encaminhar o request para o container do nginx.
+Na maquina onde ficará hospedado o docker, é necessário haver um serviço de proxy reverso; Pode ser nginx, ou outro de preferencia, ele será responsável por fazer a terminação HTTPS e encaminhar o request para o container do nginx.
 
 **ATENÇÂO** O proxy deve adicionar o IP do usuário real no header `X-Real-IP` para que o rate-limiting e os logs do CMS fiquem corretos.
 
