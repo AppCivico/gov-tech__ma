@@ -3,13 +3,24 @@ title Conexões entre os containers
 externo->nginx: Recebe request
 nginx->apache: envia request
 note right of nginx: analisa rate-limit e cache
-apache->db: consulta o banco
-db->apache: resposta queries
+
+opt
 apache->redis: consulta o cache
 redis->apache: resposta cache
+end
+
+opt
+apache->db: consulta o banco
+db->apache: resposta queries
+end
+
+opt serviço de busca
 apache->pythia: consulta o pythia
 pythia->dialogflow: consulta dialogflow
 note right of dialogflow: serviço externo
-dialogflow->pythia: responde
-pythia->apache: responde
+dialogflow->pythia: responde JSON
+pythia->apache: responde HTML
+end
+
 apache->nginx: responde
+nginx->externo: responde html
