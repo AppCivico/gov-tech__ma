@@ -16,6 +16,7 @@ Existirá uma pequena parte escrita em Go, que é para fazer a comunicação com
 # Deploy com docker-compose
 
 Containers:
+
 <img src="https://raw.githubusercontent.com/AppCivico/gov-tech__ma/main/docs/extraDocs/container_ma_gov.svg">
 
 Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os seguintes componentes:
@@ -80,6 +81,12 @@ Existem 3 volumes que serão criados:
 - db_data: banco de dados do MariaDB - **importante ter backup**
 - redis_data: dump / restore do Redis, para os restarts.
 - nginx_cache: cache dos assets e rate-limit.
+
+Considerando que o nome que o docker-compose deu para o projeto foi `maappcivicocom` os arquivos do banco estarão na pasta `/var/lib/docker/volumes/maappcivicocom_db_data/_data/`
+
+O docker-compose por padrão usa o nome da pasta onde o docker-compose.yml foi localizado para criar um prefixo nos containers. Você pode sobre-escrever passando o paramentro `-p`, por exemplo, `docker-compose logs -f -p maappcivicocom`
+
+Essa configuração também pode ser feita alterando a variável `COMPOSE_PROJECT_NAME`
 
 ## Alterações nas configurações
 
