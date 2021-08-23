@@ -10,7 +10,7 @@ if (!isset($assign_to_config['global_vars']))
   $assign_to_config['global_vars'] = array(); // This array must be associative
 
 $protocol = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-$port = $_SERVER["SERVER_PORT"];
+$port = isset($_SERVER["SERVER_PORT"]) ? $_SERVER["SERVER_PORT"] : 80;
 
 /**
  * @see https://stackoverflow.com/a/42387790
