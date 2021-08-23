@@ -11,15 +11,16 @@
 
 O ExpressionEngine é a maior parte do código fonte deste projeto, e é escrito em PHP 7, e necessita de um banco de dados compartível com MySQL.
 
-<s>Existe uma pequena parte escrita em Go, que é para fazer a comunicação com a API do Dialogflow. O código go é complicado para um binário durante o build da imagem, e pode ser copiado para subir sem o docker.</s>
+Existirá uma pequena parte escrita em Go, que é para fazer a comunicação com a API do Dialogflow. O código go é compilado para um binário durante o build da imagem, e pode ser copiado para subir sem o docker.
 
 # Deploy com docker-compose
 
 Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os seguintes componentes:
 
+- redis: redis-server 5 para cache do CMS
 - db: Banco de dados para o CMS, MariaDB 10.5
 - apache: Responsável por interpretar o PHP (CMS ExpressionEngine)
-- redis: redis-server 5 para cache do CMS
+- pythia: API para autenticar os requests de busca para o Dialogflow
 - nginx: Aplica regras de cache/rate-liming e load-balance entre as instancias do apache
 
 
@@ -61,10 +62,29 @@ Ao executar o comando `docker-compose up -d` e aguardar o download/build das ima
     ma_gov_mariadb            docker-entrypoint.sh mysqld      Up      3306/tcp
     ma_gov_web                /docker-entrypoint.sh ngin ...   Up      172.17.0.1:50025->80/tcp
     ma_redis                  /opt/bitnami/scripts/redis ...   Up      6379/tcp
+    ma_pythia                 (TODO)
     maappcivicocom_apache_1   /entrypoint.sh apache2-for ...   Up      80/tcp
 
 O container do apache pode ser executado com mais de uma replica caso o processo precise escalar. Porém, o apache já executa vários processo que podem saturar a CPU. De qualquer forma, se necessário, é possível adicionar mais processos do apache usando o comando `docker-compose up -d --scale apache=2` para ter dois containers do apache. O container `ma_gov_web` irá continuar usando a mesma porta e fazendo load-balance entre as instancias dos apaches.
 
+
+## Volumes
+
+Existem 3 volumes que serão criados:
+
+- db_data: banco de dados do MariaDB - **importante ter backup**
+- redis_data: dump / restore do Redis, para os restarts.
+- nginx_cache: cache dos assets e rate-limit.
+
+## Alterações nas configurações
+
+Após fazer alterações no docker-compose, é necessário executar o comando para que as novas variáveis de ambiente ou imagens entrem no ar:
+
+    docker-compose up -d --build
+
+É importante acompanhar os logs para verificar se aconteceu algum problema:
+
+    docker-compose logs -f
 
 # Configuração do proxy reverso
 
