@@ -104,36 +104,36 @@ Apenas para fins de exemplos, segue configuração que o AppCívico está usando
 
 
     server {
-    	listen 80;
-    	server_name ma.appcivico.com.br;
+        listen 80;
+        server_name ma.appcivico.com.br;
 
-    	return 302 https://ma.appcivico.com.br$request_uri;
+        return 302 https://ma.appcivico.com.br$request_uri;
     }
 
     server {
-    	listen 443 ssl;
+        listen 443 ssl;
 
         #	server_name ma.appcivico.com.br turismo-ma.appcivico.com.br setur-ma.appcivico.com.br detran-ma.appcivico.com.br transito-ma.appcivico.com.br direitos-ma.appcivico.com.br sedihpop-ma.appcivico.com.br mapa-ma.appcivico.com.br stc-ma.appcivico.com.br agem-ma.appcivico.com.br agerp-ma.appcivico.com.br egma-ma.appcivico.com.br saf-ma.appcivico.com.br;
 
         # usando regexp para pegar todos os subdomínios que terminem com -ma.
         server_name ma.appcivico.com.br ~^\w+\-ma.appcivico.com.br;
 
-    	charset utf-8;
+        charset utf-8;
 
         # self signed -- ver https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
         ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
         ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
 
-    	location / {
-	        proxy_read_timeout 300s;
-    		proxy_connect_timeout 75s;
+        location / {
+            proxy_read_timeout 300s;
+            proxy_connect_timeout 75s;
             proxy_pass http://172.17.0.1:50025; ## Endereço da interface do container `ma_gov_web`
-    		proxy_http_version 1.1;
-    		proxy_set_header Upgrade $http_upgrade;
-    		proxy_set_header Connection 'upgrade';
-    		proxy_set_header Host $host;
-    		proxy_cache_bypass $http_upgrade;
-    	}
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+        }
 
     }
 
