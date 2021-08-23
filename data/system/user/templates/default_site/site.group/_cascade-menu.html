@@ -1,7 +1,8 @@
+{exp:query sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu em cascata' LIMIT 1;" parse="inward"}
 <nav class="header-nav">
     {exp:channel:category_archive show_empty="no"
         channel="page|government_member|service|news|staff|special"
-        style="nested" category_group="{global:cascade-menu-group}" class="header-nav__list"
+        style="nested" category_group="{group_id}" class="header-nav__list"
     }
         {categories}
             {if url}
@@ -32,3 +33,4 @@
         {/entry_titles}
     {/exp:channel:category_archive}
 </nav>
+{/exp:query}

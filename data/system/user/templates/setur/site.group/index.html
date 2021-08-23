@@ -3,62 +3,30 @@
 {if segment_2}{redirect="404"}{/if}
 
 <main id="main" class="sec-home__main">
-    {exp:channel:entries channel="service" limit="8" category="{global:home-services-category}" status="open"
-        disable="categories|category_fields|member_data|pagination}
-        {if count == 1}
-        <section class="h-feed home-services">
-            <h2 class="h-feed__p-name h-feed__p-name--home-services p-name">Serviços</h2>
-            <div class="h-feed__list h-feed__list--home-services">
-        {/if}
-                <a
-                    href='{url_title_path="servicos/index"}'
-                    class="h-entry__u-url--home-services h-entry__u-url"
-                >
-                    <article class="h-feed__h-entry h-entry h-feed__h-entry--home-services">
-                        {icon}
-                            <img
-                                width="{width}" height="{height}" src="{url}" alt="{description}"
-                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo home-services__thumb"
-                            />
-                        {/icon}
-                        <h3 class="h-entry__p-name p-name h-entry__p-name--home-services">{title}</h3>
-                    </article>
-                </a>
-        {if count == total_results}
-            </div>
-        </section>
-        {/if}
-    {/exp:channel:entries}
-
-    {exp:channel:entries channel="special" limit="10" category="{global:home-special-category}" status="not closed"
-        disable="categories|category_fields|member_data|pagination" category_group="{global:interface-category-group}"
-        search:icon="not IS_EMPTY" orderby="title" sort="asc"
+    {exp:query
+        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
+            FROM exp_categories ec
+            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
+            WHERE ecg.group_name = 'aparecer na area publica'
+            AND ec.cat_url_title = 'home-services'
+            AND ec.site_id = {site_id}
+            LIMIT 1;
+        "
     }
-        {if count == 1}
-        <section class="h-feed special-entries">
-            <h2 class="h-feed__p-name p-name h-feed__p-name--special-entries">{channel}</h2>
-            <div class="h-feed__list h-feed__list--special-entries">
-        {/if}
-                <a
-                    href='{url_title_path="programas-e-campanhas/index"}'
-                    class="h-entry__u-url--special-entries h-entry__u-url"
-                    title="{title}"
-                >
-                    <article class="h-feed__h-entry h-entry h-feed__h-entry--special-entries">
-                        <img
-                            data-width="130" data-height="76"
-                            {icon}
-                                width="{width}" height="{height}" src="{url}" alt="{description}"
-                            {/icon}
-                            decoding="async" loading="lazy" class="h-entry__u-photo u-photo h-entry__u-photo--special-entries"
-                        />
-                    </article>
-                </a>
-        {if count == total_results}
-            </div>
-        </section>
-        {/if}
-    {/exp:channel:entries}
+        {embed="default_site:site/_home-services" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="8"}
+    {/exp:query}
+
+    {exp:query
+        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
+            FROM exp_categories ec
+            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
+            WHERE ecg.group_name = 'aparecer na area publica'
+            AND ec.cat_url_title = 'home-special'
+            AND ec.site_id = {site_id}
+            LIMIT 1;"
+    }
+        {embed="default_site:site/_home-special" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="10"}
+    {/exp:query}
 
     {embed="default_site:site/_aside"}
 </main>

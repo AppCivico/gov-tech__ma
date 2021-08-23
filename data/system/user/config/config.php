@@ -38,14 +38,8 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'detran-ma.appcivico.com.br':
     case 'transito-ma.appcivico.com.br':
         $site_name = 'detran';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '15';
-        $assign_to_config['global_vars']['global:home-services-category'] = '';
-        $assign_to_config['global_vars']['global:home-special-category'] = '';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '16';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '40';
-        $assign_to_config['global_vars']['global:footer-menu-group'] = '';
-        $assign_to_config['global_vars']['global:main-menu-group'] = '';
-        $assign_to_config['global_vars']['global:citizen-category-group'] = '';
+        $assign_to_config['global_vars']['global:editorial-group'] = '';
+        break;
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
@@ -55,14 +49,6 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'direitos-ma.appcivico.com.br':
     case 'sedihpop-ma.appcivico.com.br':
         $site_name = 'sedihpop';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '18';
-        $assign_to_config['global_vars']['global:home-services-category'] = '43';
-        $assign_to_config['global_vars']['global:home-special-category'] = '45';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '44';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '41';
-        $assign_to_config['global_vars']['global:footer-menu-group'] = '25';
-        $assign_to_config['global_vars']['global:main-menu-group'] = '26';
-        $assign_to_config['global_vars']['global:citizen-category-group'] = '22';
         $assign_to_config['global_vars']['global:editorial-group'] = '21';
         break;
 
@@ -73,14 +59,6 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'setur-ma.appcivico.com.br':
     case 'turismo-ma.appcivico.com.br':
         $site_name = 'setur';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '11';
-        $assign_to_config['global_vars']['global:home-services-category'] = '42';
-        $assign_to_config['global_vars']['global:home-special-category'] = '21';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '14';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '30';
-        $assign_to_config['global_vars']['global:footer-menu-group'] = '27';
-        $assign_to_config['global_vars']['global:main-menu-group'] = '28';
-        $assign_to_config['global_vars']['global:citizen-category-group'] = '10';
         $assign_to_config['global_vars']['global:editorial-group'] = '9';
         break;
 
@@ -90,14 +68,6 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'localhost':
     default:
         $site_name = 'default_site';
-        $assign_to_config['global_vars']['global:interface-category-group'] = '2';
-        $assign_to_config['global_vars']['global:home-services-category'] = '';
-        $assign_to_config['global_vars']['global:home-special-category'] = '';
-        $assign_to_config['global_vars']['global:cascade-menu-group'] = '5';
-        $assign_to_config['global_vars']['global:footer-menu-category'] = '32';
-        $assign_to_config['global_vars']['global:footer-menu-group'] = '29';
-        $assign_to_config['global_vars']['global:main-menu-group'] = '30';
-        $assign_to_config['global_vars']['global:citizen-category-group'] = '4';
         $assign_to_config['global_vars']['global:editorial-group'] = '3';
         break;
 }

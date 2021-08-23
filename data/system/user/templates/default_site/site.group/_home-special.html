@@ -1,0 +1,29 @@
+{exp:channel:entries channel="special" limit="{embed:limit}" category="{embed:cat_id}" status="not closed"
+    disable="categories|category_fields|member_data|pagination" category_group="{embed:group_id}"
+    search:icon="not IS_EMPTY" orderby="title" sort="asc"
+}
+    {if count == 1}
+    <section class="h-feed special-entries">
+        <h2 class="h-feed__p-name p-name h-feed__p-name--special-entries">{embed:title}</h2>
+        <div class="h-feed__list h-feed__list--special-entries">
+    {/if}
+            <a
+                href='{url_title_path="programas-e-campanhas/index"}'
+                class="h-entry__u-url--special-entries h-entry__u-url"
+                title="{title}"
+            >
+                <article class="h-feed__h-entry h-entry h-feed__h-entry--special-entries">
+                    <img
+                        data-width="130" data-height="76"
+                        {icon}
+                            width="{width}" height="{height}" src="{url}" alt="{description}"
+                        {/icon}
+                        decoding="async" loading="lazy" class="h-entry__u-photo u-photo h-entry__u-photo--special-entries"
+                    />
+                </article>
+            </a>
+    {if count == total_results}
+        </div>
+    </section>
+    {/if}
+{/exp:channel:entries}
