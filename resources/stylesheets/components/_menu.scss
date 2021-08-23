@@ -92,7 +92,7 @@
 
   transition-timing-function: ease-out;
   transition-duration: 300ms;
-  transition-property: margin-top, max-height, opacity;
+  transition-property: max-height, opacity;
 }
 
 .main-nav li:focus,
@@ -103,7 +103,6 @@
 .main-nav li:focus-within ul,
 .main-nav li:focus ul {
   max-height: 999em;
-  margin-top: my.$gutter;
 
   pointer-events: auto;
 
@@ -114,6 +113,8 @@
   transition-property: margin-top, max-height, opacity;
 }
 
+
+.main-nav__menu-item-container,
 .main-nav__list a {
   display: inline-flex;
 

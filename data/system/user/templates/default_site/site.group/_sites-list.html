@@ -1,0 +1,27 @@
+<ul class="main-nav__list main-nav__list--sites">
+    <li>
+        <span class="main-nav__menu-item-container" tabindex="-1">
+            Secretarias e Órgãos
+        </span>
+
+        <ul class="main-nav__list main-nav__list--sites">
+            {exp:query
+                sql="SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
+                MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
+                MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
+                FROM exp_config ec
+                JOIN exp_sites es ON es.site_id = ec.site_id
+                GROUP BY ec.site_id"
+                parse="inward"
+            }
+                {if msm_is_site_on == 'y'}
+                    <li class="main-nav__item main-nav__item--{msm_site_name}">
+                        <a href="{msm_site_url}">
+                            {msm_site_label}
+                        </a>
+                    </li>
+                {/if}
+            {/exp:query}
+        </ul>
+    </li>
+</ul>
