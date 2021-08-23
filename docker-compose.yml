@@ -69,7 +69,7 @@ services:
         max-size: "${LOG_MAX_SIZE}"
     volumes:
       - nginx_cache:/cache-data
-      networks:
+    networks:
       - cms
     restart: unless-stopped
     ports:
