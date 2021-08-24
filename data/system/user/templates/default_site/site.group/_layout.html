@@ -43,61 +43,63 @@
             </div>
 
             <div class="main-header">
-                {exp:query
-                        sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
-                        parse="inward"
-                }
-                    <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
-                        aria-label="Menu"
-                        onclick="
-                            this.classList.toggle('opened');
-                            this.setAttribute('aria-expanded', this.classList.contains('opened'))
-                        "
-                    >
-                        <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
-                            <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
-                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                            <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
-                        </svg>
-                    </label>
+                {if site_id == "1"}
+                    {exp:query
+                            sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
+                            parse="inward"
+                    }
+                        <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
+                            aria-label="Menu"
+                            onclick="
+                                this.classList.toggle('opened');
+                                this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                            "
+                        >
+                            <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
+                                <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                                <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                                <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                                <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                            </svg>
+                        </label>
 
-                    <nav class="main-nav">
-                        {embed="default_site:site/_sites-list"}
+                        <nav class="main-nav">
+                            {embed="default_site:site/_sites-list"}
 
-                        {exp:channel:category_archive id="main-menu"
-                            channel="page|government_member|service|news|staff|special"
-                            style="nested" category_group="{group_id}" class="main-nav__list"
-                        }
-                            {categories}
-                                {if url}
-                                    <a href="{url:url}" class="main-nav__menu-item-link">
-                                        {category_name}
-                                    </a>
-                                {if:else}
-                                    <span class="main-nav__menu-item-container" tabindex="-1">
-                                        {category_name}
-                                    </span>
-                                {/if}
-                            {/categories}
-
-                            {entry_titles}
-                                <a
-                                    {if page_uri}
-                                        href="{page_uri}"
-                                    {if:elseif channel_short_name == "page"}
-                                        href="/{url_title}"
+                            {exp:channel:category_archive id="main-menu"
+                                channel="page|government_member|service|news|staff|special"
+                                style="nested" category_group="{group_id}" class="main-nav__list"
+                            }
+                                {categories}
+                                    {if url}
+                                        <a href="{url:url}" class="main-nav__menu-item-link">
+                                            {category_name}
+                                        </a>
                                     {if:else}
-                                        href="{channel_url}/{url_title}"
+                                        <span class="main-nav__menu-item-container" tabindex="-1">
+                                            {category_name}
+                                        </span>
                                     {/if}
-                                    class="main-nav__menu-link"
-                                >
-                                    {title}
-                                </a>
-                            {/entry_titles}
-                        {/exp:channel:category_archive}
-                    </nav>
-                {/exp:query}
+                                {/categories}
+
+                                {entry_titles}
+                                    <a
+                                        {if page_uri}
+                                            href="{page_uri}"
+                                        {if:elseif channel_short_name == "page"}
+                                            href="/{url_title}"
+                                        {if:else}
+                                            href="{channel_url}/{url_title}"
+                                        {/if}
+                                        class="main-nav__menu-link"
+                                    >
+                                        {title}
+                                    </a>
+                                {/entry_titles}
+                            {/exp:channel:category_archive}
+                        </nav>
+                    {/exp:query}
+                {/if}
 
                 {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
                     {if settings__social_profiles:total_rows}
