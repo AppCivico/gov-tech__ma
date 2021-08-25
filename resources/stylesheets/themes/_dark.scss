@@ -14,63 +14,71 @@
   transition-property: background-color, color;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
+@mixin dark-theme {
+  @include transition;
+
+  color: my.palette('neutral', 'white');
+
+  background-color: my.palette('neutral', 'black');
+
+  .header-nav,
+  .header-nav__list> li> ul,
+  .main-nav {
     @include transition;
 
     color: my.palette('neutral', 'white');
 
+    background-color: my.palette('neutral', 'x-dark');
+  }
+
+  .h-entry__header--featured {
+    @include transition;
+
+    color: my.palette('neutral', 'black');
+
+    background-color: my.palette('neutral', 'white');
+  }
+
+  .main-services .main-services__title {
+    color: inherit;
+    text-decoration-color: my.palette('brand', 'blue-medium');
+  }
+
+  .h-entry--quick-links,
+  .main-footer__menu-wrapper {
+    @include transition;
+
+    color: my.palette('neutral', 'black');
+
+    background-color: my.palette('neutral', 'white');
+  }
+
+  .main-footer__wrapper {
+    @include transition;
+
     background-color: my.palette('neutral', 'black');
+  }
 
-    .header-nav,
-    .header-nav__list> li> ul,
-    .main-nav {
-      @include transition;
+  .main-header-and-search-form {
+    @include transition;
 
-      color: my.palette('neutral', 'white');
+    background-color: my.palette('neutral', 'x-dark');
+  }
 
-      background-color: my.palette('neutral', 'x-dark');
-    }
+  .main-footer__wrapper .powered-by__image,
+  .main-footer__wrapper .social-profiles__link {
+    @include transition;
 
-    .h-entry__header--featured {
-      @include transition;
+    filter: invert(100%);
+  }
+}
 
-      color: my.palette('neutral', 'black');
+:root[data-theme='dark'] {
+  @include dark-theme;
+}
 
-      background-color: my.palette('neutral', 'white');
-    }
-
-    .main-services .main-services__title {
-      color: inherit;
-      text-decoration-color: my.palette('brand', 'blue-medium');
-    }
-
-    .h-entry--quick-links,
-    .main-footer__menu-wrapper {
-      @include transition;
-
-      color: my.palette('neutral', 'black');
-
-      background-color: my.palette('neutral', 'white');
-    }
-
-    .main-footer__wrapper {
-      @include transition;
-
-      background-color: my.palette('neutral', 'black');
-    }
-
-    .main-header-and-search-form {
-      @include transition;
-
-      background-color: my.palette('neutral', 'x-dark');
-    }
-
-    .main-footer__wrapper .powered-by__image,
-    .main-footer__wrapper .social-profiles__link {
-      @include transition;
-
-      filter: invert(100%);
-    }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include dark-theme;
   }
 }
