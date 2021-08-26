@@ -81,16 +81,12 @@
   > li:focus,
   > li:focus-within,
   > li:active {
-    pointer-events: none;
-
     > ul {
       display: flex;
 
       order: 1;
 
       text-transform: none;
-
-      pointer-events: auto;
 
       li {
         flex-grow: 1;
