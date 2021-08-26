@@ -3,6 +3,12 @@
 @use '../abstracts'as my;
 
 .home {
+  .main-header-and-search-form__container {
+    height: 70vh;
+    min-height: my.$gutter * 22; // 480px
+    max-height: my.$gutter * 27; // 648px
+  }
+
   .main-header-and-search-form {
     position: relative;
 

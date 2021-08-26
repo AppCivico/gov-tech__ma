@@ -49,9 +49,9 @@
   align-content: flex-start;
   align-items: flex-start;
 
-  height: 70vh;
-  min-height: my.$gutter * 22; // 480px
-  max-height: my.$gutter * 27; // 648px
+  height: 40vh;
+  min-height: my.$gutter * 18; // 432px
+  max-height: my.$gutter * 20; // 480px
   padding-top: my.$gutter;
   padding-bottom: my.$gutter;
 

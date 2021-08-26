@@ -1,6 +1,12 @@
 @use '../abstracts' as my;
 
 .sec-home {
+  .main-header-and-search-form__container {
+    height: 70vh;
+    min-height: my.$gutter * 22; // 480px
+    max-height: my.$gutter * 27; // 648px
+  }
+
   main {
     $column-basis: my.$column-basis * 1.5;
 
