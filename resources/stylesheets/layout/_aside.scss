@@ -70,15 +70,15 @@
   }
 
   .main-aside__list {
-    padding-right: my.$gutter * 0.5;
-    padding-left: my.$gutter * 0.5;
+    padding-right: 0;
+    padding-left: my.$gutter;
     margin: 0;
   }
 
   .main-aside__item {
     @include my.truncate;
 
-    display: block;
+    margin-bottom: 0;
 
     &::before {
       content: none;
