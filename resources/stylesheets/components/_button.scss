@@ -96,6 +96,7 @@ button,
 .like-a__button--submit,
 [type='submit'] {
   @extend %button-reset;
+
   justify-content: center;
 
   width: my.$gutter * 12;

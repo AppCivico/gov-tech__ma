@@ -28,7 +28,7 @@
 
   font-weight: my.font-weight('bold');
 
-  background-color: my.palette('brand', 'blue-light');
+  background-color: my.palette('brand', 'blue', 'light');
   border-radius: my.$rounded-corner;
 }
 
@@ -48,7 +48,7 @@
   padding: 0;
   margin: 0;
 
-  border-top: my.$stroke solid my.palette('brand', 'blue-medium');
+  border-top: my.$stroke solid my.palette('brand', 'blue', 'medium');
 }
 
 .alerts__link {

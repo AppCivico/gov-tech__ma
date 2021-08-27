@@ -251,7 +251,7 @@ summary {
     width: my.$gutter;
     height: my.$leading * 1em;
 
-    color: my.palette('brand', 'blue-medium');
+    color: my.palette('brand', 'blue', 'medium');
     text-align: center;
 
     content: '';

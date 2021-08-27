@@ -334,6 +334,6 @@
   [id='menu-controller']:checked + * & {
     z-index: my.layer('modal') + 1;
 
-    color: my.palette('brand', 'green-medium');
+    color: my.palette('brand', 'green', 'medium');
   }
 }

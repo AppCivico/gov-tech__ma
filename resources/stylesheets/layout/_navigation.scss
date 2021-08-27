@@ -143,7 +143,7 @@ nav a {
 .pagination__item--current {
   color: my.palette('neutral', 'white');
 
-  background-color: my.palette('brand', 'blue-dark');
+  background-color: my.palette('brand', 'blue', 'dark');
 }
 
 .pagination__item--next-page {}

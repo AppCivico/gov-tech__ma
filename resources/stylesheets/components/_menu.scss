@@ -52,7 +52,7 @@
   font-weight: my.font-weight('bold');
   text-transform: uppercase;
 
-  border-bottom: my.$stroke__thin solid my.palette('brand', 'green-medium');
+  border-bottom: my.$stroke__thin solid my.palette('brand', 'green', 'medium');
 }
 
 .main-nav__list {

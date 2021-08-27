@@ -10,7 +10,7 @@
 }
 
 .h-feed__p-name--quick-links {
-  border-color: my.palette('brand', 'green-medium');
+  border-color: my.palette('brand', 'green', 'medium');
 }
 
 .quick-links__list {
@@ -57,7 +57,7 @@
     left: my.$gutter;
     z-index: my.layer('below');
 
-    color: my.palette('brand', 'red-medium');
+    color: my.palette('brand', 'red', 'medium');
 
     content: '';
 
@@ -68,7 +68,7 @@
     background-image: my.image('quick-links/portal-da-transparencia.svg');
 
     &::after {
-      color: my.palette('brand', 'blue-medium');
+      color: my.palette('brand', 'blue', 'medium');
     }
   }
 
@@ -76,7 +76,7 @@
     background-image: my.image('quick-links/ouvidoria.svg');
 
     &::after {
-      color: my.palette('brand', 'yellow-medium');
+      color: my.palette('brand', 'yellow', 'medium');
     }
   }
 }

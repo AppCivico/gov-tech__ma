@@ -50,7 +50,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  background-color: my.palette('brand', 'red-medium');
+  background-color: my.palette('brand', 'red', 'medium');
 
   &::before {
     content: none;

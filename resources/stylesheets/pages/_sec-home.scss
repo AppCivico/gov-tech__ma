@@ -28,7 +28,7 @@
   }
 
   .h-feed__p-name--last-news {
-    border-color: my.palette('brand', 'yellow-medium');
+    border-color: my.palette('brand', 'yellow', 'medium');
   }
 
   .h-entry__u-url--featured {
@@ -56,7 +56,7 @@
     font-size: my.ms(2);
     font-weight: my.font-weight('bold');
 
-    border-bottom: my.$stroke solid my.palette('brand', 'blue-medium');
+    border-bottom: my.$stroke solid my.palette('brand', 'blue', 'medium');
   }
 
   .h-feed__list--home-services {
@@ -111,7 +111,7 @@
     font-weight: my.font-weight('bold');
     text-decoration: none;
 
-    border-bottom: my.$stroke solid my.palette('brand', 'red-medium');
+    border-bottom: my.$stroke solid my.palette('brand', 'red', 'medium');
   }
 
   .h-feed__list--special-entries {

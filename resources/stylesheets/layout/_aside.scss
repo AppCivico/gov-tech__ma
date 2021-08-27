@@ -66,7 +66,7 @@
     font-weight: inherit;
     text-transform: uppercase;
 
-    border-bottom: my.$stroke__thick solid my.palette('brand', 'blue-medium');
+    border-bottom: my.$stroke__thick solid my.palette('brand', 'blue', 'medium');
   }
 
   .main-aside__list {

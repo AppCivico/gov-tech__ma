@@ -40,7 +40,7 @@ $column-width: 10em;
     @include my.link-undercover;
 
     &::before {
-      color: my.palette('brand', 'green-medium');
+      color: my.palette('brand', 'green', 'medium');
     }
   }
 
@@ -52,7 +52,7 @@ $column-width: 10em;
     font-weight: my.font-weight('bold');
     text-transform: uppercase;
 
-    border-bottom: my.$stroke solid my.palette('brand', 'blue-medium');
+    border-bottom: my.$stroke solid my.palette('brand', 'blue', 'medium');
   }
 
   .main-services__title {
@@ -60,7 +60,7 @@ $column-width: 10em;
 
     font-size: my.ms(4);
     font-weight: my.font-weight('bold');
-    color: my.palette('brand', 'blue-medium');
+    color: my.palette('brand', 'blue', 'medium');
     text-decoration: underline;
     white-space: nowrap;
   }
