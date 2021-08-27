@@ -37,6 +37,23 @@
 
 .main-footer > * {}
 
+.main-footer__logo {
+  display: block;
+
+  margin-right: auto;
+  margin-bottom: my.$gutter;
+  margin-left: auto;
+
+  background-color: transparent;
+
+  >img {
+    display: block;
+
+    margin: 0;
+    object-fit: contain;
+  }
+}
+
 .main-footer__menu-wrapper {
   @include my.full-width;
 
