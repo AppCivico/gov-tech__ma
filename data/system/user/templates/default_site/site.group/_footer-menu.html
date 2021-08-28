@@ -2,23 +2,30 @@
 <nav class="main-footer__menu-wrapper">
     {exp:channel:category_archive show_empty="yes"
         channel="page|government_member|service|news|staff"
-        style="nested" category_group="{group_id}" class="main-footer__menu-list"
+        style="nested" category_group="{group_id}" class="main-footer__menu-list" role="menu"
     }
         {categories}
             {if url}
-                <a href="{url:url}" class="main-footer__menu-item-link">
-                    {if category_image}
-                        <img src="{category_image}" aria-hidden="true" alt="" />
-                    {/if}
-                    {category_name}
-                </a>
-            {if:else}
-                <span class="main-footer__menu-item-container" tabindex="-1">
+                <a href="{url:url}" class="main-footer__menu-item-link" role="menuitem">
                     {if category_image}
                         <img src="{category_image}" aria-hidden="true" alt="" class="main-footer__menu-item-icon" />
                     {/if}
                     {category_name}
-                </span>
+                </a>
+            {if:else}
+                <button class="main-footer__menu-item-container" type="button"
+                    role="menuitem" aria-haspopup="menu"
+                    onclick="
+                        this.classList.toggle('opened');
+                        this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                        this.focus();
+                    "
+                >
+                    {if category_image}
+                        <img src="{category_image}" aria-hidden="true" alt="" class="main-footer__menu-item-icon" />
+                    {/if}
+                    {category_name}
+                </button>
             {/if}
         {/categories}
 

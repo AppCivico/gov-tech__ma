@@ -52,7 +52,8 @@
                             aria-label="Menu"
                             onclick="
                                 this.classList.toggle('opened');
-                                this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                                document.documentElement.classList.toggle('opened-menu');
+                                this.setAttribute('aria-expanded', this.classList.contains('opened'));
                             "
                         >
                             <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round">
@@ -76,9 +77,16 @@
                                             {category_name}
                                         </a>
                                     {if:else}
-                                        <span class="main-nav__menu-item-container" tabindex="-1">
+                                        <button
+                                            class="main-nav__menu-item-container"
+                                            type="button" role="menuitem" aria-haspopup="menu"
+                                            onclick="
+                                                this.classList.toggle('opened');
+                                                this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                                                this.focus();
+                                            ">
                                             {category_name}
-                                        </span>
+                                        </button>
                                     {/if}
                                 {/categories}
 

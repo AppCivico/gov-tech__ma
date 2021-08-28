@@ -1,9 +1,16 @@
 <ul class="main-nav__list main-nav__list--sites">
     <li>
-        <span class="main-nav__menu-item-container" tabindex="-1">
+        <button
+            class="main-nav__menu-item-container"
+            type="button" role="menuitem" aria-haspopup="menu"
+            onclick="
+                this.classList.toggle('opened');
+                this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                this.focus();
+            "
+        >
             Secretarias e Órgãos
-        </span>
-
+        </button>
         <ul class="main-nav__list main-nav__list--sites">
             {exp:query
                 sql="SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,

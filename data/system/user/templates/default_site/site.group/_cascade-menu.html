@@ -10,9 +10,16 @@
                     {category_name}
                 </a>
             {if:else}
-                <span class="header-nav__menu-item-container" tabindex="-1">
+                <button class="header-nav__menu-item-container" type="button"
+                    role="menuitem" aria-haspopup="menu"
+                    onclick="
+                        this.classList.toggle('opened');
+                        this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                        this.focus();
+                    "
+                >
                     {category_name}
-                </span>
+                </button>
             {/if}
         {/categories}
 

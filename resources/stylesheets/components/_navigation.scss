@@ -31,18 +31,27 @@ nav li {
   }
 }
 
+[role='menuitem'],
 menu a,
 nav a {
   @include my.link-undercover;
+
   display: flex;
 
   align-items: center;
 
   height: 100%;
+  min-height: 0;
   padding: 0 my.$gutter;
+  margin-right: auto;
+  margin-left: auto;
   overflow: hidden;
 
+  font-weight: inherit;
   text-overflow: ellipsis;
+
+  background: none;
+  border-radius: 0;
 
   &:link {
     text-decoration: none;
@@ -51,7 +60,13 @@ nav a {
   &:hover,
   &:focus,
   &:active {
+    @include my.focused;
+
+    font-weight: inherit;
+    color: inherit;
     text-decoration: underline;
+
+    background: none;
 
     @supports (text-decoration-color: #{palette('accent')}) {
       text-decoration-line: underline;

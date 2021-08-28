@@ -256,6 +256,7 @@
     visibility: hidden;
 
     background-color: my.palette('neutral', 'white');
+    border-top: 3px solid transparent;
     opacity: 0;
 
     transition-timing-function: ease-out;

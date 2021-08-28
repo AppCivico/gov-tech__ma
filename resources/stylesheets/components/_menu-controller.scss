@@ -1,5 +1,9 @@
 @use '../abstracts' as my;
 
+.opened-menu:root {
+  overflow: hidden;
+}
+
 [for='menu-controller'] {
   display: flex;
 

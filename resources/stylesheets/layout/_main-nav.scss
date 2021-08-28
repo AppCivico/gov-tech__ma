@@ -15,10 +15,10 @@
   align-content: center;
   align-items: flex-start;
 
-  padding: my.$gutter;
-  padding-top: my.$gutter * 7;
+  padding: my.$gutter 0;
   overflow: auto;
 
+  font-weight: inherit;
   color: my.palette('neutral', 'black');
   text-align: left;
 
@@ -27,7 +27,7 @@
   background-color: my.palette('neutral', 'white');
   opacity: 0;
 
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
   transition-duration: 300ms;
   transition-property: opacity, transform;
   transform: scale(0);
@@ -38,7 +38,7 @@
 
     opacity: 1;
 
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in-out;
     transition-duration: 300ms;
     transition-property: opacity, transform;
     transform: scale(1);
@@ -65,17 +65,12 @@
 
   font-weight: my.font-weight('bold');
   text-align: center;
-  text-align: center;
 }
 
 .main-nav li {
   display: block;
 
   margin-bottom: 0;
-
-  [tabindex] {
-    cursor: pointer;
-  }
 }
 
 .main-nav li ul {
@@ -86,39 +81,60 @@
   margin-bottom: 0;
   overflow: hidden;
 
-  font-weight: my.font-weight(normal);
+  font-weight: my.font-weight('normal');
 
   opacity: 0;
 
-  transition-timing-function: ease-out;
-  transition-duration: 300ms;
+  transition-delay: 0, 0;
+  transition-duration: 1s, 1s;
   transition-property: max-height, opacity;
 }
 
-.main-nav li:focus,
-.main-nav li:focus-within {
-  pointer-events: none;
-}
-
-.main-nav li:focus-within ul,
-.main-nav li:focus ul {
+.main-nav li:focus-within > ul,
+.main-nav button:focus + ul {
   max-height: 999em;
-
-  pointer-events: auto;
 
   opacity: 1;
 
-  transition-timing-function: ease-out;
-  transition-duration: 300ms;
-  transition-property: margin-top, max-height, opacity;
+  transition-delay: 0, 0;
+  transition-duration: 1s, 1s;
+  transition-property: max-height, opacity;
 }
 
+.main-nav button:focus {
+  pointer-events: none;
+}
 
 .main-nav__menu-item-container,
 .main-nav__list a {
+  position: relative;
+  z-index: my.layer('default');
+
   display: inline-flex;
 
   justify-content: center;
 
+  min-height: 0;
   padding: my.$gutter * 0.5;
+
+  color: inherit;
+  text-decoration: inherit;
+
+  background: none;
+
+  @include my.on-event {
+    color: inherit;
+    text-decoration: inherit;
+
+    background: none;
+    outline: 0;
+  }
+}
+
+.main-nav__menu-item-container {
+  font-weight: inherit;
+}
+
+.main-nav__list a {
+  font-weight: my.font-weight(normal);
 }
