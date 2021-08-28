@@ -1,6 +1,6 @@
 {if no_results}{redirect="404"}{/if}
-{if status == "draft" OR entry_date > current_time}
-    {if author_id != logged_in_member_id AND logged_in_group_id != "1" AND logged_in_group_id != "5"}
+{if status == "closed" OR entry_date > current_time}
+    {if author_id != logged_in_member_id AND logged_in_group_id != "1" AND logged_in_group_id != "3" AND logged_in_group_id != "5" AND logged_in_group_id != "6"}
         {redirect="404"}
     {/if}
 {/if}
