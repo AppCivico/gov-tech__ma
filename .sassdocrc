@@ -108,8 +108,13 @@ herman:
     - "hsl"
 
   extraDocs:
+    - 'docs/extraDocs/all-sites.md'
+    - 'docs/extraDocs/all-fields.md'
     - 'docs/extraDocs/assets.md'
+    - 'docs/extraDocs/deploy.md'
     - 'docs/extraDocs/routes-and-templates.md'
+    - 'docs/extraDocs/content-modelling.md'
+    - 'docs/extraDocs/content-management.md'
 
   extraLinks:
     - name: "Governo do Estado do Maranhão"

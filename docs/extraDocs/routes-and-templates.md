@@ -34,7 +34,7 @@ Dentro da pasta de modelos para para o site raiz, o correspondente ao do governo
 
 Todos modelos seguem a [mesma sintaxe](https://docs.expressionengine.com/latest/templates/overview.html).
 
-Os modelos dos sites filhos, correspondentes a secretarias e departamentos, usam proxies para os modelos principais e usam a sintaxe:
+Os modelos dos sites filhos, correspondentes a secretarias e departamentos, usam proxies para os modelos principais:
 
 ```html
 {embed="default_site:{segment_1}/index"}
