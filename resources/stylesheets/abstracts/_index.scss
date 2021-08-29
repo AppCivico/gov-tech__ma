@@ -15,3 +15,9 @@
 );
 
 @forward '../vendor/modularscale' hide $modularscale;
+
+@use '../vendor/modular-scale' with (
+  $settings: config.$modularscale,
+);
+
+@forward '../vendor/modular-scale' as ms-*;

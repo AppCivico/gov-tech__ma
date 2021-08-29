@@ -1,0 +1,15 @@
+$settings: (
+  $base: 1em,
+  $ratio: 1.5,
+  $settings: (),
+  $respond: media
+) !default;
+
+// Defaults and variables
+@forward 'vars';
+
+// Core functions
+@forward 'step' with ($_settings: $settings);
+
+// Mixins
+@forward 'respond' with ($_settings: $settings);
