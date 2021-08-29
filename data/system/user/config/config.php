@@ -1,5 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/*
+|--------------------------------------------------------------------------
+| Load Manifest
+|--------------------------------------------------------------------------
+|
+|
+*/
+require_once(SYSPATH . 'user/addons/manifest/mod.manifest.php');
+
+Manifest::load();
+
 /**
  * @see  https://gist.github.com/464756
  */
@@ -22,6 +33,8 @@ if (isset($_SERVER['HTTP_CF_VISITOR'])) {
     $protocol = "https://";
   }
 }
+
+$strict_urls = 'n';
 
 /**
  * @see https://ellislab.com/blog/entry/http-host-and-server-name-security-issues
@@ -67,6 +80,7 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'ma.appcivico.com.br':
     case 'localhost':
     default:
+        $strict_urls = 'y';
         $site_name = 'default_site';
         $assign_to_config['global_vars']['global:editorial-group'] = '3';
         break;
@@ -77,22 +91,22 @@ $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $p
 $assign_to_config['site_name'] = $site_name;
 $assign_to_config['cp_url']    = $site_url . $cp_url;
 $assign_to_config['site_url']  = $site_url;
-$config['index_page'] = '';
-$config['site_index'] = '';
+$config['index_page'] = Manifest::get('INDEX_PAGE', '');
+$config['site_index'] = Manifest::get('SITE_INDEX', '');
 
 // ExpressionEngine Config Items
 // Find more configs and overrides at
 // https://docs.expressionengine.com/latest/general/system-configuration-overrides.html
 
 $config['app_version'] = '6.0.6';
-$config['encryption_key'] = '90c1e6d60d21c0691882686407a4641f6cd6c4bf';
-$config['session_crypt_key'] = '691b97ef2c0cbe431e448db295323337847f0330';
+$config['encryption_key'] = Manifest::get('ENCRYPTION_KEY', '');
+$config['session_crypt_key'] = Manifest::get('SESSION_CRYPT_KEY', '');
 $config['database'] = array(
   'expressionengine' => array(
-    'hostname' => 'db',
-    'database' => 'eetest',
-    'username' => 'eeuser',
-    'password' => 'eepassword',
+    'hostname' => Manifest::get('DB_HOSTNAME', ''),
+    'database' => Manifest::get('DB_DATABASE', ''),
+    'username' => Manifest::get('DB_USERNAME', ''),
+    'password' => Manifest::get('DB_PASSWORD', ''),
     'dbprefix' => 'exp_',
     'char_set' => 'utf8mb4',
     'dbcollat' => 'utf8mb4_unicode_ci',
@@ -114,11 +128,9 @@ $config['avatar_max_kb'] = '200';
 $config['avatar_max_width'] = '512';
 $config['avatar_path'] = '/var/www/html/images/avatars/'; // docker volume path
 $config['avatar_url'] = '/images/avatars';
-$config['base_path'] = '/var/www/html/'; // docker volume path
-// $config['cache_driver'] = 'redis';
-$config['base_url'] = '/';
+$config['base_path'] = Manifest::get('BASE_PATH', '/var/www/html/'); // docker volume path
+$config['cache_driver'] = Manifest::get('CACHE_DRIVER', 'file');
 $config['captcha_url'] = '/images/captchas';
-// $config['censored_words'] = 'dagnabbit|consarnit|golly gee willikers';
 $config['channel_form_overwrite'] = 'y';
 $config['cookie_domain'] = $domain;
 $config['cookie_prefix'] = 'ma_';
@@ -145,7 +157,7 @@ $config['css_js_settings'] = [
 ];
 
 $config['date_format'] = '%j/%n/%Y';
-$config['debug'] = $_SERVER['HTTP_HOST'] === 'localhost' ? '2' : '1';
+$config['debug'] = Manifest::get('DEBUG', '1');
 $config['default_member_group'] = '4';
 $config['default_site_timezone'] = 'America/Sao_Paulo';
 $config['deft_lang'] = 'portuguese';
@@ -161,13 +173,14 @@ $config['ignore_entry_stats'] = 'n';
 $config['multiple_sites_enabled'] = 'y';
 $config['profile_trigger'] = rand(0, time());
 $config['pw_min_len'] = '16';
-// $config['redis'] = array(
-//   // 'host' => '127.0.0.1',
-//   'host' => 'redis',
-//   'password' => 'dU*TVk3yj3!n3pyRN&GAdG7+^K?_-CT6',
-//   'port' => 6379,
-//   'timeout' => 0
-// );
+
+$config['redis'] = array(
+    'host' => Manifest::get('REDIS_HOST', '127.0.0.1'),
+    'password' => Manifest::get('REDIS_PASSWORD', ''),
+    'port' => Manifest::get('REDIS_PORT', '6379'),
+    'timeout' => Manifest::get('REDIS_TIMEOUT', 0),
+);
+
 $config['relaxed_track_views'] = 'y';
 // $config['req_mbr_activation'] = 'email';
 $config['require_cookie_consent'] = 'n';
@@ -176,18 +189,17 @@ $config['require_secure_passwords'] = 'y';
 $config['reserved_category_word'] = $assign_to_config['global_vars']['config:reserved_category_word'] = 'categorias';
 $config['share_analytics'] = 'n';
 $config['show_ee_news'] = 'n';
-$config['show_profiler'] = 'n';
+$config['show_profiler'] = Manifest::get('SHOW_PROFILER', 'n');
 $config['sig_allow_img_hotlink'] = 'n';
 $config['site_404'] = 'site/404';
 $config['spellcheck_language_code'] = 'pt';
-$config['strict_urls'] = 'y';
+$config['strict_urls'] = $strict_urls;
 $config['template_group'] = 'site';
 $config['template'] = 'index';
 $config['theme_folder_path'] = '/var/www/html/themes/'; // docker volume path
 $config['theme_folder_url'] = '/themes/';
 $config['time_format'] = '24';
 $config['updater_allow_advanced'] = 'y';
-// $config['upload_blocked_file_names'] = array('logo.png');
 $config['upload_preferences'] = array(
     5 => array(                                               // ID of upload destination
         'name'        => 'Documentos',                          // Display name in control panel
