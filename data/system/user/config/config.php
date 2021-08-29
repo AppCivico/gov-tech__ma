@@ -150,9 +150,16 @@ $config['css_js_settings'] = [
         .beta-welcome-banner {
             display: none;
         }
+
+        /* RTE */
+        .ck .ck-content .image-style-side {
+            float: left;
+            clear: none;
+            margin-left: 0;
+            margin-right: var(--ck-image-style-spacing);
+        }
+
     ',
-    // 'css_file' => 'custom_prod.css',
-    // 'js_file' => 'custom_prod.js',
     'enable' => true
 ];
 
