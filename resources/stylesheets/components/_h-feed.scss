@@ -5,25 +5,41 @@
 * @see http://microformats.org/wiki/h-feed
 */
 .h-feed {
+  .h-entry {
+    @include my.clearfix;
+
+    margin-bottom: my.$gutter * 2.5;
+  }
+
+  .h-entry__header {
+    margin-bottom: my.$gutter * 0.25;
+
+    font-size: my.ms-step(12px);
+  }
+
   .h-entry__subhead {
     display: inline;
 
     margin: 0;
+
+    font-size: 1em;
+    color: my.palette('neutral', 'dark');
   }
 
   .h-entry__p-name {
     display: block;
 
     max-width: 25em;
-    margin-bottom: my.$gutter * 0.5;
+    margin-bottom: my.$gutter * 0.25;
 
-    font-size: my.ms(3);
+    font-size: my.ms-step(21px);
     font-weight: my.font-weight('bold');
-    text-decoration: underline;
   }
 
   .h-entry__u-photo {
-    width: 100%;
+    float: left;
+    max-width: 100%;
+    margin-right: my.$gutter;
   }
 
   .h-entry__u-url {
@@ -35,7 +51,9 @@
 
     margin-bottom: 0;
 
+    font-size: 1em;
     font-style: inherit;
+    color: my.palette('neutral', 'dark');
 
     &::before {
       content: '• ';
@@ -44,39 +62,40 @@
 
   .h-entry__p-summary {
     max-width: map.get(my.$line-lengths, 'max');
+    overflow: hidden;
 
-    font-size: my.ms(-1);
+    color: my.palette('neutral', 'dark');
   }
 }
 
 .h-feed__header {
-  margin-bottom: my.$gutter;
+  margin-bottom: my.$gutter * 3;
 }
 
 .h-feed__subhead {
-  display: inline;
-
   margin: 0;
 
-  font-size: my.ms(-2);
+  font-size: my.ms-step(12px);
   font-weight: inherit;
   text-transform: uppercase;
 }
 
 .h-feed__p-name {
-  margin: 0 0 my.$gutter 0;
+  max-width: map.get(my.$line-lengths, 'min');
+  margin: 0;
 
-  font-size: my.ms(4);
+  font-size: my.ms-step(28px);
   font-weight: inherit;
 
   border-bottom: 0;
 }
 
 .h-feed__e-content {
+  margin-top: my.$gutter * 0.5;
+  margin-bottom: my.$gutter * 0.5;
 }
 
 .h-feed__h-entry {
-  margin-bottom: my.$gutter * 3;
 }
 
 .h-feed__p-summary {
