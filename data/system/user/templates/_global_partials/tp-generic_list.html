@@ -15,7 +15,7 @@
             {/if}
         {/exp:channel:info}
 
-    {exp:channel:entries channel="{pr-channels}" site="{if site_id == 1}not 0{/if}" limit="10" disable="category_fields|member_data" status="open" paginate="inline" parse="inward"}
+    {exp:channel:entries channel="{pr-channels}" site="{if site_id == 1}not 0{/if}" limit="10" disable="category_fields|member_data" status="not closed" paginate="inline" parse="inward"}
         {if no_results}
             </header>
         {/if}

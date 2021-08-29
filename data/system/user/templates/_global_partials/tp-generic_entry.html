@@ -1,6 +1,7 @@
 {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-{exp:channel:entries channel="{pr-channels}" limit="1" require_entry="yes" disable="pagination|category_fields|member_data" status="open|draft" show_future_entries="yes"}
+{exp:channel:entries channel="{pr-channels}" limit="1" require_entry="yes"
+disable="category_fields|member_data|pagination" show_future_entries="yes" dynamic="no" url_title="{segment_2}" status="not any"}
     {tp-check_draft}
 
     {layout:set name="title"}{title}{/layout:set}
