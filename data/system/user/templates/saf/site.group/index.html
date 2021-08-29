@@ -1,2 +1,7 @@
-{!-- proxy template --}
-{embed="default_site:{segment_1}/index"}
+{if segment_2}
+    {embed="default_site:{segment_1}/{segment_2}"}
+{if:elseif segment_1}
+    {embed="default_site:{segment_1}/index"}
+{if:else}
+    {embed="default_site:site/index"}
+{/if}

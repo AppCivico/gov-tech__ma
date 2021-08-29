@@ -1,4 +1,8 @@
-{layout="default_site:site/_layout" root_class="home" robots="index,follow,noarchive"}
+{if segment_2}{redirect="404"}{/if}
+
+{layout="default_site:site/_layout" robots="index,follow,noarchive"}
+{if site_id == 1}
+    {layout:set name="root_class"}home{/layout:set}
 
 <main id="main" class="home__main">
     <section class="main-services h-feed h-feed--main-services">
@@ -130,5 +134,43 @@
         </section>
         {/if}
     {/exp:channel:entries}
-
 </main>
+{if:else}
+    {layout:set name="root_class"}sec-home{/layout:set}
+
+<main id="main" class="sec-home__main">
+    {exp:query
+        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
+            FROM exp_categories ec
+            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
+            WHERE ecg.group_name = 'aparecer na area publica'
+            AND ec.cat_url_title = 'home-services'
+            AND ec.site_id = '{site_id}'
+            LIMIT 1;"
+    }
+        {exp:query
+            sql="SELECT group_id AS service_group
+                FROM exp_category_groups
+                WHERE group_name = 'categorias de servicos'
+                AND site_id = '{site_id}'
+                LIMIT 1;"
+        }
+            {embed="default_site:site/_home-services" cat_id="{cat_id}" service_group="{service_group}" group_id="{group_id}" title="{cat_name}" limit="8"}
+        {/exp:query}
+    {/exp:query}
+
+    {exp:query
+        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
+            FROM exp_categories ec
+            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
+            WHERE ecg.group_name = 'aparecer na area publica'
+            AND ec.cat_url_title = 'home-special'
+            AND ec.site_id = '{site_id}'
+            LIMIT 1;"
+    }
+        {embed="default_site:site/_home-special" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="10"}
+    {/exp:query}
+
+    {embed="default_site:site/_aside"}
+</main>
+{/if}

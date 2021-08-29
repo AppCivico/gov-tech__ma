@@ -1,32 +1,7 @@
-{layout="default_site:site/_layout" root_class="sec-home" robots="index,follow,noarchive"}
-
-{if segment_2}{redirect="404"}{/if}
-
-<main id="main" class="sec-home__main">
-    {exp:query
-        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
-            FROM exp_categories ec
-            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
-            WHERE ecg.group_name = 'aparecer na area publica'
-            AND ec.cat_url_title = 'home-services'
-            AND ec.site_id = {site_id}
-            LIMIT 1;
-        "
-    }
-        {embed="default_site:site/_home-services" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="8"}
-    {/exp:query}
-
-    {exp:query
-        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
-            FROM exp_categories ec
-            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
-            WHERE ecg.group_name = 'aparecer na area publica'
-            AND ec.cat_url_title = 'home-special'
-            AND ec.site_id = {site_id}
-            LIMIT 1;"
-    }
-        {embed="default_site:site/_home-special" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="10"}
-    {/exp:query}
-
-    {embed="default_site:site/_aside"}
-</main>
+{if segment_2}
+    {embed="default_site:{segment_1}/{segment_2}"}
+{if:elseif segment_1}
+    {embed="default_site:{segment_1}/index"}
+{if:else}
+    {embed="default_site:site/index"}
+{/if}
