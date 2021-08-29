@@ -11,6 +11,7 @@
             JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
             JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
             JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
+            INNER JOIN exp_config ecf ON ecf.site_id = ec.site_id AND ecf.key = 'is_site_on'
             WHERE LOWER(cg.group_name) = 'perfil do cidadao'
             AND ec2.channel_name = 'service'
             AND ect.status != 'closed'
