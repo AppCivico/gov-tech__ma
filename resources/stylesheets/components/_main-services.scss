@@ -9,10 +9,6 @@ $column-width: 10em;
 
   position: relative;
 
-  display: flex;
-
-  flex-wrap: wrap;
-
   margin-bottom: my.$gutter;
 
   // reset lists
@@ -30,8 +26,6 @@ $column-width: 10em;
   }
 
   .read-more {
-    flex-basis: 100%;
-
     margin-right: 0;
     margin-left: auto;
   }
@@ -45,14 +39,18 @@ $column-width: 10em;
   }
 
   .h-feed__p-name--main-services {
-    flex-basis: 100%;
-
     margin-bottom: my.$gutter * 2;
 
     font-weight: my.font-weight('bold');
     text-transform: uppercase;
 
     border-bottom: my.$stroke solid my.palette('brand', 'blue', 'medium');
+  }
+
+  .main-services__category-lists {
+    display: flex;
+
+    flex-wrap: wrap;
   }
 
   .main-services__title {

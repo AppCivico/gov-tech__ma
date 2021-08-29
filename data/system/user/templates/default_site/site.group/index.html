@@ -19,18 +19,22 @@
             LIMIT 4"
             parse="inward"
         }
-            <div class="main-services__category main-services__category--{cat_url_title}">
-                <h3 class="main-services__title">{cat_name}</h3>
-                <ul class="main-services__list">
-                {exp:channel:entries channel="service" site="not 0" category="{cat_ids}"
-                disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"}
-                    <li class="main-services__item">
-                        <a href="https://{relative_url}/{url_title}">{title}</a>
-                    </li>
-                {/exp:channel:entries}
-                </ul>
-            </div>
+            {if count == 1}
+                <div class="main-services__category-lists">
+            {/if}
+                    <div class="main-services__category main-services__category--{cat_url_title}">
+                        <h3 class="main-services__title">{cat_name}</h3>
+                        <ul class="main-services__list">
+                        {exp:channel:entries channel="service" site="not 0" category="{cat_ids}"
+                        disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"}
+                            <li class="main-services__item">
+                                <a href="https://{relative_url}/{url_title}">{title}</a>
+                            </li>
+                        {/exp:channel:entries}
+                        </ul>
+                    </div>
             {if count == total_results}
+                </div>
                 <p class="read-more read-more--main-services">
                     <a class="read-more__link" href="/servicos/">+ Serviços</a>
                 </p>
