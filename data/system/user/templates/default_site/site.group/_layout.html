@@ -241,30 +241,19 @@
                 <div class="colophon">
                     <div class="site-info site-info--footer">
                         <a href="{site_url}" class="main-footer__logo">
-                            {if site_id == 1}
+                            {if site_id == 1 OR settings__logotype == "" OR no_results}
                                 <img
                                     src="/assets/images/brand/gov__ma.png"
                                     srcset="/assets/images/brand/gov__ma@2x.png 2x"
-                                    alt="{site_name}" width="261" height="123" />
+                                    alt="{site_name}" width="261" height="123"
+                                />
                             {if:else}
-                                {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
-                                    url_title="settings" disable="categories|member_data|pagination" parse="inward"
-                                }
-                                    {if settings__logotype == ""}
-                                        <img
-                                            src="/assets/images/brand/gov__ma.png"
-                                            srcset="/assets/images/brand/gov__ma@2x.png 2x"
-                                            alt="{site_name}" width="261" height="123"
-                                        />
-                                    {if:else}
-                                        {settings__logotype}
-                                            <img
-                                                src="{url}"
-                                                alt="{description}" width="{width}" height="{height}"
-                                            />
-                                        {/settings__logotype}
-                                    {/if}
-                                {/exp:channel:entries}
+                                {settings__logotype}
+                                    <img
+                                        src="{url}"
+                                        alt="{description}" width="{width}" height="{height}"
+                                    />
+                                {/settings__logotype}
                             {/if}
                         </a>
                     </div>
