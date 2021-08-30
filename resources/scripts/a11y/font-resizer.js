@@ -1,4 +1,4 @@
-import getStyle from '../helpers/get-style';
+import getStyle from '../utilities/get-style';
 
 export default function fontResizer(event) {
   const multiplier = event.target.value;
@@ -11,5 +11,5 @@ export default function fontResizer(event) {
   if (multiplier < 0 && currentFontSizePx < 12 * 1.2) return;
   if (multiplier > 0 && currentFontSizePx > 30 / 1.2) return;
 
-  document.documentElement.style.fontSize = Number.parseFloat(document.documentElement.style.fontSize) + multiplier * 0.2 + 'em';
-};
+  document.documentElement.style.fontSize = `${Number.parseFloat(document.documentElement.style.fontSize) + multiplier * 0.2}em`;
+}

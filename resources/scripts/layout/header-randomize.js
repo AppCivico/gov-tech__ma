@@ -1,5 +1,6 @@
 export default function headerRandomize() {
   const customizations = document.querySelectorAll('[data-js="custom-header"]');
+  // eslint-disable-next-line no-bitwise
   const picked = customizations[customizations.length * Math.random() << 0];
 
   if (picked) {
@@ -7,4 +8,4 @@ export default function headerRandomize() {
 
     document.documentElement.setAttribute('data-header-idx', idx);
   }
-};
+}

@@ -7,7 +7,7 @@ export default (() => {
 
   themeInitializer();
 
-  for (let i = 0; i < buttons.length; i++) {
+  for (let i = 0; i < buttons.length; i += 1) {
     const button = buttons[i];
     const functionName = button.getAttribute('data-js');
 
