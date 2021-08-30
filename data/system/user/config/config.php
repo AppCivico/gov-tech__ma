@@ -594,8 +594,8 @@ $config['site_index'] = Manifest::get('SITE_INDEX', '');
 // https://docs.expressionengine.com/latest/general/system-configuration-overrides.html
 
 $config['app_version'] = '6.0.6';
-$config['encryption_key'] = Manifest::get('ENCRYPTION_KEY', '');
-$config['session_crypt_key'] = Manifest::get('SESSION_CRYPT_KEY', '');
+$config['encryption_key'] = Manifest::get('ENCRYPTION_KEY', '90c1e6d60d21c0691882686407a4641f6cd6c4bf');
+$config['session_crypt_key'] = Manifest::get('SESSION_CRYPT_KEY', '691b97ef2c0cbe431e448db295323337847f0330');
 $config['database'] = array(
   'expressionengine' => array(
     'hostname' => Manifest::get('DB_HOSTNAME', ''),
@@ -691,7 +691,7 @@ $config['require_secure_passwords'] = 'y';
 $config['reserved_category_word'] = $assign_to_config['global_vars']['config:reserved_category_word'] = 'categorias';
 $config['share_analytics'] = 'n';
 $config['show_ee_news'] = 'n';
-$config['show_profiler'] = Manifest::get('SHOW_PROFILER', 'n');
+$config['show_profiler'] = Manifest::get('DEBUG_PROFILER', 'n');
 $config['sig_allow_img_hotlink'] = 'n';
 $config['site_404'] = 'site/404';
 $config['spellcheck_language_code'] = 'pt';
