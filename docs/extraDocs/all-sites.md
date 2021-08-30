@@ -25,7 +25,7 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 | Diário Oficial                                                                             | [diariooficial.ma.gov.br](https://diariooficial.ma.gov.br)       |
 | Escola de Governo                                                                          | [egma.ma.gov.br](https://egma.ma.gov.br)                         |
 | EMAP - Porto do Itaqui                                                                     | [portodoitaqui.ma.gov.br](https://portodoitaqui.ma.gov.br)       |
-|                                                                                            | [emap.ma.gov.br](https://portodoitaqui.ma.gov.br)       |
+|                                                                                            | [emap.ma.gov.br](https://portodoitaqui.ma.gov.br)                |
 | Fundação da Memória Republicana Brasileira                                                 | [fmrb.ma.gov.br](https://fmrb.ma.gov.br)                         |
 | Fundação de Amparo à Pesquisa e ao Desenvolvimento Científico e Tecnológico do Maranhão    | [fapema.br](https://fapema.br)                                   |
 | Gabinete Militar do Governador                                                             | [gmg.ma.gov.br](https://gmg.ma.gov.br)                           |
@@ -74,7 +74,7 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 | Secretaria de Programas Estratégicos                                                       | [sepe.ma.gov.br](https://sepe.ma.gov.br)                         |
 | Secretaria de Relações Institucionais                                                      | [sri.ma.gov.br](https://sri.ma.gov.br)                           |
 | Secretaria de Representação Institucional do Gov do MA em Brasília                         | [rebras.ma.gov.br](https://rebras.ma.gov.br)                     |
-| Secretaria de Turismo                                                                      | [setur.ma.gov.br](https://turismo.ma.gov.br)                   |
+| Secretaria de Turismo                                                                      | [setur.ma.gov.br](https://turismo.ma.gov.br)                     |
 |                                                                                            | [turismo.ma.gov.br](https://turismo.ma.gov.br)                   |
 | Secretaria de Segurança                                                                    | [ssp.ma.gov.br](https://ssp.ma.gov.br)                           |
 | Secretaria de Transparência e Controle                                                     | [stc.ma.gov.br](https://stc.ma.gov.br)                           |
