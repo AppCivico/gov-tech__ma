@@ -7,15 +7,4 @@
     <div class="main-section">
         <p class="success">Sua busca por <strong>{exp:search:keywords}</strong> teve {exp:search:total_results} resultado{if "{exp:search:total_results}" != 1}s{/if}.</p>
     </div>
-    {exp:search:search_results}
-        {if count == 1}
-        <ul class="section">
-        {/if}
-            <li id="entry-{entry_id}">
-                <a href="{auto_path}#entry-{entry_id}">{title}</a> - <small>{channel}</small>
-            </li>
-        {if count == total_results}
-        </ul>
-        {/if}
-    {/exp:search:search_results}
 </main>

@@ -8,6 +8,9 @@
 >
 <head>
 {tp-head}
+
+<meta name="ma:search_keywords" content="{exp:search:keywords}" />
+
 </head>
 <body>
 {tv-browse_happy}
@@ -169,7 +172,11 @@
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
                 url_title="settings" disable="categories|member_data|pagination" parse="inward"
             }
-                {exp:search:simple_form form_class="search-form search-form--header" result_page="busca/resultados" site="not 0" no_result_page="busca/sem_resultados" search_in="entries" results="10"}
+                {exp:search:simple_form channel="service|news|event|staff|document|page|government_member"
+                    site="not none" search_in="entries" status="not closed" results="10"
+                    result_page="busca/resultados" no_result_page="busca/sem_resultados"
+                    form_class="search-form search-form--header"
+                }
                     <fieldset class="search-form__fieldset">
                         {if site_id == 1}
                             <legend class="search-form__legend">

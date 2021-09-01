@@ -1,57 +1,59 @@
-{layout="default_site:site/_layout" root_class="search" robots="index,follow,noarchive"}
+{layout="default_site:site/_layout" root_class="search going-to-search-results" robots="index,follow,noarchive"}
 
 {layout:set name="title"}Busca por '{exp:search:keywords}'{/layout:set}
 
 <main id="main" class="search__main">
+    <section class="h-feed pln-results" data-js="pln-results" aria-busy="true" aria-live="assertive"></section>
+
     <section class="search-results h-feed">
-        <h2 class="search-results__title h-feed__p-name">Confira outros resultados para "{exp:search:keywords}"</h2>
+        {exp:search:search_results paginate="inline"}
+        {if no_results}
+        <h1>debug</h1>
+        {/if}
+        {if count == "1"}
+            <header class="h-feed__header">
+                <h2 class="search-results__title h-feed__p-name">Confira outros resultados para "{exp:search:keywords}"</h2>
 
-        <p class="h-feed__e-content">
-            Encontramos <b>{exp:search:total_results}</b> resultados relacionados.
-        </p>
+                {paginate}
+                    <h2 class="h-feed__subhead">
+                        Página {current_page}/{total_pages}
+                    </h2>
+                {/paginate}
+            </header>
 
-        {exp:search:search_results}
-            {if count == "1"}
-                <div class="h-feed__list">
-            {/if}
-                    <a
-                        {if channel_short_name == "page"}
-                            href="{page_uri}"
-                        {if:else}
-                            href="{auto_path}"
-                        {/if}
-                        class="search-results__link h-entry__u-url"
-                    >
-                        <article id="entry-{entry_id}" class="h-feed__h-entry h-entry search-results__item">
-                            <header class="h-entry__header">
-                                <h3 class="h-entry__p-name p-name search-results__item-title">{title}</h3>
-                                {if channel_short_name != "page"}
-                                    <div role="doc-subtitle" class="h-entry__subhead">{channel}</div>
-                                {/if}
-                            </header>
-                            <p class="h-entry__dt-published search-results__date">
-                                <time class="dt-published" datetime="{entry_date format="{DATE_ISO8601}"}">
-                                    {entry_date format="%d/%m/%Y"}
-                                </time>
-                            </p>
-                            {if thumbnail}
-                                <img src="{thumbnail:crop width='80' height='68' maintain_ratio='n'}"
-                                    width="80" height="68"
-                                    class="h-entry__u-photo u-photo search-results__thumb"
-                                    {thumbnail}
-                                        alt="{description}"
-                                    {/thumbnail}
-                                />
+            <p class="h-feed__e-content">
+                Encontramos <b>{exp:search:total_results}</b> resultados relacionados.
+            </p>
+            <div class="h-feed__list">
+        {/if}
+                <a
+                    {if channel_short_name == "page"}
+                        href="{page_uri}"
+                    {if:else}
+                        href="{auto_path}"
+                    {/if}
+                    class="search-results__link h-entry__u-url"
+                >
+                    <article id="entry-{entry_id}" class="h-feed__h-entry h-entry search-results__item">
+                        <header class="h-entry__header">
+                            <h3 class="h-entry__p-name p-name search-results__item-title">{title}</h3>
+                            {if channel_short_name != "page"}
+                                <div role="doc-subtitle" class="h-entry__subhead">{channel}</div>
                             {/if}
-                            <div class="h-entry__p-summary">
-                                {if summary}
-                                    <p>{summary:limit characters="280" end_char="…"}</p>
-                                {if:else}
-                                    {body:limit characters="280" end_char="…"}
-                                {/if}
-                            </div>
-                        </article>
-                    </a>
+                            <time class="dt-published" datetime="{entry_date format="{DATE_ISO8601}"}">
+                                {entry_date format="%d/%m/%Y"}
+                            </time>
+                        </header>
+
+                        <div class="h-entry__p-summary">
+                            {if summary}
+                                <p>{summary:limit characters="280" end_char="…"}</p>
+                            {if:else}
+                                {body:limit characters="280" end_char="…"}
+                            {/if}
+                        </div>
+                    </article>
+                </a>
             {if count == total_results}
                 </div>
 
@@ -59,64 +61,4 @@
             {/if}
         {/exp:search:search_results}
     </section>
-
-    <aside class="main-aside">
-        {exp:channel:entries limit="3" dynamic="no" channel="news" category_group="2" category="1"}
-            {if count == 1}
-            <div class="alerts">
-                <h2 class="alerts__title">Informações importantes!</h2>
-                <ul class="alerts__list">
-            {/if}
-                    <li class="alerts__item">
-                        <a href="#" class="alerts__link">
-                            Governo do Maranhão começa a vacinar os trabalhadores
-                        </a>
-                    </li>
-                    <li class="alerts__item">
-                        <a href="#" class="alerts__link">
-                            Cadastre-se até o dia 31/06/21 para receber o auxílio
-                        </a>
-                    </li>
-            {if count == total_results}
-                </ul>
-            </div>
-            {/if}
-        {/exp:channel:entries}
-
-        {exp:channel:entries custom_fields="yes" limit="3" dynamic="no" channel="news"}
-            {if count == 1}
-                <div class="related-content h-feed">
-                    <h2 class="related-content__title">Última notícias</h2>
-
-                    <div class="related-content__list">
-            {/if}
-                        <a href="https:/{relative_url}/{url_title}" class="related-content__link">
-                            <article id="entry-{entry_id}" class="h-feed__h-entry related-content__item">
-                                {thumbnail limit="1"}
-                                    {thumbnail}
-                                        <img
-                                            src="{url:thumb--related}"
-                                            data-width="193" data-height="116"
-                                            width="{width:thumb--related}" height="{height:thumb--related}"
-                                            decoding="async" loading="lazy"
-                                            alt="{description}"
-                                            class="h-entry__u-photo u-photo related-content__thumb"
-                                        />
-                                    {/thumbnail}
-                                {/thumbnail}
-                                <h3 class="h-entry__p-name p-name">{title}</h3>
-                                <p class="h-entry__dt-published related-content__date">
-                                    <time class="dt-published" datetime="{edit_date format="{DATE_ISO8601}"}">
-                                            {edit_date format="%d/%m/%Y"}
-                                    </time>
-                                </p>
-                            </article>
-                        </a>
-            {if count == total_results}
-                    </div>
-                </div>
-            {/if}
-        {/exp:channel:entries}
-
-    </aside>
 </main>

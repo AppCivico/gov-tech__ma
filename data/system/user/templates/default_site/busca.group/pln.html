@@ -1,0 +1,50 @@
+<h2 class="h-feed__p-name h-feed__p-name--pln-results p-name">
+    Acreditamos que você está buscando por "{segment_3}". Certo?
+</h2>
+
+<p class="h-feed__p-summary h-feed__p-summary--pln-results">Os resultados disponíveis estão abaixo.</p>
+<div class="h-feed__list h-feed__list--pln-results">
+    {exp:query
+        sql="SELECT GROUP_CONCAT(DISTINCT ec.cat_id SEPARATOR '|') AS 'dialog_flow_ids'
+            FROM exp_categories ec
+            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
+            WHERE LOWER(ecg.group_name) = 'dialogflow'
+            AND (ec.cat_name = LOWER('{segment_3}') OR ec.cat_url_title = LOWER('{segment_3}'))
+        "
+        parse="inward"
+    }
+        {exp:query
+            sql="SELECT DISTINCT
+                GROUP_CONCAT(DISTINCT ecg.group_id SEPARATOR '|') AS 'services_ids'
+                FROM exp_category_groups ecg
+                WHERE LOWER(ecg.group_name) = 'categorias de servicos';
+            "
+            parse="inward"
+        }
+            {exp:channel:entries channel="service" site="not 0" limit="12"
+                disable="custom_fields|member_data|pagination" status="not closed" dynamic="no"
+                category="{dialog_flow_ids}"
+            }
+                <a
+                    {if page_uri}
+                        href='{page_uri}'
+                    {if:else}
+                        href='https://{relative_url}/{url_title}'
+                    {/if}
+                    class="h-entry__u-url--pln-results h-entry__u-url"
+                >
+                    <article class="h-feed__h-entry h-entry h-feed__h-entry--pln-results">
+                        {categories show_group="{services_ids}"}
+                            <img
+                                width="" height="" src="{category_image}" alt=""
+                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo pln-results__thumb"
+                            />
+                        {/categories}
+
+                        <h3 class="h-entry__p-name p-name h-entry__p-name--pln-results">{title}</h3>
+                    </article>
+                </a>
+            {/exp:channel:entries}
+        {/exp:query}
+    {/exp:query}
+</div>
