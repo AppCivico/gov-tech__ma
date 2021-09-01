@@ -152,7 +152,7 @@ $palette: map.set($palette, 'disabled', $disabled);
 ///
 $loading: (
   'foreground': map.get($neutral, 'x-dark'),
-  'background': map.get($neutral, 'base'),
+  'background': map.get($neutral, 'x-light'),
 );
 $palette: map.set($palette, 'loading', $loading);
 

@@ -1,0 +1,82 @@
+@use '../abstracts' as my;
+
+.pln-results {
+  margin-bottom: my.$gutter * 5;
+
+  font-size: my.ms-step(16px);
+
+  &[aria-busy='true'] {
+    visibility: hidden;
+  }
+
+  .h-feed__p-name--pln-results {
+    margin: 0;
+
+    font-size: my.ms-step(24px);
+    line-height: 1.333333;
+  }
+
+  .h-feed__p-summary--pln-results {
+    margin: 0;
+  }
+
+  .h-feed__list--pln-results {
+    @include my.columns(18em);
+
+    margin-top: my.$gutter * 2;
+  }
+
+  .h-entry__u-url--pln-results {
+    display: block;
+
+    margin: 0;
+
+    @include my.on-event {
+      text-decoration: underline;
+    }
+  }
+
+  .h-feed__h-entry--pln-results {
+    display: table;
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0 (my.$gutter * 0.5) 0 0;
+
+    border-spacing: 0 my.$gutter * 0.5;
+    border-collapse: separate;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  .pln-results__thumb {
+    display: table-cell;
+
+    flex-basis: 0;
+
+    width: auto;
+    height: my.$gutter * 2;
+    margin: 0;
+
+    vertical-align: middle;
+  }
+
+  .h-entry__p-name--pln-results {
+    @include my.truncate;
+
+    display: table-cell;
+
+    flex-grow: 1;
+
+    margin: 0;
+
+    font-size: 1em;
+    vertical-align: middle;
+  }
+}

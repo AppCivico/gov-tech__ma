@@ -933,13 +933,13 @@ $no-viewport: false !default;
   // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-@mixin columns {
+@mixin columns($width: map-get(c.$line-lengths, 'column'), $gap: c.$gutter) {
   @include hyphens;
 
   column-fill: balance;
 
-  column-gap: c.$gutter;
-  column-width: map-get(c.$line-lengths, 'column');
+  column-gap: $gap;
+  column-width: $width;
 
   max-width: 100%;
 }
