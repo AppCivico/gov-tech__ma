@@ -29,11 +29,11 @@
     transform-origin: 50% 50%;
   }
 
-  &.opened {
+  [id='menu-controller']:checked + div & {
     .menu-controller__line--2 {
       transform: rotate(-45deg);
     }
-
+    // stylelint-disable-next-line selector-max-compound-selectors
     .menu-controller__line--2 + .menu-controller__line--2 {
       transform: rotate(45deg);
     }
