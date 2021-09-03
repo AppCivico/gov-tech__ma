@@ -37,7 +37,7 @@ services:
   apache:
     build: ./docker/apache/
     volumes:
-      - ./data:/var/www
+      - ${GOV_MA_SERVER_BASE_DIR}:/var/www-versions/
     logging:
       driver: "json-file"
       options:
