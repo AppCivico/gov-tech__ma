@@ -33,7 +33,7 @@ func main() {
 		file, _ := c.FormFile("audio")
 		fmt.Println(file.Filename)
 
-		filename := "./tmp-audio-folder/" + file.Filename
+		filename := "./" + file.Filename
 
 		c.SaveUploadedFile(file, filename)
 		res, err := dialogflow.DetectIntentAudio(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", filename, "pt-BR")
