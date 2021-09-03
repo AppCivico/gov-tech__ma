@@ -28,7 +28,7 @@ Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os
 - nginx: Aplica regras de cache/rate-liming e load-balance entre as instancias do apache
 
 Comunicação entre os containers:
-<img src="https://github.com/AppCivico/gov-tech__ma/blob/main/docs/extraDocs/conexoes-entre-containers.png?raw=true">
+<img src="https://github.com/AppCivico/gov-tech__ma/blob/main/docs/extraDocs/conexoes-entre-containers-v2.png?raw=true">
 
 Na maquina onde ficará hospedado o docker, é necessário haver um serviço de proxy reverso; Pode ser nginx, ou outro de preferencia, ele será responsável por fazer a terminação HTTPS e encaminhar o request para o container do nginx.
 
@@ -41,6 +41,7 @@ Neste repositório git há apenas o código fonte das alterações e templates.
 
 O código da ExpressionEngine deve ser colocado na pasta `data/system/ee`, e os passos para instalação estão documentados em https://docs.expressionengine.com/latest/installation/installation.html
 
+Existe um repositório para o código do CI/CD que faz o build do ambiente PHP com base neste repositório. Para ver todos os detalhes acesse a documentação do CD/CD.
 
 Considerando que o arquivo `docker-compose.yml` e todo o código fonte deste repositório foi colocado na pasta
 
@@ -57,9 +58,22 @@ Copie o arquivo `.env.sample` para `.env` e faça as configurações das variare
     NGINX_BIND_ADDRESS=172.17.0.1:50025  - qual interface e porta o nginx deve fazer o bind
     LOG_MAX_FILE=100                     - quantidade de logs para cada container do docker
     LOG_MAX_SIZE=1m                      - quantidade em MB para cada rotate do logs
+    GOV_MA_SERVER_BASE_DIR               - local onde irá existir as versões do site com a pasta `current-version`
+    GOV_MA_UPLOAD_DIR                    - local onde os uploads do site serão mantidos
+    REDIS_STORAGE                        - local onde o redis irá salvar o dump do cache quando reiniciado
+    MYSQL_DATA                           - local onde o mariadb irá salvar o banco de dados
+    NGINX_STORAGE                        - local onde o nginx irá salvar o cache e dados para rate-limiting
 
 
 As imagens do redis e mariadb já estão prontas. As imagens do apache e nginx são construídas a partir do Dockerfile. O mesmo está na pasta `docker/apache/` e `docker/nginx/` respectivamente.
+
+Antes de subir, será necessário verificar se as permissões dos diretórios dos serviços estão corretas.
+
+    REDIS_STORAGE precisa ser 1001:1001 de acordo com https://hub.docker.com/r/bitnami/redis/
+    MYSQL_DATA precisa ser 999:999 de acordo com https://github.com/MariaDB/mariadb-docker/blob/60caa9ea5c46b985ac6a7ebc93564a29791fca08/10.6/Dockerfile#L89
+    NGINX_STORAGE precisa ser 101:101 de acordo com https://github.com/nginxinc/docker-nginx/blob/f958fbacada447737319e979db45a1da49123142/mainline/debian/Dockerfile#L14
+    GOV_MA_UPLOAD_DIR e GOV_MA_SERVER_BASE_DIR precisam ser 33:33 (imagem do apache, user www-data)
+
 
 Ao executar o comando `docker-compose up -d` e aguardar o download/build das imagens, você poderá executar o comando `docker-compose ps` e visualizar o resultado:
 

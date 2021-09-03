@@ -86,7 +86,7 @@ RUN { \
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
 # Define Site volume to persist data
-VOLUME /var/www
+# VOLUME /var/www
 
 # Setting PHP properties
 ENV PHP_INI_DATE_TIMEZONE='UTC' \
