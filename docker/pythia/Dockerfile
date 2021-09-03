@@ -1,13 +1,21 @@
-FROM golang:1.16 AS pythia
+## Builder
+FROM golang:1.16-alpine AS builder
 
-ARG AUTH_FOLDER_INSIDE_CONTAINER
-ARG JSON_KEY_FILENAME
-    
 WORKDIR /app
+COPY go.mod .
+COPY go.sum .
 
-COPY . ./
-COPY ${JSON_KEY_FILENAME} ${AUTH_FOLDER_INSIDE_CONTAINER}
+RUN go mod download
 
-RUN go mod download && go build -o /pythia
-CMD [ "/pythia" ]
+COPY dialogflow/ dialogflow/
+COPY main.go .
 
+RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o pythia
+
+## Deploy
+FROM ubuntu:20.04 AS pythia
+WORKDIR /root/
+
+COPY --from=builder /app/pythia ./
+
+CMD ["sh", "-c", "/root/pythia"]
