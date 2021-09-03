@@ -14,18 +14,27 @@ apache->db: consulta o banco
 db->apache: resposta queries
 end
 
+apache->nginx: responde
+nginx->externo: responde html
+
 opt serviço de busca NLP
-apache->pythia: consulta o pythia
-pythia->dialogflow: consulta dialogflow
+externo->nginx: consulta o NLP\nGET /pythia/text\nPOST /pythia/audio
+nginx->pythia: envia pro pythia
+pythia->dialogflow: envia pro dialogflow
 note right of dialogflow: serviço externo
 dialogflow->pythia: responde JSON
-pythia->apache: responde HTML
+pythia->nginx: responde com JSON
+nginx->externo: responde com JSON
+
+opt se existe resultados de "serviço"
+externo->nginx: consulta apache
+nginx->apache: Faz a busca de acordo\ncom o serviço
+apache->externo: retorna o snipped em HTML
+end
+
 end
 opt serviço de e-mail SMTP
 apache->SMTP: envia o body do email
-note left of SMTP: Serviço externo, precisa ser configurado.
+note left of SMTP: Serviço externo,\nprecisa ser configurado.
 SMTP->apache: resposta OK
 end
-
-apache->nginx: responde
-nginx->externo: responde html
