@@ -48,8 +48,8 @@
             <div class="main-header">
                 {if site_id == "1"}
                     {exp:query
-                            sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
-                            parse="inward"
+                        sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
+                        parse="inward"
                     }
                         <label for="menu-controller" class="header-nav__toggle header-nav__hamburguer" aria-haspopup="menu"
                             aria-label="Menu"
@@ -76,7 +76,11 @@
                             }
                                 {categories}
                                     {if url}
-                                        <a href="{url:url}" class="main-nav__menu-item-link">
+                                        <a
+                                            href="{url:url}"
+                                            target="_blank"
+                                            class="main-nav__menu-item-link"
+                                        >
                                             {category_name}
                                         </a>
                                     {if:else}
@@ -298,8 +302,9 @@
 
             <div class="license-and-powered-by" role="contentinfo">
                 <div class="license">
-                    <img src="/assets/images/licenses/by.png" width="403" height="141" alt="" aria-hidden="true"
-                        class="license__image" />
+                    <img src="/assets/images/licenses/by.png" width="403" height="141"
+                        alt="" aria-hidden="true" class="license__image"
+                    />
                     Este obra está sob a Licença
                     <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
                         Creative Commons Atribuição 4.0 Internacional
