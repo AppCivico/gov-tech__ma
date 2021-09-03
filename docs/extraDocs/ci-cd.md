@@ -32,11 +32,11 @@ Contém os arquivos necessários para fazer o build (compilar os assets), mas qu
     4.0K drwxr-xr-x   7    0    0 4.0K Sep  2 23:33 gov-tech__ma
     4.0K drwxr-xr-x   7 1000 1000 4.0K Sep  3 00:05 tmp-build
 
-Dentro deste diretório, o diretório `gov_ma_node_modules` (1000:1000) irá guardar os arquivos do node_modules para acelerar o build.
+Dentro deste diretório, o diretório `gov_ma_node_modules` (1000:1000) irá guardar os arquivos do node_modules para acelerar o build. Pode ser criado vazio.
 
-Dentro deste diretório, o diretório `gov-tech__ma` (0:0) irá guardar o código fonte base, é neste diretório que será feito o `git pull` para puxar a ultima versão do site. Não pode haver mudanças nesse local, por isso ele fica separado do clone feito para ter subir o ambiente persistente.
+Dentro deste diretório, o diretório `gov-tech__ma` (0:0) irá guardar o código fonte base, é neste diretório que será feito o `git pull` para puxar a ultima versão do site. Não pode haver mudanças nesse local, por isso ele fica separado do clone feito para ter subir o ambiente persistente. Deve ser clonado.
 
-Dentro deste diretório, o diretório `tmp-build` (1000:1000) é uma copia gov-tech__ma, porém aqui é feito o build e é removido sempre que um build começa, ficando com uma versão incompleta para debug quando o script de deploy.sh falha.
+Dentro deste diretório, o diretório `tmp-build` (1000:1000) é uma copia gov-tech__ma, porém aqui é feito o build e é removido sempre que um build começa, ficando com uma versão incompleta para debug quando o script de deploy.sh falha. Pode ser criado vazio.
 
 ## ci
 
@@ -57,10 +57,30 @@ Aqui foram guardados os diretórios dos dados persistentes entre os builds, e qu
     4.0K drwxr-xr-x 4  101  101 4.0K Sep  3 00:06 nginx
     4.0K drwxr-xr-x 2 1001 1001 4.0K Sep  3 00:27 redis
     4.0K drwxr-xr-x 2   33   33 4.0K Sep  3 00:05 upload-dir
+    4.0K drwxr-xr-x 2 1000 1000 4.0K Sep  3 00:05 pythia
 
 Esses diretorias serão montados nos containers, pelo docker-compose. Os uid e gid devem estar conforme acima.
 
 O script de deploy.sh irá escrever novos arquivos e pastas no `upload-dir` durante a sua execução, pois conforme entram novos subsites, novas pastas precisam ser inicializadas e estas não são criadas automaticamente pela aplicação PHP.
+
+Na pasta `pythia` é apenas para guardar o arquivo de autenticação com o DialogFlow
+
+    gov_ma_dialogflow_auth_file
+
+Arquivo usado pelo container do pythia para se autenticar com o google DialogFlow
+
+## www_versions
+
+Pasta com o código fonte de todas as versões do site. Pode ser criada vazia na primeira vez, uid/gid 33:33
+
+       0 lrwxrwxrwx 1   33   33   32 Sep  3 00:05 current-version -> data-build--2021-09-03-00h03m29s
+    4.0K drwxr-xr-x 4   33   33 4.0K Sep  2 23:33 data-build--2021-09-03-00h03m29s
+
+Quando o processo de build finaliza um build com sucesso, a pasta irá sair de `/home/app/build-env/tmp-build/data` e irá se tornar uma versão oficial. Para colocar essa versão no ar, um link simbólico chamado `current-version` é criado apontando para a nova versão.
+
+Caso uma versão anterior precise ser colocada no ar, basta apontar o link simbólico para a versão correspondente.
+
+OBS: atualmente, cada versão ocupa ~ 50 MB em disco, é necessário criar uma rotina para remover as versões anteriores, ou então executar o `rdfind` para criar hardlinks dos arquivos duplicados mas manter as versões.
 
 ## prod-env
 
@@ -102,20 +122,6 @@ Para reiniciar os serviços com as configurações novas, pode ser feito usando 
 
 Só irá ser necessário executar o comando acima quando mudarem as imagens, ou uma configuração muito grande (trocar o local do banco de dados, por exemplo), pois a grande maioria das atualizações pode ser feita apenas atualizando o código PHP, sem mudanças nas extensões do PHP/apache.
 
-
-## www_versions
-
-Pasta com o código fonte de todas as versões do site.
-
-       0 lrwxrwxrwx 1   33   33   32 Sep  3 00:05 current-version -> data-build--2021-09-03-00h03m29s
-    4.0K drwxr-xr-x 4   33   33 4.0K Sep  2 23:33 data-build--2021-09-03-00h03m29s
-
-Quando o processo de build finaliza um build com sucesso, a pasta irá sair de `/home/app/build-env/tmp-build/data` e irá se tornar uma versão oficial. Para colocar essa versão no ar, um link simbólico chamado `current-version` é criado apontando para a nova versão.
-
-Caso uma versão anterior precise ser colocada no ar, basta apontar o link simbólico para a versão correspondente.
-
-OBS: atualmente, cada versão ocupa ~ 50 MB em disco, é necessário criar uma rotina para remover as versões anteriores, ou então executar o `rdfind` para criar hardlinks dos arquivos duplicados mas manter as versões.
-
 ## gov_ma_user_envfile
 
 Arquivo usado pelo ExpressionEngine para carregar algumas configurações do sistema (eg: banco de dados, debug)
@@ -123,7 +129,6 @@ Arquivo usado pelo ExpressionEngine para carregar algumas configurações do sis
 Esse arquivo é copiado durante o build para a pasta `[tmp-build]/data/system/user/config/.env`
 
 o repositório `gov-tech__ma` tem um arquivo `data/system/user/config/.env.sample` com os valores de exemplo.
-
 ## run-deploy.sh
 
 Script bash que realmente inicia o deploy, setando as variaveis de ambiente corretas para as pastas acima.

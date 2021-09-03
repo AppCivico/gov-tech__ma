@@ -60,6 +60,7 @@ Copie o arquivo `.env.sample` para `.env` e faça as configurações das variare
     LOG_MAX_SIZE=1m                      - quantidade em MB para cada rotate do logs
     GOV_MA_SERVER_BASE_DIR               - local onde irá existir as versões do site com a pasta `current-version`
     GOV_MA_UPLOAD_DIR                    - local onde os uploads do site serão mantidos
+    GOV_MA_IMAGE_DIR                     - local onde os avatares dos admins ficam
     REDIS_STORAGE                        - local onde o redis irá salvar o dump do cache quando reiniciado
     MYSQL_DATA                           - local onde o mariadb irá salvar o banco de dados
     NGINX_STORAGE                        - local onde o nginx irá salvar o cache e dados para rate-limiting
