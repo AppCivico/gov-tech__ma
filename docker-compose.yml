@@ -76,25 +76,25 @@ services:
     restart: unless-stopped
     ports:
       - ${NGINX_BIND_ADDRESS}:80
-  pythia:
-    build:
-      context: ./docker/pythia
-      args:
-        - AUTH_FOLDER_INSIDE_CONTAINER=${AUTH_FOLDER_INSIDE_CONTAINER}
-        - JSON_KEY_FILENAME=${JSON_KEY_FILENAME}
-    container_name: dialogflow_proxy_api
-    environment:
-      PORT: 8080
-      GOOGLE_APPLICATION_CREDENTIALS: ${AUTH_FOLDER_INSIDE_CONTAINER}${JSON_KEY_FILENAME}
-      GOOGLE_CLOUD_PROJECT_NAME: ${GOOGLE_CLOUD_PROJECT_NAME}
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "${LOG_MAX_FILE}"
-        max-size: "${LOG_MAX_SIZE}"
-    restart: unless-stopped
-    ports:
-      - ${DIALOGFLOW_PROXY_API_BIND_ADDRESS}:8080
+  # pythia:
+  #   build:
+  #     context: ./docker/pythia
+  #     args:
+  #       - AUTH_FOLDER_INSIDE_CONTAINER=${AUTH_FOLDER_INSIDE_CONTAINER}
+  #       - JSON_KEY_FILENAME=${JSON_KEY_FILENAME}
+  #   container_name: dialogflow_proxy_api
+  #   environment:
+  #     PORT: 8080
+  #     GOOGLE_APPLICATION_CREDENTIALS: ${AUTH_FOLDER_INSIDE_CONTAINER}${JSON_KEY_FILENAME}
+  #     GOOGLE_CLOUD_PROJECT_NAME: ${GOOGLE_CLOUD_PROJECT_NAME}
+  #   logging:
+  #     driver: "json-file"
+  #     options:
+  #       max-file: "${LOG_MAX_FILE}"
+  #       max-size: "${LOG_MAX_SIZE}"
+  #   restart: unless-stopped
+  #   ports:
+  #     - ${DIALOGFLOW_PROXY_API_BIND_ADDRESS}:8080
 
 networks:
     cache:

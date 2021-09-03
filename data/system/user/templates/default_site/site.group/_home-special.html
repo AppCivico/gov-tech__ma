@@ -1,6 +1,7 @@
-{exp:channel:entries channel="special" limit="{embed:limit}" category="{embed:cat_id}" status="not closed"
-    disable="categories|category_fields|member_data|pagination" category_group="{embed:group_id}"
-    search:icon="not IS_EMPTY" orderby="title" sort="asc"
+{exp:channel:entries channel="special" limit="{embed:limit}"
+    category="{embed:cat_id}" status="not closed" orderby="title" sort="asc"
+    disable="categories|category_fields|member_data|pagination"
+    category_group="{embed:group_id}" search:icon="not IS_EMPTY"
 }
     {if count == 1}
     <section class="h-feed special-entries">
