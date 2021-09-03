@@ -673,6 +673,13 @@ $config['hidden_template_404'] = 'y';
 $config['htaccess_path'] = '/var/www/html/.htaccess';
 $config['ignore_entry_stats'] = 'n';
 $config['multiple_sites_enabled'] = 'y';
+$config['mail_protocol'] = 'smtp';
+$config['email_smtp_crypto'] = 'ssl';
+$config['smtp_password'] = Manifest::get('SMTP_PASSWORD', '465');
+$config['smtp_port'] = Manifest::get('SMTP_PORT', '465');
+$config['smtp_server'] = Manifest::get('SMTP_HOST', '465');
+$config['smtp_username'] = Manifest::get('SMTP_USER', '');
+
 $config['profile_trigger'] = rand(0, time());
 $config['pw_min_len'] = '16';
 
