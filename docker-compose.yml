@@ -10,7 +10,7 @@ services:
     networks:
         - cache
     volumes:
-      - 'redis_data:/bitnami/redis/data'
+      - ${REDIS_STORAGE}:/bitnami/redis/data
     logging:
       driver: "json-file"
       options:
@@ -20,7 +20,7 @@ services:
     container_name: ma_gov_mariadb
     image: mariadb:10.5.10-focal
     volumes:
-        - db_data:/var/lib/mysql
+        - ${MYSQL_DATA}:/var/lib/mysql
     environment:
         MYSQL_DATABASE: "${DATABASE_NAME}"
         MYSQL_USER: "${DATABASE_USER}"
@@ -70,17 +70,12 @@ services:
         max-file: "${LOG_MAX_FILE}"
         max-size: "${LOG_MAX_SIZE}"
     volumes:
-      - nginx_cache:/cache-data
+      - ${NGINX_STORAGE}:/cache-data
     networks:
       - cms
     restart: unless-stopped
     ports:
       - ${NGINX_BIND_ADDRESS}:80
-
-volumes:
-    db_data: {}
-    redis_data: {}
-    nginx_cache: {}
 
 networks:
     cache:
