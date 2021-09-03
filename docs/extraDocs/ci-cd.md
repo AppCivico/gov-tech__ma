@@ -150,3 +150,29 @@ Também tentamos fazer um map fora de `/var/www`, porém o apache insistia em re
 Da forma que está, o apache sempre visualiza e serve os requests a partir do `DocumentRoot /var/www/versions/current-version/html`.
 Como há uma troca atômica do link, nenhum request é executado com uma versão incompleta dos arquivos do PHP.
 
+# Configuração em produção do dispatcher-server
+
+Com o seguinte arquivo de configuração no
+
+    # cat /etc/systemd/system/dispatcher-server.service
+
+    [Unit]
+    Description=Deploy Dispacher
+    After=network.target auditd.service
+
+    [Service]
+    Environment="LISTEN_ADDR=127.0.0.1:50024"
+    Environment="DEPLOY_CMD=/home/app/run-deploy.sh"
+    ExecStart=/home/app/ci/dispatcher-server/bin/dispatcher-server
+    Restart=on-failure
+    RestartPreventExitStatus=255
+    Type=simple
+
+    [Install]
+    WantedBy=multi-user.target
+    Alias=dispatcher-server.service
+
+Ao executar `systemctl daemon-reload` e depois `systemctl start dispatcher-server` o serviço deverá estar em pé. Para iniciar um deploy, basta chamar `curl http://127.0.0.1:50024/deploy`
+
+Essa chamada poderá ser executada por qualquer usuário com acesso a maquina, mesmo se não tiver root. Assim qualquer desenvolvedor poderá iniciar um deploy. Também pode-ser configurado um proxy ou mudar o bind deste serviço para que qualquer um com acesso a VPN consiga fazer essa chamada.
+
