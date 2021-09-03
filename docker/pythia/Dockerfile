@@ -1,4 +1,4 @@
-FROM golang:1.16 AS dialogflow_api
+FROM golang:1.16 AS pythia
 
 ARG AUTH_FOLDER_INSIDE_CONTAINER
 ARG JSON_KEY_FILENAME
