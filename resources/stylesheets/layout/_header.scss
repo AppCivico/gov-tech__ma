@@ -25,10 +25,6 @@
   background-position: 50% 50%;
   background-size: cover;
 
-  .setur:root & {
-    background-image: my.image('shutterstock_1659111457.jpg');
-  }
-
   .going-to-search-results & {
     z-index: auto;
   }
