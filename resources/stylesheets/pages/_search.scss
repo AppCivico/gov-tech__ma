@@ -151,4 +151,60 @@
   .main-aside {
     display: block;
   }
+
+  .tab-wrap {
+    position: relative;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    max-width: 100%;
+    margin: my.$gutter * 2 0;
+
+    .tab {
+      display: block;
+
+      flex-grow: 1;
+
+      width: 100%;
+      height: my.$gutter * 2;
+      min-height: 0;
+      padding: 15px;
+
+      font-size: my.ms-step(16px);
+      font-weight: inherit;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+
+      cursor: pointer;
+      user-select: none;
+
+      background: none;
+      border-bottom-color: my.palette('neutral');
+      border-bottom-style: solid;
+      border-bottom-width: my.$stroke;
+      border-radius: 0;
+      box-shadow: none;
+
+      @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+        width: auto;
+      }
+
+      &:hover,
+      &:focus {
+        font-weight: inherit;
+        color: inherit;
+
+        background: none;
+        border-bottom-color: my.palette('brand', 'blue', 'dark');
+      }
+    }
+
+    .current-filter {
+      border-bottom-color: my.palette('brand', 'blue');
+    }
+
+  }
 }

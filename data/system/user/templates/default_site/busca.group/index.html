@@ -1,10 +1,17 @@
-{layout="default_site:site/_layout" root_class="search" robots="noindex,noarchive,follow" title="Busca"}
+{layout="default_site:site/_layout" root_class="search going-to-search-results" robots="noindex,noarchive,follow"
+title="Busca"}
 
 {layout:set name="description"}Busca por '{exp:search:keywords}'{/layout:set}
 
+<div hidden>
+    {exp:search:simple_form channel="service|news|event|staff|document|page|government_member"
+        site="not none" search_in="entries" status="not closed" results="10"
+        result_page="busca/resultados" no_result_page="busca/sem_resultados"
+        form_id="search-form--hidden"
+    }{/exp:search:simple_form}
+</div>
+
 <main id="main" class="page-entry">
-    <h1>Resultados de sua busca</h1>
-    <div class="main-section">
-        <p class="success">Sua busca por <strong>{exp:search:keywords}</strong> teve {exp:search:total_results} resultado{if "{exp:search:total_results}" != 1}s{/if}.</p>
-    </div>
+    <section data-js="pln-results" class="pln-results h-feed" aria-busy="true" aria-live="assertive" hidden></section>
+    <section data-js="cms-results" class="search-results h-feed" aria-busy="true" aria-live="assertive" hidden></section>
 </main>

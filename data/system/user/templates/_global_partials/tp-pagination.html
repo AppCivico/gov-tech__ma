@@ -4,7 +4,7 @@
             <ul class="pagination__list">
                 {first_page}
                     <li class="pagination__item pagination__item--first-page">
-                        <a class="pagination__link" href="{pagination_url}/" title="página 1">
+                        <a data-js="paginationLink" class="pagination__link" href="{pagination_url}/" title="página 1">
                             ❰
                         </a>
                     </li>
@@ -12,7 +12,7 @@
 
                 {previous_page}
                     <li class="pagination__item pagination__item--previous-page">
-                        <a class="pagination__link" href="{pagination_url}/" title="página anterior">
+                        <a data-js="paginationLink" class="pagination__link" href="{pagination_url}/" title="página anterior">
                             ❮
                         </a>
                     </li>
@@ -20,7 +20,7 @@
 
                 {page}
                     <li class="pagination__item  {if current_page}pagination__item--current{/if}">
-                        <a class="pagination__link" href="{pagination_url}/" title="página {pagination_page_number}">
+                        <a data-js="paginationLink" class="pagination__link" href="{pagination_url}/" title="página {pagination_page_number}">
                             {pagination_page_number}
                         </a>
                 </li>
@@ -28,7 +28,7 @@
 
                 {next_page}
                     <li class="pagination__item pagination__item--next-page">
-                        <a class="pagination__link" href="{pagination_url}/" title="página seguinte">
+                        <a data-js="paginationLink" class="pagination__link" href="{pagination_url}/" title="página seguinte">
                             ❯
                         </a>
                     </li>
@@ -36,7 +36,7 @@
 
                 {last_page}
                     <li class="pagination__item pagination__item--last-page">
-                        <a class="pagination__link" href="{pagination_url}/" title="página {total_pages}">
+                        <a data-js="paginationLink" class="pagination__link" href="{pagination_url}/" title="página {total_pages}">
                             ❱
                         </a>
                     </li>

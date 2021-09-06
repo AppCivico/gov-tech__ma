@@ -1,17 +1,7 @@
-{layout="default_site:site/_layout" root_class="search going-to-search-results" robots="index,follow,noarchive"}
+<header class="h-feed__header">
+    <h2 class="search-results__title h-feed__p-name">Sem resultados para "{exp:search:keywords}"</h2>
+</header>
 
-{layout:set name="title"}Busca por '{exp:search:keywords}'{/layout:set}
-
-<main id="main" class="search__main">
-    <section class="h-feed pln-results" data-js="pln-results" aria-busy="true" aria-live="assertive"></section>
-
-    <section class="search-results h-feed">
-        <header class="h-feed__header">
-            <h2 class="search-results__title h-feed__p-name">Sem resultados para "{exp:search:keywords}"</h2>
-        </header>
-
-        <p class="h-feed__e-content">
-            Não foram encontrados resultados.
-        </p>
-    </section>
-</main>
+<p class="h-feed__e-content">
+    Não foram encontrados resultados.
+</p>

@@ -176,11 +176,7 @@
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
                 url_title="settings" disable="categories|member_data|pagination" parse="inward"
             }
-                {exp:search:simple_form channel="service|news|event|staff|document|page|government_member"
-                    site="not none" search_in="entries" status="not closed" results="10"
-                    result_page="busca/resultados" no_result_page="busca/sem_resultados"
-                    form_class="search-form search-form--header"
-                }
+                <form action="/busca" method="GET" class="search-form search-form--header">
                     <fieldset class="search-form__fieldset">
                         {if site_id == 1}
                             <legend class="search-form__legend">
@@ -222,7 +218,7 @@
                             </ul>
                         </fieldset>
                     {/if}
-                {/exp:search:simple_form}
+                </form>
             {/exp:channel:entries}
         </div><!-- .main-header-and-search-form__container -->
 

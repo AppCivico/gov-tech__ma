@@ -1,4 +1,4 @@
-import objectToQueryString from '../utilities/objectToQueryString';
+import objectToQueryString from '../../utilities/objectToQueryString';
 
 export default ((searchTerm) => fetch(`https://pythia.appcivico.com/text?${objectToQueryString({ text: searchTerm })}`, {
   method: 'GET',
