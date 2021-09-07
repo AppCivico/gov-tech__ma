@@ -1,5 +1,5 @@
 export default function initializer() {
-  const switcherButton = document.querySelectorAll('[data-js-theme-switcher');
+  const switcherButton = document.querySelectorAll('[data-js="themeSwitcher"]');
 
   if (window.localStorage.getItem('theme') === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
