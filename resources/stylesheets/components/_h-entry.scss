@@ -19,7 +19,7 @@
 }
 
 .h-entry__header {
-  margin: 0 0 my.$gutter 0;
+  margin: 0 0 my.$gutter * 3 0;
 
   // entry name/title
   .h-entry__p-name {
