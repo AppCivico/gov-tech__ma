@@ -310,15 +310,11 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/vim,node,sass,linux,macos,emacs,windows,visualstudiocode,expressionengine
 
 data/html/themes
-data/html/images
 data/system/*
 !data/system/user
 data/system/user/cache
-data/system/user/templates/default_site/-.group/scripts.js
-data/system/user/templates/default_site/-.group/styles.css
-data/system/user/templates/default_site/-.group/mix-manifest.json
-data/system/user/templates/default_site/-.group/manifest.js
 data/html/docs
+data/system/user/templates/default_site/site.group/manifest.json
 data/system/user/templates/default_site/site.group/mix-manifest.json
 data/system/user/templates/default_site/site.group/scripts.js
 data/system/user/templates/default_site/site.group/styles.css
