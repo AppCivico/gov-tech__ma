@@ -1,3 +1,5 @@
+let form;
+
 const submitFile = ((audioFile) => {
   const body = new FormData();
 
@@ -6,7 +8,29 @@ const submitFile = ((audioFile) => {
   return fetch('https://pythia.appcivico.com/audio', {
     body: audioFile,
     method: 'POST',
-  });
+    mode: 'cors',
+    cache: 'default',
+    headers: {
+      Accept: 'application/json, application/xml, text/plain, text/html, *.*',
+    },
+  }).then((response) => {
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      throw new Error("Oops, we haven't got JSON!");
+    }
+    return response.json();
+  })
+    .then((data) => data?.dialogflow_result)
+    .then((dialogFlowed) => {
+      const formData = new FormData(form);
+
+      formData.set('pln', dialogFlowed);
+
+      form.submit();
+    })
+    .catch((err) => {
+      throw new Error(err);
+    });
 });
 
 export default (() => {
@@ -17,6 +41,8 @@ export default (() => {
   let mediaRecorder;
   let chunks = [];
   let type = 'audio/webm; codecs=pcm';
+
+  form = recordButton.form;
 
   // true on Chrome and Opera
   if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {

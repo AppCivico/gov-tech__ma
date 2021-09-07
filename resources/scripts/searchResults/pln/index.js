@@ -4,13 +4,20 @@ import getFromDialogFlow from './getFromDialogFlow';
 
 export default (async () => {
   const resultsTargetEl = document.querySelector('[data-js="pln-results"]');
-  const searchTerm = currentQuery?.keywords;
+  const { keywords: searchTerm, pln } = currentQuery;
+  let dialogFlowed;
 
   if (!resultsTargetEl || !searchTerm) return;
 
   resultsTargetEl.setAttribute('aria-busy', 'true');
 
-  const { parameters: { categoria: dialogFlowed } } = await getFromDialogFlow(searchTerm);
+  if (!pln.trim()) {
+    const { parameters: { categoria } } = await getFromDialogFlow(searchTerm);
+
+    dialogFlowed = categoria;
+  } else {
+    dialogFlowed = pln.trim();
+  }
 
   if (dialogFlowed) {
     const data = await getFromCms(dialogFlowed);
