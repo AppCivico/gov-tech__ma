@@ -53,10 +53,19 @@ body {
 }
 
 h1 {
+  // font-size: my.ms(9);
   font-size: my.ms(7);
   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
 
+  // @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+  //   font-size: my.ms(4);
+  //   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
+  // }
 
+  // @media screen and (min-width: my.breakpoint('desktop')) {
+  //   font-size: my.ms(5);
+  //   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
+  // }
 }
 
 h2 {
@@ -84,8 +93,8 @@ legend {
 }
 
 summary {
-  font-size: my.ms(2);
-  font-weight: inherit;
+  font-size: my.ms-step(24px);
+  font-weight: my.font-weight('bold');
   color: inherit;
   text-decoration: none;
 
