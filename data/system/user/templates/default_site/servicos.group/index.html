@@ -45,13 +45,9 @@
                 {/if}
             </header>
 
-            {if summary}
-                <section class="h-entry__p-summary">{summary}</section>
-            {/if}
-
             <section class="h-entry__e-content e-content">
                 {if body}
-                    <details open>
+                    <details>
                         <summary>O que é</summary>
 
                         <div class="details__widget">
@@ -60,12 +56,12 @@
                     </details>
                 {/if}
 
-                {if service__assistance}
-                    <details open>
+                {if service__assistance:value != 'presential'}
+                    <details>
                         <summary>O serviço já é oferecido digitalmente?</summary>
 
                         <div class="details__widget">
-                            {service__assistance}
+                            <p>{service__assistance:label}</p>
                         </div>
                     </details>
                 {/if}
@@ -131,8 +127,8 @@
                 {/if}
 
                 {if service__link}
-                    <details open>
-                        <summary>Portal</summary>
+                    <details>
+                        <summary>Onde encontrar</summary>
 
                         <div class="details__widget">
                             <a href="{service__link}" target="_blank">
