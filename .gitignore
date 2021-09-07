@@ -322,3 +322,4 @@ data/html/docs
 data/system/user/templates/default_site/site.group/mix-manifest.json
 data/system/user/templates/default_site/site.group/scripts.js
 data/system/user/templates/default_site/site.group/styles.css
+data/system/user/templates/default_site/site.group/audio-polyfill.js

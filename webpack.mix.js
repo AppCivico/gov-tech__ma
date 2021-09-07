@@ -6,3 +6,6 @@ mix
   .sass('resources/stylesheets/index.scss', 'styles.css')
   .sourceMaps()
   .version();
+
+mix
+  .js('resources/scripts/audio-polyfill.js', 'audio-polyfill.js');

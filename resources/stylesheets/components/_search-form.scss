@@ -128,9 +128,6 @@
   .search-form__field-wrapper--audio {
     width: my.$gutter * 2;
 
-    background-image: my.image('microphone.svg');
-    background-position: 50% 50%;
-    background-size: 15px auto;
     opacity: 0.85;
 
     @include my.on-event {
@@ -139,10 +136,63 @@
   }
 
   .search-form__field--audio {
-    opacity: 0;
+    img {
+      pointer-events: none;
+    }
 
-    @include my.on-event {
-      opacity: 0;
+    &:active {
+      &::before,
+      &::after {
+        z-index: my.layer('modal');
+
+        pointer-events: none;
+        content: '';
+        user-select: none;
+      }
+
+      &::before {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        font-weight: font-weight('bold');
+
+        content: 'Gravando...';
+
+        background-color: my.palette('neutral');
+        opacity: 0.85;
+      }
+
+      &::after {
+        position: absolute;
+
+        width: my.$gutter * 4;
+        height: my.$gutter * 4;
+
+        background-color: my.palette('brand', 'red');
+        border-radius: 100%;
+
+        animation: pulse-animation 1s infinite;
+      }
+    }
+  }
+
+  @at-root {
+    @keyframes pulse-animation {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+      }
+
+      100% {
+        box-shadow: 0 0 0 (my.$gutter * 2) rgba(0, 0, 0, 0);
+      }
     }
   }
 
