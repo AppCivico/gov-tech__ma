@@ -22,7 +22,7 @@
                 {cat_name}
             </h5>
             <ul class="main-aside__list" data-total-entries="{total_entries}">
-                {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{cat_id}" status="open" limit="3"}
+                {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{cat_id}" status="not closed" limit="3" dynamic="no"}
                     <li class="main-aside__item h-entry">
                         <a class="main-aside__link h-entry__u-url u-url" href="https:/{relative_url}/{url_title}">{title}</a>
                     </li>
