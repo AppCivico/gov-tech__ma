@@ -30,8 +30,10 @@
                     <div class="main-services__category main-services__category--{cat_url_title}">
                         <h3 class="main-services__title">{cat_name}</h3>
                         <ul class="main-services__list">
-                        {exp:channel:entries channel="service" site="not 0" category="{cat_ids}"
-                        disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"}
+                        {exp:channel:entries channel="service" site="not none" category="{cat_ids}"
+                            disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"
+                            dynamic="no" orderby="title" sort="asc"
+                        }
                             <li class="main-services__item">
                                 <a href="https://{relative_url}/{url_title}">{title}</a>
                             </li>
@@ -47,7 +49,7 @@
         {/exp:query}
     </section>
 
-    {exp:channel:entries channel="news" site="not 0" limit="4"
+    {exp:channel:entries channel="news" site="not none" limit="4"
     disable="category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}
         {if count == 1}
         <section class="last-news h-feed">
