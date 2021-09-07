@@ -125,6 +125,16 @@
   }
 }
 
+.main-footer__menu-list--sitemap {
+  &::before {
+    display: inline-block;
+
+    min-width: 48px;
+    min-height: 48px;
+
+    background-image: my.image('icons/sitemap.png');
+  }
+}
 
 .main-footer__menu-item-link,
 .main-footer__menu-item-container {
