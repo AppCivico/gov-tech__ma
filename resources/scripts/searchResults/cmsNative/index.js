@@ -40,7 +40,7 @@ export default (() => {
     }
   });
 
-  fetch(searchForm.action, {
+  return fetch(searchForm.action, {
     method: 'post',
     body: formData,
   })

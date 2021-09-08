@@ -11,7 +11,7 @@ export default (async () => {
 
   resultsTargetEl.setAttribute('aria-busy', 'true');
 
-  if (!pln.trim()) {
+  if (!pln?.trim()) {
     const { parameters: { categoria } } = await getFromDialogFlow(searchTerm);
 
     dialogFlowed = categoria;
