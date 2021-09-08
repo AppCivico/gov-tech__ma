@@ -13,18 +13,30 @@
                     {category_name}
                 </a>
             {if:else}
-                <button class="main-footer__menu-item-container" type="button"
+                <button class="main-footer__menu-item-container
+                    {if category_url_title == "mapa-do-site"}
+                        main-footer__menu-item-container--sitemap
+                    {/if}
+                    " type="button"
                     role="menuitem" aria-haspopup="menu"
                     onclick="
                         this.classList.toggle('opened');
                         this.setAttribute('aria-expanded', this.classList.contains('opened'))
                         this.focus();
                     "
+                    {if category_url_title == "mapa-do-site"}
+                        title="{category_name}"
+                    {/if}
                 >
                     {if category_image}
-                        <img src="{category_image}" aria-hidden="true" alt="" class="main-footer__menu-item-icon" />
+                        <img src="{category_image}" aria-hidden="true" alt=""
+                            class="main-footer__menu-item-icon"
+                        />
                     {/if}
-                    {category_name}
+
+                    {if category_url_title != "mapa-do-site" || category_image == ""}
+                        {category_name}
+                    {/if}
                 </button>
             {/if}
         {/categories}
