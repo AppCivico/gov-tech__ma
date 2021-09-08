@@ -50,13 +50,6 @@
 08. id: `10`, name: `biography`, label: **Biografia**, type: `editor de texto avançado`. Em uso em:
   - Integrantes do governo
 
-09. id: `44`, name: `sections`, label: **Seções**, type: `fluid`. Em uso em:
-  - Páginas livres
-  - Integrantes do governo
-  - Equipe
-  - Eventos
-  - Notícias
-  - Conteúdos especiais
 
 10. id: `02`, name: `gallery`, label: **Galeria**, type: `file grid`. Em uso em:
   - Notícias
@@ -94,9 +87,6 @@
 20. id: `24`, name: `event__end_date`, label: **Encerramento**, type: `date`. Em uso em:
   - Eventos
 
-21. id: `09`, name: `event__children`, label: **Eventos filhos**, type: `relacionamentos`. Em uso em:
-  - Eventos
-
 22. id: `32`, name: `event__ocurrences`, label: **Ocorrências**, type: `grid`. Em uso em:
   - Eventos
 
@@ -131,10 +121,6 @@
   - Notícias
   - Serviços
 
-32. id: `07`, name: `erratum`, label: **Erratas**, type: `grid`. Em uso em:
-  - Eventos
-  - Notícias
-
 33. id: `08`, name: `related_content`, label: **Conteúdo relacionado**, type: `relacionamentos`. Em uso em:
   - Documentos
   - Notícias
@@ -158,15 +144,6 @@
   - Páginas livres
   - Documentos
   - Conteúdos especiais
-
-36. id: `22`, name: `custom_metadata`, label: **Campos extras**, type: `grid`. Em uso em:
-  - Equipe
-  - Eventos
-  - Notícias
-  - Conteúdos especiais
-  - Integrantes do governo
-  - Páginas livres
-  - Documentos
 
 37. id: `36`, name: `member`, label: **Integrantes**, type: `grid`. Em uso em:
 - Equipe
