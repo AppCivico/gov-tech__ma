@@ -114,5 +114,9 @@ $column-width: 10em;
   .main-services__item {
     padding: 0;
     margin: 0 0 my.$gutter * 0.5 0;
+
+    > a {
+      @include my.truncate(2, 1.5em);
+    }
   }
 }
