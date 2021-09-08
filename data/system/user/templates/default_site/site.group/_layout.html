@@ -102,6 +102,8 @@
                                         href="{page_uri}"
                                     {if:elseif channel_short_name == "page"}
                                         href="/{url_title}"
+                                    {if:elseif "{channel_url}" $="/"}
+                                        href="{channel_url}{url_title}"
                                     {if:else}
                                         href="{channel_url}/{url_title}"
                                     {/if}
