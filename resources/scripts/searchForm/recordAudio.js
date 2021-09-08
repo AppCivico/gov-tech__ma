@@ -1,9 +1,11 @@
+import randomUUID from '../utilities/randomUUID';
+
 let form;
 
-const submitFile = ((audioFile) => {
+const submitFile = ((audioFile, filename) => {
   const body = new FormData();
 
-  body.append('audio', audioFile);
+  body.append('audio', audioFile, filename);
 
   return fetch('https://pythia.appcivico.com/audio', {
     body: audioFile,
@@ -40,19 +42,30 @@ export default (() => {
 
   let mediaRecorder;
   let chunks = [];
-  let type = 'audio/wav; codecs=pcm';
+  let type = '';
+  let filename = randomUUID();
+
+  switch (true) {
+    // true on Firefox
+    case MediaRecorder.isTypeSupported('audio/ogg;codecs=opus'):
+      type = 'audio/ogg; codecs=opus';
+      filename += '.oga';
+      break;
+
+    // true on blink
+    case MediaRecorder.isTypeSupported('audio/webm;codecs=opus'):
+      type = 'audio/webm; codecs=opus';
+      filename += '.webm';
+      break;
+
+    default:
+      type = 'audio/wav; codecs=pcm';
+      filename += '.wav';
+
+      break;
+  }
 
   form = recordButton.form;
-
-  // true on Chrome and Opera
-  if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
-    type = 'audio/webm; codecs=opus';
-  }
-
-  // true on Firefox
-  if (MediaRecorder.isTypeSupported('audio/ogg;codecs=opus')) {
-    type = 'audio/ogg; codecs=opus';
-  }
 
   const toRecord = (stream) => {
     mediaRecorder = new MediaRecorder(stream /* , { mimeType: 'audio/webm' } */);
@@ -67,12 +80,13 @@ export default (() => {
     mediaRecorder.onstop = () => {
       console.debug('data available after MediaRecorder.stop() called.');
       const blob = new Blob(chunks, { type });
-      // const blob = new Blob(chunks);
+
+      if (!blob.size) return;
       chunks = [];
 
       console.debug('recorder stopped');
 
-      return submitFile(blob);
+      submitFile(blob, filename);
     };
 
     mediaRecorder.ondataavailable = (e) => {
