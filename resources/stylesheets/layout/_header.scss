@@ -156,7 +156,6 @@
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     @include my.shadow;
 
-    text-transform: uppercase;
     white-space: nowrap;
 
     background-color: my.palette('neutral', 'white');
