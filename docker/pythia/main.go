@@ -36,12 +36,21 @@ func main() {
 		filename := "./" + file.Filename
 
 		c.SaveUploadedFile(file, filename)
-		res, err := dialogflow.DetectIntentAudio(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", filename, "pt-BR")
-		fmt.Println(err)
+		defer func() {
+			e := os.Remove(filename)
+			if e != nil {
+				fmt.Printf("failed to remove %s: %s", filename, e.Error())
+			}
+		}()
 
-		e := os.Remove(filename)
-		if e != nil {
-			fmt.Println(e)
+		res, err := dialogflow.DetectIntentAudio(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", filename, "pt-BR")
+		if err != nil {
+			fmt.Printf("Failed to detect intent %s", err.Error())
+
+			c.JSON(500, gin.H{
+				"error": "failed to process request.",
+			})
+			return
 		}
 
 		c.JSON(200, gin.H{
