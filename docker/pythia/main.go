@@ -1,12 +1,22 @@
 package main
 
 import (
+	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"os"
+	"path"
+	"path/filepath"
 
 	dialogflow "github.com/_/pythia/dialogflow/detect_intent"
 	"github.com/gin-gonic/gin"
 )
+
+func TempFileName(prefix, suffix string) string {
+	randBytes := make([]byte, 32)
+	rand.Read(randBytes)
+	return filepath.Join(os.TempDir(), prefix+hex.EncodeToString(randBytes)+suffix)
+}
 
 func main() {
 	router := gin.Default()
@@ -31,9 +41,18 @@ func main() {
 
 	router.POST("/audio", func(c *gin.Context) {
 		file, _ := c.FormFile("audio")
-		fmt.Println(file.Filename)
 
-		filename := "./" + file.Filename
+		tmpExt := path.Ext(file.Filename)
+		if tmpExt == "" {
+			c.JSON(400, gin.H{
+				"error": "invalid file name: missing file extension",
+			})
+			return
+		}
+
+		filename := TempFileName("audio-upload", tmpExt)
+
+		fmt.Printf("saving %s into %s\n", file.Filename, filename)
 
 		c.SaveUploadedFile(file, filename)
 		defer func() {
