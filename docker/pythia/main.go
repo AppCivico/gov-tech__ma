@@ -30,9 +30,32 @@ func main() {
 	router.GET("/text", func(c *gin.Context) {
 		text := c.Query("text")
 
+		if len(text) <= 1 {
+			c.JSON(400, gin.H{
+				"message": "?text= is too small",
+				"error":   "invalid_text",
+			})
+			return
+		}
+		if len(text) > 1000 {
+			c.JSON(400, gin.H{
+				"message": "?text= is too big",
+				"error":   "invalid_text",
+			})
+			return
+		}
+
 		res, err := dialogflow.DetectIntentText(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", text, "pt-BR")
+		if err != nil {
+			fmt.Println(err)
+			fmt.Printf("Failed to detect intent %s", err.Error())
+
+			c.JSON(500, gin.H{
+				"error": "failed to process request.",
+			})
+			return
+		}
 		fmt.Println(res)
-		fmt.Println(err)
 
 		c.JSON(200, gin.H{
 			"dialogflow_result": res,
