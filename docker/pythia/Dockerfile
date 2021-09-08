@@ -18,4 +18,6 @@ WORKDIR /root/
 
 COPY --from=builder /app/pythia ./
 
+RUN apt update && apt install -y ca-certificates
+
 CMD ["sh", "-c", "/root/pythia"]
