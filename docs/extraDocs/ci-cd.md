@@ -118,7 +118,7 @@ Repositório `gov-tech__ma` com as configurações do ambiente (.env) para subir
 
 OBS: existem outros valores neste arquivo.
 
-Para reiniciar os serviços com as configurações novas, pode ser feito usando o comando `docker-compose up -d --build`.  **ATENÇÂO** este comando irá causar downtime no site em caso de mudanças! pois o serviço do apache poderá ficar algum tempo fora do ar enquanto o container é recriado.
+Para reiniciar os serviços com as configurações novas, pode ser feito usando o comando `docker-compose up -d --build`. **ATENÇÂO** este comando irá causar downtime no site em caso de mudanças! pois o serviço do apache poderá ficar algum tempo fora do ar enquanto o container é recriado.
 
 Só irá ser necessário executar o comando acima quando mudarem as imagens, ou uma configuração muito grande (trocar o local do banco de dados, por exemplo), pois a grande maioria das atualizações pode ser feita apenas atualizando o código PHP, sem mudanças nas extensões do PHP/apache.
 
@@ -180,4 +180,3 @@ Com o seguinte arquivo de configuração no
 Ao executar `systemctl daemon-reload` e depois `systemctl start dispatcher-server` o serviço deverá estar em pé. Para iniciar um deploy, basta chamar `curl http://127.0.0.1:50024/deploy`
 
 Essa chamada poderá ser executada por qualquer usuário com acesso a maquina, mesmo se não tiver root. Assim qualquer desenvolvedor poderá iniciar um deploy. Também pode-ser configurado um proxy ou mudar o bind deste serviço para que qualquer um com acesso a VPN consiga fazer essa chamada.
-
