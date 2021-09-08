@@ -40,7 +40,7 @@ export default (() => {
 
   let mediaRecorder;
   let chunks = [];
-  let type = 'audio/webm; codecs=pcm';
+  let type = 'audio/wav; codecs=pcm';
 
   form = recordButton.form;
 
