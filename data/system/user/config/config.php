@@ -586,7 +586,6 @@ $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $p
 $assign_to_config['site_name'] = $site_name;
 $assign_to_config['cp_url']    = $site_url . $cp_url;
 $assign_to_config['site_url']  = $site_url;
-$config['base_url']  = $site_url . '/';
 $config['index_page'] = Manifest::get('INDEX_PAGE', '');
 $config['site_index'] = Manifest::get('SITE_INDEX', '');
 
