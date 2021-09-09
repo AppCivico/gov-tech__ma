@@ -63,12 +63,29 @@ func main() {
 	})
 
 	router.POST("/audio", func(c *gin.Context) {
-		file, _ := c.FormFile("audio")
+		file, err := c.FormFile("audio")
+		if err != nil {
+			fmt.Printf("Failed to get FormFile %s", err.Error())
+			c.JSON(400, gin.H{
+				"message": "Não conseguimos abrir o arquivo de audio",
+				"error":   "invalid_file",
+			})
+			return
+		}
+		if file == nil {
+			fmt.Printf("Missing FormFile")
+			c.JSON(400, gin.H{
+				"message": "Não conseguimos encontrar o arquivo de audio",
+				"error":   "missing_file",
+			})
+			return
+		}
 
 		tmpExt := path.Ext(file.Filename)
 		if tmpExt == "" {
 			c.JSON(400, gin.H{
-				"error": "invalid file name: missing file extension",
+				"message": "Não conseguimos encontrar a extensão do arquivo de audio",
+				"error":   "invalid_file_ext",
 			})
 			return
 		}
@@ -90,7 +107,8 @@ func main() {
 			fmt.Printf("Failed to detect intent %s", err.Error())
 
 			c.JSON(500, gin.H{
-				"error": "failed to process request.",
+				"message": "Aconteceu um erro ao consultar o serviço DialogFlow",
+				"error":   "dialog_flow_error",
 			})
 			return
 		}
