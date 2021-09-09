@@ -68,7 +68,7 @@ export default (() => {
   form = recordButton.form;
 
   const toRecord = (stream) => {
-    mediaRecorder = new MediaRecorder(stream /* , { mimeType: 'audio/webm' } */);
+    mediaRecorder = new MediaRecorder(stream, { type, audioBitsPerSecond: 16000 });
 
     // start recording with 1 second time between receiving
     // 'ondataavailable' events
