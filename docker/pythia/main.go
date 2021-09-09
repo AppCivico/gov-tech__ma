@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"os"
+	"os/exec"
 	"path"
 	"path/filepath"
 
@@ -16,6 +17,21 @@ func TempFileName(prefix, suffix string) string {
 	randBytes := make([]byte, 32)
 	rand.Read(randBytes)
 	return filepath.Join(os.TempDir(), prefix+hex.EncodeToString(randBytes)+suffix)
+}
+
+func ConvertToFLAC(filename string) string {
+	convertedFilename := TempFileName("audio-upload-converted", ".flac")
+
+	command := "ffmpeg -i " + filename + " -sample_rate 16000 -ac 1 " + convertedFilename
+
+	cmd := exec.Command("bash", "-c", command)
+	err := cmd.Run()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return convertedFilename
 }
 
 func main() {
@@ -102,7 +118,15 @@ func main() {
 			}
 		}()
 
-		res, err := dialogflow.DetectIntentAudio(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", filename, "pt-BR")
+		convertedFilename := ConvertToFLAC(filename)
+		defer func() {
+			e := os.Remove(convertedFilename)
+			if e != nil {
+				fmt.Printf("failed to remove %s: %s", convertedFilename, e.Error())
+			}
+		}()
+
+		res, err := dialogflow.DetectIntentAudio(os.Getenv("GOOGLE_CLOUD_PROJECT_NAME"), "web_search_session", convertedFilename, "pt-BR")
 		if err != nil {
 			fmt.Printf("Failed to detect intent %s", err.Error())
 
