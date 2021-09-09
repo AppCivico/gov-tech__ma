@@ -1,38 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-{preload_replace:channels="document|event|government_member|news|service|special|staff"}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>{site_url}</loc>
-        <lastmod>
-            {exp:stats channel="{channels}|pages"}
-                {last_entry_date format='{DATE_W3C}'}
-            {/exp:stats}
-        </lastmod>
-        <changefreq>always</changefreq>
-        <priority>1.0</priority>
-    </url>
-    {exp:channel:entries channel="{channels}" limit="30" disable="categories|custom_fields|member_data|pagination" rdf="no" dynamic="no" status="not closed"}
-        <url>
-            <loc>{site_url}{relative_url}/{url_title}</loc>
-            <lastmod>{gmt_edit_date format="{DATE_W3C}"}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.8</priority>
-        </url>
-    {/exp:channel:entries}
-    {exp:channel:entries channel="{channels}" offset="30" limit="500" disable="categories|custom_fields|member_data|pagination" rdf="no" dynamic="no" status="not closed"}
-        <url>
-            <loc>{site_url}{relative_url}/{url_title}</loc>
-            <lastmod>{gmt_edit_date format="{DATE_W3C}"}</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.5</priority>
-        </url>
-    {/exp:channel:entries}
-    {exp:channel:entries channel="pages" disable="categories|member_data|pagination" rdf="no" dynamic="no" status="not closed"}
-        <url>
-            <loc>{site_url}{page_uri}</loc>
-            <lastmod>{gmt_edit_date format="{DATE_W3C}"}</lastmod>
-            <changefreq>yearly</changefreq>
-            <priority>0.1</priority>
-        </url>
-    {/exp:channel:entries}
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {exp:query
+        sql="SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
+        MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
+        MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
+        FROM exp_config ec
+        JOIN exp_sites es ON es.site_id = ec.site_id
+        GROUP BY ec.site_id"
+        parse="inward"
+    }
+        {if msm_is_site_on == 'y'}
+            <sitemap>
+                <loc>{msm_site_url}/xml/sitemap-site</loc>
+            </sitemap>
+        {/if}
+    {/exp:query}
+</sitemapindex>
