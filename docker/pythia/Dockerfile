@@ -16,7 +16,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o pyt
 FROM ubuntu:20.04 AS pythia
 WORKDIR /root/
 
-RUN apt update && apt install -y ca-certificates
+RUN apt update && apt install -y ca-certificates ffmpeg
 
 COPY --from=builder /app/pythia ./
 
