@@ -23,9 +23,13 @@ const submitFile = ((audioFile, filename) => {
     return response.json();
   })
     .then((data) => data.dialogflow_result)
+    .then((result) => {
+      const { parameters: { categoria: dialogFlowed = '' } = {} } = result;
+      return dialogFlowed.trim();
+    })
     .then((dialogFlowed) => {
 
-      if (!dialogFlowed) throw new Error('Oops, the API refused our submission!!!');
+      if (!dialogFlowed) throw new Error('Nooo, the API refused our submission!!!');
 
       const formData = new FormData(form);
       formData.set('pln', dialogFlowed);
@@ -44,24 +48,25 @@ export default (() => {
   let mediaRecorder;
   let chunks = [];
   let type = '';
-  const filename = `${randomUUID()}.wav`;
+  // because pythia requires file extension
+  let filename = `${randomUUID()}.wav`;
 
   switch (true) {
     // true on Firefox
     case MediaRecorder.isTypeSupported('audio/ogg;codecs=opus'):
       type = 'audio/ogg; codecs=opus';
-      // filename += '.oga';
+      filename += '.oga';
       break;
 
     // true on blink
     case MediaRecorder.isTypeSupported('audio/webm;codecs=opus'):
       type = 'audio/webm; codecs=opus';
-      // filename += '.webm';
+      filename += '.webm';
       break;
 
     default:
       type = 'audio/wav; codecs=pcm';
-      // filename += '.wav';
+      filename += '.wav';
 
       break;
   }
