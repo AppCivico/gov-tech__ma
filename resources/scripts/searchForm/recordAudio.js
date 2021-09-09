@@ -8,7 +8,7 @@ const submitFile = ((audioFile, filename) => {
   body.append('audio', audioFile, filename);
 
   return fetch('https://pythia.appcivico.com/audio', {
-    body: audioFile,
+    body,
     method: 'POST',
     mode: 'cors',
     cache: 'default',
