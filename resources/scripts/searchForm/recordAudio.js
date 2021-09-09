@@ -17,17 +17,18 @@ const submitFile = ((audioFile, filename) => {
     },
   }).then((response) => {
     const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
+    if (!contentType?.includes('application/json')) {
       throw new Error("Oops, we haven't got JSON!");
     }
     return response.json();
   })
-    .then((data) => data?.dialogflow_result)
+    .then((data) => data.dialogflow_result)
     .then((dialogFlowed) => {
+
+      if (!dialogFlowed) throw new Error('Oops, the API refused our submission!!!');
+
       const formData = new FormData(form);
-
       formData.set('pln', dialogFlowed);
-
       form.submit();
     })
     .catch((err) => {
