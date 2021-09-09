@@ -80,10 +80,8 @@ func DetectIntentAudio(projectID, sessionID, audioFile, languageCode string) (*d
 
 	// In this example, we hard code the encoding and sample rate for simplicity.
 	audioConfig := dialogflowpb.InputAudioConfig{
-		AudioEncoding:   dialogflowpb.AudioEncoding_AUDIO_ENCODING_LINEAR_16,
-		SampleRateHertz: 16000,
-		LanguageCode:    languageCode,
-		Model:           "command_and_search",
+		LanguageCode: languageCode,
+		Model:        "command_and_search",
 	}
 
 	queryAudioInput := dialogflowpb.QueryInput_AudioConfig{AudioConfig: &audioConfig}
