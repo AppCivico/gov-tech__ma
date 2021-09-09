@@ -44,24 +44,24 @@ export default (() => {
   let mediaRecorder;
   let chunks = [];
   let type = '';
-  let filename = randomUUID();
+  const filename = `${randomUUID()}.wav`;
 
   switch (true) {
     // true on Firefox
     case MediaRecorder.isTypeSupported('audio/ogg;codecs=opus'):
       type = 'audio/ogg; codecs=opus';
-      filename += '.oga';
+      // filename += '.oga';
       break;
 
     // true on blink
     case MediaRecorder.isTypeSupported('audio/webm;codecs=opus'):
       type = 'audio/webm; codecs=opus';
-      filename += '.webm';
+      // filename += '.webm';
       break;
 
     default:
       type = 'audio/wav; codecs=pcm';
-      filename += '.wav';
+      // filename += '.wav';
 
       break;
   }
