@@ -49,7 +49,7 @@ export default (() => {
   let chunks = [];
   let type = '';
   // because pythia requires file extension
-  let filename = `${randomUUID()}.wav`;
+  let filename = randomUUID();
 
   switch (true) {
     // true on Firefox
