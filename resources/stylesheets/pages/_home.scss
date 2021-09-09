@@ -89,11 +89,14 @@
   }
 
   .h-entry__p-name--last-news {
+    @include my.truncate(2, 1.5em);
   }
 
   @media screen and (min-width: my.breakpoint('phone__landscape')) {
     .h-entry__u-url--last-news:first-child .h-entry__p-name--last-news,
     .h-entry__u-url--last-news:nth-child(2) .h-entry__p-name--last-news {
+      @include my.truncate(3, 1.5em);
+
       font-size: my.ms(3);
     }
   }
