@@ -112,7 +112,7 @@ export default (() => {
       mediaRecorder.stop();
       console.debug(mediaRecorder.state);
       console.debug('recorder stopped');
-    }, 4000);
+    }, 2000);
 
     // mediaRecorder.requestData();
   };
