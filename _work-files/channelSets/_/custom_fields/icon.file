@@ -1,0 +1,13 @@
+{
+    "label": "\u00cdcone",
+    "order": 4,
+    "instructions": "",
+    "fmt": "none",
+    "content_type": "image",
+    "settings": {
+        "num_existing": "50",
+        "show_existing": "y",
+        "field_content_type": "image",
+        "allowed_directories": "all"
+    }
+}

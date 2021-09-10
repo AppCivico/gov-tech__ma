@@ -1,0 +1,488 @@
+{
+  "version": "6.0.6",
+  "channels": [
+    {
+      "channel_title": "An\u00fancio publicit\u00e1rio \/ Informe",
+      "channel_name": "ad",
+      "title_field_label": "Nome do an\u00fancio",
+      "field_groups": [
+        "ad"
+      ],
+      "fields": [],
+      "cat_groups": []
+    },
+    {
+      "channel_title": "Documentos",
+      "channel_name": "document",
+      "title_field_label": "Nome de exibi\u00e7\u00e3o do documento",
+      "statuses": [
+        "destacada"
+      ],
+      "field_groups": [
+        "document",
+        null
+      ],
+      "fields": [
+        "thumbnail",
+        "icon"
+      ],
+      "cat_groups": [
+        "Perfil do cidad\u00e3o",
+        "Aparecer na \u00e1rea p\u00fablica",
+        "Menu em cascata",
+        "Categorias de servi\u00e7os",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer",
+        "DialogFlow"
+      ]
+    },
+    {
+      "channel_title": "P\u00e1ginas livres",
+      "channel_name": "page",
+      "title_field_label": "T\u00edtulo da p\u00e1gina",
+      "field_groups": [
+        "page",
+        "SEO"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    },
+    {
+      "channel_title": "Servi\u00e7os",
+      "channel_name": "service",
+      "title_field_label": "Nome do servi\u00e7o",
+      "statuses": [
+        "destacada"
+      ],
+      "field_groups": [
+        "service",
+        "SEO"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Categorias de servi\u00e7os",
+        "Aparecer na \u00e1rea p\u00fablica",
+        "Perfil do cidad\u00e3o",
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer",
+        "DialogFlow"
+      ]
+    },
+    {
+      "channel_title": "Configura\u00e7\u00f5es",
+      "channel_name": "settings",
+      "title_field_label": "",
+      "field_groups": [
+        "settings"
+      ],
+      "fields": [],
+      "cat_groups": []
+    },
+    {
+      "channel_title": "Not\u00edcias",
+      "channel_name": "news",
+      "title_field_label": "T\u00edtulo da not\u00edcia",
+      "statuses": [
+        "destacada"
+      ],
+      "field_groups": [
+        "news",
+        null
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Editorias",
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    },
+    {
+      "channel_title": "Eventos",
+      "channel_name": "event",
+      "title_field_label": "Nome do evento",
+      "statuses": [
+        "destacada"
+      ],
+      "field_groups": [
+        "event",
+        null
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Editorias",
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    },
+    {
+      "channel_title": "Integrantes do governo",
+      "channel_name": "government_member",
+      "title_field_label": "Nome de integrante do governo",
+      "field_groups": [
+        "SEO",
+        "government_member"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Perfil do cidad\u00e3o",
+        "Menu em cascata",
+        "Menu hamburguer"
+      ]
+    },
+    {
+      "channel_title": "Equipe",
+      "channel_name": "staff",
+      "title_field_label": "T\u00edtulo",
+      "field_groups": [
+        "page",
+        "staff"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    },
+    {
+      "channel_title": "Conte\u00fados especiais",
+      "channel_name": "special",
+      "title_field_label": "T\u00edtulo",
+      "field_groups": [
+        "page",
+        "SEO"
+      ],
+      "fields": [
+        "thumbnail",
+        "icon"
+      ],
+      "cat_groups": [
+        "Perfil do cidad\u00e3o",
+        "Aparecer na \u00e1rea p\u00fablica",
+        "Menu em cascata",
+        "Categorias de servi\u00e7os",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    }
+  ],
+  "field_groups": [
+    {
+      "name": "ad",
+      "fields": [
+        "summary",
+        "ad__position",
+        "ad_link",
+        "ad__images"
+      ]
+    },
+    {
+      "name": "settings",
+      "fields": [
+        "settings__social_profiles",
+        "settings__email",
+        "settings__address",
+        "settings__search_placeholder",
+        "settings__search_suggestions",
+        "settings__header",
+        "settings__logotype"
+      ]
+    },
+    {
+      "name": "document",
+      "fields": [
+        "body",
+        "summary",
+        "sources",
+        "related_content",
+        "document__file",
+        "who",
+        "law",
+        "document__responsible"
+      ]
+    },
+    {
+      "name": "page",
+      "fields": [
+        "gallery",
+        "body",
+        "summary",
+        "subhead"
+      ]
+    },
+    {
+      "name": "service",
+      "fields": [
+        "service__link",
+        "body",
+        "summary",
+        "subhead",
+        "sources",
+        "who",
+        "service__where",
+        "service__how",
+        "service__deadline",
+        "law",
+        "service__assistance",
+        "service__how_much",
+        "icon"
+      ]
+    },
+    {
+      "name": "government_member",
+      "fields": [
+        "biography",
+        "email_address",
+        "phone_number",
+        "role"
+      ]
+    },
+    {
+      "name": "SEO",
+      "fields": [
+        "seo_title",
+        "seo_description"
+      ]
+    },
+    {
+      "name": "news",
+      "fields": [
+        "gallery",
+        "body",
+        "summary",
+        "subhead",
+        "sources",
+        "related_content",
+        "thumbnail",
+        "hero"
+      ]
+    },
+    {
+      "name": "event",
+      "fields": [
+        "body",
+        "summary",
+        "subhead",
+        "thumbnail",
+        "event__start_date",
+        "event__end_date",
+        "hero"
+      ]
+    },
+    {
+      "name": "staff",
+      "fields": [
+        "member"
+      ]
+    }
+  ],
+  "statuses": [
+    {
+      "name": "destacada",
+      "highlight": "FCC419"
+      }
+  ],
+  "category_groups": [
+    {
+      "name": "Aparecer na \u00e1rea p\u00fablica",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "Programas na p\u00e1gina inicial",
+          "cat_url_title": "home-special",
+          "cat_description": "",
+          "cat_order": 1
+        },
+        {
+          "cat_name": "Servi\u00e7os na p\u00e1gina inicial",
+          "cat_url_title": "home-services",
+          "cat_description": "",
+          "cat_order": 2
+        }
+      ]
+    },
+    {
+      "name": "Menu em cascata",
+      "sort_order": "c",
+      "categories": []
+    },
+    {
+      "name": "Menu hamburguer",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "Coronavirus",
+          "cat_url_title": "coronavirus",
+          "cat_description": "",
+          "cat_order": 9,
+          "url": "https:\/\/www.corona.ma.gov.br\/"
+        },
+        {
+          "cat_name": "Governo",
+          "cat_url_title": "governo",
+          "cat_description": "",
+          "cat_order": 1,
+          "url": ""
+        },
+        {
+          "cat_name": "Contatos",
+          "cat_url_title": "contatos",
+          "cat_description": "",
+          "cat_order": 3,
+          "url": ""
+        },
+        {
+          "cat_name": "Agenda",
+          "cat_url_title": "agenda",
+          "cat_description": "",
+          "cat_order": 2,
+          "url": ""
+        },
+        {
+          "cat_name": "Guia de Servi\u00e7os",
+          "cat_url_title": "guia-de-servicos",
+          "cat_description": "",
+          "cat_order": 4,
+          "url": ""
+        },
+        {
+          "cat_name": "Ag\u00eancia de Not\u00edcias",
+          "cat_url_title": "agencia-de-noticias",
+          "cat_description": "",
+          "cat_order": 5,
+          "url": ""
+        },
+        {
+          "cat_name": "TV Maranh\u00e3o",
+          "cat_url_title": "tv-maranhaeo",
+          "cat_description": "",
+          "cat_order": 6,
+          "url": ""
+        },
+        {
+          "cat_name": "R\u00e1dio Timbira",
+          "cat_url_title": "radio-timbira",
+          "cat_description": "",
+          "cat_order": 7,
+          "url": "http:\/\/radiotimbira.ma.gov.br\/"
+        },
+        {
+          "cat_name": "Artigos do Governador",
+          "cat_url_title": "artigos-do-governador",
+          "cat_description": "",
+          "cat_order": 8,
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "DialogFlow",
+      "sort_order": "a",
+      "categories": []
+    },
+    {
+      "name": "Editorias",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "A\u00e7\u00f5es do Governo",
+          "cat_url_title": "acoes-do-governo",
+          "cat_description": "",
+          "cat_order": 2
+        },
+        {
+          "cat_name": "Vice-Governador",
+          "cat_url_title": "vice-governador",
+          "cat_description": "",
+          "cat_order": 3
+        }
+      ]
+    },
+    {
+      "name": "Menu de rodap\u00e9",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "Mapa do site",
+          "cat_url_title": "mapa-do-site",
+          "cat_description": "",
+          "cat_order": 1,
+          "url": ""
+        },
+        {
+          "cat_name": "Vers\u00e3o anterior",
+          "cat_url_title": "versaeo-anterior",
+          "cat_description": "",
+          "cat_order": 5,
+          "url": null
+        },
+        {
+          "cat_name": "Coronavirus",
+          "cat_url_title": "coronavirus",
+          "cat_description": "",
+          "cat_order": 3,
+          "url": "https:\/\/www.corona.ma.gov.br"
+        }
+      ]
+    },
+    {
+      "name": "Perfil do cidad\u00e3o",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "Cidad\u00e3o",
+          "cat_url_title": "cidadaeo",
+          "cat_description": "",
+          "cat_order": 1
+        },
+        {
+          "cat_name": "Turista",
+          "cat_url_title": "turista",
+          "cat_description": "",
+          "cat_order": 4
+        },
+        {
+          "cat_name": "Empreendedor",
+          "cat_url_title": "empreendedor",
+          "cat_description": "",
+          "cat_order": 2
+        }
+      ]
+    },
+    {
+      "name": "Categorias de servi\u00e7os",
+      "sort_order": "c",
+      "categories": [
+        {
+          "cat_name": "Programas",
+          "cat_url_title": "programas",
+          "cat_description": "",
+          "cat_order": 2
+        }
+      ]
+    },
+    {
+      "name": "DialogFlow",
+      "sort_order": "a",
+      "categories": []
+    }
+  ],
+  "upload_destinations": [
+    {
+      "name": "\u00cdcones"
+    },
+    {
+      "name": "Imagens"
+    },
+    {
+      "name": "Documentos"
+    }
+  ]
+}

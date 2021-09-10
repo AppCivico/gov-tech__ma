@@ -1,0 +1,14 @@
+{
+    "label": "Endere\u00e7o p\u00fablico",
+    "order": 45,
+    "instructions": "",
+    "show_fmt": "n",
+    "fmt": "br",
+    "settings": {
+        "field_show_file_selector": "",
+        "db_column_type": "text",
+        "field_show_smileys": "n",
+        "field_show_formatting_btns": "y"
+    },
+    "ta_rows": 6
+}

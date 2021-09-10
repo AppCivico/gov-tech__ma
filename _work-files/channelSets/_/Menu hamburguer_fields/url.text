@@ -1,0 +1,11 @@
+{
+    "label": "URL",
+    "order": 1,
+    "show_fmt": "n",
+    "settings": {
+        "field_maxl": "256",
+        "field_content_type": "",
+        "field_show_smileys": "n",
+        "field_show_file_selector": "n"
+    }
+}

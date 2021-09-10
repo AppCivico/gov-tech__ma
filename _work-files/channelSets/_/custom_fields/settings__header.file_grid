@@ -1,0 +1,67 @@
+{
+    "label": "Cabe\u00e7alho",
+    "order": 42,
+    "instructions": "Imagens de fundo para cabe\u00e7alho",
+    "content_type": "image",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y",
+        "field_content_type": "image",
+        "allowed_directories": "all"
+    },
+    "columns": [
+        {
+            "type": "file",
+            "label": "File",
+            "name": "file",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "image",
+                "allowed_directories": "all",
+                "show_existing": "",
+                "num_existing": 0,
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "colorpicker",
+            "label": "Cor de texto",
+            "name": "fg",
+            "instructions": "Escolha uma cor que contraste bem com a imagem para garantir a leitura do texto no cabe\u00e7alho.",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "allowed_colors": "any",
+                "colorpicker_default_color": "",
+                "value_swatches": [
+                    ""
+                ],
+                "manual_swatches": "",
+                "populate_swatches": "v",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "colorpicker",
+            "label": "Cor de fundo",
+            "name": "bg",
+            "instructions": "Escolha uma cor pr\u00f3xima da imagem para garantir a leitura do texto no cabe\u00e7alho enquanto ela n\u00e3o carrega.",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "allowed_colors": "any",
+                "colorpicker_default_color": "",
+                "value_swatches": [
+                    ""
+                ],
+                "manual_swatches": "",
+                "populate_swatches": "v",
+                "field_required": "n"
+            }
+        }
+    ]
+}

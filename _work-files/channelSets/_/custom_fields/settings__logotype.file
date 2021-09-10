@@ -1,0 +1,13 @@
+{
+    "label": "Logotipo",
+    "order": 43,
+    "instructions": "O logotipo do Estado tem 261x113px; o da secretaria de Turismo tem 380x113px. Tente um arquivo pr\u00f3ximo a essas medidas.",
+    "fmt": "none",
+    "content_type": "all",
+    "settings": {
+        "num_existing": "50",
+        "show_existing": "y",
+        "field_content_type": "all",
+        "allowed_directories": "all"
+    }
+}

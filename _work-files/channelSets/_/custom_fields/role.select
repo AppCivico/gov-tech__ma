@@ -1,0 +1,17 @@
+{
+    "label": "Posi\u00e7\u00e3o",
+    "order": 5,
+    "instructions": "",
+    "required": "y",
+    "fmt": "none",
+    "list_items": [
+        "governador",
+        "vice-governador",
+        "secret\u00e1ria",
+        "secret\u00e1rio",
+        "subsecret\u00e1ria",
+        "subsecret\u00e1rio",
+        "Diretor"
+    ],
+    "settings": []
+}

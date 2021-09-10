@@ -1,0 +1,14 @@
+{
+    "label": "Exemplo de busca",
+    "order": 40,
+    "instructions": "Texto que aparece dentro do campo de busca",
+    "show_fmt": "n",
+    "fmt": "none",
+    "content_type": "all",
+    "settings": {
+        "field_maxl": "256",
+        "field_content_type": "all",
+        "field_show_smileys": "n",
+        "field_show_file_selector": ""
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "label": "Redes sociais",
+    "order": 39,
+    "instructions": "",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "url",
+            "label": "URL do perfil",
+            "name": "url",
+            "instructions": "O \u00edcone ser\u00e1 detectado pelo come\u00e7o da URL",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "allowed_url_schemes": [
+                    "https:\/\/"
+                ],
+                "url_scheme_placeholder": "https:\/\/",
+                "field_required": "n"
+            }
+        }
+    ]
+}

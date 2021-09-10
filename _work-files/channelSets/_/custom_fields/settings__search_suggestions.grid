@@ -1,0 +1,27 @@
+{
+    "label": "Sugest\u00f5es de busca",
+    "order": 41,
+    "instructions": "",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "5",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "text",
+            "label": "Termo",
+            "name": "term",
+            "instructions": "",
+            "required": "y",
+            "search": "n",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "y"
+            }
+        }
+    ]
+}

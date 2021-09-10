@@ -1,0 +1,14 @@
+{
+    "label": "Forma de atendimento",
+    "order": 29,
+    "instructions": "",
+    "fmt": "br",
+    "pre_populate": "v",
+    "settings": {
+        "value_label_pairs": {
+            "online": "online",
+            "presential": "presencial",
+            "hybrid": "h\u00edbrido"
+        }
+    }
+}

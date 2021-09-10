@@ -1,0 +1,14 @@
+{
+    "label": "Arquivo",
+    "order": 18,
+    "instructions": "",
+    "search": "y",
+    "fmt": "none",
+    "content_type": "all",
+    "settings": {
+        "num_existing": "50",
+        "show_existing": "y",
+        "field_content_type": "all",
+        "allowed_directories": "all"
+    }
+}

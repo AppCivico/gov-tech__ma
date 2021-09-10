@@ -1,0 +1,53 @@
+{
+    "label": "Integrantes",
+    "order": 38,
+    "instructions": "",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "text",
+            "label": "Nome",
+            "name": "name",
+            "instructions": "",
+            "required": "y",
+            "search": "y",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "y"
+            }
+        },
+        {
+            "type": "text",
+            "label": "Cargo",
+            "name": "role",
+            "instructions": "",
+            "required": "y",
+            "search": "y",
+            "settings": {
+                "field_maxl": "256",
+                "field_fmt": "none",
+                "field_text_direction": "ltr",
+                "field_content_type": "all",
+                "field_required": "y"
+            }
+        },
+        {
+            "type": "email_address",
+            "label": "Email",
+            "name": "email",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_required": "n"
+            }
+        }
+    ]
+}

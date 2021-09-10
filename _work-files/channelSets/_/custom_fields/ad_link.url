@@ -1,0 +1,12 @@
+{
+    "label": "Link",
+    "order": 15,
+    "instructions": "",
+    "required": "y",
+    "settings": {
+        "allowed_url_schemes": [
+            "https:\/\/"
+        ],
+        "url_scheme_placeholder": "https:\/\/"
+    }
+}
