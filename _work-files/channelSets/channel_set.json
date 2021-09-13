@@ -3,8 +3,16 @@
   "channels": [
     {
       "channel_title": "An\u00fancio publicit\u00e1rio \/ Informe",
+      "channel_description": "Ser\u00e3o apresentados no site como banners, pain\u00e9is fixos ou pain\u00e9is flutuantes\/_dialogs_\/_modais_\/_in page popups_.",
       "channel_name": "ad",
+      "channel_lang": "pt",
+      "channel_url": "",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "",
+      "search_excerpt": "",
       "title_field_label": "Nome do an\u00fancio",
+      "sticky_enabled": "y",
       "field_groups": [
         "ad"
       ],
@@ -13,19 +21,23 @@
     },
     {
       "channel_title": "Documentos",
+      "channel_description": "Documentos abertos aos cidad\u00e3os para manter um governo transparente.",
       "channel_name": "document",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/documentos",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/documentos",
+      "search_excerpt": "",
       "title_field_label": "Nome de exibi\u00e7\u00e3o do documento",
+      "sticky_enabled": "y",
       "statuses": [
         "destacada"
       ],
       "field_groups": [
-        "document",
-        null
+        "document"
       ],
-      "fields": [
-        "thumbnail",
-        "icon"
-      ],
+      "fields": [],
       "cat_groups": [
         "Perfil do cidad\u00e3o",
         "Aparecer na \u00e1rea p\u00fablica",
@@ -38,8 +50,17 @@
     },
     {
       "channel_title": "P\u00e1ginas livres",
+      "channel_description": "P\u00e1ginas livres para conte\u00fados que n\u00e3o se classificam nas outras situa\u00e7\u00f5es sugeridas.",
       "channel_name": "page",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "",
+      "search_excerpt": "",
       "title_field_label": "T\u00edtulo da p\u00e1gina",
+      "sticky_enabled": "y",
+      "max_entries": 10,
       "field_groups": [
         "page",
         "SEO"
@@ -53,8 +74,16 @@
     },
     {
       "channel_title": "Servi\u00e7os",
+      "channel_description": "Descri\u00e7\u00e3o de servi\u00e7os prestados pelas secretarias para alimentar a busca.",
       "channel_name": "service",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/servicos",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/servicos",
+      "search_excerpt": "4",
       "title_field_label": "Nome do servi\u00e7o",
+      "sticky_enabled": "y",
       "statuses": [
         "destacada"
       ],
@@ -75,8 +104,19 @@
     },
     {
       "channel_title": "Configura\u00e7\u00f5es",
+      "channel_description": "",
       "channel_name": "settings",
+      "channel_lang": "pt",
+      "default_entry_title": "Configura\u00e7\u00f5es",
+      "url_title_prefix": "settings",
+      "channel_url": "",
+      "deft_status": "open",
+      "comment_system_enabled": "n",
+      "search_results_url": "",
+      "search_excerpt": "",
       "title_field_label": "",
+      "sticky_enabled": "n",
+      "max_entries": 1,
       "field_groups": [
         "settings"
       ],
@@ -85,8 +125,16 @@
     },
     {
       "channel_title": "Not\u00edcias",
+      "channel_description": "As not\u00edcias podem ser a respeito do Estado em si, de uma secretaria ou comuns a mais de uma delas; por exemplo, PROCON e Secretaria do Meio Ambiente, ao mesmo tempo. Portanto, devem ser independentes das secretarias.",
       "channel_name": "news",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/noticias",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/noticias",
+      "search_excerpt": "4",
       "title_field_label": "T\u00edtulo da not\u00edcia",
+      "sticky_enabled": "y",
       "statuses": [
         "destacada"
       ],
@@ -104,8 +152,16 @@
     },
     {
       "channel_title": "Eventos",
+      "channel_description": "Ocorr\u00eancias em espa\u00e7o f\u00edsico ou virtual com convidados oficiais, p\u00fablicos ou a\u00e7\u00f5es coletivas.",
       "channel_name": "event",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/eventos",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/eventos",
+      "search_excerpt": "4",
       "title_field_label": "Nome do evento",
+      "sticky_enabled": "y",
       "statuses": [
         "destacada"
       ],
@@ -123,8 +179,16 @@
     },
     {
       "channel_title": "Integrantes do governo",
+      "channel_description": "Pessoas eleitas ou apontadas por elas para cargos de governo; n\u00e3o de Estado.",
       "channel_name": "government_member",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/integrantes-do-governo",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/integrantes-do-governo",
+      "search_excerpt": "10",
       "title_field_label": "Nome de integrante do governo",
+      "sticky_enabled": "y",
       "field_groups": [
         "SEO",
         "government_member"
@@ -138,8 +202,16 @@
     },
     {
       "channel_title": "Equipe",
+      "channel_description": "",
       "channel_name": "staff",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/equipe",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/equipe",
+      "search_excerpt": "4",
       "title_field_label": "T\u00edtulo",
+      "sticky_enabled": "y",
       "field_groups": [
         "page",
         "staff"
@@ -153,16 +225,21 @@
     },
     {
       "channel_title": "Conte\u00fados especiais",
+      "channel_description": "",
       "channel_name": "special",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/programas-ou-campanhas",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "\u007bbase_url\u007d\/programas-ou-campanhas",
+      "search_excerpt": "",
       "title_field_label": "T\u00edtulo",
+      "sticky_enabled": "y",
       "field_groups": [
         "page",
         "SEO"
       ],
-      "fields": [
-        "thumbnail",
-        "icon"
-      ],
+      "fields": [],
       "cat_groups": [
         "Perfil do cidad\u00e3o",
         "Aparecer na \u00e1rea p\u00fablica",
@@ -285,10 +362,9 @@
   ],
   "statuses": [
     {
-      "name": "destacada",
-      "highlight": "FCC419"
-      }
-  ],
+    "name": "destacada",
+    "highlight": "FCC419"
+  }],
   "category_groups": [
     {
       "name": "Aparecer na \u00e1rea p\u00fablica",
@@ -461,12 +537,11 @@
       "sort_order": "c",
       "categories": [
         {
-          "cat_name": "Programas",
-          "cat_url_title": "programas",
-          "cat_description": "",
-          "cat_order": 2
-        }
-      ]
+        "cat_name": "Programas",
+        "cat_url_title": "programas",
+        "cat_description": "",
+        "cat_order": 2
+      }]
     },
     {
       "name": "DialogFlow",
