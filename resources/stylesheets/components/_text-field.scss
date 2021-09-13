@@ -54,7 +54,7 @@
     margin-left: my.$gutter * 0.5;
     overflow: hidden;
 
-    font-size: my.ms(-1);
+    font-size: my.ms-step(14px);
     color: my.palette('text', 'faded');
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -211,7 +211,7 @@ textarea {
   margin-right: 0;
   margin-left: auto;
 
-  font-size: my.ms(-2);
+  font-size: my.ms-step(12px);
 
   pointer-events: none;
 

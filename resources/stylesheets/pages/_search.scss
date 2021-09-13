@@ -116,7 +116,7 @@
 
     align-items: flex-end;
 
-    font-size: my.ms(3);
+    font-size: my.ms-step(22px);
 
     content: 'Estamos levando sua dúvida para os nossos servidores!';
   }
@@ -128,7 +128,7 @@
 
     align-items: flex-start;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
     font-weight: my.font-weight('bold');
 
     content: 'Carregando resposta...';

@@ -9,7 +9,7 @@
     margin-top: my.$gutter * 3;
     margin-bottom: my.$gutter * 1.5;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
     line-height: my.$leading * 1rem;
 
     &:first-child {
@@ -25,7 +25,7 @@
   .h-entry__p-name {
     margin: 0 0 my.$gutter 0;
 
-    font-size: my.ms(6);
+    font-size: my.ms-step(32px);
     font-weight: my.font-weight('bold');
     line-height: 1.25;
   }
@@ -62,7 +62,7 @@
 .h-entry__dt-published {
   height: my.$gutter;
 
-  font-size: my.ms(-1);
+  font-size: my.ms-step(14px);
   line-height: my.$gutter;
 
   time {

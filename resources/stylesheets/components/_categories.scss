@@ -30,7 +30,7 @@
   padding: 0;
   margin: 0 0 my.$gutter 0;
 
-  font-size: my.ms(-1);
+  font-size: my.ms-step(14px);
   font-weight: my.font-weight('bold');
   color: my.palette('neutral', 'white');
   text-transform: uppercase;

@@ -6,7 +6,7 @@
   .h-feed__p-name--last-news {
     margin-bottom: my.$gutter;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(16px);
     font-weight: my.font-weight('bold');
     text-transform: uppercase;
 
@@ -85,7 +85,7 @@
   .h-entry__p-name--last-news {
     margin: 0;
 
-    font-size: my.ms(1);
+    font-size: my.ms-step(16px);
     font-weight: my.font-weight('heading');
     color: inherit;
     text-decoration: inherit;

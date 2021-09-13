@@ -35,7 +35,7 @@
     grid-column: 1/-1;
 
     .h-entry__p-name--last-news {
-      font-size: my.ms(5);
+      font-size: my.ms-step(28px);
     }
   }
 
@@ -53,7 +53,7 @@
   .h-feed__p-name--home-services {
     margin-bottom: my.$gutter * 2;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(16px);
     font-weight: my.font-weight('bold');
 
     border-bottom: my.$stroke solid my.palette('brand', 'blue', 'medium');
@@ -83,7 +83,7 @@
   .h-entry__p-name {
     margin: 0;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(16px);
     text-decoration: none;
   }
 
@@ -107,7 +107,7 @@
 
     margin-bottom: my.$gutter * 2;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
     font-weight: my.font-weight('bold');
     text-decoration: none;
 

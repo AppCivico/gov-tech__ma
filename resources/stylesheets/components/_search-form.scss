@@ -63,8 +63,8 @@
   }
 
   .search-form__legend {
-    $min-font: my.ms(2);
-    $max-font: my.ms(5);
+    $min-font: my.ms-step(20px);
+    $max-font: my.ms-step(28px);
 
     @include my.truncate;
     @include my.fluid-font($min: $min-font, $max: $max-font);
@@ -121,7 +121,7 @@
   .search-form__field--text {
     padding-left: my.$gutter;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
     text-align: left;
   }
 

@@ -54,7 +54,7 @@ figcaption {
 
   margin: 0.25em 0 my.$gutter 0;
 
-  font-size: my.ms(-1);
+  font-size: my.ms-step(14px);
   color: my.palette('neutral', 'dark');
   text-align: center;
 }

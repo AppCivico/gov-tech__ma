@@ -53,39 +53,39 @@ body {
 }
 
 h1 {
-  // font-size: my.ms(9);
-  font-size: my.ms(7);
+  // font-size: my.ms-step(46px);
+  font-size: my.ms-step(36px);
   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
 
   // @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-  //   font-size: my.ms(4);
+  //   font-size: my.ms-step(26px);
   //   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
   // }
 
   // @media screen and (min-width: my.breakpoint('desktop')) {
-  //   font-size: my.ms(5);
+  //   font-size: my.ms-step(28px);
   //   // font-size: min(max(#{ms(3)}, 4vw), #{ms(5)});
   // }
 }
 
 h2 {
-  font-size: my.ms(5);
+  font-size: my.ms-step(28px);
 }
 
 h3 {
-  font-size: my.ms(2);
+  font-size: my.ms-step(20px);
 }
 
 h4 {
-  font-size: my.ms(2);
+  font-size: my.ms-step(20px);
 }
 
 h5 {
-  font-size: my.ms(1);
+  font-size: my.ms-step(18px);
 }
 
 h6 {
-  font-size: my.ms(0);
+  font-size: my.ms-step(16px);
 }
 
 legend {
@@ -267,7 +267,7 @@ mark {
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: my.ms(-1);
+  font-size: my.ms-step(14px);
   line-height: inherit;
 }
 
@@ -280,7 +280,7 @@ sub,
 sup {
   position: relative;
 
-  font-size: my.ms(-1); /* 1 */
+  font-size: my.ms-step(14px); /* 1 */
   line-height: 0;
   vertical-align: baseline;
 }

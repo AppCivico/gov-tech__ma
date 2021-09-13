@@ -477,7 +477,7 @@ object > img {
 
   overflow: hidden;
 
-  font-size: my.ms(-2);
+  font-size: my.ms-step(12px);
   font-style: normal;
   color: my.palette('loading', 'foreground');
   text-align: center;
@@ -658,7 +658,7 @@ pre {
   margin: 0 0 my.$leading * 1rem;
   overflow: auto;
 
-  font-size: my.ms(-1);
+  font-size: my.ms-step(14px);
   color: my.palette('text', 'light');
 
   background-color: my.palette('text', 'dark');

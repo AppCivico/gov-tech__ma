@@ -70,7 +70,7 @@ $gutter: my.$gutter * 0.5;
 
     padding: my.$gutter;
 
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
     font-weight: my.font-weight('bold');
     line-height: 1;
     color: my.palette('neutral', 'white');
@@ -112,7 +112,7 @@ $gutter: my.$gutter * 0.5;
 
     flex-direction: column;
 
-    font-size: my.ms(-1);
+    font-size: my.ms-step(14px);
 
     * + * {
       margin-top: $gutter;

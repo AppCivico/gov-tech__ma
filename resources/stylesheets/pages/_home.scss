@@ -24,7 +24,7 @@
   }
 
   .h-feed__p-name--main-services {
-    font-size: my.ms(2);
+    font-size: my.ms-step(20px);
   }
 }
 
@@ -97,13 +97,13 @@
     .h-entry__u-url--last-news:nth-child(2) .h-entry__p-name--last-news {
       @include my.truncate(3, 1.5em);
 
-      font-size: my.ms(3);
+      font-size: my.ms-step(18px);
     }
   }
 
   @media screen and (min-width: my.breakpoint('tablet__portrait')) {
     .h-entry__u-url--last-news:first-child .h-entry__p-name--last-news {
-      font-size: my.ms(5);
+      font-size: my.ms-step(24px);
     }
   }
 }
