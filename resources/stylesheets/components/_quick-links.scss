@@ -34,9 +34,12 @@
 
   display: flex;
 
-  flex-basis: 0;
+  flex-basis: 210px;
+  flex-grow: 1;
+  flex-shrink: 1;
 
-  min-width: 238px;
+  min-width: 190px;
+  max-width: 13.125rem;
   min-height: 110px;
   padding: 0;
   margin: 0 (my.$gutter * 2) (my.$gutter * 2) my.$gutter;
