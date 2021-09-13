@@ -1,4 +1,5 @@
 import currentQuery from '../utilities/currentQuery';
+import fullyDecode from '../utilities/fullyDecode';
 import cmsNative from './cmsNative';
 import pln from './pln';
 import scrollToResults from './scrollToResults';
@@ -8,7 +9,7 @@ export default (() => {
   const searchTerm = currentQuery?.keywords;
 
   if (keywordsField && searchTerm) {
-    keywordsField.setAttribute('value', searchTerm);
+    keywordsField.setAttribute('value', fullyDecode(searchTerm));
   }
 
   if (document.documentElement.className.indexOf('search') === -1) return;

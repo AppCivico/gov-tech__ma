@@ -4,6 +4,7 @@ let form;
 
 const submitFile = ((audioFile, filename) => {
   const body = new FormData();
+  const [keywordsEl] = form.elements.keywords;
 
   body.append('audio', audioFile, filename);
 
@@ -24,23 +25,30 @@ const submitFile = ((audioFile, filename) => {
   })
     .then((data) => data.dialogflow_result)
     .then((result) => {
-      const { parameters: { categoria: dialogFlowed = '' } = {} } = result;
-      return dialogFlowed.trim();
+      const { query_text: queryText, parameters: { categoria: dialogFlowed = '' } = {} } = result;
+      return { dialogFlowed, queryText };
     })
-    .then((dialogFlowed) => {
+    .then(({ dialogFlowed, queryText }) => {
+      if (queryText && keywordsEl) {
+        keywordsEl.setAttribute('value', queryText);
+      }
 
-      if (!dialogFlowed) throw new Error('Nooo, the API refused our submission!!!');
+      if (!dialogFlowed) throw new Error('Não compreendemos.');
 
       const formData = new FormData(form);
-      formData.set('pln', dialogFlowed);
+      formData.set('pln', dialogFlowed.join('|').toLowerCase());
       form.submit();
     })
     .catch((err) => {
+      console.debug('err.message', err.message);
       throw new Error(err);
     });
 });
 
 export default (() => {
+  // let's use a flag to prevent the audio to start recording immediately after
+  // permission granted
+  let isRecordButtonActive = false;
   const recordButton = document.querySelector('[data-js="audio-recorder"]');
 
   if (!recordButton) return;
@@ -74,29 +82,29 @@ export default (() => {
   form = recordButton.form;
 
   const toRecord = (stream) => {
+    if (!isRecordButtonActive) return;
     mediaRecorder = new MediaRecorder(stream, { type, audioBitsPerSecond: 16000 });
 
     // start recording with 1 second time between receiving
     // 'ondataavailable' events
     mediaRecorder.start(1000);
 
-    console.debug(mediaRecorder.state);
-    console.debug('recorder started');
+    mediaRecorder.onstart = () => {
+      recordButton.className += ' active';
+    };
 
     mediaRecorder.onstop = () => {
-      console.debug('data available after MediaRecorder.stop() called.');
       const blob = new Blob(chunks, { type });
+
+      recordButton.className = recordButton.className.replace(' active', '');
 
       if (!blob.size) return;
       chunks = [];
-
-      console.debug('recorder stopped');
 
       submitFile(blob, filename);
     };
 
     mediaRecorder.ondataavailable = (e) => {
-      console.debug('ondataavailable', e);
       // add stream data to chunks
       if (e.data.size > 0) chunks.push(e.data);
       // if recorder is 'inactive' then recording has finished
@@ -108,16 +116,17 @@ export default (() => {
   };
 
   const toStopRecording = (e) => {
+    isRecordButtonActive = false;
     if (e.button && e.button !== 1) return;
 
-    document.removeEventListener('mousemove', toStopRecording);
+    document.documentElement.removeEventListener('mouseup', toStopRecording);
 
     setTimeout(() => {
       // this will trigger one final 'ondataavailable' event and set
       // recorder state to 'inactive'
-      mediaRecorder.stop();
-      console.debug(mediaRecorder.state);
-      console.debug('recorder stopped');
+      if (mediaRecorder) {
+        mediaRecorder.stop();
+      }
     }, 2000);
 
     // mediaRecorder.requestData();
@@ -125,14 +134,15 @@ export default (() => {
 
   const toStartRecording = (e) => {
     if (e.button && e.button !== 1) return;
+    isRecordButtonActive = true;
 
     if (navigator.mediaDevices.getUserMedia) {
-      // prevent to keep recording in case the finger is moved out of button
-      document.addEventListener('mousemove', toStopRecording);
+      document.documentElement.addEventListener('mouseup', toStopRecording);
 
-      console.debug('getUserMedia supported.');
       navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-        .then(toRecord)
+        .then((stream) => {
+          toRecord(stream);
+        })
         .catch((err) => console.debug(`The following error occured: ${err}`));
     } else {
       console.debug('getUserMedia not supported on your browser!');
@@ -140,9 +150,6 @@ export default (() => {
   };
 
   recordButton.addEventListener('mousedown', toStartRecording);
-  recordButton.addEventListener('touchstart', toStartRecording);
-
   recordButton.addEventListener('mouseup', toStopRecording);
-  recordButton.addEventListener('touchmove', toStopRecording);
-  recordButton.addEventListener('touchend', toStopRecording);
+  recordButton.addEventListener('blur', toStopRecording);
 });

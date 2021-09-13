@@ -140,7 +140,7 @@
       pointer-events: none;
     }
 
-    &:active {
+    &.active {
       &::before,
       &::after {
         z-index: my.layer('modal');
