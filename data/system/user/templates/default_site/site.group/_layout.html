@@ -18,28 +18,59 @@
 <input type="checkbox" hidden="hidden" id="menu-controller" />
     <div class="main-header-and-search-form">
         <div class="main-header-and-search-form__container">
-            <div class="a11y-bar--header">
-                <ul class="a11y-bar__list">
-                    <li class="a11y-bar__item">
-                        <button type="button" value="dark" data-js="themeSwitcher" class="a11y-bar__button a11y-bar__button--theme">
+            <div class="a11y-i18n-bar a11y-i18n-bar--header">
+                <ul class="a11y-i18n-bar__list a11y-i18n-bar__list--a11y">
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" value="dark" data-js="themeSwitcher" class="a11y-i18n-bar__button a11y-i18n-bar__button--theme">
                             tema claro/escuro
                         </button>
                     </li>
-                    <li class="a11y-bar__item">
+                    <li class="a11y-i18n-bar__item">
                         <a href="https://www.gov.br/governodigital/pt-br/vlibras/" target="_blank"
-                            class="like-a__button a11y-bar__button a11y-bar__button--sign-transcription"
+                            class="like-a__button a11y-i18n-bar__button a11y-i18n-bar__button--sign-transcription"
                         >
                             <abbr title="Língua Brasileira de Sinais">LIBRAS</abbr>
                         </a>
                     </li>
-                    <li class="a11y-bar__item">
-                        <button type="button" value="1" data-js="fontResizer" class="a11y-bar__button a11y-bar__button--increase-font">
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" value="1" data-js="fontResizer" class="a11y-i18n-bar__button a11y-i18n-bar__button--increase-font">
                             aumentar corpo de texto
                         </button>
                     </li>
-                    <li class="a11y-bar__item">
-                        <button type="button" value="-1" data-js="fontResizer" class="a11y-bar__button a11y-bar__button--decrease-font">
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" value="-1" data-js="fontResizer" class="a11y-i18n-bar__button a11y-i18n-bar__button--decrease-font">
                             diminuir corpo de texto
+                        </button>
+                    </li>
+                </ul>
+
+                <ul class="a11y-i18n-bar__list a11y-i18n-bar__list--i18n">
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" onclick="doGTranslate('pt|en');" title="English"
+                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                        >
+                            <abbr title="English">EN</abbr>
+                        </button>
+                    </li>
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" onclick="doGTranslate('pt|fr');" title="French"
+                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                        >
+                            <abbr title="French">FR</abbr>
+                        </button>
+                    </li>
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" onclick="doGTranslate('pt|pt');" title="Portuguese"
+                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                        >
+                            <abbr title="Portuguese">PT</abbr>
+                        </button>
+                    </li>
+                    <li class="a11y-i18n-bar__item">
+                        <button type="button" onclick="doGTranslate('pt|es');" title="Spanish"
+                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                        >
+                            <abbr title="Spanish">ES</abbr>
                         </button>
                     </li>
                 </ul>

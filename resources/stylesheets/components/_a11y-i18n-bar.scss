@@ -1,0 +1,125 @@
+@use '../abstracts' as my;
+
+///
+/// Accessibility bar
+///
+/// @group components
+///
+/// @example html
+/// <div class="a11y-i18n-bar">
+///   <ul class="a11y-i18n-bar__list">
+///     <li class="a11y-i18n-bar__item">
+///       <button type="button" class="a11y-i18n-bar__button a11y-i18n-bar__button--theme">
+///         tema claro/escuro
+///       </button>
+///     </li>
+///     <li class="a11y-i18n-bar__item">
+///       <button type="button" class="a11y-i18n-bar__button a11y-i18n-bar__button--sign-transcription">
+///         <abbr title="Língua Brasileira de Sinais">LIBRAS</abbr>
+///       </button>
+///     </li>
+///     <li class="a11y-i18n-bar__item">
+///       <button type="button" class="a11y-i18n-bar__button a11y-i18n-bar__button--increase-font">
+///         aumentar corpo de texto
+///       </button>
+///     </li>
+///     <li class="a11y-i18n-bar__item">
+///       <button type="button" class="a11y-i18n-bar__button a11y-i18n-bar__button--decrease-font">
+///         diminuir corpo de texto
+///       </button>
+///     </li>
+///   </ul>
+/// </div>
+
+.a11y-i18n-bar {
+  font-size: my.ms-step(0);
+  font-weight: my.font-weight('bold');
+}
+
+.a11y-i18n-bar abbr {
+  text-decoration: inherit;
+
+  cursor: inherit;
+}
+
+.a11y-i18n-bar__list {
+  display: table;
+
+  padding: 0;
+  margin: 0;
+
+  border-spacing: my.$gutter * 0.5;
+  border-collapse: separate;
+}
+
+.a11y-i18n-bar__list--i18n::before,
+.a11y-i18n-bar__item {
+  display: table-cell;
+
+  padding: 0;
+  margin: 0;
+
+  vertical-align: middle;
+}
+
+.a11y-i18n-bar__list--i18n::before {
+  width: my.$gutter;
+
+  content: '';
+
+  background-image: my.image('icons/globe.svg');
+}
+
+.a11y-i18n-bar__button {
+  display: block;
+
+  width: my.$gutter;
+  height: my.$gutter;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+
+  font-size: 1em;
+}
+
+.a11y-i18n-bar__list--a11y .a11y-i18n-bar__button {
+  @include my.image-replacement;
+
+  background-color: my.palette('neutral', 'white');
+  background-position: 50% 50%;
+  border-radius: my.$rounded-corner--small;
+}
+
+.a11y-i18n-bar__button--translate {
+  padding: 0;
+
+  color: inherit;
+
+  background: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+
+    background: none;
+    outline: none;
+  }
+}
+
+.a11y-i18n-bar__button--theme {
+  background-image: my.image('icons/dark-light.svg');
+}
+
+.a11y-i18n-bar__button--sign-transcription {
+  background-image: my.image('icons/signs-language.svg');
+}
+
+.a11y-i18n-bar__button--increase-font {
+  background-image: my.image('icons/increase-font.svg');
+}
+
+.a11y-i18n-bar__button--decrease-font {
+  background-image: my.image('icons/decrease-font.svg');
+}

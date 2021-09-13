@@ -142,8 +142,11 @@
   }
 }
 
-.a11y-bar--header {
-  .a11y-bar__list {
+.a11y-i18n-bar--header {
+  @include my.clearfix;
+
+  .a11y-i18n-bar__list {
+    float: right;
     margin-right: 0;
     margin-left: auto;
   }
