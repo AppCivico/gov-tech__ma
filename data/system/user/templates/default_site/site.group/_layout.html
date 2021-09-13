@@ -216,7 +216,7 @@
                         {/if}
                         <p class="search-form__field-wrapper search-form__field-wrapper--text">
                             <input type="text" id="keywords" placeholder="{settings__search_placeholder}" autocomplete="on" name="keywords"
-                                aria-label="Keywords" class="search-form__field search-form__field--text"
+                                aria-label="Keywords" class="search-form__field search-form__field--text" minlength="3"
                                 value="{exp:search:keywords}" />
                         </p>
                         <button type="reset" aria-label="reset" class="search-form__field search-form__field--reset">
@@ -256,7 +256,9 @@
                 </form>
             {/exp:channel:entries}
         </div><!-- .main-header-and-search-form__container -->
-
+<div>
+    <a id="download">baixar</a>
+</div>
         {embed="default_site:site/_cascade-menu"}
     </div><!-- .main-header-and-search-form -->
 
