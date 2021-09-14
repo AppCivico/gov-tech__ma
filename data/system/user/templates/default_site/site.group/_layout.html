@@ -148,15 +148,15 @@
                 {/exp:query}
 
                 {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-                    {if settings__social_profiles:total_rows}
+                    {if social_profiles:total_rows}
                         <ul class="social-profiles social-profiles--header">
-                            {settings__social_profiles}
+                            {social_profiles}
                                 <li class="social-profiles__item">
-                                    <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
-                                        {settings__social_profiles:url}
+                                    <a href="{social_profiles:url}" class="u-url social-profiles__link">
+                                        {social_profiles:url}
                                     </a>
                                 </li>
-                            {/settings__social_profiles}
+                            {/social_profiles}
                         </ul>
                     {/if}
                 {/exp:channel:entries}
@@ -349,15 +349,15 @@
                             </div>
                         {/if}
                     </div>
-                    {if settings__social_profiles:total_rows}
+                    {if social_profiles:total_rows}
                         <ul class="social-profiles">
-                            {settings__social_profiles}
+                            {social_profiles}
                                 <li class="social-profiles__item">
-                                    <a href="{settings__social_profiles:url}" class="u-url social-profiles__link">
-                                        {settings__social_profiles:url}
+                                    <a href="{social_profiles:url}" class="u-url social-profiles__link">
+                                        {social_profiles:url}
                                     </a>
                                 </li>
-                            {/settings__social_profiles}
+                            {/social_profiles}
                         </ul>
                     {/if}
                 </div>

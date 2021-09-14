@@ -263,7 +263,7 @@
     {
       "name": "settings",
       "fields": [
-        "settings__social_profiles",
+        "social_profiles",
         "settings__email",
         "settings__address",
         "settings__search_placeholder",
