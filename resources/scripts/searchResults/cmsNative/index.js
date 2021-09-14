@@ -58,8 +58,7 @@ export default (() => {
       }
     })
     .finally(() => {
-      setCurrentFilter();
-
       resultsTargetEl.setAttribute('aria-busy', 'false');
+      setCurrentFilter();
     });
 });
