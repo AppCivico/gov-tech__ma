@@ -100,6 +100,8 @@
                     </label>
 
                     <nav class="main-nav">
+                        {embed="default_site:site/_sites-menu"}
+
                         {exp:channel:category_archive id="main-menu"
                             channel="page|government_member|service|news|staff|special"
                             style="nested" category_group="{group_id}" class="main-nav__list"
@@ -240,15 +242,15 @@
                             </p>
                             <ul class="search-form__suggestions-list">
                                 {settings__search_suggestions orderby="term"}
-                                <li class="search-form__suggestions-item">
-                                    <button type="submit" name="keywords"
-                                        value="{settings__search_suggestions:term}"
-                                        title="procurar por '{settings__search_suggestions:term}'"
-                                        class="search-form__suggestions-button"
-                                    >
-                                        {settings__search_suggestions:term}
-                                    </button>
-                                </li>
+                                    <li class="search-form__suggestions-item">
+                                        <button type="submit" name="keywords"
+                                            value="{settings__search_suggestions:term}"
+                                            title="procurar por '{settings__search_suggestions:term}'"
+                                            class="search-form__suggestions-button"
+                                        >
+                                            {settings__search_suggestions:term}
+                                        </button>
+                                    </li>
                                 {/settings__search_suggestions}
                             </ul>
                         </fieldset>

@@ -1,0 +1,29 @@
+{exp:query sql="SELECT group_id
+    FROM exp_category_groups
+    WHERE site_id = '1' AND LOWER(group_name) IN ('menu-de-sites', 'menu de sites')
+    LIMIT 1;"
+    parse="inward"
+}
+    {exp:channel:categories show_empty="yes" site="default_site"
+        style="nested" category_group="{group_id}" class="sites-nav__list"
+    }
+        {if url}
+            <a href="{url:url}" target="_blank"
+                class="sites-nav__menu-item-link"
+            >
+                {category_name}
+            </a>
+        {if:else}
+            <button class="sites-nav__menu-item-container" type="button"
+                role="menuitem" aria-haspopup="menu"
+                onclick="
+                    this.classList.toggle('opened');
+                    this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                    this.focus();
+                "
+            >
+                {category_name}
+            </button>
+        {/if}
+    {/exp:channel:categories}
+{/exp:query}
