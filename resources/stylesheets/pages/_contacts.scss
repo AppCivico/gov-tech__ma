@@ -1,0 +1,19 @@
+@use '../abstracts' as my;
+
+.page--contacts {
+  .h-feed__p-name--contacts-list {
+    font-size: my.ms-step(28px);
+  }
+
+  .h-feed__h-entry--contacts-list {
+    margin: 0 0 my.$gutter * 3 0;
+  }
+
+  .h-entry__p-name--contacts-list {
+    margin: 0;
+  }
+
+  .h-entry__e-content--contacts-list {
+    margin: 0;
+  }
+}

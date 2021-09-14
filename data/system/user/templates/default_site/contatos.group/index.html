@@ -1,0 +1,164 @@
+{layout="default_site:site/_layout" root_class="page page--contacts"}
+
+{if segment_2}
+    {redirect="404"}
+{if:else}
+<article role="main" id="main" class="h-entry">
+    {exp:channel:entries channel="page" limit="1" disable="category_fields|member_data|pagination" show_future_entries="yes" dynamic="no" url_title="{segment_1}" status="not any"}
+        {layout:set name="title"}{title}{/layout:set}
+        {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+        {layout:set name="entry_id"}{entry_id}{/layout:set}
+
+        {layout:set name="canonical"}/{segment_1}/{url_title}{/layout:set}
+        {thumbnail}
+            {layout:set name="sharing_cover"}{url:facebook}{/layout:set}
+        {/thumbnail}
+
+        <header class="h-entry__header">
+            <h1 class="h-entry__p-name">{title}</h1>
+            {if subhead}
+                <h2 class="h-entry__subhead">{subhead}</h2>
+            {/if}
+        </header>
+
+        {if body}
+            <section class="h-entry__e-content e-content">{body}</section>
+        {/if}
+    {/exp:channel:entries}
+
+
+
+    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
+        disable="category_fields|member_data|pagination" show_future_entries="yes" status="not any"
+        orderby="title" search:is_not_commission="not 1" parse="inward"
+    }
+        {if count == 1}
+            <section class="h-feed h-feed--contacts-list">
+                <h2 class="h-feed__p-name h-feed__p-name--contacts-list">Secretarias</h2>
+        {/if}
+            <dl class="h-feed__h-entry h-feed__h-entry--contacts-list">
+                <dt class="h-entry__p-name h-entry__p-name--contacts-list">
+                    {title}
+                </dt>
+
+                {if settings__address}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        {settings__address}
+                    </dd>
+                {/if}
+
+                {exp:query sql="
+                    SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
+                    MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
+                    MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
+                    FROM exp_config ec
+                    JOIN exp_sites es ON es.site_id = ec.site_id
+                    WHERE ec.site_id = '{entry_site_id}'
+                    LIMIT 1"
+                "}
+                    {if msm_is_site_on == "y"}
+                        <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                            <a href="{msm_site_url:url}" target="_blank">
+                                {msm_site_url}
+                            </a>
+                        </dd>
+                    {/if}
+                {/exp:query}
+
+                {if settings__email}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        <a href="mailto:{settings__email}" target="_blank">
+                            {settings__email}
+                        </a>
+                    </dd>
+                {/if}
+
+                {if social_profiles:total_rows}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        <ul class="social-profiles social-profiles">
+                            {social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{social_profiles:url}" class="u-url social-profiles__link">
+                                        {social_profiles:url}
+                                    </a>
+                                </li>
+                            {/social_profiles}
+                        </ul>
+                    </dd>
+                {/if}
+            </dl>
+        {if count == total_results}
+            </section>
+        {/if}
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
+        disable="category_fields|member_data|pagination" show_future_entries="yes" status="not any"
+        orderby="title" search:is_not_commission="1" parse="inward"
+    }
+        {if count == 1}
+        <section class="h-feed h-feed--contacts-list">
+            <h2 class="h-feed__p-name h-feed__p-name--contacts-list">Órgãos e departamentos</h2>
+        {/if}
+
+            <dl class="h-feed__h-entry h-feed__h-entry--contacts-list">
+                <dt class="h-entry__p-name h-entry__p-name--contacts-list">
+                    {if title == "Configurações"}
+                        {site_name}
+                    {if:else}
+                        {title}
+                    {/if}
+                </dt>
+
+                {if settings__address}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        {settings__address}
+                    </dd>
+                {/if}
+
+                {exp:query sql="
+                    SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
+                    MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
+                    MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
+                    FROM exp_config ec
+                    JOIN exp_sites es ON es.site_id = ec.site_id
+                    WHERE ec.site_id = '{entry_site_id}'
+                    LIMIT 1"
+                "}
+                    {if msm_is_site_on == "y"}
+                        <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                            <a href="{msm_site_url:url}" target="_blank">
+                                {msm_site_url}
+                            </a>
+                        </dd>
+                    {/if}
+                {/exp:query}
+
+                {if settings__email}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        <a href="mailto:{settings__email}" target="_blank">
+                            {settings__email}
+                        </a>
+                    </dd>
+                {/if}
+
+                {if social_profiles:total_rows}
+                    <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                        <ul class="social-profiles social-profiles">
+                            {social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{social_profiles:url}" class="u-url social-profiles__link">
+                                        {social_profiles:url}
+                                    </a>
+                                </li>
+                            {/social_profiles}
+                        </ul>
+                    </dd>
+                {/if}
+            </dl>
+        {if count == total_results}
+            </section>
+        {/if}
+    {/exp:channel:entries}
+</article>
+{/if}
