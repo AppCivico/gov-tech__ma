@@ -45,7 +45,7 @@
 
   background-color: transparent;
 
-  >img {
+  > img {
     display: block;
 
     margin: 0;
@@ -94,22 +94,6 @@
     }
   }
 
-  > li:focus,
-  > li:focus-within,
-  > li:active {
-    > ul {
-      display: flex;
-
-      order: 1;
-
-      text-transform: none;
-
-      li {
-        flex-grow: 1;
-      }
-    }
-  }
-
   > li ul {
     display: none;
 
@@ -121,6 +105,20 @@
     margin-top: my.$gutter * 0.5;
 
     border-top: my.$stroke__thin solid my.palette('neutral', 'white');
+  }
+}
+
+.main-footer__menu-item-container.opened + {
+  > ul {
+    display: flex;
+
+    order: 1;
+
+    text-transform: none;
+
+    li {
+      flex-grow: 1;
+    }
   }
 }
 
