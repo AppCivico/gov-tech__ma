@@ -33,7 +33,7 @@
 
 .a11y-i18n-bar {
   font-size: my.ms-step(16px);
-  font-weight: my.font-weight('bold');
+  font-weight: inherit;
 }
 
 .a11y-i18n-bar abbr {
@@ -81,6 +81,7 @@
   overflow: hidden;
 
   font-size: 1em;
+  font-weight: inherit;
 
   border: 0;
 }
@@ -103,9 +104,8 @@
   &:hover,
   &:focus,
   &:active {
-    text-decoration: underline;
-
     background: none;
+    border-bottom: my.$stroke__thin solid currentColor;
     outline: none;
   }
 }
