@@ -1,5 +1,101 @@
 @use '../abstracts' as my;
 
+.service-guide {
+  h1 {
+    font-size: my.ms-step(28px);
+    font-weight: inherit;
+  }
+}
+
+.h-feed--categories-of-services {
+  @include my.full-width;
+
+  max-width: none;
+  padding-top: my.$gutter * 3;
+  padding-bottom: my.$gutter * 3;
+
+  background-color: my.palette('neutral', 'light');
+
+  .h-feed__p-name--categories-of-services {
+    max-width: none;
+
+    font-size: 1em;
+    font-weight: my.font-weight('bold');
+    text-transform: uppercase;
+
+    border-bottom: my.$stroke solid my.palette('brand', 'blue');
+  }
+
+  .h-feed__list--categories-of-services {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    text-transform: uppercase;
+
+    > li {
+      @include my.aspect-ratio(1 x 1);
+
+      width: 100%;
+      margin: my.$gutter;
+
+      list-style-type: none;
+
+      background-color: my.palette('neutral', 'white');
+      box-shadow: 5px 5px 10px my.palette('effects', 'shadow');
+
+      @media screen and (min-width: #{(15rem + my.$gutter * 2) * 2 - my.$gutter * 2}) {
+        flex-basis: calc(50% - #{my.$gutter * 2});
+      }
+
+      @media screen and (min-width: #{(15rem + my.$gutter * 2) * 3 - my.$gutter * 2}) {
+        flex-basis: calc(33% - #{my.$gutter * 2});
+      }
+
+      @media screen and (min-width: #{(15rem + my.$gutter * 2) * 4 - my.$gutter * 2}) {
+        flex-basis: calc(25% - #{my.$gutter * 2});
+
+        max-width: 15rem;
+      }
+    }
+  }
+
+  .categories-of-services__link {
+    @include my.link-undercover;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    padding: my.$gutter my.$gutter * 0.5;
+  }
+
+  .categories-of-services__image {
+    display: block;
+
+    margin-right: auto;
+    margin-bottom: my.$gutter;
+    margin-left: auto;
+  }
+}
+
+.services-by-site {
+  @include my.full-width;
+
+  max-width: none;
+  padding-top: my.$gutter * 1.5;
+  padding-bottom: my.$gutter * 1.5;
+
+  background-color: my.palette('neutral', 'light');
+}
+
 .h-feed__list--services {
   margin-bottom: my.$gutter * 4;
 
