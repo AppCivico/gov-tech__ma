@@ -51,10 +51,12 @@
 
 .home-services {
   .h-feed__p-name--home-services {
+    max-width: none;
     margin-bottom: my.$gutter * 2;
 
     font-size: my.ms-step(16px);
     font-weight: my.font-weight('bold');
+    text-transform: uppercase;
 
     border-bottom: my.$stroke solid my.palette('brand', 'blue', 'medium');
   }
@@ -105,11 +107,13 @@
   .h-feed__p-name--special-entries {
     grid-column: 1/-1;
 
+    max-width: none;
     margin-bottom: my.$gutter * 2;
 
-    font-size: my.ms-step(20px);
+    font-size: my.ms-step(16px);
     font-weight: my.font-weight('bold');
     text-decoration: none;
+    text-transform: uppercase;
 
     border-bottom: my.$stroke solid my.palette('brand', 'red', 'medium');
   }
