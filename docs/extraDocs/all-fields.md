@@ -148,7 +148,7 @@
 37. id: `36`, name: `member`, label: **Integrantes**, type: `grid`. Em uso em:
 - Equipe
 
-38. id: `38`, name: `settings__settings__social_profiles`, label: **Redes sociais**, type: `grid`. Em uso em:
+38. id: `38`, name: `settings__social_profiles`, label: **Redes sociais**, type: `grid`. Em uso em:
   - Configurações
 
 39. id: `42`, name: `settings__search_placeholder`, label: **Exemplo de busca**, type: `text input`. Em uso em:
