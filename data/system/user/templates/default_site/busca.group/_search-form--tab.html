@@ -1,7 +1,7 @@
-<form action="busca" data-js="filter-form" id="filter-form" method="get" class="tab-wrap">
+<form action="busca" data-js="filter-form" id="filter-form" method="get" class="tab-bar">
     <input type="hidden" class="input" maxlength="100" size="40" name="keywords" value="{exp:search:keywords}" />
 
-    <button type="submit" name="channel_id" value="" class="tab">Tudo</button>
+    <button type="submit" name="channel_id" value="" class="tab-bar__tab">Tudo</button>
 
     {exp:query sql="SELECT GROUP_CONCAT(DISTINCT ec.channel_id SEPARATOR '|') channel_ids,
         ec.channel_name, ec.channel_title
@@ -10,7 +10,7 @@
         GROUP BY ec.channel_name
         ORDER BY ec.channel_title;"
     }
-        <button type="submit" name="channel_id" value="{channel_ids}" class="tab">
+        <button type="submit" name="channel_id" value="{channel_ids}" class="tab-bar__tab">
             {channel_title}
         </button>
     {/exp:query}

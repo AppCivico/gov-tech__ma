@@ -15,7 +15,7 @@ export default (() => {
         case (queryValue && element.value === queryValue):
         case (!queryValue && !element.value):
           // eslint-disable-next-line no-param-reassign
-          element.className += ' current-filter';
+          element.className += ' tab-bar__tab--current';
           break;
 
         default:

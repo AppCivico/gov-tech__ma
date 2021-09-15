@@ -1,0 +1,137 @@
+@use '../abstracts' as my;
+
+/* tabs
+---------------------------------------------------------------------------- */
+
+///
+/// Tabs
+///
+/// @group components
+///
+/// @example html
+/// <form action="busca" data-js="filter-form" id="filter-form" method="get" class="tab-bar">
+///   <button type="submit" name="channel_id" value="" class="tab-bar__tab">
+///     Tudo
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="18|30|39|47|64|66|74|83" class="tab-bar__tab">
+///       Conteúdos especiais
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="6|14|26|33|41|50|58|68|77" class="tab-bar__tab">
+///       Documentos
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="4|12|25|34|42|51|59|69|78" class="tab-bar__tab">
+///       Equipe
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="3|11|24|35|43|52|60|70|79" class="tab-bar__tab">
+///       Eventos
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="8|16|28|36|44|53|61|71|80" class="tab-bar__tab">
+///       Integrantes do governo
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="2|10|23|37|45|54|62|72|81" class="tab-bar__tab">
+///       Notícias
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="85" class="tab-bar__tab">
+///       Pregão
+///   </button>
+///
+///   <button type="submit" name="channel_id" value="1|9|21|22|40|48|56|65|75|84" class="tab-bar__tab">
+///       Serviços
+///   </button>
+/// </form>
+///
+/// @example html
+/// <ul class="tab-bar">
+///   <li class="tab-bar__tab tab-bar__tab--current">
+///     <a
+///       class="tab-bar__label"
+///       href="/servicos"
+///     >
+///       Serviços
+///     </a>
+///   </li>
+///   <li class="tab-bar__tab">
+///     <a
+///       class="tab-bar__label"
+///       href="/servicos/categorias/programas"
+///     >
+///       Programas
+///     </a>
+///   </li>
+/// </ul>
+
+.tab-bar {
+  position: relative;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  max-width: 100%;
+  padding: 0;
+  margin: my.$gutter * 2 0;
+
+  .tab-bar__tab {
+    display: block;
+
+    flex-grow: 1;
+
+    width: 100%;
+    max-width: 16.25rem; // 260px
+    min-height: my.$gutter * 2;
+    padding: 15px;
+    overflow: hidden;
+
+    font-size: my.ms-step(16px);
+    font-weight: inherit;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+    user-select: none;
+
+    background: none;
+    border-bottom-color: my.palette('neutral');
+    border-bottom-style: solid;
+    border-bottom-width: my.$stroke;
+    border-radius: 0;
+    box-shadow: none;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      width: auto;
+    }
+
+    &:hover,
+    &:focus {
+      font-weight: inherit;
+      color: inherit;
+
+      background: none;
+      border-bottom-color: my.palette('brand', 'blue', 'dark');
+      outline: 0;
+    }
+  }
+
+  .tab-bar__label {
+    color: inherit;
+    text-decoration: inherit;
+
+    @include my.on-event {
+      color: inherit;
+      text-decoration: inherit;
+    }
+  }
+
+  .tab-bar__tab--current {
+    border-bottom-color: my.palette('brand', 'blue');
+  }
+}
