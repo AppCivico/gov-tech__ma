@@ -51,6 +51,7 @@ nav a {
   text-overflow: ellipsis;
 
   background: none;
+  border: 0;
   border-radius: 0;
 
   &:link {
@@ -67,6 +68,7 @@ nav a {
     text-decoration: underline;
 
     background: none;
+    border: 0;
 
     @supports (text-decoration-color: #{palette('accent')}) {
       text-decoration-line: underline;

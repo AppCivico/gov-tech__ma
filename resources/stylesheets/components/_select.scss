@@ -23,13 +23,16 @@ option {
 /**
  * @see https://github.com/necolas/normalize.css/issues/579#issue-148022816
  */
+.like-a__select,
 select {
   @extend %text-field-reset;
 
   box-sizing: border-box;
 
   width: 100%;
+  height: my.$gutter;
 
+  text-align: left;
   text-indent: 0.01px; // stylelint-disable-line property-units
   text-overflow: '';
 
@@ -42,12 +45,29 @@ select {
   }
 }
 
+.like-a__select,
 select,
 .ie6-9:invalid {
   padding-right: my.$gutter;
 
-  background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'6\' viewBox=\'0 0 12 6\'%3E%3Cpolygon fill=\'#a8a8a8\' points=\'0,0 12,0 6,6\'/%3E%3C/svg%3E');
+  background-image: my.image('arrow--down.svg');
   background-position: right 6px top 50%;
+
+  &:active {
+    background-image: my.image('arrow--up.svg');
+  }
+}
+
+.like-a__select {
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+
+  overflow: hidden;
+
+  &:hover {
+    overflow: visible;
+  }
 }
 
 /**
@@ -60,6 +80,7 @@ optgroup {
   font-weight: my.font-weight('bold');
 }
 
+.like-a__select > *,
 option {
   padding: 0 0.4em 0 0.1em;
   margin: 0;
@@ -80,6 +101,62 @@ option {
       display: block;
     }
   }
+}
+
+.like-a__select > * {
+  position: relative;
+  top: 100%;
+
+  display: block;
+
+  width: calc(100% + #{my.$gutter});
+  min-width: 100%;
+  min-height: 1.5em;
+  margin-right: my.$gutter * -1;
+
+  line-height: 2;
+  list-style-type: none;
+
+  background-color: inherit;
+  border-width: my.$stroke__thin;
+  border-right-color: inherit;
+  border-right-style: inherit;
+  border-left-color: inherit;
+  border-left-style: inherit;
+
+  &::before,
+  &::after {
+    content: none;
+  }
+
+  &:first-child {
+    border-top-color: inherit;
+    border-top-style: inherit;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  &:last-child {
+    border-bottom-color: inherit;
+    border-bottom-style: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+  }
+
+  &:hover {
+    position: relative;
+  }
+}
+
+.like-a__select:hover > * {
+  z-index: my.layer('dropdown');
+
+}
+
+.like-a__select a {
+  @include my.link-undercover;
+
+  display: block;
 }
 
 select[multiple] { // stylelint-disable-line no-qualifying-elements

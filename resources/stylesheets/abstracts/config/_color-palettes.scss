@@ -89,12 +89,12 @@ $palette: map.set($palette, 'text', $text);
 /// @colors anchor
 ///
 $anchor: (
-  'base': rgb(0, 102, 204),
-  'link': rgb(0, 102, 204),
-  'visited': rgb(128, 0, 128),
-  'hover': rgb(50, 152, 255),
-  'focus': rgb(50, 152, 255),
-  'active': rgb(229, 0, 80),
+  'base': hsl(210, 100%, 40%),
+  'link': hsl(210, 100%, 40%),
+  'visited': hsl(300, 100%, 25%),
+  'hover': hsl(210, 100%, 60%),
+  'focus': hsl(210, 100%, 60%),
+  'active': hsl(339, 100%, 45%),
 );
 $palette: map.set($palette, 'anchor', $anchor);
 
@@ -103,11 +103,11 @@ $palette: map.set($palette, 'anchor', $anchor);
 /// @colors button
 ///
 $button: (
-  'base': rgb(225, 225, 225),
-  'hover': rgb(229, 241, 251),
-  'focus': rgb(229, 241, 251),
+  'base': hsl(0, 0%, 88%),
+  'hover': hsl(207, 73%, 94%),
+  'focus': map.get($brand, 'blue', 'medium'),
   'slider': hsl(0, 0%, 40%),
-  'submit': rgb(217, 83, 79),
+  'submit': map.get($neutral, 'white'),
   'reset': transparent,
 );
 $palette: map.set($palette, 'button', $button);
@@ -131,8 +131,8 @@ $palette: map.set($palette, 'feedback', $feedback);
 /// @colors border
 ///
 $border: (
-  'base': rgb(192, 192, 192),
-  'focus': rgb(0, 0, 0),
+  'base': hsla(60, 4%, 11%, 1),
+  'focus': hsl(0, 0%, 0%),
 );
 $palette: map.set($palette, 'border', $border);
 

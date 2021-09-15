@@ -89,7 +89,7 @@ label {
   }
 }
 
-abbr.field__required {
+abbr.field__required { // stylelint-disable-line selector-no-qualifying-type
   color: my.palette('feedback', 'danger');
   text-decoration: none;
 }
@@ -197,8 +197,8 @@ form br {
 
   border-color: my.palette('border');
   border-style: solid;
-  border-width: my.$stroke;
-  border-radius: my.$rounded-corner;
+  border-width: my.$stroke__thin;
+  border-radius: my.$rounded-corner--tiny;
   outline: 0;
   -webkit-font-smoothing: inherit; // stylelint-disable-line property-no-vendor-prefix
 
@@ -214,7 +214,7 @@ form br {
 
     cursor: not-allowed;
 
-    background: my.palette('disabled', 'background');
+    background-color: my.palette('disabled', 'background');
   }
 }
 

@@ -28,7 +28,7 @@
   cursor: text;
 
   background-color: my.palette('text', 'light');
-  border: solid my.$stroke my.palette('border');
+  border: my.$stroke__thin solid my.palette('border');
 
   appearance: none; /* 1 */
 
@@ -105,7 +105,7 @@
 
     cursor: default;
 
-    background: my.palette('disabled', 'background');
+    background-color: my.palette('disabled', 'background');
   }
 }
 

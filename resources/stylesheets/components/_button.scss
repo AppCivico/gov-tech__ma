@@ -30,13 +30,14 @@
 
   overflow: visible; /* 3 */
 
+  font-size: my.ms-step(14px);
+  font-weight: inherit;
   text-indent: 0;
   white-space: inherit;
 
   cursor: pointer; /* 2 */
 
   background-color: my.palette('button'); /* 5 */
-  border: my.$stroke;
 
   appearance: button; /* 1 */
 
@@ -80,7 +81,11 @@ button,
   &:focus {
     @include my.focused;
 
+    font-weight: my.font-weight('bold');
+    color: my.palette('neutral', 'white');
+
     background-color: my.palette('button', 'focus');
+    border-color: my.palette('button', 'focus');
   }
 }
 
@@ -109,7 +114,11 @@ button,
   &:focus {
     @include my.focused;
 
+    font-weight: my.font-weight('bold');
+    color: my.palette('neutral', 'white');
+
     background-color: my.palette('button', 'focus');
+    border-color: my.palette('button', 'focus');
   }
 
   &:disabled {
