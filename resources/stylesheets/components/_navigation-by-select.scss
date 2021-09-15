@@ -1,0 +1,64 @@
+@use '../abstracts' as my;
+
+///
+/// Navigation form
+///
+/// @group components
+///
+/// @example
+/// <form data-js="select-navigation" hidden class="navigation-by-select">
+///     <div role="group" class="navigation-by-select__fieldset">
+///         <legend class="navigation-by-select__legend">
+///             Perfil do cidadão
+///         </legend>
+///
+///         <select name="location" class="navigation-by-select__select">
+///             <option value=""></option>
+///             <option value="foo">Foo</option>
+///             <option value="bar">Bar</option>
+///         </select>
+///
+///         <button type="submit" class="navigation-by-select__button">
+///             Ir
+///         </button>
+///     </div>
+/// </form>
+
+.navigation-by-select {
+  max-width: my.$max-width--narrow;
+
+  .navigation-by-select__fieldset {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    padding: 0;
+  }
+
+  .navigation-by-select__legend {
+    flex-basis: 100%;
+
+    font-weight: my.font-weight('bold');
+
+    border-bottom: my.$stroke solid my.palette('brand', 'green');
+  }
+
+  .navigation-by-select__select {
+    flex-basis: 0;
+    flex-grow: 1;
+
+    height: my.$gutter;
+    min-height: my.$gutter;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: my.$gutter * 0.5;
+  }
+
+  .navigation-by-select__button {
+    width: my.$gutter * 3;
+    height: my.$gutter;
+    min-height: my.$gutter;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
