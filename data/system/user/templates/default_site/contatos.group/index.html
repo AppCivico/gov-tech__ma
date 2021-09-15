@@ -116,23 +116,11 @@
                     </dd>
                 {/if}
 
-                {exp:query sql="
-                    SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
-                    MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
-                    MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
-                    FROM exp_config ec
-                    JOIN exp_sites es ON es.site_id = ec.site_id
-                    WHERE ec.site_id = '{entry_site_id}'
-                    LIMIT 1"
-                "}
-                    {if msm_is_site_on == "y"}
-                        <dd class="h-entry__e-content h-entry__e-content--contacts-list">
-                            <a href="{msm_site_url:url}" target="_blank">
-                                {msm_site_url}
-                            </a>
-                        </dd>
-                    {/if}
-                {/exp:query}
+                <dd class="h-entry__e-content h-entry__e-content--contacts-list">
+                    <a href="{relative_url:url}" target="_blank">
+                        {relative_url:url}
+                    </a>
+                </dd>
 
                 {if settings__email}
                     <dd class="h-entry__e-content h-entry__e-content--contacts-list">

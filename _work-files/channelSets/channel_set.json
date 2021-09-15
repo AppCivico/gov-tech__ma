@@ -109,7 +109,7 @@
       "channel_lang": "pt",
       "default_entry_title": "Configura\u00e7\u00f5es",
       "url_title_prefix": "settings",
-      "channel_url": "",
+      "channel_url": "\u007bbase_url\u007d",
       "deft_status": "open",
       "comment_system_enabled": "n",
       "search_results_url": "",
