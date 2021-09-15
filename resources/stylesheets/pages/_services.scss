@@ -1,0 +1,20 @@
+@use '../abstracts' as my;
+
+.h-feed__list--services {
+  margin-bottom: my.$gutter * 4;
+
+  .h-feed__h-entry--services {
+    padding: my.$gutter my.$gutter * 0.5;
+    margin: 0;
+
+    + .h-feed__h-entry--services {
+      border-top: my.$stroke__thin solid my.palette('neutral', 'base');
+    }
+  }
+
+  .h-entry__u-url--services {
+    margin: 0;
+  }
+
+  .h-entry__p-name--services {}
+}

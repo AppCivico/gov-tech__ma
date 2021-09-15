@@ -7,6 +7,7 @@
 .h-feed {
   .h-entry {
     @include my.clearfix;
+    display: block;
 
     margin-bottom: my.$gutter * 2.5;
   }
@@ -44,6 +45,9 @@
 
   .h-entry__u-url {
     @include my.link-undercover;
+
+    font-size: 1em;
+    font-weight: inherit;
   }
 
   .dt-published {
@@ -117,6 +121,7 @@
 }
 
 .h-feed__list {
+  padding: 0;
 }
 
 .h-feed__read-more {
