@@ -100,9 +100,9 @@
     user-select: none;
 
     background: none;
+    border-style: none none solid;
+    border-width: 0 0 my.$stroke 0;
     border-bottom-color: my.palette('neutral');
-    border-bottom-style: solid;
-    border-bottom-width: my.$stroke;
     border-radius: 0;
     box-shadow: none;
 
