@@ -633,7 +633,23 @@ $config['cookie_samesite'] = 'Strict';
 // $config['cookie_secure'] = 'y';
 
 $config['css_js_settings'] = [
-    'js' => '',
+    'js' => '(function() {
+  var bidingTypeField = document.querySelector("[name=field_id_49]");
+  var comprasNetField = document.querySelector("[name=field_id_50]");
+  var comprasNetFieldset = comprasNetField.closest("fieldset");
+
+  if(!bidingTypeField) return;
+
+  $("form").on("interact", function(e) {
+    if(e.target.name !== "field_id_49") return;
+    var value = e.target.value;
+    if (value.toLowerCase() === "pregão eletrônico") {
+      comprasNetFieldset.classList.remove("fieldset---closed");
+    } else {
+      comprasNetFieldset.classList.add("fieldset---closed");
+    }
+  });
+})()',
     'css' => '
         .dashboard::before {
             content: url("/assets/images/brand/gov__ma.svg");
