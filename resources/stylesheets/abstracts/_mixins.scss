@@ -497,6 +497,7 @@
 
 // stylelint-enable declaration-no-important
 
+///
 /// Truncate and add ellipsis to a string too long for it to fit on a single
 /// line.
 ///
@@ -517,7 +518,7 @@
 ///
 /// @example scss
 /// .excerpt {
-/// 	@include truncate(5);
+/// 	@include truncate(5, 1.5em);
 /// }
 ///
 /// @output css

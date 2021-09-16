@@ -5,7 +5,7 @@
 ///
 /// @group components
 ///
-/// @example
+/// @example html
 /// <form data-js="select-navigation" hidden class="navigation-by-select">
 ///     <div role="group" class="navigation-by-select__fieldset">
 ///         <legend class="navigation-by-select__legend">
@@ -23,6 +23,7 @@
 ///         </button>
 ///     </div>
 /// </form>
+///
 
 .navigation-by-select {
   max-width: my.$max-width--narrow;
