@@ -60,6 +60,7 @@
   }
 
   .main-aside__title {
+    max-width: 0;
     margin-bottom: my.$gutter;
 
     font-size: my.ms-step(16px);

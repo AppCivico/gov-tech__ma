@@ -1,6 +1,6 @@
-{exp:channel:entries channel="service" limit="{embed:limit}" category="{embed:cat_id}" status="not closed"
-    disable="member_data|pagination" category_group="{embed:group_id}" orderby="title" sort="asc"
-    dynamic="no"
+{exp:channel:entries channel="service" limit="{embed:limit}"
+    category="{embed:cat_id}" status="not closed" disable="member_data|pagination"
+    category_group="{embed:group_id}" orderby="title" sort="asc" dynamic="no"
 }
     {if count == 1}
     <section class="h-feed home-services">
@@ -12,14 +12,16 @@
                 class="h-entry__u-url--home-services h-entry__u-url"
             >
                 <article class="h-feed__h-entry h-entry h-feed__h-entry--home-services">
-                    {categories show_group="{embed:service_group}" limit="1"}
-                        {if category_image}
-                            <img
-                                width="" height="" src="{category_image}" alt=""
-                                decoding="async" loading="lazy" class="h-entry__u-photo u-photo home-services__thumb"
-                            />
-                        {/if}
-                    {/categories}
+                    {if embed:service_group}
+                        {categories show_group="{embed:service_group}" limit="1"}
+                            {if category_image}
+                                <img
+                                    width="" height="" src="{category_image}" alt=""
+                                    decoding="async" loading="lazy" class="h-entry__u-photo u-photo home-services__thumb"
+                                />
+                            {/if}
+                        {/categories}
+                    {/if}
 
                     <h3 class="h-entry__p-name p-name h-entry__p-name--home-services">{title}</h3>
                 </article>

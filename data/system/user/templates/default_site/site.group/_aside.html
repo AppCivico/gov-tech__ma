@@ -2,26 +2,32 @@
 
 <!-- most filled services :start -->
     {exp:query
-    sql="SELECT ec.cat_id, ec.cat_name, ec.cat_url_title, ec2.channel_url
-        FROM exp_categories ec
-        JOIN exp_category_groups cg ON ec.group_id = cg.group_id
-        JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
-        JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
-        JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
-        WHERE ec.site_id = '{site_id}'
-            AND LOWER(cg.group_name) = 'perfil do cidadao'
-            AND ect.status = 'open'
-            AND ec2.channel_name IN ('service', 'special')
-        GROUP BY ec.cat_id
-        ORDER BY COUNT(ecp.entry_id) DESC
-        LIMIT 4"
+        sql="SELECT ec.cat_id, ec.cat_name, ec.cat_url_title, ec2.channel_url
+            FROM exp_categories ec
+            JOIN exp_category_groups cg ON ec.group_id = cg.group_id
+            JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
+            JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
+            JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
+            WHERE ec.site_id = '{site_id}'
+                AND (
+                    LOWER(cg.group_name) = 'perfil do cidadao'
+                    OR (
+                        LOWER(cg.group_name) = 'categorias de servicos'
+                        AND ec.cat_url_title = 'programas'
+                    )
+                )
+                AND ec2.channel_name = 'service'
+                AND ect.status != 'closed'
+            GROUP BY ec.cat_id
+            ORDER BY COUNT(ecp.entry_id) DESC
+            LIMIT 4"
         parse="inward"
     }
         <section class="h-feed main-aside__section">
             <h5 class="h-feed__p-name p-name main-aside__title">
                 {cat_name}
             </h5>
-            <ul class="main-aside__list" data-total-entries="{total_entries}">
+            <ul class="main-aside__list">
                 {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{cat_id}" status="not closed" limit="3" dynamic="no"}
                     <li class="main-aside__item h-entry">
                         <a class="main-aside__link h-entry__u-url u-url" href="https:/{relative_url}/{url_title}">{title}</a>
