@@ -126,6 +126,8 @@
   }
 
   .search-form__field-wrapper--audio {
+    display: none;
+
     width: my.$gutter * 2;
 
     opacity: 0.85;
