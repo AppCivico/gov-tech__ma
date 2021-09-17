@@ -1,0 +1,44 @@
+{
+    "label": "Aviso",
+    "order": 50,
+    "instructions": "PDF",
+    "required": "y",
+    "content_type": "all",
+    "settings": {
+        "grid_min_rows": "1",
+        "grid_max_rows": "1",
+        "allow_reorder": "y",
+        "field_content_type": "all",
+        "allowed_directories": "all"
+    },
+    "columns": [
+        {
+            "type": "file",
+            "label": "File",
+            "name": "file",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "field_content_type": "all",
+                "allowed_directories": "all",
+                "show_existing": "",
+                "num_existing": 0,
+                "field_fmt": "none",
+                "field_required": "n"
+            }
+        },
+        {
+            "type": "date",
+            "label": "Data de publica\u00e7\u00e3o",
+            "name": "publication_date",
+            "instructions": "",
+            "required": "n",
+            "search": "n",
+            "settings": {
+                "localize": false,
+                "field_required": "n"
+            }
+        }
+    ]
+}

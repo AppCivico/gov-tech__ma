@@ -1,0 +1,13 @@
+{
+    "label": "ComprasNet",
+    "order": 43,
+    "instructions": "\u00datil apenas se o tipo da licita\u00e7\u00e3o for \"Preg\u00e3o eletr\u00f4nico\".",
+    "is_hidden": "y",
+    "settings": {
+        "allowed_url_schemes": [
+            "http:\/\/",
+            "https:\/\/"
+        ],
+        "url_scheme_placeholder": "https:\/\/"
+    }
+}

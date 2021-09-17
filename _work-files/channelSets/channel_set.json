@@ -73,6 +73,27 @@
       ]
     },
     {
+      "channel_title": "Preg\u00e3o",
+      "channel_name": "bidding",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/pregoes",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "",
+      "search_excerpt": "",
+      "title_field_label": "Nome da licita\u00e7\u00e3o",
+      "sticky_enabled": "n",
+      "field_groups": [
+        "bidding"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Menu em cascata",
+        "Menu de rodap\u00e9",
+        "Menu hamburguer"
+      ]
+    },
+    {
       "channel_title": "Servi\u00e7os",
       "channel_description": "Descri\u00e7\u00e3o de servi\u00e7os prestados pelas secretarias para alimentar a busca.",
       "channel_name": "service",
@@ -258,6 +279,22 @@
         "ad__position",
         "ad_link",
         "ad__images"
+      ]
+    },
+    {
+      "name": "bidding",
+      "fields": [
+        "bidding__type",
+        "comprasnet",
+        "processo",
+        "bidding__files",
+        "bidding__code_and_year",
+        "bidding__object",
+        "bidding__notice",
+        "bidding__edict",
+        "is_duplicated",
+        "bidding__opening",
+        "bidding__status"
       ]
     },
     {

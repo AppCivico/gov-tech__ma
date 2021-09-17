@@ -1,0 +1,21 @@
+{
+    "label": "Tipo de licita\u00e7\u00e3o",
+    "order": 42,
+    "instructions": "",
+    "required": "y",
+    "fmt": "none",
+    "list_items": [
+        "Ata de abertura",
+        "Chamado p\u00fablica",
+        "Concorr\u00eancia",
+        "Concurso",
+        "Convite",
+        "Preg\u00e3o eletr\u00f4nico",
+        "Preg\u00e3o presencial",
+        "Procedimentos auxiliares",
+        "RDC",
+        "Requisi\u00e7\u00e3o de proposta",
+        "Tomada de servi\u00e7o"
+    ],
+    "settings": []
+}
