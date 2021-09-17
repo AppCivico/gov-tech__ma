@@ -64,6 +64,9 @@ Copie o arquivo `.env.sample` para `.env` e faça as configurações das variare
     REDIS_STORAGE                        - local onde o redis irá salvar o dump do cache quando reiniciado
     MYSQL_DATA                           - local onde o mariadb irá salvar o banco de dados
     NGINX_STORAGE                        - local onde o nginx irá salvar o cache e dados para rate-limiting
+    PYTHIA_CONFIG_FILE_NAME              - nome do arquivo de config/auth (dialogflow)
+    PYTHIA_CONFIG_DIR                    - local onde fica o key.json (dialogflow)
+    GOOGLE_CLOUD_PROJECT_NAME            - nome do projeto do google (dialogflow)
 
 
 As imagens do redis e mariadb já estão prontas. As imagens do apache e nginx são construídas a partir do Dockerfile. O mesmo está na pasta `docker/apache/` e `docker/nginx/` respectivamente.
@@ -73,7 +76,8 @@ Antes de subir, será necessário verificar se as permissões dos diretórios do
     REDIS_STORAGE precisa ser 1001:1001 de acordo com https://hub.docker.com/r/bitnami/redis/
     MYSQL_DATA precisa ser 999:999 de acordo com https://github.com/MariaDB/mariadb-docker/blob/60caa9ea5c46b985ac6a7ebc93564a29791fca08/10.6/Dockerfile#L89
     NGINX_STORAGE precisa ser 101:101 de acordo com https://github.com/nginxinc/docker-nginx/blob/f958fbacada447737319e979db45a1da49123142/mainline/debian/Dockerfile#L14
-    GOV_MA_UPLOAD_DIR e GOV_MA_SERVER_BASE_DIR precisam ser 33:33 (imagem do apache, user www-data)
+    GOV_MA_UPLOAD_DIR &
+    GOV_MA_SERVER_BASE_DIR precisam ser 33:33 (imagem do apache, user www-data)
 
 
 Ao executar o comando `docker-compose up -d` e aguardar o download/build das imagens, você poderá executar o comando `docker-compose ps` e visualizar o resultado:
@@ -87,21 +91,6 @@ Ao executar o comando `docker-compose up -d` e aguardar o download/build das ima
     maappcivicocom_apache_1   /entrypoint.sh apache2-for ...   Up      80/tcp
 
 O container do apache pode ser executado com mais de uma replica caso o processo precise escalar. Porém, o apache já executa vários processo que podem saturar a CPU. De qualquer forma, se necessário, é possível adicionar mais processos do apache usando o comando `docker-compose up -d --scale apache=2` para ter dois containers do apache. O container `ma_gov_web` irá continuar usando a mesma porta e fazendo load-balance entre as instancias dos apaches.
-
-
-## Volumes
-
-Existem 3 volumes que serão criados:
-
-- db_data: banco de dados do MariaDB - **importante ter backup**
-- redis_data: dump / restore do Redis, para os restarts.
-- nginx_cache: cache dos assets e rate-limit.
-
-Considerando que o nome que o docker-compose deu para o projeto foi `maappcivicocom` os arquivos do banco estarão na pasta `/var/lib/docker/volumes/maappcivicocom_db_data/_data/`
-
-O docker-compose por padrão usa o nome da pasta onde o docker-compose.yml foi localizado para criar um prefixo nos containers. Você pode sobre-escrever passando o paramentro `-p`, por exemplo, `docker-compose logs -f -p maappcivicocom`
-
-Essa configuração também pode ser feita alterando a variável `COMPOSE_PROJECT_NAME`
 
 ## Alterações nas configurações
 

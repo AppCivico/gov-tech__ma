@@ -59,12 +59,12 @@ services:
       - cms
       - cache
       - database
-      - dialogflow
   nginx:
     build: ./docker/nginx/
     container_name: ma_gov_web
     depends_on:
       - apache
+      - pythia
     logging:
       driver: "json-file"
       options:
@@ -74,28 +74,29 @@ services:
       - ${NGINX_STORAGE}:/cache-data
     networks:
       - cms
+      - dialogflow
     restart: unless-stopped
     ports:
       - ${NGINX_BIND_ADDRESS}:80
-  # pythia:
-  #   build:
-  #     context: ./docker/pythia
-  #     args:
-  #       - AUTH_FOLDER_INSIDE_CONTAINER=${AUTH_FOLDER_INSIDE_CONTAINER}
-  #       - JSON_KEY_FILENAME=${JSON_KEY_FILENAME}
-  #   container_name: dialogflow_proxy_api
-  #   environment:
-  #     PORT: 8080
-  #     GOOGLE_APPLICATION_CREDENTIALS: ${AUTH_FOLDER_INSIDE_CONTAINER}${JSON_KEY_FILENAME}
-  #     GOOGLE_CLOUD_PROJECT_NAME: ${GOOGLE_CLOUD_PROJECT_NAME}
-  #   logging:
-  #     driver: "json-file"
-  #     options:
-  #       max-file: "${LOG_MAX_FILE}"
-  #       max-size: "${LOG_MAX_SIZE}"
-  #   restart: unless-stopped
-  #   ports:
-  #     - ${DIALOGFLOW_PROXY_API_BIND_ADDRESS}:8080
+   pythia:
+     build:
+       context: ./docker/pythia
+     container_name: dialogflow_proxy_api
+     networks:
+      - dialogflow
+     environment:
+       PORT: 8080
+       GOOGLE_APPLICATION_CREDENTIALS: "/data/${PYTHIA_CONFIG_FILE_NAME}"
+       GOOGLE_CLOUD_PROJECT_NAME: "${GOOGLE_CLOUD_PROJECT_NAME}"
+     volumes:
+       - ${PYTHIA_CONFIG_DIR}:/data:ro
+     logging:
+       driver: "json-file"
+       options:
+         max-file: "${LOG_MAX_FILE}"
+         max-size: "${LOG_MAX_SIZE}"
+     restart: unless-stopped
+
 
 networks:
     cache:
