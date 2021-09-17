@@ -86,6 +86,13 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'bombeiros.ma.gov.br':
+    case 'bombeiros.ma.gov.local':
+    case 'bombeiros-ma.appcivico.com.br':
+        $site_name = 'bombeiros';
+        $assign_to_config['global_vars']['global:editorial-group'] = '';
+        break;
+
     case 'corona.ma.gov.br':
     case 'corona.ma.gov.local':
     case 'corona-ma.appcivico.com.br':

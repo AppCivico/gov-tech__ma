@@ -14,6 +14,7 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 | Agência Executiva Metropolitana do Sudoeste Maranhense                                     | [agemsul.ma.gov.br](https://agemsul.ma.gov.br)                   |
 | Agência Reguladora de Serviços Públicos                                                    | [arsema.ma.gov.br](https://arsema.ma.gov.br)                     |
 | Atualizações sobre o Coronavírus                                                           | [corona.ma.gov.br](https://corona.ma.gov.br)                     |
+| Bombeiros                                                                                  | [bombeiros.ma.gov.br](https://bombeiros.ma.gov.br)               |
 | Casa Civil                                                                                 | [casacivil.ma.gov.br](https://casacivil.ma.gov.br)               |
 | Centro Integrado Rio Anil                                                                  | [cintra.ma.gov.br](https://cintra.ma.gov.br)                     |
 | Comissão Central Permanente de Licitação                                                   | [ccl.ma.gov.br](https://ccl.ma.gov.br)                           |
