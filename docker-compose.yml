@@ -78,7 +78,7 @@ services:
     restart: unless-stopped
     ports:
       - ${NGINX_BIND_ADDRESS}:80
-   pythia:
+  pythia:
      build:
        context: ./docker/pythia
      container_name: dialogflow_proxy_api
