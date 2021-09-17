@@ -53,15 +53,16 @@ OBS: Atualização neste repositórios irá precisar do time de infra para atual
 
 Aqui foram guardados os diretórios dos dados persistentes entre os builds, e que não são facilmente recriáveis.
 
+    4.0K drwxr-xr-x 2   33   33 4.0K Sep  3 19:03 images-dir
     4.0K drwxr-xr-x 5  999  999 4.0K Sep  3 00:27 mysql
     4.0K drwxr-xr-x 4  101  101 4.0K Sep  3 00:06 nginx
+    4.0K drwxr-xr-x 2 1000 1000 4.0K Sep  3 19:00 pythia
     4.0K drwxr-xr-x 2 1001 1001 4.0K Sep  3 00:27 redis
     4.0K drwxr-xr-x 2   33   33 4.0K Sep  3 00:05 upload-dir
-    4.0K drwxr-xr-x 2 1000 1000 4.0K Sep  3 00:05 pythia
 
 Esses diretorias serão montados nos containers, pelo docker-compose. Os uid e gid devem estar conforme acima.
 
-O script de deploy.sh irá escrever novos arquivos e pastas no `upload-dir` durante a sua execução, pois conforme entram novos subsites, novas pastas precisam ser inicializadas e estas não são criadas automaticamente pela aplicação PHP.
+O script de deploy.sh irá escrever novos arquivos e pastas no `upload-dir` e `images-dir` durante a sua execução, pois conforme entram novos subsites, novas pastas precisam ser inicializadas e estas não são criadas automaticamente pela aplicação PHP.
 
 Na pasta `pythia` é apenas para guardar o arquivo de autenticação com o DialogFlow
 
@@ -112,6 +113,7 @@ Repositório `gov-tech__ma` com as configurações do ambiente (.env) para subir
 
     GOV_MA_SERVER_BASE_DIR=/home/app/www_versions
     GOV_MA_UPLOAD_DIR=/home/app/persistent-storage/upload-dir
+    GOV_MA_IMAGE_DIR=/home/app/persistent-storage/images-dir
     REDIS_STORAGE=/home/app/persistent-storage/redis
     MYSQL_DATA=/home/app/persistent-storage/mysql
     NGINX_STORAGE=/home/app/persistent-storage/nginx
@@ -133,11 +135,16 @@ o repositório `gov-tech__ma` tem um arquivo `data/system/user/config/.env.sampl
 
 Script bash que realmente inicia o deploy, setando as variaveis de ambiente corretas para as pastas acima.
 
-    # cat run-deploy.sh
+Importante estar com o shebang para o dispatcher conseguir executar o bash.
+
+Conteúdo do run-deploy.sh:
+
+    #!/bin/bash
 
     export GOV_MA_GIT_SRC_DIR=/home/app/build-env/gov-tech__ma
     export GOV_MA_SERVER_BASE_DIR=/home/app/www_versions
     export GOV_MA_UPLOAD_DIR=/home/app/persistent-storage/upload-dir
+    export GOV_MA_IMAGE_DIR=/home/app/persistent-storage/images-dir
     export NODE_MODULES_CACHE_DIR=/home/app/build-env/gov_ma_node_modules
     export GOV_MA_USER_ENV_FILE=/home/app/gov_ma_user_envfile
     export GOV_MA_WORK_DIR=/home/app/build-env/tmp-build
