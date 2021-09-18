@@ -651,9 +651,9 @@ $config['css_js_settings'] = [
     if(e.target.name !== "field_id_49") return;
     var value = e.target.value;
     if (value.toLowerCase() === "pregão eletrônico") {
-      comprasNetFieldset.classList.remove("fieldset---closed");
+      comprasNetFieldset.classList.remove("hidden");
     } else {
-      comprasNetFieldset.classList.add("fieldset---closed");
+      comprasNetFieldset.classList.add("hidden");
     }
   });
 })()',
