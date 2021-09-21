@@ -643,9 +643,10 @@ $config['css_js_settings'] = [
     'js' => '(function() {
   var bidingTypeField = document.querySelector("[name=field_id_49]");
   var comprasNetField = document.querySelector("[name=field_id_50]");
-  var comprasNetFieldset = comprasNetField.closest("fieldset");
 
-  if(!bidingTypeField) return;
+  if(!bidingTypeField || !comprasNetField) return;
+
+  var comprasNetFieldset = comprasNetField.closest("fieldset");
 
   $("form").on("interact", function(e) {
     if(e.target.name !== "field_id_49") return;
