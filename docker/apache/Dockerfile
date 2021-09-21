@@ -121,7 +121,8 @@ RUN set -eux; \
 
 ADD ./000-default.conf /etc/apache2/sites-available
 
-RUN pecl bundle -d /usr/src/php/ext redis \
+RUN echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini \
+&& pecl bundle -d /usr/src/php/ext redis \
 && rm /usr/src/php/ext/redis-*.tgz \
 && docker-php-ext-install redis
 
