@@ -64,20 +64,24 @@
 
   .search-form__legend {
     $min-font: my.ms-step(20px);
-    $max-font: my.ms-step(28px);
+    $max-font: my.ms-step(30px);
+    $line-height: 1.266666666em;
 
-    @include my.truncate;
     @include my.fluid-font($min: $min-font, $max: $max-font);
+    @include my.truncate(2, $line-height);
 
     position: absolute;
     right: 0;
     bottom: 100%;
     left: 0;
 
-    width: auto;
+    width: 15em;
+    margin-right: auto;
     margin-bottom: my.$gutter * 0.5;
+    margin-left: auto;
 
     font-weight: my.font-weight('bold');
+    line-height: $line-height;
     text-align: center;
     text-transform: none;
   }
