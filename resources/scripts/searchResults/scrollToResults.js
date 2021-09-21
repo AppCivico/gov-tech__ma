@@ -4,6 +4,6 @@ export default function scrollToResults() {
   if (window.location.hash) return;
 
   if (mainElement) {
-    window.location.hash = `#${mainElement.id}`;
+    mainElement.scrollIntoView(true);
   }
 }
