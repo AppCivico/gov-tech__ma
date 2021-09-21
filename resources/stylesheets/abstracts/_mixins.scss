@@ -1004,11 +1004,20 @@ $no-viewport: false !default;
   margin-left: -50vw;
 }
 
-@mixin fluid-font($min: 9px, $max: 0) {
-  min-height: 0;
+/// Sass fluid typography
+/// @link https://css-tricks.com/snippets/css/fluid-typography/
+@mixin fluid-font($min: 9px, $max, $min-viewport: 20rem, $max-viewport: c.$max-width) {
+  font-size: $min;
 
-  font-size: calc(#{$min} + #{f.strip-unit($max - $min)} * ((100vw - 20em) / #{f.strip-unit(100em - 20em)}));
+  @media screen and (min-width: $min-viewport) {
+    font-size: calc(#{$min} + #{f.strip-unit($max - $min)} * ((100vw - #{$min-viewport}) / #{f.strip-unit($max-viewport - $min-viewport)}));
+  }
+
+  @media screen and (min-width: $max-viewport) {
+    font-size: $max;
+  }
 }
+
 
 @mixin headings {
   h1,
