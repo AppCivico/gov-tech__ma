@@ -818,7 +818,7 @@ $lang = array(
 'Não existe um glossário',
 
 'no_member_roles' =>
-'Você precisa selecionar pelo menos uma função para aplciar/remover um layout.',
+'Você precisa selecionar pelo menos uma função para aplicar/remover um layout.',
 
 'no_related_entries' =>
 'Não existem publicações relacionadas à este canal',
