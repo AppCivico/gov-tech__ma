@@ -542,7 +542,7 @@
 
   @if $lines > 1 {
     @if math.is-unitless($leading) {
-      @error 'To truncate multiple lines, the value of `$leading` needs a unit';
+      $leading: $leading * 1em;
     }
 
     // stylelint-disable-next-line value-no-vendor-prefix
