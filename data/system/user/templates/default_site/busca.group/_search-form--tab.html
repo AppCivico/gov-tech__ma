@@ -6,7 +6,8 @@
     {exp:query sql="SELECT GROUP_CONCAT(DISTINCT ec.channel_id SEPARATOR '|') channel_ids,
         ec.channel_name, ec.channel_title
         FROM exp_channels ec
-        WHERE ec.search_results_url IS NOT NULL AND ec.search_results_url != ''
+        WHERE ec.channel_name IN ('document', 'news', 'service')
+        AND ec.search_results_url IS NOT NULL AND ec.search_results_url != ''
         GROUP BY ec.channel_name
         ORDER BY ec.channel_title;"
     }
