@@ -6,8 +6,8 @@
     JOIN exp_category_groups ecg1
     WHERE LOWER(ecg.group_name) = 'dialogflow'
     AND (
-        LOWER(ec.cat_name) IN ('{segment_3:replace find="|" replace="','"}')
-        OR LOWER(ec.cat_url_title) IN ('{segment_3:replace find="|" replace='","'}')
+        ec.cat_name IN ('{segment_3:replace find="|" replace="','"}')
+        OR ec.cat_url_title IN ('{segment_3:replace find="|" replace="','"}')
     )
     AND LOWER(ecg1.group_name) = 'categorias de servicos';"
     parse="inward"
