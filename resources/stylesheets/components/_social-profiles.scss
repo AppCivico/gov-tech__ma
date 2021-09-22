@@ -84,4 +84,8 @@ $list: (
       }
     }
   }
+
+  &[href^='mailto'] {
+    background-image: my.image('social/email.svg');
+  }
 }
