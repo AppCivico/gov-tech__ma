@@ -43,7 +43,6 @@
 
 // full content of the entry
 .h-entry__e-content {
-  @include my.hyphens;
   @include my.clearfix;
 
   p {
