@@ -30,7 +30,7 @@
 
     {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
         disable="category_fields|member_data|pagination" show_future_entries="yes" status="not any"
-        orderby="title" search:is_not_commission="not 1" parse="inward"
+        orderby="title" sort="asc" search:is_not_commission="not 1" parse="inward"
     }
         {if count == 1}
             <section class="h-feed h-feed--contacts-list">
@@ -94,7 +94,7 @@
 
     {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
         disable="category_fields|member_data|pagination" show_future_entries="yes" status="not any"
-        orderby="title" search:is_not_commission="1" parse="inward"
+        orderby="title" sort="asc" search:is_not_commission="1" parse="inward"
     }
         {if count == 1}
         <section class="h-feed h-feed--contacts-list">
