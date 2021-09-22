@@ -1,11 +1,148 @@
-{preload_replace:pr-channels="government_member"}
+{layout="default_site:site/_layout" root_class="government-member"}
 
-{layout="default_site:site/_layout"}
-
-{if segment_2 == "" OR segment_2 ~ "/^P\d+/" OR segment_2 == config:reserved_category_word}
-    {tp-generic_list}
-{if:elseif segment_2 AND segment_2 != config:reserved_category_word AND segment_3 == ""}
-    {tp-generic_entry}
-{if:else}
+{if segment_2}
     {redirect="404"}
+{if:else}
+    {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+
+    {exp:channel:info channel="news"}
+        {layout:set name="title"}{channel_title}{/layout:set}
+        {layout:set name="description"}{channel_description:attr_safe limit="155"}{/layout:set}
+    {/exp:channel:info}
+
+    <main id="main">
+        {exp:channel:entries channel="government_member" limit="1"
+            disable="category_fields|member_data|pagination"
+            show_future_entries="no" dynamic="no" status="not closed"
+            search:role="=governador|governadora"
+        }
+            <article class="h-entry h-card h-card--{role}">
+                <header class="h-card__header">
+                    {photo}
+                        <img src="{url}" alt="{description}"
+                            width="{width}" height="{height}" class="u-photo"
+                        />
+                    {/photo}
+
+                    <h2 class="h-card__p-name p-name">{title}</h2>
+
+                    {if social_profiles:total_rows || email_address}
+                        <ul class="social-profiles">
+                            {social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                        {social_profiles:url}
+                                    </a>
+                                </li>
+                            {/social_profiles}
+                            {if email_address}
+                                <li class="sociamailto:l-profiles__item">
+                                    <a href="{email_address}" class="u-email social-profiles__link">
+                                        {email_address}
+                                    </a>
+                                </li>
+                            {/if}
+                        </ul>
+                    {/if}
+                </header>
+
+                {if biography || role}
+                    <section class="h-entry__e-content e-content">
+                        <h3 class="p-job-title">{role}</h3>
+                        {biography}
+                    </section>
+                {/if}
+            </article>
+        {/exp:channel:entries}
+
+        {exp:channel:entries channel="government_member" limit="1"
+            disable="category_fields|member_data|pagination"
+            show_future_entries="no" dynamic="no" status="not closed"
+            search:role="=vice-governador|vice-governadora"
+        }
+            <article class="h-entry h-card h-card--{role}">
+                <header class="h-card__header">
+                    {photo}
+                        <img src="{url}" alt="{description}"
+                            width="{width}" height="{height}" class="u-photo"
+                        />
+                    {/photo}
+
+                    <h2 class="h-card__p-name p-name">{title}</h2>
+
+                    {if social_profiles:total_rows || email_address}
+                        <ul class="social-profiles">
+                            {social_profiles}
+                                <li class="social-profiles__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                        {social_profiles:url}
+                                    </a>
+                                </li>
+                            {/social_profiles}
+                            {if email_address}
+                                <li class="sociamailto:l-profiles__item">
+                                    <a href="{email_address}" class="u-email social-profiles__link">
+                                        {email_address}
+                                    </a>
+                                </li>
+                            {/if}
+                        </ul>
+                    {/if}
+                </header>
+
+                {if biography || role}
+                    <section class="h-entry__e-content e-content">
+                        <h3 class="p-job-title">{role}</h3>
+                        {biography}
+                    </section>
+                {/if}
+            </article>
+        {/exp:channel:entries}
+
+        {exp:channel:entries channel="government_member" sort="asc" orderby="title"
+            disable="category_fields|member_data|pagination" dynamic="no"
+            status="not closed" site="not 1"
+            search:role="=secretario|secretaria|secretária|secretário"
+            search:department="not IS_EMPTY"
+        }
+            {if count == 1}
+                <div class="h-feed--departments">
+                    <h2 class="h-feed__p-name p-name">Secretários</h2>
+                    <div class="h-card__list--departments">
+            {/if}
+                    <article class="h-entry h-card h-card--department">
+                        {photo}
+                            <img src="{url}" alt="{description}"
+                                width="{width}" height="{height}" class="u-photo"
+                            />
+                        {/photo}
+
+                        <h3 class="h-card__p-name p-name">{title}</h3>
+                        <h4 class="h-entry__subhead">{department}</h4>
+
+                        {if social_profiles:total_rows || email_address}
+                            <ul class="social-profiles">
+                                {social_profiles}
+                                    <li class="social-profiles__item">
+                                        <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                            {social_profiles:url}
+                                        </a>
+                                    </li>
+                                {/social_profiles}
+                                {if email_address}
+                                    <li class="social-profiles__item">
+                                        <a href="mailto:{email_address}" class="u-email social-profiles__link">
+                                            {email_address}
+                                        </a>
+                                    </li>
+                                {/if}
+                            </ul>
+                        {/if}
+                    </article>
+            {if count == total_results}
+                </div>
+            </div>
+            {/if}
+        {/exp:channel:entries}
+    </main>
 {/if}

@@ -1,0 +1,139 @@
+@use '../abstracts' as my;
+
+.government-member {
+  .h-card {
+    @include my.clearfix;
+
+    padding: 0;
+    margin-bottom: my.$gutter * 8;
+  }
+
+  .h-card__header {
+    width: 21.875rem; // 350px
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      float: left;
+      width: calc(33% - #{my.$gutter * 0.5});
+      margin-right: my.$gutter;
+    }
+  }
+
+  .h-card:nth-child(even) .h-card__header {
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      float: right;
+      margin-right: 0;
+      margin-left: my.$gutter;
+    }
+  }
+
+  .u-photo {
+    display: block;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .h-card__p-name {
+    display: block;
+
+    margin: 0;
+
+    font-size: my.ms-step(20px);
+    font-weight: my.font-weight('bold');
+  }
+
+  img + .h-card__p-name {
+    margin-top: my.$gutter * 0.5;
+  }
+
+  .p-name {
+  }
+
+  .social-profiles {
+    filter: brightness(0);
+  }
+
+  .social-profiles__item {
+  }
+
+  .u-url {
+  }
+
+  .social-profiles__link {
+    background-size: 75%;
+  }
+
+  .u-email {
+  }
+
+  .p-job-title {
+    font-size: my.ms-step(30px);
+    font-weight: my.font-weight('bold');
+    white-space: nowrap;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .h-entry__e-content {
+    overflow: hidden;
+  }
+
+  .e-content {
+  }
+}
+
+.h-card__list--departments {
+  $initial-with: 15rem; // 240px
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  margin-right: my.$gutter * -0.5;
+  margin-left: my.$gutter * -0.5;
+
+  > * {
+    flex-basis: $initial-with;
+    flex-grow: 1;
+
+    max-width: 50%;
+    margin-right: my.$gutter * 0.5;
+    margin-left: my.$gutter * 0.5;
+
+    @media screen and (min-width: 45em) {
+      max-width: calc(100% / 3 - #{my.$gutter});
+    }
+
+    @media screen and (min-width: 60em) {
+      max-width: calc(25% - #{my.$gutter});
+    }
+  }
+
+  .h-card {
+    margin-bottom: my.$gutter * 2;
+  }
+
+  .h-card__p-name,
+  .h-entry__subhead {
+    margin: 0;
+
+    font-size: 1em;
+  }
+
+  .h-entry__subhead {
+    font-weight: inherit;
+  }
+
+  .u-photo {
+    width: 100%;
+    height: $initial-with;
+    object-fit: cover;
+  }
+}
