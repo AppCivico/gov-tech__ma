@@ -1,0 +1,106 @@
+@use '../abstracts' as my;
+
+.staff {
+}
+
+.h-card--main {
+  @include my.clearfix;
+
+  padding: 0;
+  margin-bottom: my.$gutter * 6;
+
+  .h-card__header {
+    margin-bottom: my.$gutter;
+  }
+
+  .u-photo {
+    display: block;
+
+    width: 16.25rem; // 260px
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      float: left;
+      width: calc(33% - #{my.$gutter * 0.5});
+      margin-right: my.$gutter;
+    }
+  }
+
+  .p-job-title {
+    margin: 0;
+
+    font-size: my.ms-step(30px);
+    font-weight: my.font-weight('bold');
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .h-card__p-name {
+    margin: 0;
+
+    font-size: 1em;
+  }
+
+  .h-entry__e-content {
+    overflow: hidden;
+  }
+}
+
+.h-card__list--staff {
+  margin-top: my.$gutter * 6;
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    display: flex;
+
+    flex-wrap: wrap;
+  }
+
+  .h-card--staff {
+    flex-basis: 0;
+
+    min-width: 50%;
+    padding: 0;
+    margin-bottom: my.$gutter * 3;
+
+    &::before {
+      float: left;
+      width: 6rem; // 96px
+      height: 6rem; // 96px
+
+      content: '';
+
+      background-image: my.image('icons/avatar.svg');
+      background-position: 50% 0;
+    }
+
+    > * {
+      margin-right: my.$gutter * 0.5;
+      margin-bottom: 0;
+      margin-left: #{6rem + my.$gutter};
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+
+      @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+        max-width: my.$column-basis;
+      }
+    }
+  }
+
+  .h-card__p-job-title {
+    font-size: 1em;
+  }
+
+  .h-card__p-name {
+    font-size: 1em;
+    font-weight: inherit;
+  }
+
+  .h-card__u-email {
+    @include my.link-undercover;
+  }
+}
