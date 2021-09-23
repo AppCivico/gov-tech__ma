@@ -6,6 +6,7 @@
 .h-card--main {
   @include my.clearfix;
 
+  max-width: my.$max-width--narrow;
   padding: 0;
   margin-bottom: my.$gutter * 6;
 
@@ -43,6 +44,7 @@
     margin: 0;
 
     font-size: 1em;
+    font-weight: my.font-weight('bold');
   }
 
   .h-entry__e-content {
