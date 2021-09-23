@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" clip-rule="evenodd" width="48" height="48" viewBox="0 0 48 48">
   <path fill="#000000" d="M35.371 17.178a2.291 2.291 0 0 0-2.279-2.274H14.903a2.29 2.29 0 0 0-2.274 2.274V30.82a2.29 2.29 0 0 0 2.274 2.274h18.189a2.29 2.29 0 0 0 2.274-2.274l.005-13.642Zm-2.274 0L24 22.863l-9.097-5.685h18.194Zm0 13.642H14.903V19.452L24 25.135l9.092-5.683.005 11.368Z"/>
 </svg>
