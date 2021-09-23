@@ -523,16 +523,16 @@
 ///
 /// @output css
 /// .excerpt {
-///   display: block;
-///   overflow: hidden;
-///   display: -webkit-box;
-///   -webkit-box-orient: vertical;
-///   max-height: 7.5rem;
-///   overflow:hidden;
-///   overflow: hidden !important;
-///   line-height: 1.5;
-///   text-overflow: ellipsis;
-///   -webkit-line-clamp: 5;
+/// 	display: block;
+/// 	overflow: hidden;
+/// 	display: -webkit-box;
+/// 	-webkit-box-orient: vertical;
+/// 	max-height: 7.5rem;
+/// 	overflow:hidden;
+/// 	overflow: hidden !important;
+/// 	line-height: 1.5;
+/// 	text-overflow: ellipsis;
+/// 	-webkit-line-clamp: 5;
 /// }
 ///
 @mixin truncate ($lines: 1, $leading: c.$leading) {
