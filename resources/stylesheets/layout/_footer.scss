@@ -24,14 +24,16 @@
 
   font-size: my.ms-step(14px);
 
-  .social-profiles {
+  .social-networks {
     margin-right: 0;
     margin-left: auto;
   }
 
-  .social-profiles__item {}
+  .social-networks__item {}
 
-  .social-profiles__link {}
+  .social-networks__link {
+    filter: brightness(100);
+  }
 }
 
 .main-footer > * {}

@@ -27,17 +27,17 @@
                     <h2 class="h-card__p-name p-name">{title}</h2>
 
                     {if social_profiles:total_rows || email_address}
-                        <ul class="social-profiles">
+                        <ul class="social-networks">
                             {social_profiles}
-                                <li class="social-profiles__item">
-                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                <li class="social-networks__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
                                         {social_profiles:url}
                                     </a>
                                 </li>
                             {/social_profiles}
                             {if email_address}
                                 <li class="sociamailto:l-profiles__item">
-                                    <a href="{email_address}" class="u-email social-profiles__link">
+                                    <a href="{email_address}" class="u-email social-networks__link">
                                         {email_address}
                                     </a>
                                 </li>
@@ -71,17 +71,17 @@
                     <h2 class="h-card__p-name p-name">{title}</h2>
 
                     {if social_profiles:total_rows || email_address}
-                        <ul class="social-profiles">
+                        <ul class="social-networks">
                             {social_profiles}
-                                <li class="social-profiles__item">
-                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                <li class="social-networks__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
                                         {social_profiles:url}
                                     </a>
                                 </li>
                             {/social_profiles}
                             {if email_address}
                                 <li class="sociamailto:l-profiles__item">
-                                    <a href="{email_address}" class="u-email social-profiles__link">
+                                    <a href="{email_address}" class="u-email social-networks__link">
                                         {email_address}
                                     </a>
                                 </li>
@@ -121,17 +121,17 @@
                         <h4 class="h-entry__subhead">{department}</h4>
 
                         {if social_profiles:total_rows || email_address}
-                            <ul class="social-profiles">
+                            <ul class="social-networks">
                                 {social_profiles}
-                                    <li class="social-profiles__item">
-                                        <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                    <li class="social-networks__item">
+                                        <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
                                             {social_profiles:url}
                                         </a>
                                     </li>
                                 {/social_profiles}
                                 {if email_address}
-                                    <li class="social-profiles__item">
-                                        <a href="mailto:{email_address}" class="u-email social-profiles__link">
+                                    <li class="social-networks__item">
+                                        <a href="mailto:{email_address}" class="u-email social-networks__link">
                                             {email_address}
                                         </a>
                                     </li>

@@ -155,10 +155,10 @@
 
                 {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
                     {if social_profiles:total_rows}
-                        <ul class="social-profiles social-profiles--header">
+                        <ul class="social-networks social-networks--header">
                             {social_profiles}
-                                <li class="social-profiles__item">
-                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                <li class="social-networks__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
                                         {social_profiles:url}
                                     </a>
                                 </li>
@@ -354,10 +354,10 @@
                         {/if}
                     </div>
                     {if social_profiles:total_rows}
-                        <ul class="social-profiles">
+                        <ul class="social-networks">
                             {social_profiles}
-                                <li class="social-profiles__item">
-                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-profiles__link">
+                                <li class="social-networks__item">
+                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
                                         {social_profiles:url}
                                     </a>
                                 </li>
