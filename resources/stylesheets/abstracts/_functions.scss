@@ -537,14 +537,20 @@ $_default-text-color--light: palette('text', 'light');
 
   $color: map.get($full-palette, $color-name, $tones...);
 
+  @if $color == null and list.nth($tones, 1) == 'gray' {
+    @if map.has-key($full-palette, $color-name, 'medium') {
+      $color: map.get($full-palette, $color-name, 'medium');
+    } @else if map.has-key($full-palette, $color-name, 'base') {
+      $color: map.get($full-palette, $color-name, 'base');
+    }
+  }
+
   @if meta.type-of($color) == 'color' or $color == 'transparent' {
     @return $color;
   } @else if meta.type-of($color) == 'map' and map.has-key($color, 'base') {
     @return map.get($color, 'base');
   } @else if meta.type-of($color) == 'map' and map.has-key($color, 'medium') {
     @return map.get($color, 'medium');
-  } @else if meta.type-of($color) == 'map' and map.has-key($color, 'medium') {
-    @return map.get($color, 'base');
   } @else {
     @error '`#{$color}` is not a real color';
   }
