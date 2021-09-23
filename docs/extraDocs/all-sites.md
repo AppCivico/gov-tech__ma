@@ -14,13 +14,13 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 | Agência Executiva Metropolitana do Sudoeste Maranhense                                     | [agemsul.ma.gov.br](https://agemsul.ma.gov.br)                   |
 | Agência Reguladora de Serviços Públicos                                                    | [arsema.ma.gov.br](https://arsema.ma.gov.br)                     |
 | Atualizações sobre o Coronavírus                                                           | [corona.ma.gov.br](https://corona.ma.gov.br)                     |
-| Bombeiros                                                                                  | [bombeiros.ma.gov.br](https://bombeiros.ma.gov.br)               |
 | Casa Civil                                                                                 | [casacivil.ma.gov.br](https://casacivil.ma.gov.br)               |
 | Centro Integrado Rio Anil                                                                  | [cintra.ma.gov.br](https://cintra.ma.gov.br)                     |
 | Comissão Central Permanente de Licitação                                                   | [ccl.ma.gov.br](https://ccl.ma.gov.br)                           |
 | Companhia de Saneamento Básico do Maranhão                                                 | [caema.ma.gov.br](https://caema.ma.gov.br)                       |
 | Conselho Estadual de Segurança Alimentar e Nutricional                                     | [consea.ma.gov.br](https://consea.ma.gov.br)                     |
 | Coordenadoria Estadual de Proteção e Defesa Civil                                          | [defesacivil.ma.gov.br](https://defesacivil.ma.gov.br)           |
+| Corpo de Bombeiros                                                                         | [bombeiros.ma.gov.br](https://bombeiros.ma.gov.br)               |
 | Departamento de Trânsito                                                                   | [detran.ma.gov.br](https://detran.ma.gov.br)                     |
 |                                                                                            | [transito.ma.gov.br](https://transito.ma.gov.br)                 |
 | Diário Oficial                                                                             | [diariooficial.ma.gov.br](https://diariooficial.ma.gov.br)       |
