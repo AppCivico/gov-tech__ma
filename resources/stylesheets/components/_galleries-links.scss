@@ -1,0 +1,43 @@
+@use '../abstracts' as my;
+
+///
+/// Galleries links
+///
+/// @group components
+///
+/// @example html
+/// <div class="galleries-links">
+///     <a href="/foo/bar/fotos" class="galleries-links__link">Acessar fotos</a>
+///     <a href="/foo/bar/videos" class="galleries-links__link">Acessar vídeos</a>
+/// </div>
+///
+
+.galleries-links {
+  margin-bottom: my.$gutter;
+
+  font-size: 1em;
+  font-weight: my.font-weight('bold');
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.galleries-links__link {
+  @include my.link-undercover;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: my.$gutter * 1.5;
+  margin-bottom: my.$gutter * 0.5;
+
+  border: my.$stroke__thin solid currentColor;
+
+  @include my.on-event {
+    color: my.palette('neutral', 'white');
+
+    background-color: my.palette('neutral', 'black');
+    border-color: my.palette('neutral', 'black');
+  }
+}

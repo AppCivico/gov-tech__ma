@@ -1,11 +1,35 @@
 @use '../abstracts' as my;
 
+///
+/// Hero
+///
+/// @group components
+///
+/// @example html
+/// <figure class="hero">
+///   <img sizes="(max-width: 744px) 100vw, 744px" srcset="
+///       /foo/_300w/bar.jpg 300w,
+///       /foo/_635w/bar.jpg 635w,
+///       /foo/_744w/bar.jpg 744w"
+///       src="/foo/_744w/bar.jpg"
+///       alt="" class="hero__image" width="744" height="311"
+///     />
+///
+///   <figcaption class="hero__caption">
+///     Caption
+///   </figcaption>
+/// </figure>
+///
+
 .hero {
   display: block;
 
-  margin-bottom: my.$gutter * 3;
+  margin-bottom: my.$gutter * 2;
 }
 
 .hero__image {
-  max-width: 100%;
+  width: 100%;
+  max-width: unset;
+  margin-right: 0;
+  margin-left: 0;
 }

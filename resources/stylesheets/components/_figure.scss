@@ -66,3 +66,12 @@ figcaption small {
 
   font-size: 1em;
 }
+
+figcaption small {
+  font-size: my.ms-step(12px);
+}
+
+.caption__location,
+.caption__credit {
+  font-style: italic;
+}

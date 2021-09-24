@@ -90,3 +90,8 @@ $list: (
     background-image: my.image('social/email.svg');
   }
 }
+
+.share-bar {
+  font-weight: my.font-weight('bold');
+  text-transform: uppercase;
+}

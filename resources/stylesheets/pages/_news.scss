@@ -1,16 +1,76 @@
 @use '../abstracts' as my;
 
-.news-agency {
+.news {
+  [role='main'] {
+    max-width: my.$max-width;
+  }
+}
+
+.h-entry--news {
+  .h-entry__subhead,
+  .share-bar,
+  .galleries-links {
+    overflow: hidden;
+    clear: left;
+
+    text-overflow: ellipsis;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      float: left;
+      width: 33.33333%;
+      padding-right: my.$gutter * 0.66666;
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      width: 25%;
+      padding-right: my.$gutter * 0.75;
+    }
+  }
+
+  .hero,
+  .h-entry__e-content {
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      padding-left: my.$gutter * 0.33333;
+      margin-left: 33.33333%;
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      padding-left: my.$gutter * 0.25;
+      margin-left: 25%;
+    }
+  }
+
+  .h-entry__header {
+    margin: 0;
+  }
+
+  .h-entry__p-name {
+    margin-bottom: my.$gutter * 2;
+
+    font-size: my.ms-step(32px);
+  }
+
+  .h-entry__subhead {
+    margin-bottom: my.$gutter * 2;
+
+    font-size: my.ms-step(18px);
+    font-weight: my.font-weight('bold');
+  }
+
+  .share-bar {
+    margin-bottom: my.$gutter;
+
+    > * {
+      max-width: 100%;
+    }
+  }
 }
 
 .h-feed__list--news {
   .h-feed__h-entry {
     position: relative;
 
-    padding-top: my.$gutter * 0.5;
-    padding-right: my.$gutter * 0.5;
-    padding-bottom: my.$gutter * 0.5;
-    padding-left: my.$gutter * 0.5;
+    padding: my.$gutter * 0.5;
     margin-top: my.$gutter * 6;
 
     background-color: my.palette('neutral', 'white');
@@ -23,10 +83,7 @@
     }
 
     @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      padding-top: my.$gutter * 2;
-      padding-right: 0;
-      padding-bottom: my.$gutter * 2;
-      padding-left: 0;
+      padding: (my.$gutter * 2) 0 (my.$gutter * 2) 0;
       margin-top: 0;
       margin-bottom: 0;
       margin-left: 25%;
@@ -129,7 +186,7 @@
 }
 
 
-.social-networks--news-agency {
+.social-networks--news {
   margin-bottom: my.$gutter * -0.5;
   clear: left;
 
