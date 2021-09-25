@@ -16,9 +16,14 @@
 ///     />
 ///
 ///   <figcaption class="hero__caption">
-///     Caption
+///     Picture caption
+///     <small class="caption__location">
+///         (Picture location —
+///     </small>
+///     <small class="caption__credit">
+///         picture credit)
+///     </small>
 ///   </figcaption>
-/// </figure>
 ///
 
 .hero {
@@ -33,3 +38,5 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+.hero__caption{}
