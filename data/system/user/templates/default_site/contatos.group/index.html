@@ -4,7 +4,7 @@
     {redirect="404"}
 {if:else}
 <article role="main" id="main" class="h-entry">
-    {exp:channel:entries channel="page" limit="1" disable="category_fields|member_data|pagination" show_future_entries="yes" dynamic="no" url_title="{segment_1}" status="not any"}
+    {exp:channel:entries channel="page" limit="1" disable="category_fields|member_data|pagination" show_future_entries="yes" dynamic="no" url_title="{segment_1}" status="not none"}
         {layout:set name="title"}{title}{/layout:set}
         {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
         {layout:set name="entry_id"}{entry_id}{/layout:set}
