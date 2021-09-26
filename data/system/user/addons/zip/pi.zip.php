@@ -11,6 +11,8 @@
  */
 require_once PATH_THIRD.'zip/config.php';
 
+define( 'PCLZIP_TEMPORARY_DIR', APPPATH . 'cache/' . MX_ZIP_KEY );
+
 $plugin_info = array(
     'pi_name' => MX_ZIP_NAME,
     'pi_version' => MX_ZIP_VER,
@@ -146,7 +148,7 @@ class Zip
             if (!is_dir($this->cache_path)) {
                 mkdir($this->cache_path.'', 0777, true);
             }
-            if (!is_really_writable($this->cache_path)) {
+            if (!is_writable($this->cache_path)) {
             }
         }
 
