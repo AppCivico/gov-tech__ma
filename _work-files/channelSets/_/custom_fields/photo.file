@@ -1,0 +1,13 @@
+{
+    "label": "Fotografia",
+    "order": 54,
+    "instructions": "Ser\u00e1 exibida em at\u00e9 352x468px",
+    "fmt": "none",
+    "content_type": "image",
+    "settings": {
+        "num_existing": "50",
+        "show_existing": "y",
+        "field_content_type": "image",
+        "allowed_directories": "all"
+    }
+}

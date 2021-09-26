@@ -41,7 +41,7 @@
         {
             "type": "email_address",
             "label": "Email",
-            "name": "email",
+            "name": "email_address",
             "instructions": "",
             "required": "n",
             "search": "n",

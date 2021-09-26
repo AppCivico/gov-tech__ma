@@ -1,0 +1,8 @@
+{
+    "label": "Exibir como secretaria?",
+    "order": 53,
+    "instructions": "Sinaliza os sites que ser\u00e3o listados junto das secretarias ou org\u00e3os e departamentos.",
+    "settings": {
+        "field_default_value": "1"
+    }
+}
