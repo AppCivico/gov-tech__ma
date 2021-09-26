@@ -1,0 +1,36 @@
+<ul class="social-networks social-networks--share-bar">
+    <li class="social-networks__item">
+        <a href='https://t.me/share/url?url={if page_uri}{page_uri}{if:else}https:/{relative_url}/{url_title}{/if}&text={if summary}{summary}{if:else}{body:limit characters="280" end_char="…"}{/if}'
+            target="_blank" class="u-url social-networks__link">
+            Compartilhar via Telegram
+        </a>
+    </li>
+
+    <li class="social-networks__item">
+        <a href='https://api.whatsapp.com/send?phone={phone_number}&text={title}%20{if page_uri}{page_uri}{if:else}https:/{relative_url}/{url_title}{/if}'
+            target="_blank" class="u-url social-networks__link">
+            Compartilhar via WhatsApp
+        </a>
+    </li>
+
+    <li class="social-networks__item">
+        <a href='https://www.facebook.com/sharer.php?u={if page_uri}{page_uri}{if:else}https:/{relative_url}/{url_title}{/if}'
+            target="_blank" class="u-url social-networks__link">
+            Compartilhar via Facebook
+        </a>
+    </li>
+
+    <li class="social-networks__item">
+        <a href='https://twitter.com/intent/tweet?url={if page_uri}{page_uri}{if:else}https:/{relative_url}/{url_title}{/if}&text={title}'
+            target="_blank" class="u-url social-networks__link">
+            Compartilhar via Twitter
+        </a>
+    </li>
+
+    <li class="social-networks__item">
+        <a href='mailto:{email_address}?subject={title}&body={if page_uri}{page_uri}{if:else}https:/{relative_url}/{url_title}{/if} {if summary}{summary}{if:else}{body:limit characters="280" end_char="…"}{/if}'
+            target="_blank" class="u-url social-networks__link">
+            Compartilhar via email
+        </a>
+    </li>
+</ul>

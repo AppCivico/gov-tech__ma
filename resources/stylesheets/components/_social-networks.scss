@@ -92,6 +92,15 @@ $list: (
 }
 
 .share-bar {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  margin-top: my.$gutter;
+  margin-bottom: my.$gutter;
+
   font-weight: my.font-weight('bold');
   text-transform: uppercase;
 }

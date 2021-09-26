@@ -1,0 +1,98 @@
+@use '../abstracts' as my;
+
+.slider {
+  position: relative;
+
+  clear: both;
+
+  .slider__frame {
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  .gallery {
+    display: flex;
+
+    flex-wrap: nowrap;
+  }
+
+  .gallery__item {
+    position: relative;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+
+    margin-bottom: 0;
+
+    figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      margin: 0;
+
+      line-height: my.$leading;
+      color: my.palette('neutral', 'white');
+      white-space: normal;
+
+      visibility: hidden;
+
+      background-color: my.palette('effects', 'shadow');
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      figcaption {
+        visibility: visible;
+      }
+    }
+  }
+
+  .slider__prev,
+  .slider__next {
+    position: absolute;
+    top: 50%;
+    z-index: my.layer('default');
+
+    justify-content: center;
+
+    width: my.$gutter;
+    height: my.$gutter;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+
+    line-height: my.$gutter;
+    text-align: center;
+
+    background: none;
+    border: 0;
+
+    transform: translateY(-50%);
+
+    @include my.on-event {
+      color: my.palette('brand', 'blue');
+
+      background: none;
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      opacity: 0.3;
+    }
+  }
+
+  .slider__prev {
+    right: 100%;
+  }
+
+  .slider__next {
+    left: 100%;
+  }
+
+}

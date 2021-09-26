@@ -10,14 +10,33 @@
 
   margin-right: my.$gutter * -0.5;
   margin-left: my.$gutter * -0.5;
+
+  @supports (display: grid) {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(142px, 1fr));
+    grid-gap: my.$gutter;
+
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .gallery__item {
+  flex-basis: 142px;
+
   margin-right: my.$gutter * 0.5;
+  margin-bottom: 1.5rem;
   margin-left: my.$gutter * 0.5;
+
+  @supports (display: grid) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .gallery__image {
+  width: 100%;
   max-width: none;
 }
 

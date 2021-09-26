@@ -14,6 +14,9 @@
 .read-more {
   @include my.clearfix;
 
+  position: relative;
+  z-index: my.layer('default');
+
   grid-column: 1/-1;
 
   overflow: hidden;
@@ -63,5 +66,56 @@
     transition-timing-function: ease-out;
     transition-duration: 100ms;
     transition-property: bottom;
+  }
+}
+
+.read-more--download,
+.read-more--repository {
+  max-width: 100%;
+
+  line-height: my.$gutter * 1.5;
+  white-space: nowrap;
+
+  .read-more__link {
+    flex-grow: 1;
+
+    justify-content: center;
+
+    font-weight: my.font-weight('bold');
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+
+    border: my.$stroke__thin solid currentColor;
+
+    transition-duration: 100ms;
+    transition-property: color;
+
+    @include my.on-event {
+      color: my.palette('neutral', 'white');
+
+      border-color: my.palette('neutral', 'black');
+    }
+
+    &::before {
+      color: my.palette('neutral', 'black');
+
+      border: 0;
+    }
+
+    + .read-more__link {
+      margin-top: 0;
+    }
+  }
+}
+
+.read-more--repository {
+  .read-more__link {
+    float: left;
+  }
+}
+
+.read-more--download {
+  .read-more__link {
+    float: right;
   }
 }
