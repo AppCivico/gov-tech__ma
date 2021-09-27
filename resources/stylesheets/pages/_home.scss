@@ -41,45 +41,6 @@
     border-bottom-color: my.palette('brand', 'yellow', 'medium');
   }
 
-  .h-feed__list--last-news {
-    display: grid;
-
-    grid-gap: my.$gutter * 0.5;
-
-    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .h-entry__u-url--last-news {
-    @include my.aspect-ratio(1 x 1);
-
-    @media screen and (min-width: my.breakpoint('phone__landscape')) {
-      &:first-child {
-        grid-row: span 2;
-        grid-column: span 2;
-      }
-
-      &:nth-child(2) {
-        @include my.aspect-ratio(2 x 1);
-
-        grid-column: span 2;
-      }
-
-      &:nth-child(2):last-child {
-        grid-row: span 2;
-      }
-
-      &:nth-child(3) {
-        grid-column-start: -3;
-      }
-
-      &:nth-child(3):last-child {
-        grid-column: span 2;
-      }
-    }
-  }
-
   .h-feed__h-entry--last-news {
     height: 100%;
   }

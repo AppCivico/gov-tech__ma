@@ -60,80 +60,70 @@
         {if count == 1}
         <section class="last-news h-feed">
             <h2 class="h-feed__p-name--last-news h-feed__p-name p-name">Últimas notícias</h2>
-            <div class="h-feed__list h-feed__list--last-news">
-        {/if}
-                <a
-                    href='https:/{relative_url}/{url_title}'
-                    class="h-entry__u-url h-entry__u-url--last-news h-entry__u-url--featured"
-                >
-                    <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--last-news h-entry h-feed__h-entry--featured">
-                        {if count == 1}
-                            {thumbnail}
-                                <img
-                                sizes="(max-width: 544px) 100vw, 544px"
 
-                                data-width="554" data-height="512"
-                                width="{width:featured__square--large}" height="{height:featured__square--large}"
-                                src="{url:featured__square--large}"
-                                decoding="async" loading="lazy"
-                                class="h-entry__u-photo u-photo h-entry__u-photo--featured"
-                                alt="{description}"
-                            />
-                            {/thumbnail}
-                        {if:elseif count == 2}
-                            {thumbnail}
-                                <img
-                                    sizes="(max-width: 544px) 100vw, 544px"
-                                    srcset="
-                                        {url:featured__square--small} {width:featured__square--small}w,
-                                        {url:featured__wide} {width:featured__wide}w
-                                    "
-                                    data-width="554" data-height="246"
-                                    width="{width:featured__wide}" height="{height:featured__wide}"
-                                    src="{url:featured__wide}"
-                                    decoding="async" loading="lazy"
-                                    class="h-entry__u-photo u-photo h-entry__u-photo--featured"
-                                    alt="{description}"
-                                />
-                            {/thumbnail}
-                        {if:else}
-                            {thumbnail}
-                                <img
-                                    data-width="246" data-height="246"
-                                    width="{width:featured__square--small}" height="{height:featured__square--small}"
-                                    src="{url:featured__square--small}"
-                                    decoding="async" loading="lazy"
-                                    class="h-entry__u-photo u-photo h-entry__u-photo--featured"
-                                    alt="{description}"
-                                />
-                            {/thumbnail}
-                        {/if}
 
-                        <div class="h-entry__header--featured">
-                            {if global:editorial-group}
-                                {categories limit="1" show_group="{global:editorial-group}"}
-                                    <ul class="h-entry__p-category-list h-entry__p-category-list--last-news">
-                                {/categories}
-                                    {categories limit="1" show_group="{global:editorial-group}"}
-                                        <li class="h-entry__p-category-item">
-                                            {category_name}
-                                        </li>
-                                    {/categories}
-                                {categories limit="1" show_group="{global:editorial-group}"}
-                                    </ul>
-                                {/categories}
-                            {/if}
-                            <h3 class="h-entry__p-name p-name h-entry__p-name--last-news">{title}</h3>
-                            <p class="h-entry__dt-published h-entry__dt-published--last-news">
-                                <time class="dt-published" datetime="{entry_date format="{DATE_ISO8601}"}">
-                                    {entry_date format="%d de %F de %Y"}
-                                </time>
-                            </p>
-                        </div>
-                    </article>
-                </a>
+            <div class="slider" data-js="slider" data-slider-play="auto">
+                <button type="button" class="js_prev slider__prev" aria-hidden="true">
+                    &#9664;
+                </button>
+                <div class="slider__frame">
+                    <div class="h-feed__list h-feed__list--last-news slider__container">
+                {/if}
+                        <a
+                            href='https:/{relative_url}/{url_title}'
+                            class="h-entry__u-url h-entry__u-url--last-news h-entry__u-url--featured slider__item"
+                        >
+                            <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--last-news h-entry h-feed__h-entry--featured">
+                                {thumbnail}
+                                    <img
+                                        sizes="100vw"
+                                        srcset="
+                                            {url:1116w} {width:1116w}w,
+                                            {url:886w} {width:886w}w,
+                                            {url:744w} {width:744w}w,
+                                            {url:635w} {width:635w}w,
+                                            {url:554w} {width:554w}w,
+                                            {url:300w} {width:300w}w
+                                        "
+                                        width="{width:1116w}" height="{height:1116w}"
+                                        src="{url:1116w}"
+                                        decoding="async" loading="lazy"
+                                        class="h-entry__u-photo u-photo h-entry__u-photo--featured"
+                                        alt="{description}"
+                                    />
+                                {/thumbnail}
 
-        {if count == total_results}
+                                <div class="h-entry__header--featured">
+                                    {if global:editorial-group}
+                                        {categories limit="1" show_group="{global:editorial-group}"}
+                                            <ul class="h-entry__p-category-list h-entry__p-category-list--last-news">
+                                        {/categories}
+                                            {categories limit="1" show_group="{global:editorial-group}"}
+                                                <li class="h-entry__p-category-item">
+                                                    {category_name}
+                                                </li>
+                                            {/categories}
+                                        {categories limit="1" show_group="{global:editorial-group}"}
+                                            </ul>
+                                        {/categories}
+                                    {/if}
+                                    <h3 class="h-entry__p-name p-name h-entry__p-name--last-news">{title}</h3>
+                                    <p class="h-entry__dt-published h-entry__dt-published--last-news">
+                                        <time class="dt-published" datetime="{entry_date format="{DATE_ISO8601}"}">
+                                            {entry_date format="%d de %F de %Y"}
+                                        </time>
+                                    </p>
+                                </div>
+                            </article>
+                        </a>
+
+                {if count == total_results}
+                    </div>
+                </div>
+                <button type="button" class="js_next slider__next" aria-hidden="true">
+                    &#9654;
+                </button>
+                <ul class="slider__navigation" hidden></ul>
             </div>
 
             <p class="read-more read-more--last-news">
