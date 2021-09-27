@@ -54,8 +54,7 @@
   }
 
   @media screen and (min-width: my.breakpoint('phone__landscape')) {
-    .h-entry__u-url--last-news:first-child .h-entry__p-name--last-news,
-    .h-entry__u-url--last-news:nth-child(2) .h-entry__p-name--last-news {
+    .h-entry__u-url--last-news .h-entry__p-name--last-news {
       @include my.truncate(3, 1.5em);
 
       font-size: my.ms-step(18px);
@@ -63,7 +62,7 @@
   }
 
   @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-    .h-entry__u-url--last-news:first-child .h-entry__p-name--last-news {
+    .h-entry__u-url--last-news .h-entry__p-name--last-news {
       font-size: my.ms-step(24px);
     }
   }
