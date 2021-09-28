@@ -1,11 +1,11 @@
 export default ((params) => Object.keys(params)
   .sort((a, b) => {
-    const nameA = a.name.toLowerCase();
-    const nameB = b.name.toLowerCase();
-    if (nameA < nameB) {
+    const paramA = a.toLowerCase();
+    const paramB = b.toLowerCase();
+    if (paramA < paramB) {
       return -1;
     }
-    if (nameA > nameB) {
+    if (paramA > paramB) {
       return 1;
     }
     return 0;
