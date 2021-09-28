@@ -1,183 +1,65 @@
 {layout="default_site:site/_layout"}
 
-<main class="h-feed h-feed--bidding">
-    <header class="h-feed__header">
-        <h1 class="h-feed__p-name">Pregões</h1>
+{if segment_2 == ""}
+    <main class="h-feed h-feed--bidding">
+        <header class="h-feed__header">
+            <h1 class="h-feed__p-name">Pregões</h1>
 
-        {layout:set name="title"}Pregões{/layout:set}
-    </header>
+            {layout:set name="title"}Pregões{/layout:set}
+        </header>
 
-    <form action="" class="bidding-filter" data-js="filter">
-        <fieldset>
-            <legend>Filtro:</legend>
-            <p data-size="33">
-                <label for="type">Tipo de licitação:</label>
-                <select id="type" name="type">
-                    <option value="">Todos</option>
-                    <option>Ata de abertura</option>
-                    <option>Chamado pública</option>
-                    <option>Concorrência</option>
-                    <option>Concurso</option>
-                    <option>Convite</option>
-                    <option>Pregão eletrônico</option>
-                    <option>Pregão presencial</option>
-                    <option>Procedimentos auxiliares</option>
-                    <option>RDC</option>
-                    <option>Requisição de proposta</option>
-                    <option>Tomada de serviço</option>
-                </select>
-            </p>
+        <form action="" class="bidding-filter" data-js="filter">
+            <fieldset>
+                <legend>Filtro:</legend>
+                <p data-size="33">
+                    <label for="type">Tipo de licitação:</label>
+                    <select id="type" name="type">
+                        <option value="">Todos</option>
+                        <option value="Ata de abertura">Ata de abertura</option>
+                        <option value="Chamado pública">Chamado pública</option>
+                        <option value="Concorrência">Concorrência</option>
+                        <option value="Concurso">Concurso</option>
+                        <option value="Convite">Convite</option>
+                        <option value="Pregão eletrônico">Pregão eletrônico</option>
+                        <option value="Pregão presencial">Pregão presencial</option>
+                        <option value="Procedimentos auxiliares">Procedimentos auxiliares</option>
+                        <option value="RDC">RDC</option>
+                        <option value="Requisição de proposta">Requisição de proposta</option>
+                        <option value="Tomada de serviço">Tomada de serviço</option>
+                    </select>
+                </p>
 
-            <p data-size="33">
-                <label for="opening">Ano de Abertura:</label>
-                <select id="opening" name="opening">
-                    <option value="">2021</option>
-                </select>
-            </p>
+                <p data-size="33">
+                    <label for="opening">Ano de Abertura:</label>
+                    <select id="opening" name="opening">
+                        <option value="">2021</option>
+                    </select>
+                </p>
 
-            <p data-size="33">
-                <label for="status">Situação:</label>
-                <select id="status" name="status">
-                    <option value="">Qualquer</option>
-                    <option>Adiado até ulterior deliberação</option>
-                    <option>Adiado</option>
-                    <option>Adjudicado</option>
-                    <option>Agendado</option>
-                    <option>Anulado</option>
-                    <option>Ata esgotada</option>
-                    <option>Ata vigente</option>
-                    <option>Deserto</option>
-                    <option>Em andamento</option>
-                    <option>Fracassado</option>
-                    <option>Homologado</option>
-                    <option>Ratificado</option>
-                    <option>Revogado</option>
-                </select>
-            </p>
-        </fieldset>
-    </form>
+                <p data-size="33">
+                    <label for="status">Situação:</label>
+                    <select id="status" name="status">
+                        <option value="">Qualquer</option>
+                        <option value="Adiado até ulterior deliberação">Adiado até ulterior deliberação</option>
+                        <option value="Adiado">Adiado</option>
+                        <option value="Adjudicado">Adjudicado</option>
+                        <option value="Agendado">Agendado</option>
+                        <option value="Anulado">Anulado</option>
+                        <option value="Ata esgotada">Ata esgotada</option>
+                        <option value="Ata vigente">Ata vigente</option>
+                        <option value="Deserto">Deserto</option>
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Fracassado">Fracassado</option>
+                        <option value="Homologado">Homologado</option>
+                        <option value="Ratificado">Ratificado</option>
+                        <option value="Revogado">Revogado</option>
+                    </select>
+                </p>
+            </fieldset>
+        </form>
 
-    <section class="h-feed__list h-feed__list--bidding">
-        {exp:channel:entries channel="bidding" limit="100" disable="category_fields|member_data|pagination" status="not closed"
-            {if segment_2}
-                search:bidding__type="{segment_2}"
-            {/if}
-
-            {if segment_3}
-                search:bidding__status="{segment_3}"
-            {/if}
-
-            {if segment_4}
-                search:bidding__opening='>={segment_4}|<{segment_5}'
-            {/if}
-        }
-            {if no_results}
-                <p>Não há publicações.</p>
-            {/if}
-
-            <article id="entry-{entry_id}" class="h-feed__h-entry h-entry h-entry--bidding">
-                    <h3 class="h-entry__p-name p-name p-name--bidding">
-                        {bidding__type} {bidding__code_and_year}
-                    </h3>
-
-                    <div class="h-entry__p-summary">
-                        <dl class="bidding-data">
-                            <dt class="bidding-data__title">
-                                Processo:
-                            </dt>
-                            <dd class="bidding-data__definition">{bidding__process}</dd>
-                        </dl>
-
-                        <dl class="bidding-data">
-                            <dt class="bidding-data__title">
-                                Abertura:
-                            </dt>
-                            <dd class="bidding-data__definition">
-                                <time class="dt-published" datetime="{bidding__opening format="{DATE_ISO8601}"}">
-                                    {bidding__opening format="%d/%m/%Y"}
-                                </time>
-                            </dd>
-                        </dl>
-
-                        <dl class="bidding-data">
-                            <dt class="bidding-data__title">
-                                Objeto:
-                            </dt>
-                            <dd class="bidding-data__definition">
-                                {bidding__object}
-                            </dd>
-                        </dl>
-
-                        {if bidding__files:total_rows || bidding__notice:total_rows || bidding__edict:total_rows}
-                            <details class="bidding-files">
-                                <summary class="bidding-files__title">Arquivos</summary>
-
-                                <div class="bidding-data__definition">
-
-                                    {bidding__notice}
-                                        <div class="bidding__file">
-                                            {bidding__notice:file}
-                                                <h4 class="bidding__filename">{file_name}</h4>
-                                                <dl class="bidding-data">
-                                                    <dt class="bidding-data__title">Tamanho:</dt>
-                                                    <dd class="bidding-data__definition">
-                                                        ({file_size:human})
-                                                    </dd>
-                                                </dl>
-                                            {/bidding__notice:file}
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Publicado em:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    {bidding__notice:publication_date format="%d/%m/%Y"}
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    {/bidding__notice}
-
-                                    {bidding__edict}
-                                        <div class="bidding__file">
-                                            {bidding__edict:file}
-                                                <h4 class="bidding__filename">{file_name}</h4>
-                                                <dl class="bidding-data">
-                                                    <dt class="bidding-data__title">Tamanho:</dt>
-                                                    <dd class="bidding-data__definition">
-                                                        ({file_size:human})
-                                                    </dd>
-                                                </dl>
-                                            {/bidding__edict:file}
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Publicado em:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    {bidding__edict:publication_date format="%d/%m/%Y"}
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    {/bidding__edict}
-
-                                    {bidding__files}
-                                        <div class="bidding__file">
-                                            {bidding__files:file}
-                                                <h4 class="bidding__filename">{file_name}</h4>
-                                                <dl class="bidding-data">
-                                                    <dt class="bidding-data__title">Tamanho:</dt>
-                                                    <dd class="bidding-data__definition">
-                                                        ({file_size:human})
-                                                    </dd>
-                                                </dl>
-                                            {/bidding__files:file}
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Publicado em:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    {bidding__files:publication_date format="%d/%m/%Y"}
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                    {/bidding__files}
-                                </div>
-                            </details>
-                        {/if}
-                    </div>
-            </article>
-        {/exp:channel:entries}
-    </section>
-</main>
+        <section class="h-feed__list h-feed__list--bidding" data-js="bidding-results" aria-busy="true"></section>
+    </main>
+{if:else}
+    {redirect="404"}
+{/if}

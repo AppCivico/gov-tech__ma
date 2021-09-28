@@ -1,5 +1,5 @@
 import a11y from './a11y';
-import filterInit from './filter';
+import biddingInit from './bidding';
 import headRandomize from './layout/header-randomize';
 import modalInit from './modal';
 import recordAudio from './searchForm/recordAudio';
@@ -10,7 +10,7 @@ import selectNavigation from './selectNavigation';
 import sliderInit from './slider';
 
 a11y();
-filterInit();
+biddingInit();
 headRandomize();
 modalInit();
 recordAudio();
