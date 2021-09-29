@@ -5,7 +5,7 @@
 {if:else}
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:info channel="news"}
+    {exp:channel:info channel="government_member"}
         {layout:set name="title"}{channel_title}{/layout:set}
         {layout:set name="description"}{channel_description:attr_safe limit="155"}{/layout:set}
     {/exp:channel:info}
