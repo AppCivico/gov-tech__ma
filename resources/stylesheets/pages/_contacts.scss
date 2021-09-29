@@ -15,6 +15,10 @@
 
   .h-entry__e-content--contacts-list {
     margin: 0;
+
+    br {
+      display: none;
+    }
   }
 
   .social-networks__link {
