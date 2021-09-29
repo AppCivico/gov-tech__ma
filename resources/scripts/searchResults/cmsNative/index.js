@@ -41,8 +41,9 @@ export default (() => {
   });
 
   return fetch(searchForm.action, {
-    method: 'post',
+    method: 'POST',
     body: formData,
+    redirect: 'follow',
   })
     .then((response) => response.text())
     .then((data) => {
