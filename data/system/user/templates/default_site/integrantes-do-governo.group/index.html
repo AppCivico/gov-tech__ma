@@ -103,7 +103,7 @@
             disable="category_fields|member_data|pagination" dynamic="no"
             status="not closed" site="not 1"
             search:role="=secretario|secretaria|secretária|secretário"
-            search:department="not IS_EMPTY"
+            parse="inward"
         }
             {if count == 1}
                 <div class="h-feed--departments">
@@ -118,7 +118,19 @@
                         {/photo}
 
                         <h3 class="h-card__p-name p-name">{title}</h3>
-                        <h4 class="h-entry__subhead">{department}</h4>
+                        <h4 class="h-entry__subhead">
+                            {if department}
+                                {department}
+                            {if:else}
+                                {exp:query sql="SELECT es.site_label AS department_site
+                                    FROM exp_sites es
+                                    INNER JOIN exp_channel_titles ect ON ect.site_id = es.site_id
+                                    WHERE ect.entry_id = '{entry_id}'"
+                                }
+                                    {department_site}
+                                {/exp:query}
+                            {/if}
+                        </h4>
 
                         {if social_profiles:total_rows || email_address}
                             <ul class="social-networks">
