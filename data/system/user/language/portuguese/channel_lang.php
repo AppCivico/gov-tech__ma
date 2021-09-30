@@ -467,13 +467,13 @@ $lang = array(
 'Ativar aviso de publicações no canal?',
 
 'enable_channel_entry_notification_desc' =>
-'Quando ativado, todos os destinatários listados seguintes receberão avisos por email quando novo conteúdo for publicado neste canal.</em><br /><em>Separe múltiplos E-mails com <mark>vírgulas (,)</mark>.',
+'Quando ativado, todos os destinatários listados seguintes receberão avisos por email quando novo conteúdo for publicado neste canal.</em><br /><em>Separe múltiplos e-mails com <mark>vírgulas (,)</mark>.',
 
 'enable_comment_notification' =>
 'Ativar avisos de comentários?',
 
 'enable_comment_notification_desc' =>
-'Quando ativado, todos os destinatários listados seguintes receberão avisos por email quando um novo comentário for publicado neste canal.</em><br /><em>Separe múltiplos E-mails com <mark>vírgulas (,)</mark>.',
+'Quando ativado, todos os destinatários listados seguintes receberão avisos por email quando um novo comentário for publicado neste canal.</em><br /><em>Separe múltiplos e-mails com <mark>vírgulas (,)</mark>.',
 
 'enable_versioning' =>
 'Ativar versões das publicações?',
