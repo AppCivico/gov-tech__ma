@@ -78,6 +78,10 @@
   color: my.palette('brand', 'blue');
 }
 
+.bidding__file-link {
+  @include my.link-undercover;
+}
+
 .bidding__file {
   margin-bottom: my.$gutter * 0.5;
 
