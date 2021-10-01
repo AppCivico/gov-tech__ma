@@ -5,7 +5,6 @@ import getFromCms from './getFromCms';
 
 const updateForm = (form) => {
   const { elements } = form;
-  console.debug('updateForm', form);
 
   for (let j = 0; j < elements.length; j += 1) {
     const element = elements[j];
@@ -13,20 +12,20 @@ const updateForm = (form) => {
     if (currentQuery[element.name]) {
       element.value = fullyDecode(currentQuery[element.name]);
 
-      // // Convert the HTMLOptionsCollection into an array
-      // // Then, loop through each option in the array
-      // Array.from(element.options).forEach((option, index) => {
-      //   switch (fullyDecode(currentQuery[element.name])) {
-      //     case option.value:
-      //     case option.textContent:
-      //       element.selectedIndex = index;
+      // Convert the HTMLOptionsCollection into an array
+      // Then, loop through each option in the array
+      Array.from(element.options).forEach((option, index) => {
+        switch (fullyDecode(currentQuery[element.name])) {
+          case option.value:
+          case option.textContent:
+            element.selectedIndex = index;
 
-      //       break;
+            break;
 
-      //     default:
-      //       break;
-      //   }
-      // });
+          default:
+            break;
+        }
+      });
     }
   }
 };
@@ -45,9 +44,6 @@ const applyResults = async (form) => {
       parameters[elementName] = elements[elementName].value;
     }
   });
-
-  console.debug('window.location.pathname', window.location.pathname);
-  console.debug('objectToQueryString(parameters)', objectToQueryString(parameters));
 
   const url = `${window.location.pathname}?${objectToQueryString(parameters)}`;
 
@@ -70,7 +66,6 @@ export default (() => {
   for (let i = 0; i < forms.length; i += 1) {
     const form = forms[i];
 
-    console.debug('lili');
     applyResults(form);
     updateForm(form);
 
