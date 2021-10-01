@@ -122,17 +122,6 @@
   }
 }
 
-.main-footer__menu-list--sitemap {
-  &::before {
-    display: inline-block;
-
-    min-width: 48px;
-    min-height: 48px;
-
-    background-image: my.image('icons/sitemap.png');
-  }
-}
-
 .main-footer__menu-item-link,
 .main-footer__menu-item-container {
   display: block;
@@ -163,9 +152,37 @@
 }
 
 .main-footer__menu-item-container--sitemap {
+  @include my.image-replacement;
+
   flex-grow: 0;
 
   width: my.$gutter * 2;
+  height: my.$gutter * 2;
+
+  &::before {
+    position: relative;
+    top: my.$gutter * -0.5;
+    left: my.$gutter * -0.5;
+
+    display: block;
+
+    width: my.$gutter * 2;
+    height: my.$gutter * 2;
+    padding: 0;
+
+    content: '';
+
+    background-image: my.image('icons/sitemap.svg');
+    background-position: 50% 50%;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &::before {
+      filter: invert(100%);
+    }
+  }
 
   > img {
     display: block;
@@ -174,10 +191,24 @@
   }
 }
 
+.main-footer__menu-item-link--with-icon,
+.main-footer__menu-item-container--with-icon {
+  &::before {
+    content: none;
+  }
+}
+
 .main-footer__menu-item-icon {
   width: auto;
   max-height: my.$leading * 1em;
   margin-right: 0.25em;
+
+  :hover > &,
+  :focus > &,
+  :active > & {
+    filter: invert(100%);
+  }
+
 }
 
 .colophon {

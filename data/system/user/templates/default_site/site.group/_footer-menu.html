@@ -6,7 +6,14 @@
         }
             {categories}
                 {if url}
-                    <a href="{url:url}" target="_blank" class="main-footer__menu-item-link" role="menuitem">
+                    <a href="{url:url}" target="_blank" role="menuitem"
+                    class="
+                        main-footer__menu-item-link
+                        {if category_image}
+                            main-footer__menu-item-link--with-icon
+                        {/if}
+                    "
+                    >
                         {if category_image}
                             <img src="{category_image}" aria-hidden="true" alt="" class="main-footer__menu-item-icon" />
                         {/if}
@@ -14,9 +21,13 @@
                     </a>
                 {if:else}
                     <button class="main-footer__menu-item-container
-                        {if category_url_title == 'mapa-do-site' && category_image != ''}
+                        {if category_url_title == 'mapa-do-site' || category_url_title == 'sitemap'}
                             main-footer__menu-item-container--sitemap
                         {/if}
+                        {if category_image}
+                            main-footer__menu-item-container--with-icon
+                        {/if}
+
                         " type="button"
                         role="menuitem" aria-haspopup="menu"
                         onclick="
@@ -24,7 +35,7 @@
                             this.setAttribute('aria-expanded', this.classList.contains('opened'))
                             this.focus();
                         "
-                        {if category_url_title == "mapa-do-site"}
+                        {if category_url_title == "mapa-do-site" || category_url_title == "sitemap"}
                             title="{category_name}"
                         {/if}
                     >
