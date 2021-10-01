@@ -83,6 +83,7 @@ $columns-per-breakpoint: (
 );
 
 $toggle-breakpoints: (
+  'toggle-layout': 62em, // 992px
   'toggle-table-layout': 48em,
   'toggle-menu': 64em,
 );

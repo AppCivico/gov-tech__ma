@@ -43,7 +43,7 @@
     border-radius: 999em;
 
     > * {
-      flex-basis: my.$gutter * 2;
+      flex-basis: my.$gutter;
       flex-grow: 0;
 
       width: my.$gutter * 2;
@@ -52,6 +52,10 @@
 
       text-overflow: ellipsis;
       vertical-align: middle;
+
+      @media screen and (min-width: my.breakpoint('toggle-layout')) {
+        flex-basis: my.$gutter * 2;
+      }
     }
   }
 
@@ -94,7 +98,7 @@
     width: 100%;
     min-width: 0;
     max-width: none;
-    height: my.$gutter * 2;
+    height: my.$gutter;
     min-height: 0;
     padding: 0;
     margin: 0;
@@ -114,6 +118,10 @@
     &:focus-within {
       @extend %focused;
     }
+
+    @media screen and (min-width: my.breakpoint('toggle-layout')) {
+      height: my.$gutter * 2;
+    }
   }
 
   .search-form__field-wrapper--text {
@@ -123,10 +131,15 @@
   }
 
   .search-form__field--text {
-    padding-left: my.$gutter;
+    padding-left: my.$gutter * 0.5;
 
-    font-size: my.ms-step(20px);
     text-align: left;
+
+    @media screen and (min-width: my.breakpoint('toggle-layout')) {
+      padding-left: my.$gutter;
+
+      font-size: my.ms-step(20px);
+    }
   }
 
   .search-form__field-wrapper--audio {
@@ -209,9 +222,13 @@
   }
 
   .search-form__field--submit {
-    margin-right: my.$gutter * 0.5;
+    margin-right: my.$gutter * 0.25;
 
     background-position: 50% 50%;
+
+    @media screen and (min-width: my.breakpoint('toggle-layout')) {
+      margin-right: my.$gutter * 0.5;
+    }
   }
 
   .search-form__suggestions {
@@ -219,7 +236,8 @@
 
     margin: 0;
 
-    line-height: my.$gutter * 2;
+    font-size: my.ms-step(12px);
+    line-height: my.$gutter * 1.5;
 
     border: 0;
 
@@ -228,6 +246,11 @@
 
       padding: 0;
       margin: 0;
+    }
+
+    @media screen and (min-width: my.breakpoint('toggle-layout')) {
+      font-size: my.ms-step(16px);
+      line-height: my.$gutter * 2;
     }
   }
 
@@ -259,7 +282,6 @@
 
     font-size: 1em;
     font-weight: my.font-weight('bold');
-    line-height: inherit;
     color: inherit;
     text-decoration: underline;
     vertical-align: baseline;
