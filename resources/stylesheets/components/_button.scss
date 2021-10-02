@@ -77,10 +77,12 @@ button,
 [type='button'] {
   @extend %button-reset;
 
-  &:hover,
   &:focus {
     @include my.focused;
+  }
 
+  &:hover,
+  &:focus {
     font-weight: my.font-weight('bold');
     color: my.palette('neutral', 'white');
 

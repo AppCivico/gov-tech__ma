@@ -138,9 +138,7 @@
 
   white-space: nowrap;
 
-  border-color: currentColor;
-  border-style: solid;
-  border-width: my.$stroke__thin;
+  border: my.$stroke__thin solid currentColor;
 
   &:hover,
   &:focus {
@@ -148,6 +146,7 @@
     text-decoration: inherit;
 
     background-color: my.palette('neutral', 'white');
+    border: my.$stroke__thin solid my.palette('neutral', 'white');
   }
 }
 

@@ -21,17 +21,17 @@
 
   background-repeat: no-repeat;
 
+  // stylelint-disable declaration-no-important
   &:focus:not(:focus-visible) {
-    outline: none;
+    outline: none !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    // stylelint-disable declaration-no-important
     transition: none !important;
     animation: none !important;
     scroll-behavior: auto !important;
-    // stylelint-enable declaration-no-important
   }
+  // stylelint-enable declaration-no-important
 }
 
 

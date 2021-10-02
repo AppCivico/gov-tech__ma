@@ -58,11 +58,13 @@ nav a {
     text-decoration: none;
   }
 
+  &:focus {
+    @include my.focused;
+  }
+
   &:hover,
   &:focus,
   &:active {
-    @include my.focused;
-
     font-weight: inherit;
     color: inherit;
     text-decoration: underline;
