@@ -26,9 +26,9 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
+    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not default_site"
         disable="category_fields|member_data|pagination" show_future_entries="yes" status="not none"
-        orderby="title" sort="asc" search:is_not_commission="not 1" parse="inward" limit="100"
+        orderby="title" sort="asc" search:is_not_commission="1" parse="inward" limit="100"
     }
         {if count == 1}
             <section class="h-feed h-feed--contacts-list">
@@ -90,13 +90,13 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not 1"
+    {exp:channel:entries channel="settings" require_entry="no" dynamic="no" site="not default_site"
         disable="category_fields|member_data|pagination" show_future_entries="yes" status="not none"
-        orderby="title" sort="asc" search:is_not_commission="1" parse="inward" limit="100"
+        orderby="title" sort="asc" search:is_not_commission="not 1" parse="inward" limit="100"
     }
         {if count == 1}
         <section class="h-feed h-feed--contacts-list">
-            <h2 class="h-feed__p-name h-feed__p-name--contacts-list">Órgãos e departamentos</h2>
+            <h2 class="h-feed__p-name h-feed__p-name--contacts-list">Órgãos</h2>
         {/if}
 
             <dl class="h-feed__h-entry h-feed__h-entry--contacts-list">
