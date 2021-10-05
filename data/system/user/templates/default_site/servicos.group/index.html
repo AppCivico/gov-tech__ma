@@ -211,7 +211,11 @@
                 {if no_results}
                     <ul class="h-feed__list h-feed__list--services">
                         <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                            nenhum serviço encontrado
+                            {if segment_3 == "programas"}
+                                Nenhum programa encontrado
+                            {if:else}
+                                Nenhum serviço encontrado
+                            {/if}
                         </li>
                     </ul>
                 {/if}
