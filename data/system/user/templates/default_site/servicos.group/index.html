@@ -293,12 +293,16 @@
                     </details>
                 {/if}
 
-                {if service__assistance:value != 'presential'}
+                {if service__where}
                     <details>
-                        <summary>O serviço já é oferecido digitalmente?</summary>
+                        <summary>Como o serviço é oferecido?</summary>
 
                         <div class="details__widget">
-                            <p>{service__assistance:label}</p>
+                            {if service__assistance}
+                                <h2>{service__assistance:label}</h2>
+                            {/if}
+
+                            {service__where}
                         </div>
                     </details>
                 {/if}
@@ -319,16 +323,6 @@
 
                         <div class="details__widget">
                             {law}
-                        </div>
-                    </details>
-                {/if}
-
-                {if service__where}
-                    <details>
-                        <summary>Onde?</summary>
-
-                        <div class="details__widget">
-                            {service__where}
                         </div>
                     </details>
                 {/if}
