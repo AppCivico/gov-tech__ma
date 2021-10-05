@@ -27,6 +27,16 @@ export default () => {
           lorySlider.slideTo(Array.prototype.indexOf.call(dotContainer.childNodes, ev.target));
         };
         const dotListItem = document.createElement('li');
+        const controlButtons = sliderEl.querySelectorAll('.js_prev, .js_next');
+
+        if (dotCount > 1) {
+          for (let j = 0; j < controlButtons.length; j += 1) {
+            const button = controlButtons[j];
+            if (button.hasAttribute('hidden')) {
+              button.removeAttribute('hidden');
+            }
+          }
+        }
 
         const handleDotEvent = (e) => {
           switch (e.type) {
