@@ -92,6 +92,10 @@ tr + tr td {
 th,
 td {
   padding: (my.$gutter * 0.5) my.$gutter;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 th {
