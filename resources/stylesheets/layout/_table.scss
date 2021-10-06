@@ -15,7 +15,7 @@ td {
   height: auto;
 
   font-size: 1em;
-  vertical-align: top;
+  vertical-align: inherit;
 
   background-color: transparent;
   border: 0;
@@ -34,11 +34,13 @@ table {
   font-family: inherit;
   font-size: 100%;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 0;
+  vertical-align: top;
 
   empty-cells: show;
   border-spacing: 0;
-  border-collapse: separate;
+  border-collapse: collapse;
 
+  border-style: hidden;
   border-radius: my.$rounded-corner;
 }
 
@@ -47,6 +49,14 @@ tfoot {
   @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
     display: none;
   }
+}
+
+thead {
+  vertical-align: bottom;
+}
+
+tfoot {
+  vertical-align: top;
 }
 
 table p,
@@ -67,8 +77,33 @@ tr {
   }
 }
 
+th + th,
+td + th,
+th + td,
+td + td {
+  border-left: my.$stroke__thin solid my.palette('neutral', 'base');
+}
+
+tr + tr th,
+tr + tr td {
+  border-top: my.$stroke__thin solid my.palette('neutral', 'base');
+}
+
+th,
+td {
+  padding: (my.$gutter * 0.5) my.$gutter;
+}
+
 th {
   font-weight: my.font-weight('bold');
+  color: my.palette('neutral', 'white');
+  text-transform: uppercase;
+
+  background-color: my.palette('brand', 'blue');
+
+  + th {
+    border-left: my.$stroke__thin solid currentColor;
+  }
 }
 
 td {
@@ -83,7 +118,6 @@ td {
 
 thead th,
 thead td {
-  vertical-align: bottom;
 }
 
 thead th:first-child,
@@ -97,15 +131,22 @@ thead > tr:nth-last-of-type(odd) > td {
 
 tbody {
   font-family: mono-space, monospace;
+  vertical-align: middle;
+}
+
+tbody th,
+tbody td {
 }
 
 tbody th {
+  color: my.palette('neutral', 'dark');
   text-align: left;
+
+  background-color: my.palette('neutral', 'light');
 }
 
 tbody td {
   font-variant-numeric: lining-nums oldstyle-nums;
-  text-align: right;
 
   @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
     text-align: left;
@@ -137,5 +178,4 @@ tbody tr:nth-of-type(odd) > td {
 
 tfoot th,
 tfoot td {
-  vertical-align: top;
 }
