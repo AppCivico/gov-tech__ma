@@ -62,6 +62,10 @@ tfoot {
 table p,
 table li {
   font-size: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 caption {
@@ -92,10 +96,6 @@ tr + tr td {
 th,
 td {
   padding: (my.$gutter * 0.5) my.$gutter;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
 }
 
 th {
