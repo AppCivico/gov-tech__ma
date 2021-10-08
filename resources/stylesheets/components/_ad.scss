@@ -1,0 +1,46 @@
+@use '../abstracts' as my;
+
+.ad__wrapper {
+  body > & {
+    @include my.container;
+  }
+}
+
+.ad__list {
+  @include my.holy-albatross (900px);
+
+  justify-content: center;
+
+  padding: 0;
+  margin-top: my.$gutter;
+  margin-right: my.$gutter * -0.5;
+  margin-bottom: my.$gutter;
+  margin-left: my.$gutter * -0.5;
+
+  > * {
+    margin-right: my.$gutter * 0.5;
+    margin-left: my.$gutter * 0.5;
+  }
+}
+
+.ad__item {
+  display: block;
+
+  padding: 0;
+  margin-bottom: my.$gutter;
+
+  &::before {
+    content: none;
+  }
+}
+
+.ad__link {
+  max-width: 355px;
+}
+
+.ad__image {
+  display: block;
+
+  margin-right: auto;
+  margin-left: auto;
+}

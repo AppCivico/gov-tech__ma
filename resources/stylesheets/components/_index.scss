@@ -11,6 +11,7 @@
 @use 'progress';
 @use 'select';
 @use 'slider';
+@use 'dialog';
 @use 'categories';
 @use 'social-networks';
 @use 'read-more';
@@ -24,3 +25,4 @@
 @use 'a11y-i18n-bar';
 @use 'tab-bar';
 @use 'navigation-by-select';
+@use 'ad';
