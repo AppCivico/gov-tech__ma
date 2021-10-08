@@ -7,3 +7,17 @@
 <p class="h-feed__e-content">
     Não foram encontrados resultados.
 </p>
+
+{if logged_in_group_id == 1}
+<!--
++-------------------------+----------------------------------------------+
+| Queries:                |   {total_queries}
+| Elapsed Time:           |   {elapsed_time}s
+| Memory Used:            |   {memory_usage}
+| Date and time of parse: |   {current_time format="%Y %m %d %H:%i:%s"}
+| Debug Mode:             |   {debug_mode}
+| App build:              |   {app_build}
+| App version:            |   {app_version}
++-------------------------+----------------------------------------------+
+-->
+{/if}
