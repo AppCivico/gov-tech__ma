@@ -4,8 +4,7 @@ title="Busca"}
 {layout:set name="description"}Busca por '{exp:search:keywords}'{/layout:set}
 
 <div hidden>
-    {exp:search:simple_form channel="service|news|event|staff|document|page|government_member"
-        site="not none" search_in="entries" status="not closed" results="10"
+    {exp:search:simple_form site="not none" search_in="entries" status="not closed" results="10"
         result_page="busca/resultados" no_result_page="busca/sem_resultados"
         form_id="search-form--hidden"
     }{/exp:search:simple_form}
