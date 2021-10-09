@@ -17,7 +17,7 @@
                         <div class="h-feed__list h-feed__list--last-news slider__container">
                     {/if}
                             <a
-                                href='https:/{relative_url}/{url_title}'
+                                href="/noticias/{url_title}"
                                 class="h-entry__u-url h-entry__u-url--last-news h-entry__u-url--featured slider__item"
                             >
                                 <article id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--last-news h-entry h-feed__h-entry--featured">
@@ -63,7 +63,6 @@
                                     </div>
                                 </article>
                             </a>
-
                     {if count == total_results}
                         </div>
                     </div>
@@ -97,7 +96,7 @@
                 {/if}
                         <figure class="h-feed__h-entry h-entry gallery__item mosaic__item">
                             <a
-                                href="/noticias/{url_title}"
+                                href="/noticias/{url_title}/fotos"
                                 title="{title}"
                                 class="u-url gallery__link mosaic__link"
                             >
@@ -158,7 +157,7 @@
                     <div class="h-feed__list gallery gallery--video mosaic mosaic--third">
                 {/if}
                         <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video mosaic__item">
-                            <a href="/noticias/{url_title}/video" target="_blank" class="u-url gallery__link gallery__link--video mosaic__link" />
+                            <a href="/noticias/{url_title}/videos" target="_blank" class="u-url gallery__link gallery__link--video mosaic__link" />
                                 {if count == 1}
                                     {exp:antenna url="{src}" max_width="679" max_height="570" cache_minutes="1680"}
                                         <img
@@ -400,7 +399,7 @@
         </article>
     {/exp:channel:entries}
 
-{if:elseif segment_2 != config:reserved_category_word AND segment_3 == "imagens"}
+{if:elseif segment_2 != config:reserved_category_word AND (segment_3 == "fotos" OR segment_3 == "videos")}
 
     {exp:channel:entries channel="news" limit="1" require_entry="yes" show_future_entries="yes"
     disable="category_fields|member_data|pagination" status="not none" parse="inward"}
@@ -476,33 +475,64 @@
                         </figure>
                     {/hero}
 
-                    <div class="share-bar">
-                        Compartilhe:
-                        {tp-share_bar}
-                    </div>
+                    {if segment_3 == "fotos"}
+                        {if gallery:total_rows}
+                            <div class="share-bar">
+                                Compartilhe:
+                                {tp-share_bar}
+                            </div>
 
-                    {if gallery:total_rows}
-                        <p class="read-more read-more--download">
-                            <a
-                                href="/{segment_1}/{url_title}/download"
-                                class="read-more__link"
-                            >
-                                Download
-                            </a>
-                        </p>
+                            <p class="read-more read-more--download">
+                                <a
+                                    href="/{segment_1}/{url_title}/download"
+                                    class="read-more__link"
+                                >
+                                    Download
+                                </a>
+                            </p>
+                            <div class="slider" data-js="slider">
+                                <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
+                                    &#9664;
+                                </button>
+                                <div class="slider__frame">
+                                    {tp-gallery}
+                                </div>
+                                <button type="button" hidden class="js_next slider__next" aria-hidden="true">
+                                    &#9654;
+                                </button>
+                            </div>
+                        {if:else}
+                            <p>Nenhuma fotografia encontrada.</p>
+                        {/if}
+                    {if:elseif segment_3 == "videos"}
+                        {if videos:total_rows}
+                            <div class="share-bar">
+                                Compartilhe:
+                                {tp-share_bar}
+                            </div>
+                            <section class="gallery slider__container">
+                                {videos}
+                                    <figure class="gallery__item">
+                                        <a href="{videos:link}"
+                                            target="_blank" class="gallery__link"
+                                        />
+                                            {exp:antenna url="{videos:link}" max_width="246" max_height="246" cache_minutes="1680"}
+                                                <img
+                                                    width="{video_width}"
+                                                    height="{video_height}"
+                                                    src="{video_thumbnail}"
+                                                    alt="{video_title}"
+                                                    decoding="async" loading="lazy" class="gallery__image"
+                                                />
+                                            {/exp:antenna}
+                                        </a>
+                                    </figure>
+                                {/videos}
+                            </section>
+                        {if:else}
+                            <p>Nenhum vídeo encontrado.</p>
+                        {/if}
                     {/if}
-
-                    <div class="slider" data-js="slider">
-                        <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
-                            &#9664;
-                        </button>
-                        <div class="slider__frame">
-                            {tp-gallery}
-                        </div>
-                        <button type="button" hidden class="js_next slider__next" aria-hidden="true">
-                            &#9654;
-                        </button>
-                    </div>
                 </div>
             </div>
         </article>

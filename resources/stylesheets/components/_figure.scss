@@ -58,7 +58,7 @@ figure img {
 figcaption {
   display: block;
 
-  margin: 0.25em 0 my.$gutter 0;
+  margin: 0.25em 0 0;
 
   font-size: my.ms-step(14px);
   color: my.palette('neutral', 'dark');
