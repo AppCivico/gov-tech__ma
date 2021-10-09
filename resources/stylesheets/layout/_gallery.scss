@@ -20,25 +20,105 @@
     margin-right: 0;
     margin-left: 0;
   }
-}
 
-.gallery__item {
-  flex-basis: 142px;
+  .gallery__link {
+    position: relative;
 
-  margin-right: my.$gutter * 0.5;
-  margin-bottom: 1.5rem;
-  margin-left: my.$gutter * 0.5;
+    margin: 0;
+    overflow: hidden;
 
-  @supports (display: grid) {
-    margin-right: 0;
-    margin-left: 0;
+    color: my.palette('neutral', 'white');
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      content: '';
+
+      background: transparent linear-gradient(180deg, #ffffff00 0%, #83838200 60%, #000000 100%) 0% 0% no-repeat padding-box;
+      mix-blend-mode: multiply;
+      opacity: 0;
+
+      transition-duration: 300ms;
+      transition-property: opacity;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0.68;
+      }
+    }
   }
-}
 
-.gallery__image {
-  width: 100%;
-  max-width: none;
-}
+  .gallery__item {
+    position: relative;
 
-.figcaption {
+    flex-basis: 142px;
+
+    margin-right: my.$gutter * 0.5;
+    margin-bottom: 1.5rem;
+    margin-left: my.$gutter * 0.5;
+
+    @supports (display: grid) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .gallery__item--video {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+      content: '';
+
+      background-image: my.image('icons/video-play.svg');
+      background-position: 50% 50%;
+    }
+  }
+
+  .gallery__image {
+    width: 100%;
+    max-width: none;
+  }
+
+  .gallery__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: my.layer('default');
+
+    width: 100%;
+    padding: 0 (my.$gutter * 0.5) (my.$gutter * 0.5) (my.$gutter * 0.5);
+    margin: 0;
+
+    color: my.palette('neutral', 'white');
+
+    opacity: 0;
+
+    transition-duration: 300ms;
+    transition-property: opacity;
+
+    :hover > &,
+    :focus > &,
+    :active > & {
+      opacity: 1;
+    }
+  }
 }

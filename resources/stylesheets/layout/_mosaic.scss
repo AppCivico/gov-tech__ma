@@ -1,0 +1,140 @@
+@use '../abstracts' as my;
+
+.mosaic__wrapper {
+  margin-bottom: my.$gutter * 4;
+
+  .mosaic__title {
+    margin-bottom: my.$gutter;
+
+    font-size: 1em;
+    font-weight: my.font-weight('bold');
+    text-transform: uppercase;
+
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+  }
+
+  .mosaic__title--picture {
+    border-bottom-color: my.palette('brand', 'blue');
+  }
+
+  .mosaic__title--video {
+    border-bottom-color: my.palette('brand', 'red');
+  }
+}
+
+.mosaic {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  // grid-auto-rows: minmax(100px, 1fr);
+  grid-gap: my.$gutter * 0.5;
+
+  padding: 0;
+  margin: 0;
+
+  @media screen and (min-width: my.breakpoint('phone__landscape')) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    grid-template-columns: repeat(4, 1fr);
+
+    &--third {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .mosaic__item {
+    position: relative;
+
+    display: block;
+
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
+
+    &:first-child {
+      grid-column: 1 / -1;
+    }
+
+    @media screen and (min-width: my.breakpoint('phone__landscape')) {
+      &:first-child {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+    }
+
+    &:nth-child(9) + .mosaic__item {
+      display: none;
+    }
+  }
+
+  .mosaic__link {
+    @include my.aspect-ratio(1 x 1);
+
+    display: block;
+
+    height: 100%;
+
+    &::after {
+      background: transparent linear-gradient(180deg, #ffffff00 0%, #83838200 0%, #000000 100%) 0% 0% no-repeat padding-box;
+    }
+  }
+
+  .mosaic__image {
+    position: absolute;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mosaic__caption--picture {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    font-weight: my.font-weight('bold');
+    text-align: center;
+    widows: 100%;
+
+    @media screen and (min-width: my.breakpoint('phone__landscape')) {
+      .mosaic__item:nth-last-child(2n+1):first-child & {
+        font-size: my.ms-step(24px);
+      }
+    }
+  }
+
+  .mosaic__caption--video {
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    font-weight: my.font-weight('bold');
+    text-align: left;
+
+    opacity: 1;
+    widows: 100%;
+
+    @media screen and (min-width: my.breakpoint('phone__landscape')) {
+      .mosaic__item:nth-last-child(2n+1):first-child & {
+        font-size: my.ms-step(24px);
+      }
+    }
+  }
+}
