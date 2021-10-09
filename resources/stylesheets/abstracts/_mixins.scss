@@ -1170,3 +1170,32 @@ $no-viewport: false !default;
     }
   }
 }
+
+/// @link http://www.miragecraft.com/articles/unholy_albatross.html
+@mixin unholy-albatross ($bp, $max-columns: null) {
+  $half-bp: f.strip-unit(math.div($bp, 2));
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  > * {
+    flex-basis: 0;
+    //   min-width: max(0, min((#{$bp} - 100%) * #{$half-bp}, 100%));
+    // }
+
+    flex-grow: 1;
+    // flex-basis: calc((#{$bp} - 100%) * #{$half-bp});
+
+    // @supports (min-width: clamp(0px, (#{$bp} - 100%) * #{$half-bp}, 100%)) {
+    //   flex-basis: auto;
+
+    min-width: clamp(0px, (#{$bp} - 100%) * #{$half-bp}, 100%);
+
+    @if $max-columns {
+      @include at-least($max-columns + 1) {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
