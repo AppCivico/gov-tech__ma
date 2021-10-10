@@ -231,6 +231,7 @@
     }
   }
 
+  .search-form__options,
   .search-form__suggestions {
     display: block;
 
@@ -258,9 +259,14 @@
 
   .search-form__suggestions-list {}
 
+  .search-form__options-item,
   .search-form__suggestions-item {
     display: inline-flex;
 
+    align-items: center;
+  }
+
+  .search-form__suggestions-item {
     &::after {
       content: ', ';
     }

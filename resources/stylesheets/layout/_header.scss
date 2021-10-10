@@ -31,6 +31,16 @@
 
   @media screen and (min-width: my.breakpoint('desktop')) {
     margin-bottom: my.$gutter * 6;
+
+  }
+
+  [type='checkbox'],
+  label {
+    color: inherit;
+
+    @include my.on-event {
+      color: inherit;
+    }
   }
 }
 

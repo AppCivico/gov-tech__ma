@@ -1,0 +1,15 @@
+{layout="default_site:site/_layout" root_class="search going-to-search-results" robots="noindex,noarchive,follow"
+title="Busca"}
+
+{layout:set name="description"}Busca por '{exp:search:keywords}'{/layout:set}
+
+<div hidden>
+    {exp:search:simple_form channel="news" search_in="entries" status="not closed" results="10"
+        result_page="noticias/resultados" no_result_page="noticias/sem_resultados"
+        form_id="search-form--hidden"
+    }{/exp:search:simple_form}
+</div>
+
+<main id="main" class="page-entry">
+    <section data-js="cms-results" class="search-results h-feed" aria-busy="true" aria-live="assertive"></section>
+</main>

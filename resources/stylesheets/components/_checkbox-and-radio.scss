@@ -57,6 +57,8 @@ li label {
 
   cursor: pointer;
 
+  background-color: my.palette('neutral', 'white');
+
   &:hover {
   }
 
@@ -76,7 +78,12 @@ li label {
 }
 
 [type='checkbox'] {
-  border-radius: my.$rounded-corner;
+  width: 0.833333rem;
+  height: 0.833333rem;
+
+  border: my.$stroke__thin solid currentColor;
+  border-radius: my.$rounded-corner--tiny;
+  appearance: none;
 
   &:checked {
   }

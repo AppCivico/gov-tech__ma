@@ -213,15 +213,30 @@
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
                 url_title="settings" disable="categories|member_data|pagination" parse="inward"
             }
-                <form action="/busca" method="GET" class="search-form search-form--header">
+                <form
+                    {if segment_1 == "noticias"}
+                        action="/noticias/busca"
+                    {if:else}
+                        action="/busca"
+                    {/if}
+                    method="GET" class="search-form search-form--header"
+                >
                     <fieldset class="search-form__fieldset">
                         {if site_id == 1}
                             <legend class="search-form__legend">
-                                Como podemos te ajudar?
+                                {if segment_1 != "noticias"}
+                                    Como podemos te ajudar?
+                                {if:else}
+                                    Agência de Notícias
+                                {/if}
                             </legend>
                         {/if}
                         <p class="search-form__field-wrapper search-form__field-wrapper--text">
-                            <input type="text" id="keywords" placeholder="{settings__search_placeholder}" autocomplete="on" name="keywords"
+                            <input type="text" id="keywords"
+                                {if segment_1 != "noticias"}
+                                    placeholder="{settings__search_placeholder}"
+                                {/if}
+                                autocomplete="on" name="keywords"
                                 aria-label="Keywords" class="search-form__field search-form__field--text" minlength="3"
                                 value="{exp:search:keywords}" />
                         </p>
@@ -239,23 +254,42 @@
                             <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
                         </button>
                     </fieldset>
-                    {if settings__search_suggestions:total_rows}
-                        <fieldset class="search-form__suggestions">
-                            <p class="search-form__suggestions-title">
-                                Sugestões:
-                            </p>
-                            <ul class="search-form__suggestions-list">
-                                {settings__search_suggestions orderby="term"}
-                                    <li class="search-form__suggestions-item">
-                                        <button type="submit" name="keywords"
-                                            value="{settings__search_suggestions:term}"
-                                            title="procurar por '{settings__search_suggestions:term}'"
-                                            class="search-form__suggestions-button"
-                                        >
-                                            {settings__search_suggestions:term}
-                                        </button>
-                                    </li>
-                                {/settings__search_suggestions}
+                    {if segment_1 != "noticias"}
+                        {if settings__search_suggestions:total_rows}
+                            <fieldset class="search-form__suggestions">
+                                <p class="search-form__suggestions-title">
+                                    Sugestões:
+                                </p>
+                                <ul class="search-form__suggestions-list">
+                                    {settings__search_suggestions orderby="term"}
+                                        <li class="search-form__suggestions-item">
+                                            <button type="submit" name="keywords"
+                                                value="{settings__search_suggestions:term}"
+                                                title="procurar por '{settings__search_suggestions:term}'"
+                                                class="search-form__suggestions-button"
+                                            >
+                                                {settings__search_suggestions:term}
+                                            </button>
+                                        </li>
+                                    {/settings__search_suggestions}
+                                </ul>
+                            </fieldset>
+                        {/if}
+                    {if:else}
+                        <fieldset class="search-form__options" hidden>
+                            <ul class="search-form__options-list">
+                                <li class="search-form__options-item">
+                                    <input type="checkbox" name="required" id="gallery" value="gallery" />
+                                    <label for="gallery">Fotos</label>
+                                </li>
+                                <li class="search-form__options-item">
+                                    <input type="checkbox" name="required" id="videos" value="videos" />
+                                    <label for="videos">Vídeos</label>
+                                </li>
+                                <li class="search-form__options-item">
+                                    <input type="checkbox" name="required" id="news" value="news" />
+                                    <label for="news">Notícias</label>
+                                </li>
                             </ul>
                         </fieldset>
                     {/if}
@@ -296,7 +330,8 @@
 
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
 
-                {settings__header}
+                {if segment_1 != "noticias"}
+                    {settings__header}
 <style data-js="custom-header" data-idx="{settings__header:count}">
   [data-header-idx='{settings__header:count}']:root .main-header-and-search-form {
     background-image: url('{settings__header:file:300w}');
@@ -334,7 +369,48 @@
     }
   }
 </style>
-                {/settings__header}
+                    {/settings__header}
+                {if:else}
+                    {news__header}
+<style data-js="custom-header" data-idx="{news__header:count}">
+  [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+    background-image: url('{news__header:file:300w}');
+    background-color: {news__header:bg}; /* stylelint-disable-line declaration-block-trailing-semicolon */
+    color: {news__header:fg}; /* stylelint-disable-line declaration-block-trailing-semicolon */
+  }
+
+  @media screen and (min-width: 300px) {
+    [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+      background-image: url('{news__header:file:635w}');
+    }
+  }
+
+  @media screen and (min-width: 635px) {
+    [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+      background-image: url('{news__header:file:886w}');
+    }
+  }
+
+  @media screen and (min-width: 886px) {
+    [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+      background-image: url('{news__header:file:1079w}');
+    }
+  }
+
+  @media screen and (min-width: 1079px) {
+    [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+      background-image: url('{news__header:file:1116w}');
+    }
+  }
+
+  @media screen and (min-width: 1116px) {
+    [data-header-idx='{news__header:count}']:root .main-header-and-search-form {
+      background-image: url('{news__header:file}');
+    }
+  }
+</style>
+                    {/news__header}
+                {/if}
 
                 <div class="colophon">
                     <div class="site-info site-info--footer">

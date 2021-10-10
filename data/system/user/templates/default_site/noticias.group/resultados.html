@@ -1,0 +1,68 @@
+{exp:search:search_results paginate="inline"}
+    {if count == "1"}
+        <header class="h-feed__header">
+            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:search:keywords}"</h2>
+
+            {paginate}
+                <h2 class="h-feed__subhead">
+                    Página {current_page}/{total_pages}
+                </h2>
+            {/paginate}
+        </header>
+
+        <p class="h-feed__e-content">
+            Encontramos <b>{exp:search:total_results}</b> notícias relacionadas.
+        </p>
+
+        {embed="default_site:noticias/_search-form--tab"}
+
+        <div class="h-feed__list">
+    {/if}
+        <a
+            {if channel_short_name == "page"}
+                href="{page_uri}"
+            {if:else}
+                href="{auto_path}"
+            {/if}
+            class="search-results__link h-entry__u-url"
+        >
+            <article id="entry-{entry_id}" class="h-feed__h-entry h-entry search-results__item">
+                <header class="h-entry__header">
+                    <h3 class="h-entry__p-name p-name search-results__item-title">{title}</h3>
+                    {if channel_short_name != "page"}
+                        <div role="doc-subtitle" class="h-entry__subhead">{channel}</div>
+                    {/if}
+                    <time class="dt-published" datetime="{entry_date format="{DATE_ISO8601}"}">
+                        {entry_date format="%d/%m/%Y"}
+                    </time>
+                </header>
+
+                <div class="h-entry__p-summary">
+                    {if summary}
+                        <p>{summary:limit characters="280" end_char="…"}</p>
+                    {if:else}
+                        {body:limit characters="280" end_char="…"}
+                    {/if}
+                </div>
+            </article>
+        </a>
+    {if count == total_results}
+        </div>
+
+        {tp-pagination}
+    {/if}
+{/exp:search:search_results}
+
+{if logged_in_group_id == 1}
+<!--
++-------------------------+----------------------------------------------+
+| Queries:                |   {total_queries}
+| Elapsed Time:           |   {elapsed_time}s
+| Memory Used:            |   {memory_usage}
+| Date and time of parse: |   {current_time format="%Y %m %d %H:%i:%s"}
+| Debug Mode:             |   {debug_mode}
+| App build:              |   {app_build}
+| App version:            |   {app_version}
++-------------------------+----------------------------------------------+
+-->
+{/if}

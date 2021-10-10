@@ -1,6 +1,16 @@
 @use '../abstracts' as my;
 
 .news {
+  .main-header-and-search-form {
+    color: my.palette('neutral', 'white');
+
+    background-color: my.palette('neutral', 'dark');
+    background-image: image('31237_3_05072078023791363365.jpg');
+    background-image: image-set(
+      my.image('31237_3_05072078023791363365.avif') type('image/avif'),
+      my.image('31237_3_05072078023791363365.webp') type('image/webp'));
+  }
+
   [role='main'] {
     max-width: my.$max-width;
   }
