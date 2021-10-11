@@ -1,3 +1,5 @@
+import fullyDecode from './fullyDecode';
+
 /**
  * @see https://www.sitepoint.com/get-url-parameters-with-javascript/
  */
@@ -21,8 +23,8 @@ export default function getAllUrlParams(url) {
       const a = arr[i].split('=');
 
       // set parameter name and value (use 'true' if empty)
-      const paramName = a[0];
-      const paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+      const paramName = fullyDecode(a[0]);
+      const paramValue = typeof (a[1]) === 'undefined' ? true : fullyDecode(a[1]);
 
       // if the paramName ends with square brackets, e.g. colors[] or colors[2]
       if (paramName.match(/\[(\d+)?\]$/)) {

@@ -1,6 +1,10 @@
 import objectToQueryString from '../../utilities/objectToQueryString';
 
-export default ((searchTerm) => fetch(`https://pythia.appcivico.com/text?${objectToQueryString({ text: searchTerm })}`, {
+const origin = /localhost|\.local/.test(window.location.hostname)
+  ? 'https://pythia.appcivico.com'
+  : '';
+
+export default ((searchTerm) => fetch(`${origin}/text?${objectToQueryString({ text: searchTerm })}`, {
   method: 'GET',
   mode: 'cors',
   cache: 'default',
