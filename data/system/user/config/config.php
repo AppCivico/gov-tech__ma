@@ -501,6 +501,7 @@ switch ($_SERVER['HTTP_HOST']) {
     case 'setur.ma.gov.local':
     case 'turismo-ma.appcivico.com.br':
     case 'setur-ma.appcivico.com.br':
+    case 'homol.turismo.ma.gov.br':
         $site_name = 'setur';
         $assign_to_config['global_vars']['global:editorial-group'] = '9';
         break;
