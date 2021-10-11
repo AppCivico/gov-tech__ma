@@ -132,16 +132,9 @@
                     {/if}
                 {/exp:query}
 
-                {exp:query
-                    sql="SELECT ecp.entry_id
-                        FROM exp_category_posts ecp
-                        JOIN exp_categories ec1 ON ec1.cat_id = ecp.cat_id
-                        JOIN exp_categories ec2 ON ec2.cat_id = ecp.cat_id
-                        JOIN exp_channel_titles ect ON ect.entry_id = ecp.entry_id
-                        WHERE ec1.cat_url_title IN ('{segment_3}', '{segment_4}')
-                        AND ect.status != 'closed'
-                        GROUP BY ecp.entry_id
-                    "
+                {exp:channel:entries entry_id="{entry_ids}" limit="10" status="not closed"
+                    disable="category_fields|custom_fields|member_data" paginate="inline"
+                    category="{exp:cat2:id category_url_title='{segment_3}'}|{exp:cat2:id category_url_title='{segment_4}'}"
                     parse="inward"
                 }
                     {if no_results}
@@ -152,30 +145,27 @@
                         </ul>
                     {/if}
 
-                    {exp:channel:entries entry_id="{entry_ids}" limit="10" disable="category_fields|custom_fields|member_data" status="not closed" paginate="inline" parse="inward"}
-                        {if count == 1}
-                            <ul class="h-feed__list h-feed__list--services">
-                        {/if}
-                                <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                                    <a
-                                        {if channel_short_name == "page" || page_uri}
-                                            href="{page_uri}"
-                                        {if:else}
-                                            href="https:/{relative_url}/{url_title}"
-                                        {/if}
-                                        class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
-                                    >
-                                        {title}
-                                    </a>
-                                </li>
-                        {if count == total_results}
-                            </ul>
+                    {if count == 1}
+                        <ul class="h-feed__list h-feed__list--services">
+                    {/if}
+                            <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
+                                <a
+                                    {if channel_short_name == "page" || page_uri}
+                                        href="{page_uri}"
+                                    {if:else}
+                                        href="https:/{relative_url}/{url_title}"
+                                    {/if}
+                                    class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
+                                >
+                                    {title}
+                                </a>
+                            </li>
+                    {if count == total_results}
+                        </ul>
 
-                            {tp-pagination}
-                        {/if}
-                    {/exp:channel:entries}
-                {/exp:query}
-
+                        {tp-pagination}
+                    {/if}
+                {/exp:channel:entries}
             {/if}
         </main>
 
@@ -203,44 +193,93 @@
                     </li>
                 </ul>
             </header>
-
-            {exp:channel:entries channel="service" site="{if site_id == 1}not none{/if}" limit="10"
-                disable="category_fields|custom_fields|member_data" status="not closed" paginate="inline"
-                relaxed_categories="yes"
-            }
-                {if no_results}
-                    <ul class="h-feed__list h-feed__list--services">
-                        <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                            {if segment_3 == "programas"}
-                                Nenhum programa encontrado
-                            {if:else}
-                                Nenhum serviço encontrado
-                            {/if}
-                        </li>
-                    </ul>
-                {/if}
-
-                {if count == 1}
-                    <ul class="h-feed__list h-feed__list--services">
-                {/if}
-                        <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                            <a
-                                {if channel_short_name == "page" || page_uri}
-                                    href="{page_uri}"
+            {if segment_3 == "programas"}
+                {exp:channel:entries channel="service" {if site_id == 1}site="not none{/if}" limit="10"
+                    category="{exp:cat2:id category_url_title='programas'}" parse="inward"
+                    disable="category_fields|custom_fields|member_data" status="not closed"
+                    paginate="inline"
+                }
+                    {if no_results}
+                        <ul class="h-feed__list h-feed__list--services">
+                            <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
+                                {if segment_3 == "programas"}
+                                    Nenhum programa encontrado
                                 {if:else}
-                                    href="https:/{relative_url}/{url_title}"
+                                    Nenhum serviço encontrado
                                 {/if}
-                                class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
-                            >
-                                {title}
-                            </a>
-                        </li>
-                {if count == total_results}
-                    </ul>
+                            </li>
+                        </ul>
+                    {/if}
 
-                    {tp-pagination}
-                {/if}
-            {/exp:channel:entries}
+                    {if count == 1}
+                        <ul class="h-feed__list h-feed__list--services">
+                    {/if}
+                            <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
+                                <a
+                                    {if channel_short_name == "page" || page_uri}
+                                        href="{page_uri}"
+                                    {if:else}
+                                        href="https:/{relative_url}/{url_title}"
+                                    {/if}
+                                    class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
+                                >
+                                    {title}
+                                </a>
+                            </li>
+                    {if count == total_results}
+                        </ul>
+
+                        {tp-pagination}
+                    {/if}
+                {/exp:channel:entries}
+            {if:else}
+                {exp:channel:entries channel="service" {if site_id == 1}site="not none{/if}" limit="10"
+                    category="not {exp:cat2:id category_url_title='programas'}" parse="inward"
+                    disable="category_fields|custom_fields|member_data" status="not closed"
+                    paginate="inline" uncategorized_entries="no"
+                }
+                <pre>
+                    debug: {exp:cat2:id category_url_title='programas' debug='yes'}
+                </pre>
+                    {if no_results}
+                        <ul class="h-feed__list h-feed__list--services">
+                            <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
+                                {if segment_3 == "programas"}
+                                    Nenhum programa encontrado
+                                {if:else}
+                                    Nenhum serviço encontrado
+                                {/if}
+                            </li>
+                        </ul>
+                    {/if}
+
+                    {if count == 1}
+                        <ul class="h-feed__list h-feed__list--services">
+                    {/if}
+                            <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
+                                <a
+                                    {if channel_short_name == "page" || page_uri}
+                                        href="{page_uri}"
+                                    {if:else}
+                                        href="https:/{relative_url}/{url_title}"
+                                    {/if}
+                                    class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
+                                >
+                                    {title}
+                                </a>
+
+                                <pre>
+                                    {categories}{category_id}|{/categories}
+                                </pre>
+
+                            </li>
+                    {if count == total_results}
+                        </ul>
+
+                        {tp-pagination}
+                    {/if}
+                {/exp:channel:entries}
+            {/if}
         </main>
 
     {/if}
@@ -249,7 +288,7 @@
 
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:entries channel="service" limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed" show_future_entries="yes"}
+    {exp:channel:entries channel="service" limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed"}
         {tp-check_draft}
 
         {layout:set name="title"}{title}{/layout:set}
