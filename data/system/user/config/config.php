@@ -65,6 +65,7 @@ switch ($_SERVER['HTTP_HOST']) {
             $assign_to_config['global_vars']['global:editorial-group'] = '';
             break;
 
+    case 'homol.agerp.ma.gov.br':
     case 'agerp.ma.gov.br':
     case 'agerp.ma.gov.local':
     case 'agerp-ma.appcivico.com.br':
@@ -159,6 +160,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'homol.egma.ma.gov.br':
     case 'egma.ma.gov.br':
     case 'egma.ma.gov.local':
     case 'egma-ma.appcivico.com.br':
@@ -253,6 +255,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'homol.mapa.ma.gov.br':
     case 'mapa.ma.gov.br':
     case 'mapa.ma.gov.local':
     case 'mapa-ma.appcivico.com.br':
@@ -413,6 +416,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'homol.sedihpop.ma.gov.br':
     case 'sedihpop.ma.gov.br':
     case 'direitos.ma.gov.local':
     case 'sedihpop.ma.gov.local':
@@ -495,13 +499,13 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'homol.turismo.ma.gov.br':
     case 'turismo.ma.gov.br':
     case 'setur.ma.gov.br':
     case 'turismo.ma.gov.local':
     case 'setur.ma.gov.local':
     case 'turismo-ma.appcivico.com.br':
     case 'setur-ma.appcivico.com.br':
-    case 'homol.turismo.ma.gov.br':
         $site_name = 'setur';
         $assign_to_config['global_vars']['global:editorial-group'] = '9';
         break;
@@ -578,6 +582,7 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
+    case 'homol.ma.gov.br':
     case 'ma.gov.br':
     case 'ma.gov.local':
     case 'ma.appcivico.com.br':
