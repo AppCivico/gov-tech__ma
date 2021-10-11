@@ -55,7 +55,7 @@ Copie o arquivo `.env.sample` para `.env` e faça as configurações das variare
     DATABASE_USER=eeuser                 - nome do usuário do banco de dados
     DATABASE_PASSWORD=eepass             - senha do usuário do banco de dados
     DATABASE_ROOT_PASSWORD=eerootpass    - senha do usuário root do banco de dados
-    NGINX_BIND_ADDRESS=172.17.0.1:50025  - qual interface e porta o nginx deve fazer o bind
+    NGINX_BIND_ADDRESS=172.17.0.1:50025  - qual interface e porta o nginx deve fazer o bind [ mudou para 10.22.8.188:80 em produção ]
     LOG_MAX_FILE=100                     - quantidade de logs para cada container do docker
     LOG_MAX_SIZE=1m                      - quantidade em MB para cada rotate do logs
     GOV_MA_SERVER_BASE_DIR               - local onde irá existir as versões do site com a pasta `current-version`
@@ -85,7 +85,7 @@ Ao executar o comando `docker-compose up -d` e aguardar o download/build das ima
              Name                        Command               State            Ports
     -------------------------------------------------------------------------------------------
     ma_gov_mariadb            docker-entrypoint.sh mysqld      Up      3306/tcp
-    ma_gov_web                /docker-entrypoint.sh ngin ...   Up      172.17.0.1:50025->80/tcp
+    ma_gov_web                /docker-entrypoint.sh ngin ...   Up      10.22.8.188:80->80/tcp
     ma_redis                  /opt/bitnami/scripts/redis ...   Up      6379/tcp
     ma_pythia                 (TODO)
     maappcivicocom_apache_1   /entrypoint.sh apache2-for ...   Up      80/tcp
