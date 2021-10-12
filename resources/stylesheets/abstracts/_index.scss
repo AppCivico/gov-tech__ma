@@ -10,12 +10,6 @@
 );
 @forward 'mixins';
 
-@use '../vendor/modularscale' as * with (
-  $modularscale: config.$modularscale,
-);
-
-@forward '../vendor/modularscale' hide $modularscale;
-
 @use '../vendor/modular-scale' with (
   $settings: config.$modularscale,
 );
