@@ -132,10 +132,9 @@
                     {/if}
                 {/exp:query}
 
-                {exp:channel:entries entry_id="{entry_ids}" limit="10" status="not closed"
+                {exp:channel:entries limit="10" status="not closed" site="not none" parse="inward"
                     disable="category_fields|custom_fields|member_data" paginate="inline"
-                    category="{exp:cat2:id category_url_title='{segment_3}'}|{exp:cat2:id category_url_title='{segment_4}'}"
-                    parse="inward"
+                    category="{exp:cat2:id site_id='0' category_url_title='{segment_3}'}|{exp:cat2:id site_id='0' category_url_title='{segment_4}'}" dynamic="no"
                 }
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
