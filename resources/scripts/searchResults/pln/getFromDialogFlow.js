@@ -1,8 +1,6 @@
 import objectToQueryString from '../../utilities/objectToQueryString';
 
-const origin = /localhost|\.local/.test(window.location.hostname)
-  ? 'https://pythia.appcivico.com'
-  : '';
+const origin = 'https://pythia.appcivico.com';
 
 export default ((searchTerm) => fetch(`${origin}/text?${objectToQueryString({ text: searchTerm })}`, {
   method: 'GET',
