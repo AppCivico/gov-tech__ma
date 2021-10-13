@@ -1,0 +1,69 @@
+<main id="main" class="sec-home__main">
+    <section class="mosaic__wrapper mosaic__wrapper--video h-feed">
+        {exp:query sql="SELECT ect.entry_id, ecgf.col_id_40 AS src, ect.url_title, ect.title, ect.entry_date
+            FROM exp_channel_grid_field_68 ecgf
+            INNER JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
+            WHERE ect.site_id = 1 AND ect.status != 'closed' AND ect.channel_id = 2
+            ORDER BY ect.entry_date DESC, ecgf.row_order ASC
+            LIMIT 9;"
+            parse_files="y"
+        }
+            {if count == 1}
+                <div class="h-feed__list gallery gallery--video mosaic mosaic--third">
+            {/if}
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video mosaic__item">
+                        <a href="/noticias/{url_title}/videos" target="_blank" class="u-url gallery__link gallery__link--video mosaic__link" />
+                            {if count == 1}
+                                {exp:antenna url="{src}" max_width="679" max_height="570" cache_minutes="1680"}
+                                    <img
+                                        width="{video_width}"
+                                        height="{video_height}"
+                                        srcset="
+                                            {video_highres} 1280w,
+                                            {video_mediumres} 480w,
+                                            {video_thumbnail} 128w
+                                        "
+                                        sizes="
+                                            (max-width: 479px) 100vw,
+                                            (max-width: 1279px) 66vw,
+                                            708px
+                                        "
+                                        src="{video_thumbnail}"
+                                        alt="{video_title}"
+                                        decoding="async" loading="lazy"
+                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
+                                    />
+                                {/exp:antenna}
+                            {if:else}
+                                {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                    <img
+                                        width="{video_width}"
+                                        height="{video_height}"
+                                        srcset="
+                                            {video_highres} 1280w,
+                                            {video_mediumres} 480w,
+                                            {video_thumbnail} 128w
+                                        "
+                                        sizes="(max-width: 479px) 50vw,
+                                            (max-width: 1279px) 33vw,
+                                            348px
+                                        "
+                                        src="{video_thumbnail}"
+                                        alt="{video_title}"
+                                        decoding="async" loading="lazy"
+                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
+                                    />
+                                {/exp:antenna}
+                            {/if}
+                        </a>
+                    </figure>
+            {if count == total_results}
+                </div>
+
+                <p class="read-more read-more--last-news">
+                    <a class="read-more__link" href="/noticias/videos">+ Vídeos</a>
+                </p>
+            {/if}
+        {/exp:query}
+    </section>
+</main>

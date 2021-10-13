@@ -302,26 +302,6 @@
 
     {layout:contents}
 
-    {exp:channel:entries channel="ad" limit="3" orderby="random" disable="categories|member_data|pagination"}
-        {if count == 1}
-        <div class="ad__wrapper">
-            <ul class="ad__list">
-                {/if}
-                <li class="ad__item">
-                    <a href="{ad__link}" class="ad__link">
-                        {ad__images}
-                            {ad__images:file}
-                                <img src="{url}" alt="{description}" decoding="async" loading="lazy" class="ad__image" />
-                            {/ad__images:file}
-                        {/ad__images}
-                    </a>
-                </li>
-                {if count == total_results}
-            </ul>
-        </div>
-        {/if}
-    {/exp:channel:entries}
-
     {tp-quick-links}
 
     <div class="main-footer__wrapper">

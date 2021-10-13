@@ -7,14 +7,7 @@
     max-height: my.$gutter * 27; // 648px
   }
 
-  main {
-    $column-basis: my.$column-basis * 1.5;
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(min(#{$column-basis}, 100%), 1fr));
-    grid-gap: 0 #{my.$gutter * 2};
-  }
+  main {}
 
   .h-feed__list--last-news {
     display: grid;
@@ -46,6 +39,17 @@
 
   .main-aside {
     grid-column: 1/-1;
+  }
+}
+
+.sec-home__default {
+  main {
+    $column-basis: my.$column-basis * 1.5;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(#{$column-basis}, 100%), 1fr));
+    grid-gap: 0 #{my.$gutter * 2};
   }
 }
 

@@ -134,45 +134,41 @@
     {/exp:channel:entries}
 </main>
 
+    {exp:channel:entries channel="ad" limit="3" orderby="random" disable="categories|member_data|pagination"}
+        {if count == 1}
+        <div class="ad__wrapper">
+            <ul class="ad__list">
+                {/if}
+                <li class="ad__item">
+                    <a href="{ad__link}" class="ad__link">
+                        {ad__images}
+                            {ad__images:file}
+                                <img src="{url}" alt="{description}" decoding="async" loading="lazy" class="ad__image" />
+                            {/ad__images:file}
+                        {/ad__images}
+                    </a>
+                </li>
+                {if count == total_results}
+            </ul>
+        </div>
+        {/if}
+    {/exp:channel:entries}
+
 {if:else}
-
-    {layout:set name="root_class"}sec-home{/layout:set}
-
-<main id="main" class="sec-home__main">
-    {exp:query
-        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
-            FROM exp_categories ec
-            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
-            WHERE ecg.group_name = 'aparecer na area publica'
-            AND ec.cat_url_title = 'home-services'
-            AND ec.site_id = '{site_id}'
-            LIMIT 1;"
+    {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
+        url_title="settings" disable="categories|member_data|pagination" parse="inward"
     }
-        {exp:query
-            sql="SELECT group_id AS service_group
-                FROM exp_category_groups
-                WHERE group_name = 'categorias de servicos'
-                AND site_id = '{site_id}'
-                LIMIT 1;"
-        }
-            {embed="default_site:site/_home-services" cat_id="{cat_id}" limit="8"
-                service_group="{service_group}" group_id="{group_id}" title="{cat_name}"
-            }
-        {/exp:query}
-    {/exp:query}
+        {if template_file}
+            {layout:set name="root_class"}sec-home sec-home--{template_file}{/layout:set}
+            {embed="default_site:site/_sec-main__{template_file}"}
+        {if:else}
+            {layout:set name="root_class"}sec-home sec-home--default{/layout:set}
+            {embed="default_site:site/_sec-main__default"}
+        {/if}
 
-    {exp:query
-        sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
-            FROM exp_categories ec
-            JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
-            WHERE ecg.group_name = 'aparecer na area publica'
-            AND ec.cat_url_title = 'home-special'
-            AND ec.site_id = '{site_id}'
-            LIMIT 1;"
-    }
-        {embed="default_site:site/_home-special" cat_id="{cat_id}" group_id="{group_id}" title="{cat_name}" limit="10"}
-    {/exp:query}
-
-    {embed="default_site:site/_aside"}
-</main>
+        {if no_results}
+            {layout:set name="root_class"}sec-home sec-home--default{/layout:set}
+            {embed="default_site:site/_sec-main__default"}
+        {/if}
+    {/exp:channel:entries}
 {/if}
