@@ -43,7 +43,12 @@ export default (() => {
   return fetch(searchForm.action, {
     method: 'POST',
     body: formData,
+    mode: 'cors',
+    cache: 'default',
     redirect: 'follow',
+    headers: {
+      Accept: 'text/plain, text/html, *.*',
+    },
   })
     .then((response) => response.text())
     .then((data) => {
