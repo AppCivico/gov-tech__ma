@@ -20,7 +20,7 @@
                 AND ect.status != 'closed'
             GROUP BY ec.cat_id
             ORDER BY COUNT(ecp.entry_id) DESC
-            LIMIT 4"
+            LIMIT 3"
         parse="inward"
     }
         <section class="h-feed main-aside__section">
@@ -35,13 +35,25 @@
                 {/exp:channel:entries}
             </ul>
         </section>
-
-        {if count == total_results}
-            <p class="read-more">
-                <a class="read-more__link" href="/servicos">+ Serviços e programas</a>
-            </p>
-        {/if}
     {/exp:query}
+
+        <section class="h-feed main-aside__section">
+            <h5 class="h-feed__p-name p-name main-aside__title">
+                Programas
+            </h5>
+            <ul class="main-aside__list">
+                {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{exp:cat2:id category_url_title='programas'}" status="not closed" limit="3" dynamic="no"}
+                    <li class="main-aside__item h-entry">
+                        <a class="main-aside__link h-entry__u-url u-url" href="https:/{relative_url}/{url_title}">{title}</a>
+                    </li>
+                {/exp:channel:entries}
+            </ul>
+        </section>
+
+    <p class="read-more">
+        <a class="read-more__link" href="/servicos">+ Serviços e programas</a>
+    </p>
+
 <!-- most filled services :end -->
 
     {exp:channel:entries channel="news" limit="5" disable="categories|category_fields|member_data|pagination" status="not closed" search:thumbnail="not IS_EMPTY"}

@@ -8,51 +8,64 @@
     <section class="main-services h-feed h-feed--main-services">
         <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
 
-        {exp:query
-            sql="SELECT GROUP_CONCAT(DISTINCT ec.cat_id SEPARATOR '|') cat_ids, ec.cat_url_title, ec.cat_name
-                FROM exp_categories ec
-                JOIN exp_category_groups cg ON cg.group_id = ec.group_id
-                JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
-                JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
-                JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
-                INNER JOIN exp_config ecf ON ecf.site_id = ec.site_id AND ecf.key = 'is_site_on'
-                WHERE (
-                        LOWER(cg.group_name) = 'perfil do cidadao'
-                        OR (
-                            LOWER(cg.group_name) = 'categorias de servicos'
-                            AND ec.cat_url_title = 'programas'
+        <div class="main-services__category-lists">
+            {exp:query
+                sql="SELECT GROUP_CONCAT(DISTINCT ec.cat_id SEPARATOR '|') cat_ids, ec.cat_url_title, ec.cat_name
+                    FROM exp_categories ec
+                    JOIN exp_category_groups cg ON cg.group_id = ec.group_id
+                    JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
+                    JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
+                    JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
+                    INNER JOIN exp_config ecf ON ecf.site_id = ec.site_id AND ecf.key = 'is_site_on'
+                    WHERE (
+                            LOWER(cg.group_name) = 'perfil do cidadao'
+                            OR (
+                                LOWER(cg.group_name) = 'categorias de servicos'
+                                AND ec.cat_url_title = 'programas'
+                            )
                         )
-                    )
-                    AND ec2.channel_name = 'service'
-                    AND ect.status != 'closed'
-                GROUP BY ec.cat_url_title
-                ORDER BY COUNT(ecp.entry_id) DESC
-                LIMIT 4"
-            parse="inward"
-        }
-            {if count == 1}
-                <div class="main-services__category-lists">
-            {/if}
-                    <div class="main-services__category main-services__category--{cat_url_title}">
-                        <h3 class="main-services__title">{cat_name}</h3>
-                        <ul class="main-services__list">
-                        {exp:channel:entries channel="service" site="not none" category="{cat_ids}"
-                            disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"
-                            dynamic="no" orderby="title" sort="asc"
-                        }
-                            <li class="main-services__item">
-                                <a href="https:/{relative_url}/{url_title}">{title}</a>
-                            </li>
-                        {/exp:channel:entries}
-                        </ul>
-                    </div>
-            {if count == total_results}
+                        AND ec2.channel_name = 'service'
+                        AND ect.status != 'closed'
+                    GROUP BY ec.cat_url_title
+                    ORDER BY COUNT(ecp.entry_id) DESC
+                    LIMIT 3"
+                parse="inward"
+            }
+                <div class="main-services__category main-services__category--{cat_url_title}">
+                    <h3 class="main-services__title">{cat_name}</h3>
+                    <ul class="main-services__list">
+                    {exp:channel:entries channel="service" site="not none" category="{cat_ids}"
+                        disable="custom_fields|categories|category_fields|member_data|pagination" status="not closed" limit="5"
+                        dynamic="no" orderby="title" sort="asc"
+                    }
+                        <li class="main-services__item">
+                            <a href="https:/{relative_url}/{url_title}">{title}</a>
+                        </li>
+                    {/exp:channel:entries}
+                    </ul>
                 </div>
-                <p class="read-more read-more--main-services">
-                    <a class="read-more__link" href="/servicos/">+ Serviços</a>
-                </p>
-            {/if}
-        {/exp:query}
+                {/exp:query}
+
+                <div class="main-services__category main-services__category--{programas}">
+                    <h3 class="main-services__title">Programas</h3>
+
+                    <ul class="main-services__list">
+                    {exp:channel:entries channel="service" site="not none"
+                        status="not closed" limit="5" parse="inward"
+                        category="{exp:cat2:id site_id='0' category_url_title='programas'}"
+                        disable="custom_fields|categories|category_fields|member_data|pagination"
+                        dynamic="no" orderby="title" sort="asc"
+                    }
+                        <li class="main-services__item">
+                            <a href="https:/{relative_url}/{url_title}">{title}</a>
+                        </li>
+                    {/exp:channel:entries}
+                    </ul>
+                </div>
+        </div>
+        <p class="read-more read-more--main-services">
+            <a class="read-more__link" href="/servicos/">+ Serviços</a>
+        </p>
     </section>
 
     {exp:channel:entries channel="news" site="not none" limit="4"
