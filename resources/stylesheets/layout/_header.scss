@@ -137,7 +137,7 @@
 
   font-size: my.ms-step(30px);
   font-weight: my.font-weight('bold');
-  line-height: 1;
+  line-height: math.div(38, 30);
   text-align: center;
 }
 
