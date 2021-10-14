@@ -44,6 +44,14 @@
     text-decoration-color: my.palette('brand', 'blue', 'medium');
   }
 
+  .h-feed--categories-of-services {
+    background-color: my.palette('neutral', 'black');
+  }
+
+  .h-feed--categories-of-services .h-feed__list--categories-of-services {
+    color: my.palette('neutral', 'black');
+  }
+
   .h-entry--quick-links,
   .main-footer__menu-wrapper {
     @include transition;
