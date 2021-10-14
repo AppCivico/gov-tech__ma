@@ -237,9 +237,6 @@
                     disable="category_fields|custom_fields|member_data" status="not closed"
                     paginate="inline" uncategorized_entries="no"
                 }
-                <pre>
-                    debug: {exp:cat2:id category_url_title='programas' debug='yes'}
-                </pre>
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
                             <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
@@ -266,11 +263,6 @@
                                 >
                                     {title}
                                 </a>
-
-                                <pre>
-                                    {categories}{category_id}|{/categories}
-                                </pre>
-
                             </li>
                     {if count == total_results}
                         </ul>
