@@ -10,6 +10,7 @@
 
   margin-right: my.$gutter * -0.5;
   margin-left: my.$gutter * -0.5;
+  clear: both;
 
   @supports (display: grid) {
     display: grid;
