@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-{preload_replace:channels="document|event|government_member|news|service|special|staff"}
+{preload_replace:channels="document|event|news|service|special"}
+{preload_replace:templates="government_member|staff"}
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>{site_url}</loc>
@@ -44,6 +46,19 @@
                 <loc>https:/{relative_url}/{page_uri}</loc>
             {if:else}
                 <loc>https:/{relative_url}/{url_title}</loc>
+            {/if}
+            <lastmod>{gmt_edit_date format="{DATE_W3C}"}</lastmod>
+            <changefreq>yearly</changefreq>
+            <priority>0.1</priority>
+        </url>
+    {/exp:channel:entries}
+
+    {exp:channel:entries channel="{templates}" disable="categories|member_data|pagination" rdf="no" dynamic="no" status="not closed"}
+        <url>
+            {if page_uri}
+                <loc>https:/{relative_url}/{page_uri}</loc>
+            {if:else}
+                <loc>https:/{relative_url}</loc>
             {/if}
             <lastmod>{gmt_edit_date format="{DATE_W3C}"}</lastmod>
             <changefreq>yearly</changefreq>
