@@ -22,7 +22,7 @@ export default (async () => {
   dialogFlowed = dialogFlowed.toLowerCase();
 
   if (dialogFlowed) {
-    const data = await getFromCms({category: dialogFlowed});
+    const data = await getFromCms(dialogFlowed);
 
     resultsTargetEl.innerHTML = data;
 
