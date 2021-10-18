@@ -1,7 +1,7 @@
-{exp:channel:entries search:body="{exp:request:get name='keywords'}\W" search:{exp:request:get name='required'}="not IS_EMPTY" paginate="inline" parse="inward"}
+{exp:channel:entries search:body="{exp:request:get_post name='keywords'}\W" search:{exp:request:get_post name='required'}="not IS_EMPTY" paginate="inline" parse="inward"}
     {if no_results}
         <header class="h-feed__header">
-            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get name='keywords'}"</h2>
+            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
         </header>
 
         <p class="h-feed__e-content">
@@ -13,7 +13,7 @@
 
     {if count == "1"}
         <header class="h-feed__header">
-            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get name='keywords'}"</h2>
+            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
 
             {paginate}
                 <h2 class="h-feed__subhead">
