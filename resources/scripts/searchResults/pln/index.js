@@ -19,8 +19,10 @@ export default (async () => {
     dialogFlowed = pln.trim();
   }
 
+  dialogFlowed.toLowerCase();
+
   if (dialogFlowed) {
-    const data = await getFromCms(dialogFlowed);
+    const data = await getFromCms({category: dialogFlowed});
 
     resultsTargetEl.innerHTML = data;
 

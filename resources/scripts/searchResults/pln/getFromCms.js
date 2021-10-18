@@ -1,4 +1,6 @@
-export default (searchTerm) => fetch(`/busca/pln/${searchTerm}`, {
+import objectToQueryString from '../../utilities/objectToQueryString';
+
+export default (parameters) => fetch(`/busca/pln/?${objectToQueryString(parameters)}`, {
   method: 'GET',
   mode: 'cors',
   cache: 'default',
