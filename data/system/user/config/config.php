@@ -58,12 +58,12 @@ switch ($_SERVER['HTTP_HOST']) {
         $assign_to_config['global_vars']['global:editorial-group'] = '';
         break;
 
-        case 'agem.ma.gov.br':
-        case 'agem.ma.gov.local':
-        case 'agem-ma.appcivico.com.br':
-            $site_name = 'agem';
-            $assign_to_config['global_vars']['global:editorial-group'] = '';
-            break;
+    case 'agem.ma.gov.br':
+    case 'agem.ma.gov.local':
+    case 'agem-ma.appcivico.com.br':
+        $site_name = 'agem';
+        $assign_to_config['global_vars']['global:editorial-group'] = '';
+        break;
 
     case 'homol.agerp.ma.gov.br':
     case 'agerp.ma.gov.br':
