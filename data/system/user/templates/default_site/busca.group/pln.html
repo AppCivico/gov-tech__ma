@@ -6,15 +6,15 @@
     JOIN exp_category_groups ecg1
     WHERE LOWER(ecg.group_name) = 'dialogflow'
         AND (
-            LOWER(ec.cat_name) = '{exp:request:get_post name="keywords"}')
-            OR LOWER(ec.cat_url_title) = '{exp:request:get_post name="keywords"}')
+            LOWER(ec.cat_name) = '{exp:request:get_post name="category"}'
+            OR LOWER(ec.cat_url_title) = '{exp:request:get_post name="category"}'
         )
         AND LOWER(ecg1.group_name) = 'categorias de servicos';"
     parse="inward"
 }
     {if count == 1}
         <h2 class="h-feed__p-name h-feed__p-name--pln-results p-name">
-            Acreditamos que você está buscando por "{exp:request:get_post name='keywords'}". Certo?
+            Acreditamos que você está buscando por "{exp:request:get_post name='category'}". Certo?
         </h2>
 
         <p class="h-feed__p-summary h-feed__p-summary--pln-results">

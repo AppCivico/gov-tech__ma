@@ -11,15 +11,15 @@ export default (async () => {
 
   resultsTargetEl.setAttribute('aria-busy', 'true');
 
-  if (!pln?.trim()) {
+  if (!(pln?.trim())) {
     const { parameters: { categoria } } = await getFromDialogFlow(searchTerm);
 
-    dialogFlowed = categoria;
+    dialogFlowed = String(categoria);
   } else {
     dialogFlowed = pln.trim();
   }
 
-  dialogFlowed.toLowerCase();
+  dialogFlowed = dialogFlowed.toLowerCase();
 
   if (dialogFlowed) {
     const data = await getFromCms({category: dialogFlowed});
