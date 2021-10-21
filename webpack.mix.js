@@ -1,5 +1,11 @@
 const mix = require('laravel-mix');
 
+mix.webpackConfig({
+  output: {
+    hashFunction: "sha256"
+  }
+});
+
 mix
   .setPublicPath('data/system/user/templates/default_site/site.group')
   .js('resources/scripts/index.js', 'scripts.js')
