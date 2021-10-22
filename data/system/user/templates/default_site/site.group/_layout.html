@@ -137,8 +137,10 @@
                                 <a
                                     {if page_uri}
                                         href="{page_uri}"
-                                    {if:elseif channel_short_name == "page"}
+                                    {if:elseif "{channel_short_name}" == "page"}
                                         href="/{url_title}"
+                                    {if:elseif "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
+                                        href="{channel_url}"
                                     {if:elseif "{channel_url}" $="/"}
                                         href="{channel_url}{url_title}"
                                     {if:else}
