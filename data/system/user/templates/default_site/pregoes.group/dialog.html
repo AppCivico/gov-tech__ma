@@ -1,0 +1,45 @@
+{tp-head}
+
+{exp:channel:form channel="file_requester"
+    dynamic_title="[requester_email] requested {segment_3}"
+    error_handling="inline"
+    include_assets="no"
+    logged_out_member_id="17"
+    return="/pregoes/download/{segment_3}"
+    rules:requester_email="required|valid_email"
+    rules:requested_bidding="required"
+}
+    <fieldset>
+        <p data-size="100">
+            <label for="requester_email">
+                E-mail
+            </label>
+            <input id="requester_email" name="requester_email" type="email"
+                value="test@test.test"
+            />
+            {if error:requester_email}
+                <small class="error-message">{error:requester_email}</small>
+            {/if}
+        </p>
+
+        <input type="hidden" name="requested_bidding[data][]" value="{segment_3}" />
+        <input type="hidden" name="url_title" value="[requester_email] requested {segment_3}" />
+
+        {if global_errors:count > 0 || field_errors:count > 0}
+            <ul class="errors">
+                {global_errors}
+                    <li>{error}</li>
+                {/global_errors}
+                {field_errors}
+                    <li>{error}</li>
+                {/field_errors}
+            </ul>
+        {/if}
+    </fieldset>
+
+    <fieldset>
+        <button type="submit">Solicitar arquivo</button>
+    </fieldset>
+{/exp:channel:form}
+
+<script src="{script='default_site:site/scripts'}"></script>

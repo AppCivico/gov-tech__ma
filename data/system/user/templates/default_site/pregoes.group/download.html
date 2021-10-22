@@ -1,0 +1,25 @@
+{exp:channel:entries channel="bidding" limit="1" require_entry="yes" disable="category_fields|member_data|pagination" status="not closed"}
+    {tp-check_draft}
+
+    {if bidding__files:total_rows || bidding__notice:total_rows || bidding__edict:total_rows}
+        {exp:zip filename="{channel_short_name}-{url_title}-{entry_id}.zip" direct_output="yes"
+            max_size="1024" folder="../system/user/zip_cache"
+        }
+            {zip:files}
+                {bidding__notice}
+                    [{bidding__notice:file}]
+                {/bidding__notice}
+
+                {bidding__edict}
+                    [{bidding__edict:file}]
+                {/bidding__edict}
+
+                {bidding__files}
+                    [{bidding__files:file}]
+                {/bidding__files}
+            {/zip:files}
+        {/exp:zip}
+    {if:else}
+        {redirect="404"}
+    {/if}
+{/exp:channel:entries}

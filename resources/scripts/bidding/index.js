@@ -1,7 +1,10 @@
 import currentQuery from '../utilities/currentQuery';
 import fullyDecode from '../utilities/fullyDecode';
 import objectToQueryString from '../utilities/objectToQueryString';
+import channelForm from './channelForm';
 import getFromCms from './getFromCms';
+import iframeWatcher from './iframeWatcher';
+import initDialog from './initDialog';
 
 const updateForm = (form) => {
   const { elements } = form;
@@ -58,10 +61,15 @@ const applyResults = async (form) => {
   }
 
   resultsTargetEl.setAttribute('aria-busy', 'false');
+
+  initDialog();
 };
 
 export default (() => {
   const forms = document.querySelectorAll('[data-js="filter"]');
+
+  channelForm();
+  iframeWatcher();
 
   for (let i = 0; i < forms.length; i += 1) {
     const form = forms[i];

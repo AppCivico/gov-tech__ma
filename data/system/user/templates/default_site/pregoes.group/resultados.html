@@ -1,4 +1,5 @@
-{exp:channel:entries channel="bidding" limit="100" disable="category_fields|member_data|pagination" status="not closed"
+{exp:channel:entries channel="bidding" limit="100" disable="category_fields|member_data|pagination"
+status="not closed" parse="inward"
     {if segment_3}
         search:bidding__type="{segment_3}"
     {/if}
@@ -11,14 +12,21 @@
         search:bidding__opening='>={segment_5}|<{segment_6}'
     {/if}
 }
+
     {if no_results}
         <p>Não há publicações.</p>
     {/if}
 
     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry h-entry--bidding">
-            <h3 class="h-entry__p-name p-name p-name--bidding">
-                {bidding__type} {bidding__code_and_year}
-            </h3>
+            <div class="h-entry__header">
+                <h3 class="h-entry__p-name p-name p-name--bidding">
+                    {bidding__type} {bidding__code_and_year}
+                </h3>
+
+                {if logged_in_role_id == 1}
+                    <a href="{cp_edit_entry_url}" target="_blank">Editar publicação</a>
+                {/if}
+            </div>
 
             <div class="h-entry__p-summary">
                 <dl class="bidding-data">
@@ -55,7 +63,7 @@
                         <div class="bidding-data__definition">
 
                             {bidding__notice}
-                                <a href="{bidding__notice:file}" class="bidding__file-link" download>
+                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
                                     <div class="bidding__file bidding__file--notice">
                                         {bidding__notice:file}
                                             <h4 class="bidding__filename">{file_name}</h4>
@@ -77,7 +85,7 @@
                             {/bidding__notice}
 
                             {bidding__edict}
-                                <a href="{bidding__edict:file}" class="bidding__file-link" download>
+                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
                                     <div class="bidding__file bidding__file--edict">
                                         {bidding__edict:file}
                                             <h4 class="bidding__filename">{file_name}</h4>
@@ -99,7 +107,7 @@
                             {/bidding__edict}
 
                             {bidding__files}
-                                <a href="{bidding__edict:file}" class="bidding__file-link" download>
+                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
                                     <div class="bidding__file">
                                         {bidding__files:file}
                                             <h4 class="bidding__filename">{file_name}</h4>
@@ -125,3 +133,12 @@
             </div>
     </article>
 {/exp:channel:entries}
+
+<dialog id="channel-form__dialog" aria-busy="true">
+    <iframe id="channel-form__iframe" name="channel-form__iframe" src="" frameborder="0" aria-busy="true"></iframe>
+
+    <menu>
+        <button value="cancel" title="Cancelar">&times;</button>
+    </menu>
+</dialog>
+<div class="backdrop" aria-hidden="true"></div>

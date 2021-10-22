@@ -1,1 +1,125 @@
 @use '../abstracts' as my;
+
+dialog {
+  @include my.shadow;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: my.layer('modal') + 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: my.$column-basis * 2;
+  max-width: 100%;
+  padding-top: my.$gutter;
+  padding-right: my.$gutter * 0.5;
+  padding-bottom: my.$gutter * 0.5;
+  padding-left: my.$gutter * 0.5;
+  margin: 0;
+  overflow: visible;
+
+  background-color: my.palette('white');
+  border: 0;
+  opacity: 0;
+
+  transition-delay: 150ms;
+  transition-duration: 300ms;
+  transition-property: opacity, transform;
+  transform: translate(-50%, -50%) scaleY(0);
+  transform-origin: 50% 0;
+
+  @mixin backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: my.layer('modal');
+
+    display: none;
+
+    color: my.palette('effects', 'backdrop');
+
+    background-color: currentColor;
+    opacity: 0;
+
+    transition-duration: 300ms;
+    transition-property: opacity;
+  }
+
+  &::backdrop {
+    @include backdrop;
+  }
+
+  + .backdrop {
+    @include backdrop;
+  }
+
+  &:focus-within,
+  &:target,
+  &[open] {
+    display: block;
+
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scaleY(1);
+
+    + .backdrop {
+      display: block;
+
+      opacity: 1;
+    }
+
+    &:backdrop {
+      display: block;
+
+      opacity: 1;
+    }
+  }
+
+  > :only-child {
+    margin: my.$gutter * -0.5;
+  }
+
+  &[aria-busy='true'] {
+    position: fixed !important;
+  }
+}
+
+dialog menu {
+  @include my.like-a__virgin;
+
+  position: absolute;
+  top: my.$gutter * 0.5;
+  right: my.$gutter * 0.5;
+  z-index: my.layer('dropdown');
+}
+
+dialog [value='cancel'] {
+  @include my.like-a__virgin;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: my.$gutter * 0.5;
+  height: my.$gutter * 0.5;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  border-radius: 100%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: my.palette('neutral', 'white');
+
+    background-color: my.palette('neutral', 'black');
+  }
+}
