@@ -1,0 +1,84 @@
+{layout="default_site:site/_layout" root_class="news pictures"}
+
+{if segment_3 == "" OR segment_3 ~ "/^P\d+/"}
+    <main class="mosaic__wrapper mosaic__wrapper--video h-feed">
+        {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
+            <header class="h-feed__header">
+                <h1 class="h-feed__p-name p-name mosaic__title mosaic__title--video">
+                    {title}
+                </h1>
+                {if no_results}
+                <h1 class="h-feed__p-name p-name mosaic__title mosaic__title--video">
+                    Últimas fotos
+                    {layout:set name="title"}Últimas fotos{/layout:set}
+                </h1>
+                {/if}
+            </header>
+            {body}
+        {/exp:channel:entries}
+
+        {exp:query sql="SELECT ect.entry_id, ecgf.col_id_1 AS src, ecgf.col_id_5 AS caption, ect.url_title, ect.title
+            FROM exp_channel_grid_field_2 ecgf
+            INNER JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
+            WHERE ect.site_id = 1 AND ect.status != 'closed' AND ect.channel_id = 2
+            ORDER BY ect.entry_date DESC, ecgf.row_order ASC;"
+            paginate="inline"
+            limit="18"
+            parse_files="y"
+        }
+            {if no_results}
+                <p>
+                    Nenhuma foto encontrada.
+                </p>
+            {/if}
+            {if count == 1}
+                <section class="h-feed__list gallery gallery--video mosaic mosaic--third">
+            {/if}
+                    <figure class="h-feed__h-entry h-entry gallery__item mosaic__item">
+                        <a
+                            href="/noticias/{url_title}/fotos"
+                            title="{title}"
+                            class="u-url gallery__link mosaic__link"
+                        >
+                            {if count == 1}
+                                <img width="554" height="512"
+                                    sizes="
+                                        (max-width: 479px) 100vw,
+                                        (max-width: 767px) 66vw,
+                                        (max-width: 1279px) 50vw,
+                                        528px
+                                    "
+                                    src="{src}" decoding="async" loading="lazy"
+                                    class="gallery__image mosaic__image mosaic__image--picture"
+                                    alt=""
+                                />
+                            {if:else}
+                                <img width="246" height="246"
+                                    sizes="
+                                        (max-width: 479px) 50vw,
+                                        (max-width: 767px) 33vw,
+                                        (max-width: 1279px) 25vw,
+                                        258px
+                                    "
+                                    src="{src}" decoding="async" loading="lazy"
+                                    class="gallery__image mosaic__image mosaic__image--picture"
+                                    alt=""
+                                />
+                            {/if}
+
+                            {if caption}
+                                <figcaption class="gallery__caption mosaic__caption">
+                                    {caption}
+                                </figcaption>
+                            {/if}
+                        </a>
+                    </figure>
+            {if count == total_results}
+                </section>
+                {tp-pagination}
+            {/if}
+        {/exp:query}
+    </main>
+{if:else}
+    {redirect="404"}
+{/if}
