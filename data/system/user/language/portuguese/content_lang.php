@@ -1133,10 +1133,10 @@ $lang = array(
 'Os Números não podem ser utilizados como Títulos de <abbr title=\"Unified Resource Locator\">URL</abbr>',
 
 'url_title_not_unique' =>
-'Este título de <abbr title=\"Unified Resource Locator\">URL</abbr> já está sendo usado por <b><a href=\"%s\" rel=\"external\">%s</a></b>. Os títulos das URLs devem ser únicos.',
+'Este título em <abbr title=\"Unified Resource Locator\">URL</abbr> já está sendo usado por <b><a href=\"%s\" rel=\"external\">%s</a></b>. Os títulos das URLs devem ser únicos.',
 
 'url_title_not_unique_frontend' =>
-'Este título de <abbr title=\"Unified Resource Locator\">URL</abbr> está sendo usado por outra publicação. Os títulos de URLs devem ser únicos.',
+'Este título em <abbr title=\"Unified Resource Locator\">URL</abbr> está sendo usado por outra publicação. Os títulos de URLs devem ser únicos.',
 
 'version_preview' =>
 'Número de Revisão %s',

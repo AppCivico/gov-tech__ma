@@ -882,7 +882,7 @@ $lang = array(
 'Este nome de grupo já existe.',
 
 'unable_to_create_cat_url_title' =>
-'Não foi possível criar um Título de <abbr title=\"Unified Resource Locator\">URL</abbr> de categoria válido para sua Categoria',
+'Não foi possível criar um Título em <abbr title=\"Unified Resource Locator\">URL</abbr> de categoria válido para sua Categoria',
 
 'update_category_image' =>
 'Por favor, atualize a imagem da sua categoria usando o campo de arquivo fornecido, ou a <abbr title=\"Unified Resource Locator\">URL</abbr> da imagem do estilo antigo será excluída assim que você clicar em salvar.',
