@@ -157,7 +157,7 @@
                     <div class="h-feed__list gallery gallery--video mosaic mosaic--third">
                 {/if}
                         <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video mosaic__item">
-                            <a href="/noticias/{url_title}/videos" class="u-url mosaic__link" />
+                            <a href="/noticias/{url_title}/videos" class="u-url mosaic__link--video mosaic__link" />
                                 {if count == 1}
                                     {exp:antenna url="{src}" max_width="679" max_height="570" cache_minutes="1680"}
                                         <img
@@ -174,10 +174,15 @@
                                                 708px
                                             "
                                             src="{video_thumbnail}"
-                                            alt="{video_title}"
+                                            alt=""
                                             decoding="async" loading="lazy"
                                             class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
                                         />
+                                        {if video_title}
+                                            <figcaption class="gallery__caption mosaic__caption">
+                                                {video_title}
+                                            </figcaption>
+                                        {/if}
                                     {/exp:antenna}
                                 {if:else}
                                     {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
@@ -194,10 +199,15 @@
                                                 348px
                                             "
                                             src="{video_thumbnail}"
-                                            alt="{video_title}"
+                                            alt=""
                                             decoding="async" loading="lazy"
                                             class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
                                         />
+                                        {if video_title}
+                                            <figcaption class="gallery__caption mosaic__caption">
+                                                {video_title}
+                                            </figcaption>
+                                        {/if}
                                     {/exp:antenna}
                                 {/if}
                             </a>
