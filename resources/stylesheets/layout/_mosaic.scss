@@ -84,6 +84,10 @@
     }
   }
 
+  &.gallery__link--video .mosaic__link {
+    @include my.aspect-ratio(48 x 27);
+  }
+
   :only-child > .mosaic__link {
     @include my.aspect-ratio(2 x 1);
   }
@@ -97,6 +101,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
+  }
+
+  &.gallery__link--video .mosaic__image {
+    object-position: center;
   }
 
   .mosaic__caption--picture {
