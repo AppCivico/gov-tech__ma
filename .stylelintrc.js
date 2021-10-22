@@ -1,5 +1,7 @@
 const recessConfig = require('stylelint-config-recess-order');
 
+const bemPattern = "^_?[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$";
+
 const recessConfigWithEmptyLine = recessConfig.rules['order/properties-order'].map((group) => {
   return {
     ...group,
@@ -9,6 +11,12 @@ const recessConfigWithEmptyLine = recessConfig.rules['order/properties-order'].m
 });
 
 module.exports = {
+  overrides: [
+    {
+      files: ["**/*.scss"],
+      customSyntax: "postcss-scss"
+    }
+  ],
   "extends": [
     "stylelint-config-sass-guidelines",
     "stylelint-config-recess-order"
@@ -16,8 +24,8 @@ module.exports = {
   rules: {
     'order/properties-order': recessConfigWithEmptyLine,
     'scss/at-function-pattern': "^_?[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
-    'scss/at-mixin-pattern': "^_?[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
-    'scss/dollar-variable-pattern': "^_?[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+    'scss/at-mixin-pattern': bemPattern,
+    'scss/dollar-variable-pattern': bemPattern,
     "at-rule-empty-line-before": [
       "always", {
         "except": [
@@ -53,15 +61,6 @@ module.exports = {
     "declaration-block-semicolon-newline-after": "always-multi-line",
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-block-semicolon-space-after": "always-single-line",
-    // "declaration-empty-line-before": [
-    //   "always", {
-    //     "except": [
-    //       "first-nested",
-    //       "after-comment",
-    //       "after-declaration"
-    //     ]
-    //   }
-    // ],
     "declaration-empty-line-before": null,
     "declaration-no-important": true,
     "font-family-name-quotes": "always-where-recommended",
@@ -80,16 +79,6 @@ module.exports = {
     "no-duplicate-selectors": true,
     "number-leading-zero": "always",
     "property-no-vendor-prefix": true,
-    // "rule-empty-line-before": [
-    //   "always", {
-    //     "except": [
-    //       "first-nested"
-    //     ],
-    //     "ignore": [
-    //       "after-comment"
-    //     ]
-    //   }
-    // ],
     "selector-attribute-quotes": "always",
     "selector-class-pattern": [
       "^_?[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
