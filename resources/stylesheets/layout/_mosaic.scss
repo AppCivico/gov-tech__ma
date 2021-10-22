@@ -67,8 +67,8 @@
       }
     }
 
-    &:nth-child(9) + .mosaic__item {
-      display: none;
+    &:only-child {
+      grid-column: 1 / -1;
     }
   }
 
@@ -84,6 +84,10 @@
     }
   }
 
+  :only-child > .mosaic__link {
+    @include my.aspect-ratio(2 x 1);
+  }
+
   .mosaic__image {
     position: absolute;
 
@@ -92,6 +96,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
   }
 
   .mosaic__caption--picture {
