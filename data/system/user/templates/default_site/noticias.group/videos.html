@@ -1,14 +1,14 @@
 {layout="default_site:site/_layout" root_class="news videos"}
 
 {if segment_3 == "" OR segment_3 ~ "/^P\d+/"}
-    <main class="mosaic__wrapper mosaic__wrapper--video h-feed">
+    <main class="h-feed">
         {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
             <header class="h-feed__header">
-                <h1 class="h-feed__p-name p-name mosaic__title mosaic__title--video">
+                <h1 class="h-feed__p-name p-name">
                     {title}
                 </h1>
                 {if no_results}
-                <h1 class="h-feed__p-name p-name mosaic__title mosaic__title--video">
+                <h1 class="h-feed__p-name p-name">
                     Últimos vídeos
                     {layout:set name="title"}Últimos vídeos{/layout:set}
                 </h1>
@@ -17,13 +17,15 @@
             {body}
         {/exp:channel:entries}
 
-        {exp:query sql="SELECT ect.entry_id, ecgf.col_id_40 AS src, ect.url_title, ect.title, ect.entry_date
-            FROM exp_channel_grid_field_68 ecgf
-            INNER JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
-            INNER JOIN exp_channels ec ON ec.channel_id = ect.channel_id
-            WHERE ect.site_id = {site_id} AND ect.status != 'closed' AND ec.channel_name = 'news'
-            GROUP BY ect.entry_id
-            ORDER BY ect.entry_date DESC, ecgf.row_order ASC;"
+        {exp:query
+            sql="SELECT ect.entry_id, ecgf.col_id_40 AS src, ect.url_title, ect.title, ect.entry_date
+                FROM exp_channel_grid_field_68 ecgf
+                INNER JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
+                INNER JOIN exp_channels ec ON ec.channel_id = ect.channel_id
+                WHERE ect.site_id = {site_id} AND ect.status != 'closed' AND ec.channel_name = 'news'
+                GROUP BY ect.entry_id
+                ORDER BY ect.entry_date DESC, ecgf.row_order ASC;
+            "
             paginate="inline"
             limit="21"
             parse_files="y"
@@ -34,53 +36,388 @@
                 </p>
             {/if}
             {if count == 1}
-                <section class="h-feed__list gallery gallery--video mosaic mosaic--third">
+                <section class="h-feed__list gallery gallery--video">
             {/if}
-                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video mosaic__item">
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
                         <a href="/noticias/{url_title}/videos" target="_blank"
-                            class="u-url mosaic__link mosaic__link--video" />
-                            {if count == 1}
-                                {exp:antenna url="{src}" max_width="679" max_height="570" cache_minutes="1680"}
-                                    <img
-                                        width="{video_width}"
-                                        height="{video_height}"
-                                        srcset="
-                                            {video_highres} 1280w,
-                                            {video_mediumres} 480w,
-                                            {video_thumbnail} 128w
-                                        "
-                                        sizes="
-                                            (max-width: 479px) 100vw,
-                                            (max-width: 1279px) 66vw,
-                                            708px
-                                        "
-                                        src="{video_thumbnail}"
-                                        alt="{video_title}"
-                                        decoding="async" loading="lazy"
-                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
-                                    />
-                                {/exp:antenna}
-                            {if:else}
-                                {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
-                                    <img
-                                        width="{video_width}"
-                                        height="{video_height}"
-                                        srcset="
-                                            {video_highres} 1280w,
-                                            {video_mediumres} 480w,
-                                            {video_thumbnail} 128w
-                                        "
-                                        sizes="(max-width: 479px) 50vw,
-                                            (max-width: 1279px) 33vw,
-                                            348px
-                                        "
-                                        src="{video_thumbnail}"
-                                        alt="{video_title}"
-                                        decoding="async" loading="lazy"
-                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
-                                    />
-                                {/exp:antenna}
-                            {/if}
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+
+
+
+
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
+                        </a>
+                    </figure>
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
                         </a>
                     </figure>
             {if count == total_results}

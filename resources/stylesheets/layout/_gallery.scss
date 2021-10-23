@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @use '../abstracts' as my;
 
 /* GALLERY
@@ -20,6 +22,25 @@
 
     margin-right: 0;
     margin-left: 0;
+  }
+
+  .gallery__item {
+    position: relative;
+
+    flex-basis: 142px;
+
+    margin-right: my.$gutter * 0.5;
+    margin-bottom: 1.5rem;
+    margin-left: my.$gutter * 0.5;
+
+    @supports (display: grid) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .gallery__item--video {
+    position: relative;
   }
 
   .gallery__link {
@@ -57,33 +78,22 @@
     }
   }
 
-  .gallery__item {
-    position: relative;
-
-    flex-basis: 142px;
-
-    margin-right: my.$gutter * 0.5;
-    margin-bottom: 1.5rem;
-    margin-left: my.$gutter * 0.5;
-
-    @supports (display: grid) {
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-
-  .gallery__item--video {
-    position: relative;
+  .gallery__link--video {
+    @include my.aspect-ratio(16 x 9);
 
     &::after {
+      $w: 16;
+      $h: 9;
+
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 0;
+      bottom: auto;
       left: 0;
 
       width: 100%;
-      height: 100%;
+      height: 0;
+      padding-top: (math.div($h, $w) * 100%);
 
       pointer-events: none;
       content: '';
@@ -96,6 +106,11 @@
   .gallery__image {
     width: 100%;
     max-width: none;
+  }
+
+  .gallery__image--video {
+    position: absolute;
+    object-fit: cover;
   }
 
   .gallery__caption {
@@ -121,5 +136,15 @@
     :active > & {
       opacity: 1;
     }
+  }
+
+  .gallery__caption--video {
+    position: static;
+
+    clear: both;
+
+    color: my.palette('neutral', 'black');
+
+    opacity: 1;
   }
 }
