@@ -22,6 +22,10 @@
 
     margin-right: 0;
     margin-left: 0;
+
+    &--video {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
   }
 
   .gallery__item {
@@ -41,6 +45,8 @@
 
   .gallery__item--video {
     position: relative;
+
+    flex-basis: 260px;
   }
 
   .gallery__link {
