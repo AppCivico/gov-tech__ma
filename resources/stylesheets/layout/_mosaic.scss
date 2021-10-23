@@ -84,7 +84,7 @@
     }
   }
 
-  &.gallery__link--video .mosaic__link {
+  .mosaic__link--video {
     @include my.aspect-ratio(48 x 27);
   }
 
@@ -103,7 +103,7 @@
     object-position: center top;
   }
 
-  &.gallery__link--video .mosaic__image {
+  .mosaic__link--video .mosaic__image {
     object-position: center;
   }
 
