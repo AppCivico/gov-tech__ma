@@ -158,6 +158,8 @@
   width: my.$gutter * 2;
   height: my.$gutter * 2;
 
+  background-color: transparent;
+
   &::before {
     position: relative;
     top: my.$gutter * -0.5;
@@ -187,7 +189,56 @@
     display: block;
 
     margin: 0;
+
+    pointer-events: none;
   }
+}
+
+.main-footer__plain-menu {
+  display: none;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+
+  padding: 0 my.$gutter * 0.5;
+
+  font-weight: normal;
+  text-transform: none;
+
+  opacity: 0;
+
+  transition-duration: 300ms;
+  transition-property: opacity;
+
+  &.opened {
+    display: flex;
+
+    opacity: 1;
+  }
+}
+
+.main-footer__plain-menu > li {
+  display: block;
+
+  flex-basis: 200px;
+
+  padding: my.$gutter * 0.5 0;
+  overflow: hidden;
+
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-footer__plain-menu-item-link {
+  display: block;
+}
+
+.main-footer__plain-menu-item-container {
+}
+
+.main-footer__menu-link {
 }
 
 .main-footer__menu-item-link--with-icon,

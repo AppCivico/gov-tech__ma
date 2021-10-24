@@ -1,4 +1,5 @@
 import a11y from './a11y';
+import ariaMenusInit from './ariaMenus';
 import biddingInit from './bidding';
 import headRandomize from './layout/header-randomize';
 import modalInit from './modal';
@@ -10,6 +11,7 @@ import selectNavigation from './selectNavigation';
 import sliderInit from './slider';
 
 a11y();
+ariaMenusInit();
 biddingInit();
 headRandomize();
 modalInit();

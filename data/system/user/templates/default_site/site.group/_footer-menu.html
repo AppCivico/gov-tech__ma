@@ -1,5 +1,5 @@
-{exp:query sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu de rodape' LIMIT 1;" parse="inward"}
-    <nav class="main-footer__menu-wrapper">
+<nav class="main-footer__menu-wrapper">
+    {exp:query sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu de rodape' LIMIT 1;" parse="inward"}
         {exp:channel:category_archive show_empty="yes"
             channel="page|government_member|service|news|staff"
             style="nested" category_group="{group_id}" class="main-footer__menu-list" role="menu"
@@ -27,15 +27,11 @@
                         {if category_image}
                             main-footer__menu-item-container--with-icon
                         {/if}
-
-                        " type="button"
-                        role="menuitem" aria-haspopup="menu"
-                        onclick="
-                            this.classList.toggle('opened');
-                            this.setAttribute('aria-expanded', this.classList.contains('opened'))
-                            this.focus();
                         "
+                        type="button"
+                        role="menuitem"
                         {if category_url_title == "mapa-do-site" || category_url_title == "sitemap"}
+                            aria-haspopup="true" aria-controls="sitemap-footer"
                             title="{category_name}"
                         {/if}
                     >
@@ -56,7 +52,7 @@
                 <a
                     {if page_uri}
                         href="{page_uri}"
-                    {if:elseif "{channel_url}" $="/"}
+                    {if:elseif "{channel_url}" $= "/"}
                         href="{channel_url}{url_title}"
                     {if:else}
                         href="{channel_url}/{url_title}"
@@ -67,7 +63,53 @@
                 </a>
             {/entry_titles}
         {/exp:channel:category_archive}
+    {/exp:query}
 
-        {embed="default_site:site/_sites-menu"}
-    </nav>
-{/exp:query}
+    {exp:query
+        sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
+        parse="inward"
+    }
+        {exp:channel:category_archive channel="page|government_member|service|news|staff|special"
+            style="nested" category_group="{group_id}" class="main-footer__plain-menu"
+            id="sitemap-footer"
+        }
+            {categories}
+                {if url}
+                    <a
+                        href="{url:url}"
+                        target="_blank"
+                        class="main-footer__plain-menu-item-link"
+                    >
+                        {category_name}
+                    </a>
+                {if:else}
+                    <strong
+                        class="main-footer__plain-menu-item-container"
+                        role="menuitem" aria-haspopup="menu"
+                    >
+                        {category_name}
+                    </strong>
+                {/if}
+            {/categories}
+
+            {entry_titles}
+                <a
+                    {if page_uri}
+                        href="{page_uri}"
+                    {if:elseif "{channel_short_name}" == "page"}
+                        href="/{url_title}"
+                    {if:elseif "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
+                        href="{channel_url}"
+                    {if:elseif "{channel_url}" $= "/"}
+                        href="{channel_url}{url_title}"
+                    {if:else}
+                        href="{channel_url}/{url_title}"
+                    {/if}
+                    class="main-footer__menu-link"
+                >
+                    {title}
+                </a>
+            {/entry_titles}
+        {/exp:channel:category_archive}
+    {/exp:query}
+</nav>
