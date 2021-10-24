@@ -46,22 +46,28 @@
                 </div>
                 {/exp:query}
 
-                <div class="main-services__category main-services__category--{programas}">
-                    <h3 class="main-services__title">Programas</h3>
+                {exp:channel:entries channel="service" site="not none"
+                    status="not closed" limit="5" parse="inward"
+                    category="{exp:cat2:id site_id='0' category_url_title='programas'}"
+                    disable="custom_fields|categories|category_fields|member_data|pagination"
+                    dynamic="no" orderby="title" sort="asc"
+                }
+                    {if count == 1}
+                        <div class="main-services__category main-services__category--{programas}">
+                        <h3 class="main-services__title">Programas</h3>
 
-                    <ul class="main-services__list">
-                    {exp:channel:entries channel="service" site="not none"
-                        status="not closed" limit="5" parse="inward"
-                        category="{exp:cat2:id site_id='0' category_url_title='programas'}"
-                        disable="custom_fields|categories|category_fields|member_data|pagination"
-                        dynamic="no" orderby="title" sort="asc"
-                    }
+                        <ul class="main-services__list">
+                    {/if}
+
                         <li class="main-services__item">
                             <a href="https:/{relative_url}/{url_title}">{title}</a>
                         </li>
-                    {/exp:channel:entries}
-                    </ul>
-                </div>
+
+                {if count == total_results}
+                        </ul>
+                    </div>
+                {/if}
+            {/exp:channel:entries}
         </div>
         <p class="read-more read-more--main-services">
             <a class="read-more__link" href="/servicos/">+ Serviços</a>
