@@ -13,30 +13,33 @@
                         <h2 class="h-feed__p-name h-feed__p-name--categories-of-services p-name">Serviços por categoria</h2>
 
                         {exp:query
-                            sql="SELECT GROUP_CONCAT(t.cat_id SEPARATOR '|') cat_ids
-                            FROM (
-                                SELECT ec.cat_id
+                            sql="
+                                SELECT ec.cat_id, ec.cat_image, ec.cat_url_title, ec.cat_name
                                 FROM exp_categories ec
                                 JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
                                 WHERE LOWER(ecg.group_name) IN ('categorias de serviços')
                                 GROUP BY ec.cat_url_title
-                                ORDER BY ec.cat_name
-                            ) AS t"
+                                ORDER BY ec.cat_name"
                             parse="inward"
+                            parse_files="yes"
                         }
-                            {exp:channel:categories show_empty="yes" site="not none" orderby="cat_name"
-                                style="nested" show="{cat_ids}" class="h-feed__list h-feed__list--categories-of-services"
-                            }
-                                <a href="{path='{segment_1}/index'}"
-                                    class="categories-of-services__link"
-                                >
-                                    {if category_image}
-                                        <img src="{category_image}" aria-hidden="true" alt="" class="categories-of-services__image" />
-                                    {/if}
+                            {if count == 1}
+                                <ul class="h-feed__list h-feed__list--categories-of-services">
+                            {/if}
+                                    <li>
+                                        <a href="{segment_1}/{cat_url_title}"
+                                            class="categories-of-services__link"
+                                        >
+                                            {if cat_image}
+                                                <img src="{cat_image}" aria-hidden="true" alt="" class="categories-of-services__image" />
+                                            {/if}
 
-                                    {category_name}
-                                </a>
-                            {/exp:channel:categories}
+                                            {cat_name}
+                                        </a>
+                                    </li>
+                            {if count == total_results}
+                                </ul>
+                            {/if}
                         {/exp:query}
                     </div>
                 </section>
