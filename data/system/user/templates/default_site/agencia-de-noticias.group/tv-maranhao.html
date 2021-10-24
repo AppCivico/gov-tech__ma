@@ -32,52 +32,27 @@
                 </p>
             {/if}
             {if count == 1}
-                <section class="h-feed__list gallery gallery--video mosaic mosaic--third">
+                <section class="h-feed__list gallery gallery--video">
             {/if}
-                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video mosaic__item">
-                        <a href="/noticias/{url_title}/videos" target="_blank" class="u-url mosaic__link" />
-                            {if count == 1}
-                                {exp:antenna url="{src}" max_width="679" max_height="570" cache_minutes="1680"}
-                                    <img
-                                        width="{video_width}"
-                                        height="{video_height}"
-                                        srcset="
-                                            {video_highres} 1280w,
-                                            {video_mediumres} 480w,
-                                            {video_thumbnail} 128w
-                                        "
-                                        sizes="
-                                            (max-width: 479px) 100vw,
-                                            (max-width: 1279px) 66vw,
-                                            708px
-                                        "
-                                        src="{video_thumbnail}"
-                                        alt="{video_title}"
-                                        decoding="async" loading="lazy"
-                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
-                                    />
-                                {/exp:antenna}
-                            {if:else}
-                                {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
-                                    <img
-                                        width="{video_width}"
-                                        height="{video_height}"
-                                        srcset="
-                                            {video_highres} 1280w,
-                                            {video_mediumres} 480w,
-                                            {video_thumbnail} 128w
-                                        "
-                                        sizes="(max-width: 479px) 50vw,
-                                            (max-width: 1279px) 33vw,
-                                            348px
-                                        "
-                                        src="{video_thumbnail}"
-                                        alt="{video_title}"
-                                        decoding="async" loading="lazy"
-                                        class="gallery__image gallery__image--video mosaic__image mosaic__image--video"
-                                    />
-                                {/exp:antenna}
-                            {/if}
+                    <figure class="h-feed__h-entry h-entry gallery__item gallery__item--video">
+                        <a href="/noticias/{url_title}/videos" target="_blank"
+                            class="u-url gallery__link gallery__link--video" />
+                            {exp:antenna url="{src}" max_width="400" max_height="285" cache_minutes="1680"}
+                                <img
+                                    width="260"
+                                    height="146"
+                                    src="{video_thumbnail}"
+                                    alt=""
+                                    decoding="async" loading="lazy"
+                                    class="gallery__image gallery__image--video"
+                                />
+
+                                {if video_title}
+                                    <figcaption class="gallery__caption gallery__caption--video">
+                                        {video_title}
+                                    </figcaption>
+                                {/if}
+                            {/exp:antenna}
                         </a>
                     </figure>
             {if count == total_results}
