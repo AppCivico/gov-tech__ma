@@ -1,0 +1,116 @@
+@use '../abstracts' as my;
+
+.calendar-table {
+  font-weight: my.font-weight('normal');
+  text-align: center;
+  text-transform: none;
+
+  border-spacing: my.$gutter * 0.33333;
+  border-collapse: separate;
+
+  thead {
+    text-transform: inherit;
+  }
+
+  thead th {
+    color: inherit;
+
+    background-color: inherit;
+  }
+
+  th,
+  td {
+    width: my.$gutter * 1.5;
+    height: my.$gutter * 1.5;
+    padding: 0;
+    overflow: hidden;
+
+    font-weight: inherit;
+    line-height: my.$gutter * 1.5;
+    text-overflow: ellipsis;
+    text-transform: inherit;
+    white-space: nowrap;
+  }
+
+  th {
+    text-align: inherit;
+
+    border: 0;
+  }
+
+  tbody th {
+  }
+
+
+  th abbr {
+    text-decoration: none;
+  }
+
+  td {
+    text-align: inherit;
+
+    border: 0;
+  }
+
+  a {
+    @include my.link-undercover;
+
+    display: block;
+  }
+}
+
+.calendar-table__month-header {}
+
+.calendar-table__month-links {
+  @include my.image-replacement;
+
+  background-position: 50% 50%;
+  background-size: 1ex auto;
+}
+
+.calendar-table__month-links--previous {
+  background-image: my.image('icons/to-left.svg');
+}
+
+.calendar-table__month-links--next {
+  background-image: my.image('icons/to-right.svg');
+}
+
+%not-current-month {
+  color: transparent;
+
+  @include my.on-event {
+    color: inherit;
+  }
+}
+
+.calendar-table__cell {
+  @for $day from 23 through 31 {
+    tr:first-child > &--#{$day} {
+      @extend %not-current-month;
+    }
+  }
+
+  @for $day from 1 through 6 {
+    tr:last-child > &--#{$day} {
+      @extend %not-current-month;
+    }
+  }
+}
+
+.calendar-table__cell--today {
+  font-weight: my.font-weight('bold');
+}
+
+.calendar-table__cell--current {
+  color: my.palette('neutral', 'white');
+
+  background-color: my.palette('brand', 'blue');
+  border-radius: 100%;
+}
+
+.calendar-table__week-days {
+  color: my.palette('neutral', 'gray');
+
+  background-color: inherit;
+}

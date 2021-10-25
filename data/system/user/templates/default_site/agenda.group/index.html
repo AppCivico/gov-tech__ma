@@ -1,0 +1,85 @@
+{layout="default_site:site/_layout" root_class="events" robots="noindex,noarchive,follow"}
+
+<main class="h-feed">
+    {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
+        <header class="h-feed__header">
+            <h1 class="h-feed__p-name p-name events__title">
+                {title}
+                {layout:set name="title"}{title}{/layout:set}
+            </h1>
+            {if no_results}
+            <h1 class="h-feed__p-name p-name events__title">
+                Agenda do governador
+                {layout:set name="title"}Agenda do governador{/layout:set}
+            </h1>
+            {/if}
+        </header>
+
+        {body}
+    {/exp:channel:entries}
+
+    {exp:channel:calendar channel="events" switch="calendar-table__cell--today|calendar-table__cell" show_future_entries="yes"}
+        <table class="calendar-table">
+            <thead class="calendar-table__month-header">
+                <th>
+                    <a class="calendar-table__month-links calendar-table__month-links--previous" href="{previous_path='channel/index'}">&lt;&lt;</a>
+                </th>
+                <th colspan="5">
+                    {date format="%F %Y"}
+                </th>
+                <th>
+                    <a class="calendar-table__month-links calendar-table__month-links--next" href="{next_path='channel/index'}">&gt;&gt;</a>
+                </th>
+                <tr class="calendar-table__week-days">
+                    {calendar_heading}
+                        <th class="calendar-day-heading">
+                            <abbr title="{lang:weekday_long}">
+                                {lang:weekday_short}
+                            </abbr>
+                        </th>
+                    {/calendar_heading}
+                </tr>
+            </thead>
+
+            <tbody>
+                {calendar_rows}
+                    {row_start}<tr>{/row_start}
+                        {if entries}
+                            <td class="calendar-table__cell calendar__cell--{day_number} {switch}
+                                {if segment_4 == day_number}calendar__cell--current{/if}
+                            ">
+                                <a href="{day_path='channel/index'}">{day_number}</a>
+                            </td>
+                        {/if}
+                        {if not_entries}
+                            <td class="calendar-table__cell calendar__cell--{day_number} {switch}
+                                {if segment_4 == day_number}calendar__cell--current{/if}
+                            ">
+                                {day_number}
+                            </td>
+                        {/if}
+                        {if blank}
+                            <td class="calendar-table__cell calendar-table__cell--{day_number} calendar-table__cell--blank
+                                {if segment_4 == day_number}calendar__cell--current{/if}
+                            ">
+                                {day_number}
+                            </td>
+                        {/if}
+                    {row_end}</tr>{/row_end}
+                {/calendar_rows}
+            </tbody>
+        </table>
+    {/exp:channel:calendar}
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
