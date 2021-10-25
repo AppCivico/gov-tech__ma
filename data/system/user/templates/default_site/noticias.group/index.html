@@ -24,7 +24,8 @@
             {/if}
         </header>
 
-        {exp:channel:entries channel="news" limit="10" disable="category_fields|member_data" status="not closed" paginate="inline"}
+        {exp:channel:entries channel="news" limit="10" disable="category_fields|member_data" status="not closed"
+        paginate="inline" orderby="date" sort="desc"}
             {if no_results}
                 <p>Não há publicações.</p>
             {/if}

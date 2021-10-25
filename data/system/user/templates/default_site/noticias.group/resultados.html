@@ -1,4 +1,5 @@
-{exp:channel:entries search:body="{exp:request:get_post name='keywords'}\W" search:{exp:request:get_post name='required'}="not IS_EMPTY" paginate="inline" parse="inward"}
+{exp:channel:entries search:body="{exp:request:get_post name='keywords'}\W" search:{exp:request:get_post
+name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" sort="desc"}
     {if no_results}
         <header class="h-feed__header">
             <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
