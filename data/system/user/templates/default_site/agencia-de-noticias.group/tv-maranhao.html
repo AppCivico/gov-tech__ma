@@ -23,7 +23,7 @@
             WHERE ect.site_id = 1 AND ect.status != 'closed' AND ect.channel_id = 2
             GROUP BY ect.entry_id
             ORDER BY ect.entry_date DESC, ecgf.row_order ASC
-            LIMIT 21;"
+            LIMIT 8;"
             parse_files="y"
         }
             {if no_results}
