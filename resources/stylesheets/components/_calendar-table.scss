@@ -57,60 +57,46 @@
 
     display: block;
   }
-}
 
-.calendar-table__month-header {}
+  .calendar-table__month-header {}
 
-.calendar-table__month-links {
-  @include my.image-replacement;
+  .calendar-table__month-links {
+    @include my.image-replacement;
 
-  background-position: 50% 50%;
-  background-size: 1ex auto;
-}
-
-.calendar-table__month-links--previous {
-  background-image: my.image('icons/to-left.svg');
-}
-
-.calendar-table__month-links--next {
-  background-image: my.image('icons/to-right.svg');
-}
-
-%not-current-month {
-  color: transparent;
-
-  @include my.on-event {
-    color: inherit;
+    background-position: 50% 50%;
+    background-size: 1ex auto;
   }
-}
 
-.calendar-table__cell {
-  @for $day from 23 through 31 {
-    tr:first-child > &--#{$day} {
-      @extend %not-current-month;
+  .calendar-table__month-links--previous {
+    background-image: my.image('icons/to-left.svg');
+  }
+
+  .calendar-table__month-links--next {
+    background-image: my.image('icons/to-right.svg');
+  }
+
+  .calendar-table__cell--blank {
+    color: transparent;
+
+    @include my.on-event {
+      color: inherit;
     }
   }
 
-  @for $day from 1 through 6 {
-    tr:last-child > &--#{$day} {
-      @extend %not-current-month;
-    }
+  .calendar-table__cell--today {
+    font-weight: my.font-weight('bold');
   }
-}
 
-.calendar-table__cell--today {
-  font-weight: my.font-weight('bold');
-}
+  .calendar-table__cell--current {
+    color: my.palette('neutral', 'white');
 
-.calendar-table__cell--current {
-  color: my.palette('neutral', 'white');
+    background-color: my.palette('brand', 'blue');
+    border-radius: 100%;
+  }
 
-  background-color: my.palette('brand', 'blue');
-  border-radius: 100%;
-}
+  .calendar-table__week-days {
+    color: my.palette('neutral', 'gray');
 
-.calendar-table__week-days {
-  color: my.palette('neutral', 'gray');
-
-  background-color: inherit;
+    background-color: inherit;
+  }
 }

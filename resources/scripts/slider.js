@@ -7,36 +7,59 @@ export default () => {
     for (let i = 0; i < sliders.length; i += 1) {
       const sliderEl = sliders[i];
       const autoPlay = sliderEl.getAttribute('data-slider-play') === 'auto';
+      const dotCount = sliderEl.querySelectorAll('.slider__item').length;
       const slidesToScroll = sliderEl.hasAttribute('data-slides-to-scroll')
-        ? sliderEl.getAttribute('data-slides-to-scroll')
+        ? Number.parseInt(sliderEl.getAttribute('data-slides-to-scroll'), 10)
         : 1;
+      const controlButtons = sliderEl.querySelectorAll('.js_prev, .js_next');
+
       const config = {
         classNameFrame: 'slider__frame',
         classNameSlideContainer: 'slider__container',
+        slidesToScroll,
       };
+
       const dotContainer = sliderEl.querySelector('.slider__navigation');
       let lorySlider = null;
+
+      if (sliderEl.hasAttribute('data-slider-initial')) {
+        const container = sliderEl.querySelector('.slider__container');
+        let value = sliderEl.getAttribute('data-slider-initial');
+
+        if (value === 'today') {
+          value = String(new Date().getDate());
+        }
+
+        for (let j = 0; j < container.children.length; j += 1) {
+          const child = container.children[j];
+
+          if (child.getAttribute('data-slider') !== 'no-initial' && child.textContent.trim() === value) {
+            child.className += ' calendar-menu__item--current';
+
+            config.initialIndex = j;
+            break;
+          }
+        }
+      }
 
       if (autoPlay) {
         config.enableMouseEvents = true;
       }
 
-      if (dotContainer) {
-        const dotCount = sliderEl.querySelectorAll('.slider__item').length;
-        const slideTo = (ev) => {
-          lorySlider.slideTo(Array.prototype.indexOf.call(dotContainer.childNodes, ev.target));
-        };
-        const dotListItem = document.createElement('li');
-        const controlButtons = sliderEl.querySelectorAll('.js_prev, .js_next');
-
-        if (dotCount > 1) {
-          for (let j = 0; j < controlButtons.length; j += 1) {
-            const button = controlButtons[j];
-            if (button.hasAttribute('hidden')) {
-              button.removeAttribute('hidden');
-            }
+      if (dotCount > 1) {
+        for (let j = 0; j < controlButtons.length; j += 1) {
+          const button = controlButtons[j];
+          if (button.hasAttribute('hidden')) {
+            button.removeAttribute('hidden');
           }
         }
+      }
+
+      if (dotContainer) {
+        const slideTo = (ev) => {
+          lorySlider.slideTo(Array.prototype.indexOf.call(dotContainer.children, ev.target));
+        };
+        const dotListItem = document.createElement('li');
 
         const handleDotEvent = (e) => {
           switch (e.type) {
@@ -45,27 +68,27 @@ export default () => {
                 const clone = dotListItem.cloneNode();
                 dotContainer.appendChild(clone);
               }
-              dotContainer.childNodes[0].classList.add('active');
+              dotContainer.children[0].classList.add('active');
               break;
 
             case 'after.lory.init':
               for (let j = 0, len = dotCount; j < len; j += 1) {
-                dotContainer.childNodes[j].addEventListener('click', slideTo);
+                dotContainer.children[j].addEventListener('click', slideTo);
               }
               break;
 
             case 'after.lory.slide':
-              for (let j = 0, len = dotContainer.childNodes.length; j < len; j += 1) {
-                dotContainer.childNodes[j].classList.remove('active');
+              for (let j = 0, len = dotContainer.children.length; j < len; j += 1) {
+                dotContainer.children[j].classList.remove('active');
               }
-              dotContainer.childNodes[e.detail.currentSlide - 1].classList.add('active');
+              dotContainer.children[e.detail.currentSlide - 1].classList.add('active');
               break;
 
             case 'on.lory.resize':
-              for (let j = 0, len = dotContainer.childNodes.length; j < len; j += 1) {
-                dotContainer.childNodes[j].classList.remove('active');
+              for (let j = 0, len = dotContainer.children.length; j < len; j += 1) {
+                dotContainer.children[j].classList.remove('active');
               }
-              dotContainer.childNodes[0].classList.add('active');
+              dotContainer.children[0].classList.add('active');
               break;
 
             default:

@@ -20,9 +20,6 @@ td {
   background-color: transparent;
   border: 0;
 
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    display: block;
-  }
 }
 
 table {
@@ -46,9 +43,6 @@ table {
 
 thead,
 tfoot {
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    display: none;
-  }
 }
 
 thead {
@@ -72,13 +66,6 @@ caption {
 }
 
 tr {
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    @include my.fallback('margin', 0 0 1.5rem);
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 th + th,
@@ -112,12 +99,6 @@ th {
 
 td {
   font-family: inherit;
-
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    &:empty {
-      display: none;
-    }
-  }
 }
 
 thead th,
@@ -151,22 +132,6 @@ tbody th {
 
 tbody td {
   font-variant-numeric: lining-nums oldstyle-nums;
-
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    text-align: left;
-
-    &[aria-label] {
-      text-align: right;
-
-      &::before {
-        float: left;
-
-        font-style: italic;
-
-        content: attr(aria-label) ': ';
-      }
-    }
-  }
 }
 
 td img {
@@ -175,11 +140,59 @@ td img {
 
 tbody tr:nth-of-type(odd) > th,
 tbody tr:nth-of-type(odd) > td {
-  @media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
-    background-color: transparent;
-  }
 }
 
 tfoot th,
 tfoot td {
+}
+
+@media screen and (max-width: #{map.get(my.$breakpoints, 'toggle-table-layout') - 0.01}) {
+  table:not(.calendar-table) {
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+    }
+
+    thead,
+    tfoot {
+      display: none;
+    }
+
+    tbody td {
+      text-align: left;
+
+      &[aria-label] {
+        text-align: right;
+
+        &::before {
+          float: left;
+
+          font-style: italic;
+
+          content: attr(aria-label) ': ';
+        }
+      }
+    }
+
+    tbody tr:nth-of-type(odd) > th,
+    tbody tr:nth-of-type(odd) > td {
+      background-color: transparent;
+    }
+
+    tr {
+      @include my.fallback('margin', 0 0 1.5rem);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    td {
+      &:empty {
+        display: none;
+      }
+    }
+  }
 }

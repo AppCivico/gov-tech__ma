@@ -1,0 +1,151 @@
+@use '../abstracts' as my;
+
+.h-feed--events {
+  .h-feed__header {
+    width: 100%;
+    margin: 0;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      display: grid;
+
+      grid-auto-columns: 1fr minmax(min-content, auto);
+    }
+  }
+
+  .h-feed__p-name {
+    grid-area: 1 / 1 / 2 / 2;
+
+    margin-bottom: my.$gutter;
+  }
+
+  .h-feed__subhead {
+    grid-area: 2 / 1 / 3 / 2;
+
+    margin-bottom: my.$gutter * 2;
+
+    font-size: my.ms-step(20px);
+    font-weight: my.font-weight('bold');
+    text-transform: none;
+  }
+
+  .calendar-menu {
+    grid-area: 3 / 1 / 4 / 2;
+
+    height: min-content;
+    margin-bottom: my.$gutter;
+    overflow: hidden;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      .slider__prev {
+        right: auto;
+        left: 0;
+      }
+
+      .slider__next {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  .calendar-table {
+    grid-area: 1 / 2 / 4 / 3;
+
+    width: 100%;
+  }
+}
+
+.h-feed__list--events {
+  .h-feed__h-entry {
+    position: relative;
+
+    padding: my.$gutter * 0.5;
+    margin-top: my.$gutter * 6;
+
+    background-color: my.palette('neutral', 'white');
+    box-shadow: 0 3px 10px my.palette('effects', 'shadow');
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      padding-top: (my.$gutter * 2);
+      padding-right: 0;
+      padding-bottom: (my.$gutter * 2);
+      padding-left: calc(33% + #{my.$gutter * 0.33333});
+      margin-top: 0;
+      margin-bottom: 0;
+
+      box-shadow: none;
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      padding-left: calc(16.666666% + #{my.$gutter * 0.25});
+    }
+  }
+
+  .h-entry__header {
+    margin: 0 0 my.$gutter 0;
+  }
+
+  .dt-published {
+    &::before {
+      content: none;
+    }
+  }
+
+  .dt-event__duration {
+    position: absolute;
+    right: 50%;
+    bottom: calc(100% + #{my.$gutter * 3});
+
+    width: auto;
+
+    font-size: my.ms-step(21px);
+    font-weight: my.font-weight('bold');
+    line-height: my.$gutter * 2;
+    text-align: center;
+    white-space: nowrap;
+
+    transform: translate(50%, 50%);
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      right: auto;
+      bottom: 50%;
+      left: 0;
+
+      transform: translate(0%, 50%);
+    }
+
+    &::before {
+      display: inline-block;
+
+      width: my.$gutter;
+      height: my.$gutter;
+
+      vertical-align: -0.25rem;
+
+      content: '';
+
+      background-image: my.image('icons/clock--orange.svg');
+      background-size: contain;
+    }
+
+    time {
+      font-style: inherit;
+    }
+  }
+
+  .h-entry__p-location {
+    &::before {
+      display: inline-block;
+
+      width: my.$gutter;
+      height: my.$gutter;
+
+      vertical-align: -0.25rem;
+
+      content: '';
+
+      background-image: my.image('icons/pin--orange.svg');
+      background-size: contain;
+    }
+  }
+}

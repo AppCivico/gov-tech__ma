@@ -1,0 +1,79 @@
+@use '../abstracts' as my;
+
+.calendar-menu {
+  padding: 0;
+  margin: 0;
+
+  font-size: my.ms-step(36px);
+  font-weight: my.font-weight('bold');
+  text-align: center;
+  text-transform: none;
+
+  a {
+    @include my.link-undercover;
+
+    display: block;
+
+    padding: 0;
+  }
+}
+
+.calendar-menu__month-header {}
+
+.calendar-menu__month-links {
+  @include my.image-replacement;
+
+  background-position: 50% 50%;
+  background-size: 1ex auto;
+}
+
+.calendar-menu__month-links--previous {
+  background-image: my.image('icons/to-left.svg');
+}
+
+.calendar-menu__month-links--next {
+  background-image: my.image('icons/to-right.svg');
+}
+
+.calendar-menu__list {
+}
+
+.calendar-menu__item {
+  width: auto;
+  padding-right: my.$gutter * 1.5;
+  padding-left: my.$gutter * 1.5;
+
+  line-height: my.$gutter * 4;
+
+  border-color: my.palette('neutral', 'base');
+  border-style: none none solid;
+  border-width: my.$stroke__thin;
+
+  &.slider__item {
+    width: auto;
+  }
+
+  &:hover {
+    border-color: my.palette('brand', 'blue');
+  }
+}
+
+.calendar-menu__item--blank {
+  color: my.palette('neutral', 'gray');
+}
+
+.calendar-menu__item--today {
+  font-size: my.ms-step(45px);
+  font-weight: my.font-weight('bold');
+}
+
+.calendar-menu__item--current {
+  border-color: my.palette('brand', 'blue');
+  border-width: my.$stroke__thick;
+}
+
+.calendar-menu__week-days {
+  color: my.palette('neutral', 'gray');
+
+  background-color: inherit;
+}

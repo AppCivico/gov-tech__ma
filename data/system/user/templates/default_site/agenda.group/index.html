@@ -1,85 +1,175 @@
 {layout="default_site:site/_layout" root_class="events" robots="noindex,noarchive,follow"}
 
-<main class="h-feed">
-    {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
-        <header class="h-feed__header">
+<main class="h-feed h-feed--events">
+    <header class="h-feed__header">
+        {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
             <h1 class="h-feed__p-name p-name events__title">
                 {title}
                 {layout:set name="title"}{title}{/layout:set}
             </h1>
-            {if no_results}
-            <h1 class="h-feed__p-name p-name events__title">
-                Agenda do governador
-                {layout:set name="title"}Agenda do governador{/layout:set}
-            </h1>
-            {/if}
-        </header>
+            <h2 class="h-feed__subhead">
+                {if segment_3}
+                    {exp:low_nice_date date="{segment_2}-{segment_3}-01" format="%F %Y"}
+                {if:else}
+                    {current_time format="%F %Y"}
+                {/if}
+            </h2>
 
+            {if no_results}
+                <h1 class="h-feed__p-name p-name events__title">
+                    Agenda do governador
+                    {layout:set name="title"}Agenda do governador{/layout:set}
+                </h1>
+                <h2 class="h-feed__subhead">
+                    {if segment_3}
+                        {exp:low_nice_date date="{segment_2}-{segment_3}-01" format="%F %Y"}
+                    {if:else}
+                        {current_time format="%F %Y"}
+                    {/if}
+                </h2>
+            {/if}
+        {/exp:channel:entries}
+
+        {exp:channel:calendar channel="event" switch="calendar-menu__item--today|calendar-menu__item" show_future_entries="yes"}
+            <nav class="calendar-menu slider" data-js="slider" data-slider-initial="{if segment_4}{segment_4}{if:else}today{/if}">
+                <button type="button" hidden="hidden" class="js_prev slider__prev" aria-hidden="true">
+                    &#9664;
+                </button>
+
+                <div class="slider__frame">
+                    <ul class="calendar-menu__list slider__container">
+                        {calendar_rows}
+                            {if entries}
+                                <li class="calendar-menu__item calendar-menu__item--has-entries {switch} slider__item
+                                    {if '{segment_4}' == '{day_number}'}calendar-menu__item--current{/if}
+                                ">
+                                    <a href="{day_path='channel/index'}">{day_number}</a>
+                                </li>
+                            {/if}
+                            {if not_entries}
+                                <li class="calendar-menu__item calendar-menu__item--no-entries {switch} slider__item
+                                    {if '{segment_4}' == '{day_number}'}calendar-menu__item--current{/if}
+                                ">
+                                    {day_number}
+                                </li>
+                            {/if}
+                            {if blank}
+                                <li data-slider="no-initial" class="calendar-menu__item calendar-menu__item--blank slider__item
+                                    {if '{segment_4}' == '{day_number}'}calendar-menu__item--current{/if}
+                                ">
+                                    {day_number}
+                                </li>
+                            {/if}
+                        {/calendar_rows}
+                    </ul>
+                </div>
+
+                <button type="button" hidden="hidden" class="js_next slider__next" aria-hidden="true">
+                    &#9654;
+                </button>
+            </nav>
+        {/exp:channel:calendar}
+
+        {exp:channel:calendar channel="event" switch="calendar-table__cell--today|calendar-table__cell" show_future_entries="yes"}
+            {if count == 1}
+                {layout:set name="canonical"}{segment_1}/{date format="%Y/%m/%d"}{/layout:set}
+            {/if}
+
+            <table class="calendar-table">
+                <thead class="calendar-table__month-header">
+                    <th>
+                        <a class="calendar-table__month-links calendar-table__month-links--previous" href="{previous_path='agenda/index'}">&lt;&lt;</a>
+                    </th>
+                    <th colspan="5">
+                        {date format="%F %Y"}
+                    </th>
+                    <th>
+                        <a class="calendar-table__month-links calendar-table__month-links--next" href="{next_path='agenda/index'}">&gt;&gt;</a>
+                    </th>
+                    <tr class="calendar-table__week-days">
+                        {calendar_heading}
+                            <th class="calendar-day-heading">
+                                <abbr title="{lang:weekday_long}">
+                                    {lang:weekday_short}
+                                </abbr>
+                            </th>
+                        {/calendar_heading}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {calendar_rows}
+                        {row_start}<tr>{/row_start}
+                            {if entries}
+                                <td class="calendar-table__cell calendar-table__cell--has-entries {switch}
+                                ">
+                                    <a href="{day_path='agenda/index'}">{day_number}</a>
+                                </td>
+                            {/if}
+                            {if not_entries}
+                                <td class="calendar-table__cell calendar-table__cell--no-entries {switch}
+                                ">
+                                    {day_number}
+                                </td>
+                            {/if}
+                            {if blank}
+                                <td class="calendar-table__cell calendar-table__cell--blank
+                                ">
+                                    {day_number}
+                                </td>
+                            {/if}
+                        {row_end}</tr>{/row_end}
+                    {/calendar_rows}
+                </tbody>
+            </table>
+        {/exp:channel:calendar}
+    </header>
+
+    {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
         {body}
     {/exp:channel:entries}
 
-    {exp:channel:calendar channel="events" switch="calendar-table__cell--today|calendar-table__cell" show_future_entries="yes"}
-        <table class="calendar-table">
-            <thead class="calendar-table__month-header">
-                <th>
-                    <a class="calendar-table__month-links calendar-table__month-links--previous" href="{previous_path='channel/index'}">&lt;&lt;</a>
-                </th>
-                <th colspan="5">
-                    {date format="%F %Y"}
-                </th>
-                <th>
-                    <a class="calendar-table__month-links calendar-table__month-links--next" href="{next_path='channel/index'}">&gt;&gt;</a>
-                </th>
-                <tr class="calendar-table__week-days">
-                    {calendar_heading}
-                        <th class="calendar-day-heading">
-                            <abbr title="{lang:weekday_long}">
-                                {lang:weekday_short}
-                            </abbr>
-                        </th>
-                    {/calendar_heading}
-                </tr>
-            </thead>
+    {exp:channel:entries channel="event" limit="10" month_limit="100" orderby="date" sort="desc"
+    disable="category_fields|member_data|pagination" status="not closed" show_expired="yes" show_future_entries="yes" year="{segment_2}" month="{segment_3}" day="{segment_4}"}
+        {if no_results}
+            <p>Não há eventos cadastrados.</p>
+        {/if}
+        {if count == "1"}
+            <section class="h-feed__list h-feed__list--events">
+        {/if}
+                <article id="entry-{entry_id}" class="h-feed__h-entry h-entry">
 
-            <tbody>
-                {calendar_rows}
-                    {row_start}<tr>{/row_start}
-                        {if entries}
-                            <td class="calendar-table__cell calendar__cell--{day_number} {switch}
-                                {if segment_4 == day_number}calendar__cell--current{/if}
-                            ">
-                                <a href="{day_path='channel/index'}">{day_number}</a>
-                            </td>
-                        {/if}
-                        {if not_entries}
-                            <td class="calendar-table__cell calendar__cell--{day_number} {switch}
-                                {if segment_4 == day_number}calendar__cell--current{/if}
-                            ">
-                                {day_number}
-                            </td>
-                        {/if}
-                        {if blank}
-                            <td class="calendar-table__cell calendar-table__cell--{day_number} calendar-table__cell--blank
-                                {if segment_4 == day_number}calendar__cell--current{/if}
-                            ">
-                                {day_number}
-                            </td>
-                        {/if}
-                    {row_end}</tr>{/row_end}
-                {/calendar_rows}
-            </tbody>
-        </table>
-    {/exp:channel:calendar}
+                        <header class="h-entry__header">
+                            <h3 class="h-entry__p-name p-name">{title}</h3>
 
+                            <div class="dt-event__duration">
+                                <time class="dt-start" datetime="{entry_date format="{DATE_ISO8601}"}">
+                                    {entry_date format="%H:%i"}
+                                </time>
+                                {if expiration_date} -
+                                    <time class="dt-end" datetime="{expiration_date format="{DATE_ISO8601}"}">
+                                        {expiration_date format="%H:%i"}
+                                    </time>
+                                {/if}
+                            </div>
+                        </header>
 
+                        <div class="h-entry__p-summary p-summary">
+                            {if summary}
+                                <p>{summary:limit characters="280" end_char="…"}</p>
+                            {if:else}
+                                {body:limit characters="280" end_char="…"}
+                            {/if}
+                        </div>
 
-
-
-
-
-
-
-
-
-
+                    {if event__location}
+                        <footer class="h-entry__p-location p-location">
+                            {location}
+                        </footer>
+                    {/if}
+                </article>
+        {if count == total_results}
+            </section>
+        {/if}
+    {/exp:channel:entries}
 </main>
