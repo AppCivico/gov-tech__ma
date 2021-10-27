@@ -2,8 +2,7 @@
 
 {if segment_3 == "" OR segment_3 ~ "/^P\d+/"}
     <main class="mosaic__wrapper mosaic__wrapper--video h-feed">
-        {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination" orderby="date"
-        sort="desc"}
+        {exp:channel:entries limit="1" channel="pages" disable="category_fields|member_data|pagination"}
             <header class="h-feed__header">
                 <h1 class="h-feed__p-name p-name mosaic__title mosaic__title--video">
                     {title}
