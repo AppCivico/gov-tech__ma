@@ -17,6 +17,10 @@
     flex-wrap: nowrap;
 
     align-items: stretch;
+    justify-content: flex-start;
+
+    padding: 0;
+    margin: 0;
   }
 
   .slider__item {
