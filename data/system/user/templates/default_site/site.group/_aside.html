@@ -37,22 +37,26 @@
         </section>
     {/exp:query}
 
-        <section class="h-feed main-aside__section">
-            <h5 class="h-feed__p-name p-name main-aside__title">
-                Programas
-            </h5>
-            <ul class="main-aside__list">
-                {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{exp:cat2:id category_url_title='programas'}" status="not closed" limit="3" dynamic="no"}
+    {exp:channel:entries channel="service" disable="categories|category_fields|member_data|pagination" category="{exp:cat2:id category_url_title='programas'}" status="not closed" limit="3" dynamic="no"}
+        {if count == 1}
+            <section class="h-feed main-aside__section">
+                <h5 class="h-feed__p-name p-name main-aside__title">
+                    Programas
+                </h5>
+                <ul class="main-aside__list">
+        {/if}
                     <li class="main-aside__item h-entry">
                         <a class="main-aside__link h-entry__u-url u-url" href="https:/{relative_url}/{url_title}">{title}</a>
                     </li>
-                {/exp:channel:entries}
-            </ul>
-        </section>
+        {if count == total_results}
+                </ul>
+            </section>
 
-    <p class="read-more">
-        <a class="read-more__link" href="/servicos">+ Serviços e programas</a>
-    </p>
+            <p class="read-more">
+                <a class="read-more__link" href="/servicos">+ Serviços e programas</a>
+            </p>
+        {/if}
+    {/exp:channel:entries}
 
 <!-- most filled services :end -->
 
