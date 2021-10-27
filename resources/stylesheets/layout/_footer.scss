@@ -195,13 +195,14 @@
 }
 
 .main-footer__plain-menu {
+  @include my.columns;
+
   display: none;
 
-  flex-wrap: wrap;
-
-  justify-content: flex-start;
-
-  padding: 0 my.$gutter * 0.5;
+  padding-top: 0;
+  padding-right: my.$gutter * 0.5;
+  padding-bottom: 0;
+  padding-left: my.$gutter * 0.5;
 
   font-weight: normal;
   text-transform: none;
@@ -209,13 +210,33 @@
   opacity: 0;
 
   transition-duration: 300ms;
-  transition-property: opacity;
+  transition-property: opacity, transform;
+  transform: scaleX(0);
+  transform-origin: 50% 0;
 
   &.opened {
-    display: flex;
+    display: block;
+
+    padding-bottom: my.$gutter;
 
     opacity: 1;
+
+    transform: scaleX(1);
   }
+
+  [role='menuitem'],
+  menu a,
+  nav a {
+    height: auto;
+  }
+}
+
+.main-footer__plain-menu strong {
+  font-weight: my.font-weight('bold');
+}
+
+.main-footer__plain-menu ul {
+  display: block;
 }
 
 .main-footer__plain-menu > li {
