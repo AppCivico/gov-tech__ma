@@ -52,6 +52,7 @@
                         JOIN exp_sites es ON es.site_id = ec.site_id
                         WHERE ec.site_id != 1
                         GROUP BY ec.site_id
+                        ORDER BY es.site_label
                     "
                 }
                     {if count == 1}
