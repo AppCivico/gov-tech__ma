@@ -110,7 +110,7 @@
 
                                         <select name="location" class="navigation-by-select__select">
                                             <option value=""></option>
-                                    {/if}
+                    {/if}
                                             <option
                                                 {if segment_4}
                                                     value="{cat_url_title}"
@@ -123,7 +123,7 @@
                                             >
                                                 {cat_name}
                                             </option>
-                                    {if count == total_results}
+                    {if count == total_results}
                                         </select>
 
                                         <button type="submit" class="navigation-by-select__button">
@@ -205,11 +205,7 @@
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
                             <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                                {if segment_3 == "programas"}
-                                    Nenhum programa encontrado
-                                {if:else}
-                                    Nenhum serviço encontrado
-                                {/if}
+                                Nenhum programa encontrado
                             </li>
                         </ul>
                     {/if}
@@ -244,11 +240,7 @@
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
                             <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                                {if segment_3 == "programas"}
-                                    Nenhum programa encontrado
-                                {if:else}
-                                    Nenhum serviço encontrado
-                                {/if}
+                                Nenhum serviço encontrado
                             </li>
                         </ul>
                     {/if}
