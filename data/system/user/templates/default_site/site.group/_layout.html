@@ -226,7 +226,7 @@
                     <fieldset class="search-form__fieldset">
                         {if site_id == 1}
                             <legend class="search-form__legend">
-                                {if segment_1 != "noticias"}
+                                {if segment_1 != "noticias" && segment_1 != "agencia-de-noticias"}
                                     Como podemos te ajudar?
                                 {if:else}
                                     Agência de Notícias
@@ -235,7 +235,7 @@
                         {/if}
                         <p class="search-form__field-wrapper search-form__field-wrapper--text">
                             <input type="text" id="keywords"
-                                {if segment_1 != "noticias"}
+                                {if segment_1 != "noticias" && segment_1 != "agencia-de-noticias"}
                                     placeholder="{settings__search_placeholder}"
                                 {/if}
                                 autocomplete="on" name="keywords"
@@ -256,7 +256,7 @@
                             <img src="/assets/images/magnifying-glass.svg" width="18" height="18" />
                         </button>
                     </fieldset>
-                    {if segment_1 != "noticias"}
+                    {if segment_1 != "noticias" && segment_1 != "agencia-de-noticias"}
                         {if settings__search_suggestions:total_rows}
                             <fieldset class="search-form__suggestions">
                                 <p class="search-form__suggestions-title">
@@ -324,7 +324,7 @@
 
             {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
 
-                {if segment_1 != "noticias"}
+                {if segment_1 != "noticias" && segment_1 != "agencia-de-noticias"}
                     {settings__header}
 <style data-js="custom-header" data-idx="{settings__header:count}">
   [data-header-idx='{settings__header:count}']:root .main-header-and-search-form {
