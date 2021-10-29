@@ -85,7 +85,6 @@
 }
 
 .h-feed__p-name {
-  max-width: map.get(my.$line-lengths, 'min');
   margin: 0;
 
   font-size: my.ms-step(28px);

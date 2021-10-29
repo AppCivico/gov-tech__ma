@@ -5,13 +5,13 @@
     {if count == 1}
     <section class="h-feed home-services">
         <h2 class="h-feed__p-name h-feed__p-name--home-services p-name">{embed:title}</h2>
-        <div class="h-feed__list h-feed__list--home-services">
+        <ul class="h-feed__list h-feed__list--home-services">
     {/if}
-            <a
-                href='{url_title_path="servicos/index"}'
-                class="h-entry__u-url--home-services h-entry__u-url"
-            >
-                <article class="h-feed__h-entry h-entry h-feed__h-entry--home-services">
+            <li class="h-feed__h-entry h-entry h-feed__h-entry--home-services">
+                <a
+                    href='{url_title_path="servicos/index"}'
+                    class="h-entry__u-url--home-services h-entry__u-url"
+                >
                     {if embed:service_group}
                         {categories show_group="{embed:service_group}" limit="1"}
                             {if category_image}
@@ -24,10 +24,10 @@
                     {/if}
 
                     <h3 class="h-entry__p-name p-name h-entry__p-name--home-services">{title}</h3>
-                </article>
-            </a>
+                </a>
+            </li>
     {if count == total_results}
-        </div>
+        </ul>
     </section>
     {/if}
 {/exp:channel:entries}
