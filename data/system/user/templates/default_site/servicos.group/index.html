@@ -189,11 +189,14 @@
                             Serviços
                         </a>
                     </li>
-                    <li class="tab-bar__tab {if segment_3 == 'programas'}tab-bar__tab--current{/if}">
-                        <a class="tab-bar__label" href="/{segment_1}/{config:reserved_category_word}/programas">
-                            Programas
-                        </a>
-                    </li>
+
+                    {exp:cat2:id category_url_title="programas" parse="inward"}
+                        <li class="tab-bar__tab {if segment_3 == 'programas'}tab-bar__tab--current{/if}">
+                            <a class="tab-bar__label" href="/{segment_1}/{config:reserved_category_word}/programas">
+                                Programas
+                            </a>
+                        </li>
+                    {/exp:cat2:id}
                 </ul>
             </header>
             {if segment_3 == "programas"}
