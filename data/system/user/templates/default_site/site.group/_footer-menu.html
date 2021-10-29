@@ -66,7 +66,10 @@
     {/exp:query}
 
     {exp:query
-        sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
+        sql="SELECT group_id FROM exp_category_groups
+        WHERE site_id = '{site_id}' AND LOWER(group_name) IN ('menu hamburguer', 'menu em cascata')
+        ORDER BY group_name ASC
+        LIMIT 1;"
         parse="inward"
     }
         {exp:channel:category_archive channel="page|government_member|service|news|staff|special"
