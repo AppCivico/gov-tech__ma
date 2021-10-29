@@ -1,6 +1,9 @@
 # MX ZIP
 
-**MX Zip** help you create zip archives directly from ExpressionEngine 5;
+![Screenshot](resources/img/mx-zip-y.png)
+
+
+**MX Zip** help you create zip archives directly from ExpressionEngine 6;
 
 ## Installation
 * Place the **zip** folder inside your **user/addons** folder
@@ -9,15 +12,15 @@
 ## Template Tags
 {exp:zip}
 
-	{exp:zip direct_output="no" folder="images" filename="min.zip" max_size="1024" comment="Made in ExpressionEngine" remove_path="" add_path=""}
-	    {zip:files}
-	        [themes/cp_global_images/watermark_test.jpg]
-	        [themes/cp_global_images/ee_logo.jpg]
-	        [themes/profile_themes/]
-	        [themes/cp_themes/classic/classic.css]
-	    {/zip:files}
+    {exp:zip direct_output="no" folder="images" filename="min.zip" max_size="1024" comment="Made in ExpressionEngine" remove_path="" add_path=""}
+        {zip:files}
+            [themes/cp_global_images/watermark_test.jpg]
+            [themes/cp_global_images/ee_logo.jpg]
+            [themes/profile_themes/]
+            [themes/cp_themes/classic/classic.css]
+        {/zip:files}
 
-	{/exp:zip}
+    {/exp:zip}
 
 ### Parameters
 
@@ -57,29 +60,29 @@ overwrite file or not
 
 *direct_output* optional
 
-	direct_output="no"
+    direct_output="no"
 
 the plugin can sent direct to user or can save package file on the web server
 
 *speed* optional
 
-	speed="500"
+    speed="500"
 
 Download speed in kb
 
 ### Conditional variables:
-	{if file_limit}
+    {if file_limit}
 
-	{/if}
+    {/if}
 
 You may use this conditional for displaying a message in the case when size of your files preparing for package more then max_size
 
 
 ### Variable pairs
 
-	{zip:files}
-		[file_or_folder_path,folder_structure4zip]
-	{/zip:files}
+    {zip:files}
+        [file_or_folder_path,folder_structure4zip]
+    {/zip:files}
 
 A comma separated list of files/folders for packing
 
@@ -90,7 +93,7 @@ A comma separated list of files/folders for packing
 ## Support Policy
 This is Communite Edition (CE) add-on.
 
-## Contributing To MX Zip for ExpressionEngine 5
+## Contributing To MX Zip for ExpressionEngine 6
 
 Your participation to MX ZIP development is very welcome!
 

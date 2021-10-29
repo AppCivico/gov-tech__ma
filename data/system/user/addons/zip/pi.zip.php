@@ -11,8 +11,6 @@
  */
 require_once PATH_THIRD.'zip/config.php';
 
-define( 'PCLZIP_TEMPORARY_DIR', APPPATH . 'cache/' . MX_ZIP_KEY );
-
 $plugin_info = array(
     'pi_name' => MX_ZIP_NAME,
     'pi_version' => MX_ZIP_VER,
@@ -47,6 +45,15 @@ class Zip
         $file_status = true;
 
         $this->cache_path = (!$this->cache_path) ? APPPATH.'cache/'.MX_ZIP_KEY : false;
+
+        if (!defined('PCLZIP_TEMPORARY_DIR')) {
+            define('PCLZIP_TEMPORARY_DIR', $this->cache_path);
+            if (!is_dir($this->cache_path)) {
+                mkdir($this->cache_path.'', 0777, true);
+            }
+            if (!is_writable($this->cache_path)) {
+            }
+        }
 
         if (preg_match('/'.LD.$variable.'.*?'.RD.'(.*?)'.LD.'\/'.$variable.RD.'/s', $tagdata, $file_list)) {
             $max_size = (!ee()->TMPL->fetch_param('max_size')) ? (50 * 1024 * 1024) : (ee()->TMPL->fetch_param('max_size') * 1024 * 1024);
@@ -143,14 +150,6 @@ class Zip
 
     public function _backup_pkzip($files_to_add)
     {
-        if (!defined('PCLZIP_TEMPORARY_DIR')) {
-            define('PCLZIP_TEMPORARY_DIR', $this->cache_path);
-            if (!is_dir($this->cache_path)) {
-                mkdir($this->cache_path.'', 0777, true);
-            }
-            if (!is_writable($this->cache_path)) {
-            }
-        }
 
         $archive = new PclZip($this->archive_name);
 
