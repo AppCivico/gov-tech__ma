@@ -1123,18 +1123,12 @@ $no-viewport: false !default;
 /// @link https://github.com/danielguillan/quantity-queries/issues/9#issue-177355092
 /// @param {number} $n - The number of columns within the context
 ///
-@mixin last-row($n, $balanced-grid: false) {
+@mixin last-row($n) {
   $last-item: nth(nth(&, 1), length(nth(&, 1)));
 
-  @if $balanced-grid {
-    &:nth-last-child(-n + #{$n}) {
-      @content;
-    }
-  } @else {
-    &:nth-child(#{$n}n + 1):nth-last-child(-n + #{$n}),
-    &:nth-child(#{$n}n + 1):nth-last-child(-n + #{$n}) ~ #{$last-item} {
-      @content;
-    }
+  &:nth-child(#{$n}n + 1):nth-last-child(-n + #{$n}),
+  &:nth-child(#{$n}n + 1):nth-last-child(-n + #{$n}) ~ #{$last-item} {
+    @content;
   }
 }
 
