@@ -14,9 +14,46 @@
  * Within any `document` or `application`, the author **SHOULD** mark no more than one element with the `banner` role.
  */
 
+.simplified-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: my.layer('default');
+
+  background-color: my.palette('neutral', 'white');
+  box-shadow: 3px 3px 10px my.palette('effects', 'shadow');
+}
+
+.simplified-header__container {
+  @include my.container;
+  @include my.clearfix;
+
+  .site-info {
+    float: left;
+  }
+
+  .main-header__logo {
+    margin: (my.$gutter * 0.5) auto (my.$gutter * 0.5) 0;
+
+    > img {
+      width: auto;
+      max-height: my.$gutter * 2;
+    }
+  }
+
+  .social-networks {
+    margin: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) auto;
+  }
+
+  [for='menu-controller'] {
+    margin: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) auto;
+  }
+}
+
 .main-header-and-search-form {
   position: relative;
-  z-index: my.layer('default'); // to move menu forward on Z axis
+  z-index: my.layer('default') + 5; // to move menu forward on Z axis
 
   margin-bottom: my.$gutter * 3;
 

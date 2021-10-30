@@ -16,6 +16,73 @@
 {tv-browse_happy}
 {tv-access}
 <input type="checkbox" hidden="hidden" id="menu-controller" />
+
+    <div class="simplified-header">
+        <div class="simplified-header__container">
+            <div role="banner" class="site-info">
+                <a href="{site_url}" class="main-header__logo">
+                    {if site_id == 1}
+                        <img
+                            src="/assets/images/brand/gov__ma.png"
+                            srcset="/assets/images/brand/gov__ma@2x.png 2x"
+                            alt="{site_name}" width="261" height="123" />
+                    {if:else}
+                        {exp:channel:entries custom_fields="yes" limit="1" dynamic="no" channel="settings"
+                            url_title="settings" disable="categories|member_data|pagination" parse="inward"
+                        }
+                            {if settings__logotype == ""}
+                                <img
+                                    src="/assets/images/brand/gov__ma.png"
+                                    srcset="/assets/images/brand/gov__ma@2x.png 2x"
+                                    alt="{site_name}" width="261" height="123"
+                                />
+                            {if:else}
+                                {settings__logotype}
+                                    <img
+                                        src="{url}"
+                                        alt="{description}" width="{width}" height="{height}"
+                                    />
+                                {/settings__logotype}
+                            {/if}
+                        {/exp:channel:entries}
+                    {/if}
+                </a>
+            </div>
+
+            <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
+                class="header-nav__toggle header-nav__hamburguer"
+                onclick="
+                    this.classList.toggle('opened');
+                    document.documentElement.classList.toggle('opened-menu');
+                    this.setAttribute('aria-expanded', this.classList.contains('opened'));
+                "
+            >
+                <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd"
+                    clip-rule="evenodd" stroke-linecap="round"
+                >
+                    <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                    <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                </svg>
+            </label>
+
+            {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
+                {if social_profiles:total_rows}
+                    <ul class="social-networks">
+                        {social_profiles}
+                            <li class="social-networks__item">
+                                <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
+                                    {social_profiles:url}
+                                </a>
+                            </li>
+                        {/social_profiles}
+                    </ul>
+                {/if}
+            {/exp:channel:entries}
+        </div><!-- .simplified-header__container -->
+    </div><!-- .simplified-header -->
+
     <div class="main-header-and-search-form">
         <div class="main-header-and-search-form__container">
             <div class="a11y-i18n-bar a11y-i18n-bar--header">
