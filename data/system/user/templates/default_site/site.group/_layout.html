@@ -216,10 +216,10 @@
                 url_title="settings" disable="categories|member_data|pagination" parse="inward"
             }
                 <form
-                    {if segment_1 == "noticias"}
-                        action="/noticias/busca"
-                    {if:else}
+                    {if segment_1 != "noticias" && segment_1 != "agencia-de-noticias"}
                         action="/busca"
+                    {if:else}
+                        action="/noticias/busca"
                     {/if}
                     method="GET" class="search-form search-form--header"
                 >
