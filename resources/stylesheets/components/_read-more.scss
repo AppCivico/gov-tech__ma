@@ -41,6 +41,7 @@
   padding-left: my.$gutter * 0.5;
   margin-top: my.$gutter;
   margin-bottom: my.$gutter;
+  line-height: my.$gutter * 1.5;
 
   @include my.on-event {
     &::before {
@@ -73,7 +74,6 @@
 .read-more--repository {
   max-width: 100%;
 
-  line-height: my.$gutter * 1.5;
   white-space: nowrap;
 
   .read-more__link {
