@@ -1,6 +1,10 @@
 @use '../abstracts' as my;
 
 .page--contacts {
+  .h-feed--contacts-list {
+    margin: 0 0 my.$gutter * 4 0;
+  }
+
   .h-feed__p-name--contacts-list {
     font-size: my.ms-step(28px);
   }
