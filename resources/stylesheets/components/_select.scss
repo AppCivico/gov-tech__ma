@@ -50,6 +50,7 @@ select,
 .ie6-9:invalid {
   padding-right: my.$gutter;
 
+  background-color: my.palette('neutral', 'white');
   background-image: my.image('arrow--down.svg');
   background-position: right 6px top 50%;
 

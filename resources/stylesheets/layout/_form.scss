@@ -186,7 +186,7 @@ form br {
   overflow: visible;
 
   font-family: inherit; /* 1 */
-  font-size: inherit; /* 1 */
+  font-size: my.ms-step(14px); /* 1 */
   line-height: inherit; /* 1 */
   color: inherit;
   text-align: inherit;
