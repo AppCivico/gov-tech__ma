@@ -154,6 +154,8 @@
   > img {
     display: block;
 
+    width: auto;
+    max-height: 113px;
     margin: 0;
     object-fit: contain;
   }
