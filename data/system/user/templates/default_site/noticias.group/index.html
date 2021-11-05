@@ -32,6 +32,17 @@
             {if count == "1"}
                 <section class="h-feed__list h-feed__list--news">
             {/if}
+                    {date_heading display="daily"}
+                        <header class="h-feed__date-heading date-heading">
+                            <h2 class="date-heading__title">{entry_date:relative}</h2>
+                            <h3 class="date-heading__date">
+                                <time datetime="{entry_date format="{DATE_ISO8601}"}">
+                                    {entry_date format="%j de %F de %Y"}
+                                </time>
+                            </h3>
+                        </header>
+                    {/date_heading}
+
                     <article id="entry-{entry_id}" class="h-feed__h-entry h-entry">
                         <a
                             {if channel_short_name == "page" || page_uri}

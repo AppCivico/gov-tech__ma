@@ -1,5 +1,7 @@
 @use '../abstracts' as my;
 
+$date-width: my.$gutter * 3;
+
 .news {
   .main-header-and-search-form {
     color: my.palette('neutral', 'white');
@@ -100,6 +102,20 @@
 }
 
 .h-feed__list--news {
+  .h-feed__date-heading {
+    position: relative;
+
+    text-align: center;
+
+    background-color: my.palette('neutral', 'white');
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      padding-left: calc(12.5% - #{$date-width * 0.5});
+
+      text-align: left;
+    }
+  }
+
   .h-feed__h-entry {
     position: relative;
 
@@ -139,7 +155,7 @@
 
       @media screen and (min-width: my.breakpoint('tablet__portrait')) {
         top: 0;
-        right: calc(100% + #{my.$gutter * 6});
+        right: 116.5%;
         bottom: 0;
 
         height: 100%;
@@ -162,7 +178,7 @@
     right: 50%;
     bottom: calc(100% + #{my.$gutter * 3});
 
-    width: my.$gutter * 3;
+    width: $date-width;
 
     font-size: my.ms-step(21px);
     font-weight: my.font-weight('bold');
@@ -175,10 +191,8 @@
     transform: translate(50%, 50%);
 
     @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      right: calc(100% + #{my.$gutter * 3});
+      right: calc(116.5%);
       bottom: 50%;
-
-      transform: translate(-50%, 50%);
     }
   }
 

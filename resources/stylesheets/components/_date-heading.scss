@@ -1,0 +1,33 @@
+@use '../abstracts' as my;
+
+.date-heading {
+  margin-top: my.$gutter;
+  margin-bottom: my.$gutter;
+
+  time {
+    font-style: inherit;
+    text-decoration: none;
+  }
+}
+
+.date-heading__title {
+  display: block;
+
+  margin: 0;
+
+  font-size: my.ms-step(21px);
+  font-weight: my.font-weight('bold');
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.date-heading__date {
+  display: block;
+
+  margin: 0;
+
+  font-size: my.ms-step(16px);
+  font-weight: inherit;
+}
