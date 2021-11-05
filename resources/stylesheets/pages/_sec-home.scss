@@ -155,8 +155,8 @@
   .h-feed__list--special-entries {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(min(192px, 100%), 1fr));
-    grid-gap: my.$gutter;
+    grid-template-columns: repeat(auto-fit, minmax(min(186px, 100%), 1fr));
+    grid-gap: my.$gutter * 0.5;
   }
 
   .h-entry__u-url--special-entries {
