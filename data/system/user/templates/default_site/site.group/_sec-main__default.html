@@ -1,4 +1,26 @@
 <main id="main" class="sec-home__main">
+    {exp:channel:entries channel="ad" limit="1" orderby="random"
+        disable="categories|member_data|pagination" search:ad__position="header"
+    }
+        <div class="ad__wrapper">
+            <a href="{ad__link}" class="ad__link" target="_blank">
+                {ad__images}
+                    {ad__images:file}
+                        <img src="{url}"
+                            {if summary}
+                                alt="{summary:attr_safe}"
+                            {if:else}
+                                alt="{description}"
+                            {/if}
+                        decoding="async" width="{width}" height="{height}"
+                        loading="lazy" class="ad__image ad__image--header"
+                    />
+                    {/ad__images:file}
+                {/ad__images}
+            </a>
+        </div>
+    {/exp:channel:entries}
+
     {exp:query
         sql="SELECT ec.cat_id, ec.cat_name, ec.group_id
             FROM exp_categories ec
@@ -36,16 +58,26 @@
     {embed="default_site:site/_aside"}
 </main>
 
-{exp:channel:entries channel="ad" limit="3" orderby="random" disable="categories|member_data|pagination"}
+{exp:channel:entries channel="ad" limit="3" orderby="random"
+    disable="categories|member_data|pagination" search:ad__position="footer"
+}
     {if count == 1}
     <div class="ad__wrapper">
         <ul class="ad__list">
             {/if}
             <li class="ad__item">
-                <a href="{ad__link}" class="ad__link">
+                <a href="{ad__link}" class="ad__link" target="_blank">
                     {ad__images}
                         {ad__images:file}
-                            <img src="{url}" alt="{description}" decoding="async" loading="lazy" class="ad__image" />
+                            <img src="{url}"
+                                {if summary}
+                                    alt="{summary:attr_safe}"
+                                {if:else}
+                                    alt="{description}"
+                                {/if}
+                                decoding="async" width="{width}" height="{height}"
+                                loading="lazy" class="ad__image ad__image--footer"
+                            />
                         {/ad__images:file}
                     {/ad__images}
                 </a>
