@@ -19,10 +19,16 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: my.layer('default');
+  z-index: my.layer('default') + 1;
 
   background-color: my.palette('neutral', 'white');
   box-shadow: 3px 3px 10px my.palette('effects', 'shadow');
+
+  [id='menu-controller']:checked ~ & {
+    z-index: my.layer('default') + 6;
+
+    box-shadow: none;
+  }
 }
 
 .simplified-header__container {
@@ -48,6 +54,13 @@
 
   [for='menu-controller'] {
     margin: (my.$gutter * 0.5) 0 (my.$gutter * 0.5) auto;
+  }
+
+  [id='menu-controller']:checked ~ * & {
+    .site-info,
+    .social-networks {
+      display: none;
+    }
   }
 }
 
