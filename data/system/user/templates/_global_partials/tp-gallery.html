@@ -13,16 +13,6 @@
                         {if gallery:caption || credit || location}
                             <figcaption>
                                 {gallery:caption}
-                                {if location}
-                                    <small class="caption__location">
-                                        ({location}{if credit} &mdash; {if:else}){/if}
-                                    </small>
-                                {/if}
-                                {if credit}
-                                    <small class="caption__credit">
-                                        {if !location}({/if}{credit})
-                                    </small>
-                                {/if}
                             </figcaption>
                         {/if}
                     </a>
