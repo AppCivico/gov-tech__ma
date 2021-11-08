@@ -38,30 +38,6 @@ disable="category_fields|member_data|pagination" show_future_entries="yes" dynam
             {/if}
         </header>
 
-        <!-- {gallery limit="1"}
-            <figure class="hero">
-                {gallery:file}
-                    <img
-                        sizes="(max-width: 744px) 100vw, 744px"
-                        srcset="
-                            {url:300w} 300w,
-                            {url:635w} 635w,
-                            {url:744w} 744w"
-                        src="{url:744w}"
-                        decoding="async"
-                        data-width="744" data-height="311"
-                        width="{width:744w}" height="{height:744w}"
-                        alt="{description}"
-                        class="hero__image"
-                    />
-                {/gallery:file}
-
-                {if gallery:caption}
-                    <figcaption class="hero__caption">{gallery:caption}</figcaption>
-                {/if}
-            </figure>
-        {/gallery} -->
-
         {if body}
             <section class="h-entry__e-content e-content">{body}</section>
         {/if}
