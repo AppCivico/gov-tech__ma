@@ -366,7 +366,7 @@
 ///
 [for='menu-controller'] {
   position: relative;
-  z-index: my.layer('default');
+  z-index: my.layer('dropdown');
 
   float: right;
   margin: my.$gutter 0 0 0;
@@ -384,7 +384,7 @@
     stroke: currentColor;
   }
 
-  [id='menu-controller']:checked + * & {
+  [id='menu-controller']:checked ~ * & {
     z-index: my.layer('modal') + 1;
 
     color: my.palette('brand', 'green', 'medium');

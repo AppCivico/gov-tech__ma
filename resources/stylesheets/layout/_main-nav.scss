@@ -33,7 +33,7 @@
   transform: scale(0);
   transform-origin: 50% 0;
 
-  [id='menu-controller']:checked + * & {
+  [id='menu-controller']:checked ~ * & {
     visibility: visible;
 
     opacity: 1;

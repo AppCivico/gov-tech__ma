@@ -29,7 +29,7 @@
     transform-origin: 50% 50%;
   }
 
-  [id='menu-controller']:checked + div & {
+  [id='menu-controller']:checked ~ div & {
     .menu-controller__line--2 {
       transform: rotate(-45deg);
     }
