@@ -265,3 +265,29 @@ Especialmente para **parceiros e serviços**. Porém, precisamos rever a necessi
 - nome
 - secretaria - selecinada a partir de uma lista fechada?
 - texto adjacente opcional
+
+### Sobrescrição de URLs
+
+Às vezes, precisamos sobrescrever a URI pela qual uma página é acessada. Por exemplo, todos os documentos são encontrados em `/documentos/NOME-DO-DOCUMENTO`. Porém, um em especial não se enquadra entre os outros e precisaria de uma URI `/NOME-DO-DOCUMENTO`. A aba **Páginas** da tela de publicação atende a esses casos.
+
+![image-20211108100315427](./images/pages-module/image-20211108100315427.png)
+
+Em seu primeiro campo, preencha a URI desejada começando por `/`.
+
+![image-20211108095521988](./images/pages-module/image-20211108095521988.png)
+
+Em seguida, declare qual arquivo de modelo deve ser usado para exibí-la.
+
+![image-20211108095556040](./images/pages-module/image-20211108095556040.png)
+
+Todos os modelos em uso no website serão listados.
+
+![image-20211108101326103](./images/pages-module/image-20211108101326103.png)
+
+O modelo mais provável de ser usado é o chamado `pages`. Comece a digitar seu nome no campo de busca para encontrá-lo mais facilmente.
+
+![image-20211108095705654](./images/pages-module/image-20211108095705654.png)
+
+Agora, lembre-se de salvar suas modificações.
+
+![image-20211108102118364](./images/pages-module/image-20211108102118364.png)
