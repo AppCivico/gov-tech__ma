@@ -182,19 +182,19 @@
             {if body}
                 <section class="h-entry__e-content e-content">{body}</section>
             {/if}
-
-            <div class="slider" data-js="slider">
-                <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
-                    &#9664;
-                </button>
-                <div class="slider__frame">
-                    {tp-gallery}
+            {if gallery:total_rows}
+                <div class="slider" data-js="slider">
+                    <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
+                        &#9664;
+                    </button>
+                    <div class="slider__frame">
+                        {tp-gallery}
+                    </div>
+                    <button type="button" hidden class="js_next slider__next" aria-hidden="true">
+                        &#9654;
+                    </button>
                 </div>
-                <button type="button" hidden class="js_next slider__next" aria-hidden="true">
-                    &#9654;
-                </button>
-            </div>
-
+            {/if}
         </article>
     {/exp:channel:entries}
 
@@ -289,17 +289,19 @@
                                     Download
                                 </a>
                             </p>
-                            <div class="slider" data-js="slider">
-                                <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
-                                    &#9664;
-                                </button>
-                                <div class="slider__frame">
-                                    {tp-gallery}
+                            {if gallery:total_rows}
+                                <div class="slider" data-js="slider">
+                                    <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
+                                        &#9664;
+                                    </button>
+                                    <div class="slider__frame">
+                                        {tp-gallery}
+                                    </div>
+                                    <button type="button" hidden class="js_next slider__next" aria-hidden="true">
+                                        &#9654;
+                                    </button>
                                 </div>
-                                <button type="button" hidden class="js_next slider__next" aria-hidden="true">
-                                    &#9654;
-                                </button>
-                            </div>
+                            {/if}
                         {if:else}
                             <p>Nenhuma fotografia encontrada.</p>
                         {/if}
