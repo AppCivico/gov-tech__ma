@@ -61,72 +61,77 @@ status="not closed" parse="inward"
                         <summary class="bidding-files__title">Arquivos</summary>
 
                         <div class="bidding-data__definition">
-
                             {bidding__notice}
-                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
-                                    <div class="bidding__file bidding__file--notice">
-                                        {bidding__notice:file}
-                                            <h4 class="bidding__filename">{file_name}</h4>
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Tamanho:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    ({file_size:human})
-                                                </dd>
-                                            </dl>
-                                        {/bidding__notice:file}
+                                <div class="bidding__file bidding__file--notice">
+                                    {bidding__notice:file}
+                                        <h4 class="bidding__filename">{file_name}</h4>
                                         <dl class="bidding-data">
-                                            <dt class="bidding-data__title">Publicado em:</dt>
+                                            <dt class="bidding-data__title">Tamanho:</dt>
                                             <dd class="bidding-data__definition">
-                                                {bidding__notice:publication_date format="%d/%m/%Y"}
+                                                ({file_size:human})
                                             </dd>
                                         </dl>
-                                    </div>
-                                </a>
+                                    {/bidding__notice:file}
+                                    <dl class="bidding-data">
+                                        <dt class="bidding-data__title">Publicado em:</dt>
+                                        <dd class="bidding-data__definition">
+                                            {bidding__notice:publication_date format="%d/%m/%Y"}
+                                        </dd>
+                                    </dl>
+                                </div>
                             {/bidding__notice}
 
                             {bidding__edict}
-                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
-                                    <div class="bidding__file bidding__file--edict">
-                                        {bidding__edict:file}
-                                            <h4 class="bidding__filename">{file_name}</h4>
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Tamanho:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    ({file_size:human})
-                                                </dd>
-                                            </dl>
-                                        {/bidding__edict:file}
+                                <div class="bidding__file bidding__file--edict">
+                                    {bidding__edict:file}
+                                        <h4 class="bidding__filename">{file_name}</h4>
                                         <dl class="bidding-data">
-                                            <dt class="bidding-data__title">Publicado em:</dt>
+                                            <dt class="bidding-data__title">Tamanho:</dt>
                                             <dd class="bidding-data__definition">
-                                                {bidding__edict:publication_date format="%d/%m/%Y"}
+                                                ({file_size:human})
                                             </dd>
                                         </dl>
-                                    </div>
-                                </a>
+                                    {/bidding__edict:file}
+                                    <dl class="bidding-data">
+                                        <dt class="bidding-data__title">Publicado em:</dt>
+                                        <dd class="bidding-data__definition">
+                                            {bidding__edict:publication_date format="%d/%m/%Y"}
+                                        </dd>
+                                    </dl>
+                                </div>
                             {/bidding__edict}
 
                             {bidding__files}
-                                <a data-js="dialog-opener" target="channel-form__iframe" href="/pregoes/dialog/{entry_id}" class="bidding__file-link">
-                                    <div class="bidding__file">
-                                        {bidding__files:file}
-                                            <h4 class="bidding__filename">{file_name}</h4>
-                                            <dl class="bidding-data">
-                                                <dt class="bidding-data__title">Tamanho:</dt>
-                                                <dd class="bidding-data__definition">
-                                                    ({file_size:human})
-                                                </dd>
-                                            </dl>
-                                        {/bidding__files:file}
+                                <div class="bidding__file">
+                                    {bidding__files:file}
+                                        <h4 class="bidding__filename">{file_name}</h4>
                                         <dl class="bidding-data">
-                                            <dt class="bidding-data__title">Publicado em:</dt>
+                                            <dt class="bidding-data__title">Tamanho:</dt>
                                             <dd class="bidding-data__definition">
-                                                {bidding__files:publication_date format="%d/%m/%Y"}
+                                                ({file_size:human})
                                             </dd>
                                         </dl>
-                                    </div>
-                                </a>
+                                    {/bidding__files:file}
+                                    <dl class="bidding-data">
+                                        <dt class="bidding-data__title">Publicado em:</dt>
+                                        <dd class="bidding-data__definition">
+                                            {bidding__files:publication_date format="%d/%m/%Y"}
+                                        </dd>
+                                    </dl>
+                                </div>
                             {/bidding__files}
+
+                            <p class="read-more read-more--download">
+                                <a
+                                    href="/pregoes/dialog/{entry_id}"
+                                    target="channel-form__iframe"
+                                    data-js="dialog-opener"
+                                    aria-controls="channel-form__dialog"
+                                    class="read-more__link"
+                                >
+                                    Download
+                                </a>
+                            </p>
                         </div>
                     </details>
                 {/if}
@@ -136,6 +141,8 @@ status="not closed" parse="inward"
 
 <dialog id="channel-form__dialog" aria-busy="true">
     <iframe id="channel-form__iframe" name="channel-form__iframe" src="" frameborder="0" aria-busy="true"></iframe>
+
+    <div id="channel-form__container" aria-busy="true"></div>
 
     <menu>
         <button value="cancel" title="Cancelar">&times;</button>

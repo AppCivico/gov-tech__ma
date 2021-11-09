@@ -2,7 +2,8 @@
     {tp-check_draft}
 
     {if bidding__files:total_rows || bidding__notice:total_rows || bidding__edict:total_rows}
-        {exp:zip filename="{channel_short_name}-{url_title}-{entry_id}.zip" direct_output="yes"
+        {exp:zip filename="{channel_short_name}-{url_title}-{entry_id}.zip"
+            direct_output="yes" remove_all_path="yes"
             max_size="1024" folder="../system/user/zip_cache"
         }
             {zip:files}

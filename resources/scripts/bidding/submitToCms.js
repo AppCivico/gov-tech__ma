@@ -6,8 +6,11 @@ export default (channelForm) => {
     body: formData,
     mode: 'cors',
     cache: 'default',
+    headers: {
+      Accept: 'text/plain, text/html, *.*',
+    },
     redirect: 'follow',
-  }).then((response) => response.json())
+  }).then((response) => response)
     .catch((err) => {
       throw new Error(err);
     });

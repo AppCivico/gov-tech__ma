@@ -4,11 +4,19 @@ function listenToMessage(e) {
   if (window.location.origin !== e.origin) return;
 
   const dialogEl = iframeEl.closest('dialog');
-  const { data: { contentHeight, submitted } } = e;
+  const { data: { contentHeight, finished, submitted } } = e;
 
-  if (!contentHeight && !submitted) return;
+  if (!contentHeight && !finished && !submitted) return;
 
-  if (submitted) {
+  if (finished) {
+    console.debug('12');
+    if (typeof dialogEl.close === 'function') {
+      dialogEl.close();
+    } else {
+      dialogEl.dispatchEvent(new Event('close', { bubbles: true }));
+      dialogEl.removeAttribute('open');
+    }
+  } else if (submitted) {
     dialogEl.setAttribute('aria-busy', 'true');
   } else {
     dialogEl.setAttribute('aria-busy', 'false');
