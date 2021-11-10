@@ -310,7 +310,9 @@
                             {videos limit="1"}
                                 {exp:antenna url="{videos:link}" max_width="246" max_height="246" cache_minutes="1680"}
                                     {if embed_code}
-                                        <figure class="hero aspect-ratio__youtube">
+                                        <figure class="hero aspect-ratio__youtube"
+                                            data-js="video-gallery__embed"
+                                        >
                                             {embed_code}
                                             {if video_title}
                                                 <figcaption class="hero__caption">
@@ -327,15 +329,16 @@
                                 {tp-share_bar}
                             </div>
 
-                            {videos offset="1"}
+                            {videos}
                                 {if videos:count == 1}
                                     <section class="gallery slider__container">
                                 {/if}
                                         <figure class="gallery__item">
-                                            <a href="{videos:link}"
-                                                target="_blank" class="gallery__link"
-                                            >
-                                                {exp:antenna url="{videos:link}" max_width="246" max_height="246" cache_minutes="1680"}
+                                            {exp:antenna url="{videos:link}" max_width="246" max_height="246" cache_minutes="1680"}
+                                                <a href="{videos:link}"
+                                                    data-js="video-gallery__switcher"
+                                                    target="_blank" class="gallery__link"
+                                                >
                                                     <img
                                                         width="{video_width}"
                                                         height="{video_height}"
@@ -343,8 +346,8 @@
                                                         alt="{video_title}"
                                                         decoding="async" loading="lazy" class="gallery__image"
                                                     />
-                                                {/exp:antenna}
-                                            </a>
+                                                </a>
+                                            {/exp:antenna}
                                         </figure>
                                 {if videos:count == videos:total_rows}
                                     </section>

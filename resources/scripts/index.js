@@ -9,6 +9,7 @@ import searchFormSelect from './searchForm/select';
 import searchResults from './searchResults';
 import selectNavigation from './selectNavigation';
 import sliderInit from './slider';
+import videoGalleryInit from './videoGallery';
 
 a11y();
 ariaMenusInit();
@@ -21,3 +22,4 @@ searchFormReset();
 searchFormSelect();
 selectNavigation();
 sliderInit();
+videoGalleryInit();
