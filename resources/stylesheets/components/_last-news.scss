@@ -80,6 +80,26 @@
     text-align: center;
     text-decoration: none;
     text-transform: none;
+
+    @media screen and (min-width: my.breakpoint('phone__landscape')) {
+      .h-entry__p-name--last-news {
+        @include my.truncate(3, 1.5em);
+
+        font-size: my.ms-step(18px);
+      }
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      .h-entry__p-name--last-news {
+        font-size: my.ms-step(24px);
+      }
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__landscape')) {
+      .h-entry__p-name--last-news {
+        font-size: my.ms-step(28px);
+      }
+    }
   }
 
   .h-entry__p-category-list {
@@ -92,13 +112,14 @@
   .h-entry__p-name--last-news {
     margin: 0 auto;
 
-    font-size: my.ms-step(16px);
+    font-size: 1em;
     font-weight: my.font-weight('heading');
     color: inherit;
     text-decoration: inherit;
   }
 
   .h-entry__u-photo--featured {
+    float: none;
     width: 100%;
     height: 100%;
 

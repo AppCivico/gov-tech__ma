@@ -14,10 +14,6 @@
 
     grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     grid-gap: my.$gutter * 0.5;
-
-    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      grid-template-columns: repeat(4, minmax(min(200px, 100%), 1fr));
-    }
   }
 
   .h-feed__p-name--last-news {
@@ -27,9 +23,6 @@
   .h-entry__u-url--featured {
     grid-column: 1/-1;
 
-    .h-entry__p-name--last-news {
-      font-size: my.ms-step(28px);
-    }
   }
 
   .last-news {
