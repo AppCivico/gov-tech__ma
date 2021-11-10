@@ -81,6 +81,7 @@
   flex-wrap: wrap;
 
   align-items: center;
+  justify-content: stretch;
 
   height: 100%;
   margin-top: my.$gutter * 0.5;
@@ -90,8 +91,10 @@
   > li {
     display: block;
 
-    @supports (display: contents) {
-      display: contents;
+    flex-grow: 1;
+
+    &:first-child {
+      flex-grow: 0;
     }
   }
 
@@ -119,6 +122,7 @@
 
     li {
       flex-grow: 1;
+
     }
   }
 }
@@ -131,6 +135,7 @@
 
   justify-content: center;
 
+  width: calc(100% - #{my.$gutter});
   padding: my.$gutter * 0.5;
   margin-top: my.$gutter * 0.5;
   margin-right: my.$gutter * 0.5;
