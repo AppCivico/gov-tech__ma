@@ -1,10 +1,11 @@
 import setCurrentFilter from '../../searchForm/setCurrentFilter';
 import currentQuery from '../../utilities/currentQuery';
+import goAndGetBack from '../../utilities/goAndGetBack';
 import fullyDecode from '../../utilities/fullyDecode';
 import pageNavigation from './pageNavigation';
 
 export default (() => {
-  const searchForm = document.getElementById('search-form--hidden');
+  const searchForm = document.forms?.['search-form--hidden'];
   const resultsTargetEl = document.querySelector('[data-js="cms-results"]');
   const formData = new FormData(searchForm);
 
@@ -40,16 +41,17 @@ export default (() => {
     }
   });
 
-  return fetch(searchForm.action, {
-    method: 'POST',
-    body: formData,
+  const options = {
+    method: searchForm.method,
     mode: 'cors',
     cache: 'default',
     redirect: 'follow',
     headers: {
       Accept: 'text/plain, text/html, *.*',
     },
-  })
+  };
+
+  return goAndGetBack(searchForm.getAttribute('action'), formData, options)
     .then((response) => response.text())
     .then((data) => {
       resultsTargetEl.innerHTML = data;

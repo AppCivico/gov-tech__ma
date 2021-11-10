@@ -639,7 +639,6 @@ $config['avatar_url'] = '/images/avatars';
 $config['base_path'] = Manifest::get('BASE_PATH', '/var/www/html/'); // docker volume path
 $config['cache_driver'] = Manifest::get('CACHE_DRIVER', 'file');
 $config['captcha_url'] = '/images/captchas';
-$config['channel_form_overwrite'] = 'y';
 $config['cookie_domain'] = $domain;
 $config['cookie_prefix'] = 'ma_';
 $config['cookie_samesite'] = 'Strict';

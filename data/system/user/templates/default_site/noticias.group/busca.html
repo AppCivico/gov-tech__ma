@@ -3,7 +3,7 @@ title="Busca"}
 
 {layout:set name="description"}Busca por '{exp:request:get name='keywords'}'{/layout:set}
 
-<form action="/noticias/resultados" id="search-form--hidden" method="get" hidden>
+<form action="/noticias/resultados" name="search-form--hidden" method="get" hidden>
     <input type="hidden" name="keywords" value="{exp:request:get name='keywords'}" />
     <input type="hidden" name="required" value="{exp:request:get name='required'}" />
 </form>

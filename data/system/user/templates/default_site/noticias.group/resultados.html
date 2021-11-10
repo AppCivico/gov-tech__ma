@@ -35,7 +35,7 @@ name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" 
             {if channel_short_name == "page"}
                 href="{page_uri}"
             {if:else}
-                href="{auto_path}"
+                href="{segment_1}/{url_title}"
             {/if}
             class="search-results__link h-entry__u-url"
         >
