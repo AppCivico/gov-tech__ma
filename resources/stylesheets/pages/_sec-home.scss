@@ -185,8 +185,11 @@
   }
 
   .h-entry__u-photo--special-entries {
+    width: auto;
     max-width: 204px;
+    height: auto;
     max-height: 127px;
     object-fit: contain;
+    aspect-ratio: auto;
   }
 }
