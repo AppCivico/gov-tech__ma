@@ -44,6 +44,7 @@
   }
 
   .h-entry__u-url {
+    @include my.clearfix;
     @include my.link-undercover;
 
     font-size: 1em;
