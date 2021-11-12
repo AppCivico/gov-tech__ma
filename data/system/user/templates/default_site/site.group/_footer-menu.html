@@ -66,10 +66,16 @@
     {/exp:query}
 
     {exp:query
-        sql="SELECT group_id FROM exp_category_groups
-        WHERE site_id = '{site_id}' AND LOWER(group_name) IN ('menu hamburguer', 'menu em cascata')
-        ORDER BY group_name ASC
-        LIMIT 1;"
+        sql="
+            SELECT ecg.group_id, ecg.group_name
+            FROM exp_category_groups ecg
+            JOIN exp_categories ec ON ecg.group_id = ec.group_id
+            WHERE ecg.site_id = '{site_id}'
+            AND LOWER(group_name) IN ('menu hamburguer', 'menu em cascata', 'menu cascata')
+            AND ec.group_id IS NOT NULL
+            GROUP BY ecg.group_id
+            ORDER BY group_name DESC
+            LIMIT 1;"
         parse="inward"
     }
         {exp:channel:category_archive channel="page|government_member|service|news|staff|special"

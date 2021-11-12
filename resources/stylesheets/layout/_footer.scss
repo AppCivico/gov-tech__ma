@@ -203,9 +203,9 @@
 
 .main-footer__plain-menu {
   @include my.columns;
+  @include my.container;
 
-  display: none;
-
+  max-height: 0;
   padding-top: 0;
   padding-right: my.$gutter * 0.5;
   padding-bottom: 0;
@@ -217,18 +217,15 @@
   opacity: 0;
 
   transition-duration: 300ms;
-  transition-property: opacity, transform;
-  transform: scaleX(0);
-  transform-origin: 50% 0;
+  transition-property: max-height, opacity;
 
   &.opened {
     display: block;
 
+    max-height: 999em;
     padding-bottom: my.$gutter;
 
     opacity: 1;
-
-    transform: scaleX(1);
   }
 
   [role='menuitem'],
@@ -244,10 +241,13 @@
 
 .main-footer__plain-menu ul {
   display: block;
+
+  margin-bottom: my.$gutter;
+  break-inside: avoid;
 }
 
 .main-footer__plain-menu > li {
-  display: block;
+  display: inline;
 
   flex-basis: 200px;
 
