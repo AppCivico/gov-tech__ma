@@ -30,32 +30,36 @@
     {/exp:channel:entries}
 
     {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-        <section class="main-services h-feed h-feed--main-services">
-            <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
+        {featured_at_home}
+            {if featured_at_home:count == 1}
+                <section class="main-services h-feed h-feed--main-services">
+                    <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
 
-            <div class="main-services__category-lists">
-                {featured_at_home}
-                    <div class="main-services__category">
-                        <h3 class="main-services__title">
-                            {featured_at_home:featured__title}
-                        </h3>
+                    <div class="main-services__category-lists">
+            {/if}
+                        <div class="main-services__category">
+                            <h3 class="main-services__title">
+                                {featured_at_home:featured__title}
+                            </h3>
 
-                        <ul class="main-services__list">
-                            {featured_at_home:featured__entries limit="5"}
-                                <li class="main-services__item">
-                                    <a href="https:/{featured_at_home:featured__entries:relative_url}/{featured_at_home:featured__entries:url_title}">
-                                        {featured_at_home:featured__entries:title}
-                                    </a>
-                                </li>
-                            {/featured_at_home:featured__entries}
-                        </ul>
+                            <ul class="main-services__list">
+                                {featured_at_home:featured__entries limit="5"}
+                                    <li class="main-services__item">
+                                        <a href="https:/{featured_at_home:featured__entries:relative_url}/{featured_at_home:featured__entries:url_title}">
+                                            {featured_at_home:featured__entries:title}
+                                        </a>
+                                    </li>
+                                {/featured_at_home:featured__entries}
+                            </ul>
+                        </div>
+            {if featured_at_home:total_results}
                     </div>
-                {/featured_at_home}
-            </div>
-            <p class="read-more read-more--main-services">
-                <a class="read-more__link" href="/servicos/">+ Serviços</a>
-            </p>
-        </section>
+                    <p class="read-more read-more--main-services">
+                        <a class="read-more__link" href="/servicos/">+ Serviços</a>
+                    </p>
+                </section>
+            {/if}
+        {/featured_at_home}
     {/exp:channel:entries}
 
     {exp:channel:entries channel="news" site="not none" limit="4"
