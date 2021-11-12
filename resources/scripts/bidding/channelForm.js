@@ -14,15 +14,23 @@ const setUrlTitle = (evOrEl) => {
   }
 };
 
-const signalizeSubmission = (channelForm, finished = false) => {
+const signalizeSubmission = (channelForm, status = '') => {
   channelForm.setAttribute('aria-busy', 'true');
   channelForm.setAttribute('disabled', '');
 
   if (window.parent) {
-    if (finished) {
-      window.parent.postMessage({ finished: true }, window.location.origin);
-    } else {
-      window.parent.postMessage({ submitted: true }, window.location.origin);
+    switch (status) {
+      case 'finished':
+        window.parent.postMessage({ finished: true }, window.location.origin);
+        break;
+
+      case 'submitted':
+        window.parent.postMessage({ submitted: true }, window.location.origin);
+        break;
+
+      default:
+        window.parent.postMessage(window.location.origin);
+        break;
     }
   }
 };
@@ -32,7 +40,7 @@ const handleSubmission = (e) => {
   const channelForm = e.currentTarget;
   if (!(channelForm instanceof Element)) return;
 
-  signalizeSubmission(channelForm);
+  signalizeSubmission(channelForm, 'submitted');
 
   submitToCms(channelForm).then((response) => {
     const contentType = response.headers.get('content-type');
@@ -41,21 +49,22 @@ const handleSubmission = (e) => {
       return response.text();
     }
 
-    if (contentType?.includes('json')) {
-      return response.json();
-    }
-
     if (contentType?.includes('application/zip')) {
       responseDownload(response).then(() => {
-        signalizeSubmission(channelForm, true);
+        signalizeSubmission(channelForm, 'finished');
       });
     }
 
     throw new Error("Oops, we don't know what to do!!!");
-  }).catch(() => {
-  }).finally(() => {
-    signalizeSubmission(channelForm);
-  });
+  })
+    .then((content) => {
+      document.body.innerHTML = content;
+    })
+    .catch(() => {
+    })
+    .finally(() => {
+      signalizeSubmission(channelForm);
+    });
 };
 
 export default () => {

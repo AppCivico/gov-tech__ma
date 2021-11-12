@@ -6,10 +6,7 @@ function listenToMessage(e) {
   const dialogEl = iframeEl.closest('dialog');
   const { data: { contentHeight, finished, submitted } } = e;
 
-  if (!contentHeight && !finished && !submitted) return;
-
   if (finished) {
-    console.debug('12');
     if (typeof dialogEl.close === 'function') {
       dialogEl.close();
     } else {

@@ -24,17 +24,6 @@
 
         <input type="hidden" name="requested_bidding[data][]" value="{segment_3}" />
         <input type="hidden" name="url_title" value="[requester_email] requested {segment_3}" />
-
-        {if global_errors:count > 0 || field_errors:count > 0}
-            <ul class="errors">
-                {global_errors}
-                    <li>{error}</li>
-                {/global_errors}
-                {field_errors}
-                    <li>{error}</li>
-                {/field_errors}
-            </ul>
-        {/if}
     </fieldset>
 
     <fieldset>
