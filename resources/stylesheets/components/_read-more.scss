@@ -84,6 +84,9 @@
 
     justify-content: center;
 
+    margin-top: my.$gutter * 0.5;
+    margin-bottom: my.$gutter * 0.5;
+
     font-weight: my.font-weight('bold');
     text-overflow: ellipsis;
     text-transform: uppercase;
@@ -104,10 +107,6 @@
       color: my.palette('neutral', 'black');
 
       border: 0;
-    }
-
-    + .read-more__link {
-      margin-top: 0;
     }
   }
 }
