@@ -1,5 +1,6 @@
 @use '../abstracts' as my;
 
+[role='dialog'],
 dialog {
   @include my.shadow;
 

@@ -41,7 +41,10 @@
   padding-left: my.$gutter * 0.5;
   margin-top: my.$gutter;
   margin-bottom: my.$gutter;
+
   line-height: my.$gutter * 1.5;
+
+  background: none;
 
   @include my.on-event {
     &::before {
@@ -93,6 +96,7 @@
     @include my.on-event {
       color: my.palette('neutral', 'white');
 
+      background: none;
       border-color: my.palette('neutral', 'black');
     }
 

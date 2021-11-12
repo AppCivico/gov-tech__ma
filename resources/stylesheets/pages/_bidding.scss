@@ -7,6 +7,10 @@
     display: flex;
   }
 
+  .h-feed__p-name {
+    font-weight: my.font-weight('heading');
+  }
+
   .h-feed__list--bidding {
     flex-grow: 1;
 

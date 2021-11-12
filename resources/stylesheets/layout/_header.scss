@@ -76,14 +76,16 @@
   background-image: my.image('shutterstock_1659111457_Blue_3.jpg');
   background-position: 50% 50%;
   background-size: cover;
+  border-top: (my.$gutter * 2) solid my.palette('white');
 
   .going-to-search-results & {
     z-index: auto;
   }
 
-  @media screen and (min-width: my.breakpoint('desktop')) {
+  @media screen and (min-width: my.breakpoint('toggle-layout')) {
     margin-bottom: my.$gutter * 6;
 
+    border-top: 0;
   }
 
   [type='checkbox'],
@@ -144,15 +146,28 @@
   clear: left;
 }
 
-[role='banner'] {
-}
+[role='banner'] {}
 
 .site-info--header {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: my.$gutter;
+
   width: max-content;
   max-width: 100%;
-  margin-top: my.$gutter * -0.5;
   clear: left;
+
+  transform: scale(60%);
+  transform-origin: 0% 0%;
+
+  @media screen and (min-width: my.breakpoint('toggle-layout')) {
+    position: static;
+
+    float: left;
+    margin-top: my.$gutter * -0.5;
+
+    transform: none;
+  }
 }
 
 .main-header__logo {
@@ -175,13 +190,21 @@
 }
 
 .social-networks--header {
-  float: right;
-  margin-top: my.$gutter;
-  margin-right: 0;
-  margin-bottom: my.$gutter;
-  margin-left: auto;
+  position: absolute;
+  top: my.$gutter * -2;
+  right: my.$gutter;
 
-  filter: invert(100);
+  @media screen and (min-width: my.breakpoint('toggle-layout')) {
+    position: static;
+
+    float: right;
+    margin-top: my.$gutter;
+    margin-right: 0;
+    margin-bottom: my.$gutter;
+    margin-left: auto;
+
+    filter: invert(100);
+  }
 }
 
 .main-header__title {
@@ -207,12 +230,16 @@
 }
 
 .a11y-i18n-bar--header {
-  @include my.clearfix;
+  display: none;
 
-  .a11y-i18n-bar__list {
-    float: right;
-    margin-right: 0;
-    margin-left: auto;
+  @media screen and (min-width: my.breakpoint('toggle-layout')) {
+    @include my.clearfix;
+
+    .a11y-i18n-bar__list {
+      float: right;
+      margin-right: 0;
+      margin-left: auto;
+    }
   }
 }
 
@@ -382,9 +409,13 @@
   z-index: my.layer('dropdown');
 
   float: right;
-  margin: my.$gutter 0 0 0;
+  margin: (my.$gutter * -0.5) 0 0 0;
 
   color: inherit;
+
+  @media screen and (min-width: my.breakpoint('toggle-layout')) {
+    margin: my.$gutter 0 0 0;
+  }
 
   .going-to-search-results & {
     z-index: auto;
