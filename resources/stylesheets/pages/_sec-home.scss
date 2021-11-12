@@ -33,6 +33,14 @@
   .main-aside {
     grid-column: 1/-1;
   }
+
+  .h-entry__u-photo {
+    aspect-ratio: 260 / 200;
+    object-fit: cover;
+
+    float: none;
+    margin-right: 0;
+  }
 }
 
 .sec-home__default {
