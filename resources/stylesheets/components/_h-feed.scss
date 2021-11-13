@@ -7,12 +7,28 @@
 .h-feed {
   .h-entry {
     @include my.clearfix;
+
     display: block;
 
     margin-bottom: my.$gutter * 2.5;
   }
 
+  .h-entry__u-url {
+    @include my.link-undercover;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    font-size: 1em;
+    font-weight: inherit;
+  }
+
   .h-entry__header {
+    flex-basis: 100%;
+
     margin-bottom: my.$gutter * 0.25;
 
     font-size: my.ms-step(12px);
@@ -38,17 +54,10 @@
   }
 
   .h-entry__u-photo {
-    float: left;
     max-width: 100%;
     margin-right: my.$gutter;
-  }
-
-  .h-entry__u-url {
-    @include my.clearfix;
-    @include my.link-undercover;
-
-    font-size: 1em;
-    font-weight: inherit;
+    margin-bottom: my.$gutter;
+    margin-left: 0;
   }
 
   .dt-published {
@@ -66,6 +75,10 @@
   }
 
   .h-entry__p-summary {
+    flex-basis: 0;
+    flex-grow: 1;
+
+    min-width: map.get(my.$line-lengths, 'min');
     max-width: map.get(my.$line-lengths, 'max');
     overflow: hidden;
 
