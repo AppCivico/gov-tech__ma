@@ -110,7 +110,7 @@
   align-items: flex-start;
 
   height: 40vh;
-  min-height: my.$gutter * 18; // 432px
+  min-height: fit-content;
   max-height: my.$gutter * 20; // 480px
   padding-top: my.$gutter;
   padding-bottom: my.$gutter;
@@ -149,13 +149,8 @@
 [role='banner'] {}
 
 .site-info--header {
-  position: absolute;
-  top: 0;
-  left: my.$gutter;
-
   width: max-content;
   max-width: 100%;
-  clear: left;
 
   transform: scale(60%);
   transform-origin: 0% 0%;
