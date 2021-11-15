@@ -370,11 +370,13 @@
         {tp-check_draft}
 
         {if gallery:total_rows}
-            {exp:zip filename="{url_title}-{entry_id}.zip" direct_output="yes" max_size="1024"
-            folder="../system/user/zip_cache"}
+            {exp:zip filename="{url_title}-{entry_id}.zip" direct_output="yes" max_size="20480"
+                folder="../system/user/zip_cache" remove_all_path="yes"
+            }
                 {zip:files}
+                    {!-- Make sure to use root relative file paths --}
                     {gallery}
-                        [{gallery:file}]
+                        [{gallery:file:replace find='/(^\/)(.*)/' replace='$2' regex='yes'}]
                     {/gallery}
                 {/zip:files}
             {/exp:zip}

@@ -7,16 +7,17 @@
             max_size="1024" folder="../system/user/zip_cache"
         }
             {zip:files}
+                {!-- Make sure to use root relative file paths --}
                 {bidding__notice}
-                    [{bidding__notice:file}]
+                    [{bidding__notice:file:replace find='/(^\/)(.*)/' replace='$2' regex='yes'}]
                 {/bidding__notice}
 
                 {bidding__edict}
-                    [{bidding__edict:file}]
+                    [{bidding__edict:file:replace find='/(^\/)(.*)/' replace='$2' regex='yes'}]
                 {/bidding__edict}
 
                 {bidding__files}
-                    [{bidding__files:file}]
+                    [{bidding__files:file:replace find='/(^\/)(.*)/' replace='$2' regex='yes'}]
                 {/bidding__files}
             {/zip:files}
         {/exp:zip}
