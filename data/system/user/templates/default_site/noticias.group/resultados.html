@@ -1,5 +1,13 @@
-{exp:channel:entries channel="news" search:body="{exp:request:get_post name='keywords'}\W" search:{exp:request:get_post
-name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" sort="desc"}
+{exp:channel:entries channel="news" parse="inward"
+    search:body="{exp:request:get_post name='keywords'}\W"
+    paginate="inline" orderby="date" sort="desc"
+    {if segment_3 == "videos"}
+        search:videos="not IS_EMPTY"
+    {/if}
+    {if segment_3 == "fotos"}
+        search:gallery="not IS_EMPTY"
+    {/if}
+}
     {if no_results}
         <header class="h-feed__header">
             <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
@@ -9,7 +17,26 @@ name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" 
             Nada foi encontrado.
         </p>
 
-        {embed="default_site:noticias/_search-form--tab"}
+        <ul class="tab-bar">
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}"
+                class="tab-bar__tab {if !segment_3}tab-bar__tab--current{/if}"
+            >
+                Tudo
+            </a>
+
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=videos"
+                class="tab-bar__tab {if segment_3 == 'videos'}tab-bar__tab--current{/if}"
+            >
+                Vídeos
+            </a>
+
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=fotos"
+                class="tab-bar__tab {if segment_3 == 'fotos'}tab-bar__tab--current{/if}"
+            >
+                Fotos
+            </a>
+        </ul>
+
     {/if}
 
     {if count == "1"}
@@ -17,9 +44,9 @@ name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" 
             <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
 
             {paginate}
-                <h2 class="h-feed__subhead">
-                    Página {current_page}/{total_pages}
-                </h2>
+            <h2 class="h-feed__subhead">
+                Página {current_page}/{total_pages}
+            </h2>
             {/paginate}
         </header>
 
@@ -27,7 +54,25 @@ name='required'}="not IS_EMPTY" paginate="inline" parse="inward" orderby="date" 
             Encontramos <b>{absolute_results}</b> notícias relacionadas.
         </p>
 
-        {embed="default_site:noticias/_search-form--tab"}
+        <ul class="tab-bar">
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}"
+                class="tab-bar__tab {if !segment_3}tab-bar__tab--current{/if}"
+            >
+                Tudo
+            </a>
+
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=videos"
+                class="tab-bar__tab {if segment_3 == 'videos'}tab-bar__tab--current{/if}"
+            >
+                Vídeos
+            </a>
+
+            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=fotos"
+                class="tab-bar__tab {if segment_3 == 'fotos'}tab-bar__tab--current{/if}"
+            >
+                Fotos
+            </a>
+        </ul>
 
         <div class="h-feed__list">
     {/if}

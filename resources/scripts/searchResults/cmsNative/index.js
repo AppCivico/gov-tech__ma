@@ -1,13 +1,15 @@
 import setCurrentFilter from '../../searchForm/setCurrentFilter';
 import currentQuery from '../../utilities/currentQuery';
-import goAndGetBack from '../../utilities/goAndGetBack';
 import fullyDecode from '../../utilities/fullyDecode';
+import goAndGetBack from '../../utilities/goAndGetBack';
 import pageNavigation from './pageNavigation';
 
 export default (() => {
   const searchForm = document.forms?.['search-form--hidden'];
   const resultsTargetEl = document.querySelector('[data-js="cms-results"]');
   const formData = new FormData(searchForm);
+  const action = searchForm.getAttribute('action');
+  let lastSegment = '';
 
   resultsTargetEl.setAttribute('aria-busy', 'true');
 
@@ -41,6 +43,14 @@ export default (() => {
     }
   });
 
+  if (formData.has('last_segment')) {
+    if (formData.get('last_segment')) {
+      lastSegment += `/${formData.get('last_segment')}`;
+    }
+
+    formData.delete('last_segment');
+  }
+
   const options = {
     method: searchForm.method,
     mode: 'cors',
@@ -51,7 +61,7 @@ export default (() => {
     },
   };
 
-  return goAndGetBack(searchForm.getAttribute('action'), formData, options)
+  return goAndGetBack(`${action}${lastSegment}`, formData, options)
     .then((response) => response.text())
     .then((data) => {
       resultsTargetEl.innerHTML = data;
