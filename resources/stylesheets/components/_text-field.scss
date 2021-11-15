@@ -76,13 +76,13 @@
   }
 
   &:-moz-ui-invalid {
-    border-radius: my.$rounded-corner;
+    border-radius: my.$rounded-corner--tiny;
     box-shadow: none;
   }
 
   &:invalid {
-    border-radius: my.$rounded-corner;
-    box-shadow: 0 0 5px my.palette('feedback', 'danger');
+    border-radius: my.$rounded-corner--tiny;
+    box-shadow: 0 0 0 4px color.scale(my.palette('feedback', 'danger'), $alpha: 50%);
   }
 
   &.error:invalid {
