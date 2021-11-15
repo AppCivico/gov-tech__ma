@@ -311,6 +311,11 @@ $RECYCLE.BIN/
 
 data/html/themes
 data/system/*
+!data/system/ee
+data/system/ee/*
+!data/system/ee/legacy
+data/system/ee/legacy/*
+!data/system/ee/legacy/cache
 !data/system/user
 data/system/user/cache
 data/html/docs
