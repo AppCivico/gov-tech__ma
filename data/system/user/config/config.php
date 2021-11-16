@@ -142,6 +142,33 @@ $config['css_js_settings'] = [
             margin-right: var(--ck-image-style-spacing);
         }
 
+        /* Relationship field */
+        .dropdown,
+        .select__dropdown {
+            overflow: visible;
+        }
+
+        .grid-multi-relate .button__within-dropdown,
+        .grid-multi-relate .dropdown__link,
+        .grid-multi-relate .select__dropdown-item,
+        .grid-relate .button__within-dropdown,
+        .grid-relate .dropdown__link,
+        .grid-relate .select__dropdown-item {
+            display: block;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .dropdown__scroll {
+            overflow-x: hidden;
+        }
+
+        .dropdown__link-right {
+            max-width: 100%;
+        }
     ',
     'enable' => true
 ];
