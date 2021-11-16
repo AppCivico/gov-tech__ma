@@ -366,26 +366,32 @@
                         <fieldset class="search-form__options">
                             <ul class="search-form__options-list">
                                 <li class="search-form__options-item">
-                                    <input type="radio" name="required" id="gallery" value="gallery"
-                                        {if '{exp:request:get name="required"}' == 'gallery'}
-                                            checked
-                                        {/if}
+                                    <input type="radio" name="required" id="gallery" value="fotos"
+                                        {exp:request:get name="required"}
+                                            {if item == "fotos"}
+                                                checked
+                                            {/if}
+                                        {/exp:request:get}
                                     />
                                     <label for="gallery">Fotos</label>
                                 </li>
                                 <li class="search-form__options-item">
                                     <input type="radio" name="required" id="videos" value="videos"
-                                    {if '{exp:request:get name="required"}' == 'videos'}
-                                        checked
-                                    {/if}
+                                    {exp:request:get name="required"}
+                                        {if item == "videos"}
+                                            checked
+                                        {/if}
+                                    {/exp:request:get}
                                     />
                                     <label for="videos">Vídeos</label>
                                 </li>
                                 <li class="search-form__options-item">
-                                    <input type="radio" name="required" id="news" value="news"
-                                    {if '{exp:request:get name="required"}' != 'gallery' && '{exp:request:get name="required"}' != 'videos'}
-                                        checked
-                                    {/if}
+                                    <input type="radio" name="required" id="news" value=""
+                                    {exp:request:get name="required"}
+                                        {if item != "fotos" && item != "videos"}
+                                            checked
+                                        {/if}
+                                    {/exp:request:get}
                                     />
                                     <label for="news">Notícias</label>
                                 </li>
