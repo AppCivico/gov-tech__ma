@@ -263,7 +263,7 @@
 
   max-width: 100%;
 
-  font-size: my.ms-step(16px);
+  font-size: my.ms-step(14px);
 
   transition-timing-function: ease-out;
   transition-duration: 0.5s;
@@ -308,6 +308,7 @@
 
   font-weight: my.font-weight('medium');
   line-height: my.$gutter * 3;
+  vertical-align: middle;
 
   cursor: pointer;
 
