@@ -1,4 +1,4 @@
-{if segment_2}
+{if segment_2 == "fotos" || segment_2 == "videos" || segment_2 == "resultados" || segment_2 == "busca"}
 	{embed="default_site:{segment_1}/{segment_2}"}
 {if:else}
 	{embed="default_site:{segment_1}/index"}
