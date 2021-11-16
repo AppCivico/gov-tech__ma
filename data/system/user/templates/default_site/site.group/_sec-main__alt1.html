@@ -88,12 +88,17 @@
                                 sizes="(max-width: 1116px) 100vw, 1116px"
                                 {thumbnail}
                                     srcset="
-                                        {url:300w} 300w,
-                                        {url:635w} 635w,
-                                        {url:886w} 886w,
-                                        {url:1079w} 1079w,
-                                        {url:1116w} 1116w"
-                                    src="{url:1116w}"
+                                        {if url:300w}{url:300w} 300w,{/if}
+                                        {if url:635w}{url:635w} 635w,{/if}
+                                        {if url:886w}{url:886w} 886w,{/if}
+                                        {if url:1079w}{url:1079w} 1079w,{/if}
+                                        {if url:1116w}{url:1116w} 1116w{/if}
+                                        "
+                                    {if url:1116w}
+                                        src="{url:1116w}"
+                                    {if:else}
+                                        src="{url}"
+                                    {/if}
                                     decoding="async" loading="lazy"
                                     class="h-entry__u-photo u-photo h-entry__u-photo--featured"
                                     alt="{description}"

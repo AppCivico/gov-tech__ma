@@ -25,15 +25,20 @@
                                         <img
                                             sizes="100vw"
                                             srcset="
-                                                {url:300w} {width:300w}w,
-                                                {url:554w} {width:554w}w,
-                                                {url:635w} {width:635w}w,
-                                                {url:744w} {width:744w}w,
-                                                {url:886w} {width:886w}w,
-                                                {url:1116w} {width:1116w}w
+                                                {if url:300w}{url:300w} {width:300w}w, {/if}
+                                                {if url:554w}{url:554w} {width:554w}w, {/if}
+                                                {if url:635w}{url:635w} {width:635w}w, {/if}
+                                                {if url:744w}{url:744w} {width:744w}w, {/if}
+                                                {if url:886w}{url:886w} {width:886w}w, {/if}
+                                                {if url:1116w}{url:1116w} {width:1116w}w {/if}
                                             "
-                                            width="{width:1116w}" height="{height:1116w}"
-                                            src="{url:1116w}"
+                                            {if url:1116w}
+                                                width="{width:1116w}" height="{height:1116w}"
+                                                src="{url:1116w}"
+                                            {if:else}
+                                                width="{width}" height="{height}"
+                                                src="{url}"
+                                            {/if}
                                             decoding="async" loading="lazy"
                                             class="h-entry__u-photo u-photo h-entry__u-photo--featured"
                                             alt="{description}"
