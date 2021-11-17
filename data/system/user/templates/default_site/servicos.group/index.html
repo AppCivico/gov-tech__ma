@@ -18,6 +18,7 @@
                                 FROM exp_categories ec
                                 JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
                                 WHERE LOWER(ecg.group_name) IN ('categorias de serviços')
+                                AND ec.cat_image IS NOT NULL
                                 GROUP BY ec.cat_url_title
                                 ORDER BY ec.cat_name"
                             parse="inward"
