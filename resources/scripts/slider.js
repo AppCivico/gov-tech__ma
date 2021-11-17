@@ -7,7 +7,7 @@ export default () => {
     for (let i = 0; i < sliders.length; i += 1) {
       const sliderEl = sliders[i];
       const autoPlay = sliderEl.getAttribute('data-slider-play') === 'auto';
-      const dotCount = sliderEl.querySelectorAll('.slider__item').length;
+      const sliderCount = sliderEl.querySelectorAll('.slider__item').length;
       const slidesToScroll = sliderEl.hasAttribute('data-slides-to-scroll')
         ? Number.parseInt(sliderEl.getAttribute('data-slides-to-scroll'), 10)
         : 1;
@@ -46,15 +46,6 @@ export default () => {
         config.enableMouseEvents = true;
       }
 
-      if (dotCount > 1) {
-        for (let j = 0; j < controlButtons.length; j += 1) {
-          const button = controlButtons[j];
-          if (button.hasAttribute('hidden')) {
-            button.removeAttribute('hidden');
-          }
-        }
-      }
-
       if (dotContainer) {
         const slideTo = (ev) => {
           lorySlider.slideTo(Array.prototype.indexOf.call(dotContainer.children, ev.target));
@@ -64,15 +55,16 @@ export default () => {
         const handleDotEvent = (e) => {
           switch (e.type) {
             case 'before.lory.init':
-              for (let j = 0, len = dotCount; j < len; j += 1) {
+              for (let j = 0, len = sliderCount; j < len; j += 1) {
                 const clone = dotListItem.cloneNode();
                 dotContainer.appendChild(clone);
               }
               dotContainer.children[0].classList.add('active');
+
               break;
 
             case 'after.lory.init':
-              for (let j = 0, len = dotCount; j < len; j += 1) {
+              for (let j = 0, len = sliderCount; j < len; j += 1) {
                 dotContainer.children[j].addEventListener('click', slideTo);
               }
               break;
@@ -110,6 +102,21 @@ export default () => {
       } else {
         config.rewind = true;
       }
+
+      sliderEl.addEventListener('after.lory.init', () => {
+        if (sliderCount > 0) {
+          for (let j = 0; j < controlButtons.length; j += 1) {
+            const button = controlButtons[j];
+
+            if (button.hasAttribute('hidden')) {
+              button.removeAttribute('hidden');
+            }
+            if (config?.initialIndex > 1) {
+              button.classList.remove('disabled');
+            }
+          }
+        }
+      });
 
       lorySlider = lory(sliderEl, config);
 
