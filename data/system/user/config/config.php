@@ -143,10 +143,10 @@ $config['css_js_settings'] = [
         }
 
         /* Relationship field */
-        .dropdown,
-        .select__dropdown {
-            overflow: visible;
-        }
+        // .dropdown,
+        // .select__dropdown {
+        //     overflow: visible;
+        // }
 
         .grid-multi-relate .button__within-dropdown,
         .grid-multi-relate .dropdown__link,
