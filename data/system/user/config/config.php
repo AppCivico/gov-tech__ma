@@ -162,10 +162,6 @@ $config['css_js_settings'] = [
             white-space: nowrap;
         }
 
-        .dropdown__scroll {
-            overflow-x: hidden;
-        }
-
         .dropdown__link-right {
             max-width: 100%;
         }
