@@ -142,9 +142,11 @@
                 <a href="/{segment_1}/{segment_2}/fotos" class="read-more__link">
                     Acessar fotos
                 </a>
-                <a href="/{segment_1}/{segment_2}/videos" class="read-more__link">
-                    Acessar vídeos
-                </a>
+                {if videos:total_rows}
+                    <a href="/{segment_1}/{segment_2}/videos" class="read-more__link">
+                        Acessar vídeos
+                    </a>
+                {/if}
             </div>
 
             {hero}
