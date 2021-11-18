@@ -130,9 +130,19 @@
     {/exp:channel:entries}
 
     {exp:channel:entries channel="event" limit="10" month_limit="100" orderby="date" sort="desc"
-    disable="category_fields|member_data|pagination" status="not closed" show_expired="yes" show_future_entries="yes" year="{segment_2}" month="{segment_3}" day="{segment_4}"}
+    disable="category_fields|member_data|pagination" status="not closed" show_expired="yes" show_future_entries="yes"
+        year="{if segment_2}{segment_2}{if:else}{current_time format='%Y'}{/if}"
+        month="{if segment_3}{segment_3}{if:else}{current_time format='%m'}{/if}"
+        day="{if segment_4}{segment_4}{if:else}{current_time format='%d'}{/if}"
+    }
         {if no_results}
-            <p>Não há eventos cadastrados.</p>
+            <p>Não há eventos cadastrados para
+                {if segment_4}
+                    <strong>{exp:low_nice_date date="{segment_2}-{segment_3}-{segment_4}" format="%d de %F %Y"}</strong>.
+                {if:else}
+                    <strong>{current_time format="%d de %F %Y"}</strong>.
+                {/if}
+            </p>
         {/if}
         {if count == "1"}
             <section class="h-feed__list h-feed__list--events">
