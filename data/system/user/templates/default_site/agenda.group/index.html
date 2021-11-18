@@ -101,19 +101,25 @@
                     {calendar_rows}
                         {row_start}<tr>{/row_start}
                             {if entries}
-                                <td class="calendar-table__cell calendar-table__cell--has-entries {switch}
+                                <td class="
+                                    calendar-table__cell calendar-table__cell--has-entries {switch}
+                                    {if '{segment_4}' == '{day_number}'}calendar-table__cell--current{/if}
                                 ">
                                     <a href="{day_path='agenda/index'}">{day_number}</a>
                                 </td>
                             {/if}
                             {if not_entries}
-                                <td class="calendar-table__cell calendar-table__cell--no-entries {switch}
+                                <td class="
+                                    calendar-table__cell calendar-table__cell--no-entries {switch}
+                                    {if '{segment_4}' == '{day_number}'}calendar-table__cell--current{/if}
                                 ">
                                     {day_number}
                                 </td>
                             {/if}
                             {if blank}
-                                <td class="calendar-table__cell calendar-table__cell--blank
+                                <td class="
+                                    calendar-table__cell calendar-table__cell--blank
+                                    {if '{segment_4}' == '{day_number}'}calendar-table__cell--current{/if}
                                 ">
                                     {day_number}
                                 </td>
