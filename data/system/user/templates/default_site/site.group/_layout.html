@@ -377,21 +377,24 @@
                                 </li>
                                 <li class="search-form__options-item">
                                     <input type="radio" name="required" id="videos" value="videos"
-                                    {exp:request:get name="required"}
-                                        {if item == "videos"}
-                                            checked
-                                        {/if}
-                                    {/exp:request:get}
+                                        {exp:request:get name="required"}
+                                            {if item == "videos"}
+                                                checked
+                                            {/if}
+                                        {/exp:request:get}
                                     />
                                     <label for="videos">Vídeos</label>
                                 </li>
                                 <li class="search-form__options-item">
                                     <input type="radio" name="required" id="news" value=""
-                                    {exp:request:get name="required"}
-                                        {if item != "fotos" && item != "videos"}
-                                            checked
-                                        {/if}
-                                    {/exp:request:get}
+                                        {exp:request:get name="required"}
+                                            {if no_results}
+                                                checked
+                                            {/if}
+                                            {if item != "fotos" && item != "videos"}
+                                                checked
+                                            {/if}
+                                        {/exp:request:get}
                                     />
                                     <label for="news">Notícias</label>
                                 </li>
