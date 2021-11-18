@@ -229,9 +229,10 @@
   }
 
   [role='menuitem'],
-  menu a,
-  nav a {
+  a {
     height: auto;
+
+    text-align: center;
   }
 }
 
