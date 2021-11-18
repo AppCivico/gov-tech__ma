@@ -36,18 +36,6 @@
     height: min-content;
     margin-bottom: my.$gutter;
     overflow: hidden;
-
-    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-      .slider__prev {
-        right: auto;
-        left: 0;
-      }
-
-      .slider__next {
-        right: 0;
-        left: auto;
-      }
-    }
   }
 
   .calendar-table {

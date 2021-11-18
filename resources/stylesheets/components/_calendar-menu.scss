@@ -9,6 +9,34 @@
   text-align: center;
   text-transform: none;
 
+  .slider__next,
+  .slider__prev {
+    top: 0;
+    bottom: my.$stroke__thick;
+
+    height: auto;
+
+    background-color: my.palette('neutral', 'white');
+
+    transform: none;
+
+    @include my.on-event {
+      background-color: my.palette('neutral', 'white');
+    }
+  }
+
+  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+    .slider__prev {
+      right: auto;
+      left: 0;
+    }
+
+    .slider__next {
+      right: 0;
+      left: auto;
+    }
+  }
+
   a {
     @include my.link-undercover;
 
