@@ -15,7 +15,9 @@
   .h-feed__p-name {
     grid-area: 1 / 1 / 2 / 2;
 
-    margin-bottom: my.$gutter;
+    margin: 0;
+
+    font-size: my.ms-step(28px);
   }
 
   .h-feed__subhead {
