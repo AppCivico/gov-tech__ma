@@ -25,16 +25,14 @@
     }
   }
 
-  @media screen and (min-width: my.breakpoint('tablet__portrait')) {
-    .slider__prev {
-      right: auto;
-      left: 0;
-    }
+  .slider__prev {
+    right: auto;
+    left: 0;
+  }
 
-    .slider__next {
-      right: 0;
-      left: auto;
-    }
+  .slider__next {
+    right: 0;
+    left: auto;
   }
 
   a {
