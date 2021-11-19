@@ -11,7 +11,13 @@ module.exports = (api) => {
         {
           useBuiltIns: 'entry',
           corejs: 3,
-          targets: isTest ? { node: 'current' } : null,
+          targets: isTest ? { node: 'current' } : [
+            'defaults',
+            'IE 11',
+            'iOS 7',
+            'safari 11',
+            'maintained node versions',
+          ],
         },
       ],
     ],

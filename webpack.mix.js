@@ -2,8 +2,8 @@ const mix = require('laravel-mix');
 
 mix.webpackConfig({
   output: {
-    hashFunction: "sha256"
-  }
+    hashFunction: 'sha256',
+  },
 });
 
 mix
