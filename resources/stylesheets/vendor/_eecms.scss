@@ -11,13 +11,9 @@
   margin-bottom: 0;
 }
 
-.image-style-side {
-  float: left;
-  margin-right: my.$gutter * 1.5;
-  margin-bottom: my.$gutter;
-  clear: none;
-}
-
+.image-style-side,
+.image-style-align-right,
+.image-style-align-left,
 .image-style-align-center {
   display: block;
 
@@ -27,18 +23,27 @@
   clear: both;
 }
 
-.image-style-align-right {
-  float: right;
-  margin-bottom: my.$gutter;
-  margin-left: my.$gutter * 1.5;
-  clear: right;
-}
+@media screen and (min-width: my.breakpoint('phone__landscape')) {
+  .image-style-side {
+    float: left;
+    margin-right: my.$gutter * 1.5;
+    margin-bottom: my.$gutter;
+    clear: none;
+  }
 
-.image-style-align-left {
-  float: left;
-  margin-right: my.$gutter * 1.5;
-  margin-bottom: my.$gutter;
-  clear: left;
+  .image-style-align-right {
+    float: right;
+    margin-bottom: my.$gutter;
+    margin-left: my.$gutter * 1.5;
+    clear: right;
+  }
+
+  .image-style-align-left {
+    float: left;
+    margin-right: my.$gutter * 1.5;
+    margin-bottom: my.$gutter;
+    clear: left;
+  }
 }
 
 .image_resized {// stylelint-disable-line selector-class-pattern
