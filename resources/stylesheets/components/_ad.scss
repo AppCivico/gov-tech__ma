@@ -35,21 +35,22 @@
 }
 
 .ad__link {
-  max-width: 355px;
+  display: block;
 }
 
 .ad__image {
   display: block;
 
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
 
 .ad__image--header {
-  max-width: 1108px;
+  width: 1108px;
   margin-bottom: my.$gutter * 4;
 }
 
 .ad__image--footer {
-  max-width: 355px;
+  width: 355px;
 }
