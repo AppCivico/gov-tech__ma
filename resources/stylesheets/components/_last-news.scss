@@ -72,6 +72,14 @@
     }
   }
 
+  .h-entry__header {
+    text-align: center;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      text-align: inherit;
+    }
+  }
+
   .h-entry__header--featured {
     margin: my.$gutter auto;
 
