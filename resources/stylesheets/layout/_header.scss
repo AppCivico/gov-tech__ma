@@ -232,6 +232,8 @@
     @include my.clearfix;
 
     .a11y-i18n-bar__list {
+      display: block;
+
       float: right;
       margin-right: 0;
       margin-left: auto;
