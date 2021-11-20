@@ -101,7 +101,21 @@ $date-width: my.$gutter * 3;
   }
 }
 
-.h-feed__list--news {
+.h-feed--news {
+  .h-feed__header--news {
+    margin-bottom: my.$gutter * 2;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      margin-left: 25%;
+    }
+  }
+
+  .h-feed__p-name--news {
+    font-size: my.ms-step(32px);
+  }
+
+  .h-feed__list--news {}
+
   .h-feed__date-heading {
     position: relative;
 

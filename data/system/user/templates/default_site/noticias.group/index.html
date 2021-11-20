@@ -1,8 +1,8 @@
 {layout="default_site:site/_layout" root_class="news"}
 
 {if segment_2 == "" OR segment_2 ~ "/^P\d+/" OR segment_2 == config:reserved_category_word}
-    <main class="h-feed">
-        <header class="h-feed__header">
+    <main class="h-feed h-feed--news">
+        <header class="h-feed__header h-feed__header--news">
             {if segment_2 == config:reserved_category_word}
                 {exp:channel:category_heading channel="news" disable="category_fields"}
                     <h1>
@@ -18,7 +18,7 @@
                     {/if}
                 {/exp:channel:category_heading}
             {if:else}
-                <h1 class="h-feed__p-name">Últimas notícias</h1>
+                <h1 class="h-feed__p-name h-feed__p-name--news">Últimas notícias</h1>
 
                 {layout:set name="title"}Últimas notícias{/layout:set}
             {/if}

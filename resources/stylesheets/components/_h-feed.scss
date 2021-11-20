@@ -78,7 +78,7 @@
     flex-basis: 0;
     flex-grow: 1;
 
-    min-width: map.get(my.$line-lengths, 'min');
+    min-width: min(#{map.get(my.$line-lengths, 'min')}, 100%);
     max-width: map.get(my.$line-lengths, 'max');
     overflow: hidden;
 
