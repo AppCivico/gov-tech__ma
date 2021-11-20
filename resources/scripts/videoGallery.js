@@ -24,6 +24,7 @@ const updateEmbed = (e) => {
 
   if (embedUrl) {
     videoGalleryEmbed.src = embedUrl;
+    videoGalleryEmbed.scrollIntoView(false);
   } else {
     throw new Error('embed url not found');
   }
