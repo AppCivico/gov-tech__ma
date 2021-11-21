@@ -53,16 +53,6 @@ $column-width: 10em;
     flex-wrap: wrap;
   }
 
-  .main-services__title {
-    @include my.truncate;
-
-    font-size: my.ms-step(26px);
-    font-weight: my.font-weight('bold');
-    color: my.palette('brand', 'blue', 'medium');
-    text-decoration: underline;
-    white-space: nowrap;
-  }
-
   .main-services__category {
     flex-basis: calc(50% - #{my.$gutter * 2});
     flex-grow: 1;
@@ -76,14 +66,78 @@ $column-width: 10em;
     }
   }
 
+  .main-services__title {
+    @include my.truncate;
+
+    padding-right: 2em;
+
+    font-size: my.ms-step(18px);
+    font-weight: my.font-weight('bold');
+    line-height: 2;
+    color: my.palette('neutral', 'white');
+    text-align: center;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    background-color: my.palette('brand', 'blue', 'medium');
+
+    &::before {
+      float: left;
+      width: 2em;
+
+      content: '+';
+
+      @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+        content: none;
+      }
+    }
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      padding-right: 0;
+
+      font-size: my.ms-step(26px);
+      line-height: inherit;
+      color: my.palette('brand', 'blue', 'medium');
+      text-decoration: underline;
+
+      cursor: default;
+
+      background-color: transparent;
+    }
+  }
+
+  .opened > .main-services__title {
+    &::before {
+      content: '-';
+
+      @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+        content: none;
+      }
+    }
+  }
+
   .main-services__list {
     $column-width: $column-width * math.div(my.ms-step(26px), 1rem);
 
     position: relative;
 
+    max-height: 0;
     padding: 0;
     margin: 0;
-    overflow: visible;
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition-duration: 300ms;
+    transition-property: max-height, opacity;
+
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      max-height: none;
+      overflow: visible;
+
+      opacity: 1;
+    }
 
     &::after {
       position: absolute;
@@ -93,6 +147,7 @@ $column-width: 10em;
 
       border-right: my.$stroke__thin solid my.palette('neutral', 'base');
     }
+
 
     @media screen and (min-width: #{$column-width * 2}) {
       &:nth-child(odd)::after {
@@ -105,6 +160,12 @@ $column-width: 10em;
         content: '';
       }
     }
+  }
+
+  .opened > .main-services__list {
+    max-height: 999em;
+
+    opacity: 1;
   }
 
   :last-of-type > .main-services__list::after {
