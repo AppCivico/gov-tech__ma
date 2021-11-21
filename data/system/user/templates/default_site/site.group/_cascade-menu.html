@@ -6,7 +6,15 @@
     }
         {categories}
             {if url}
-                <a href="{url:url}" target="_blank"
+                <a
+                    {if "{url}" ^= "/"}
+                        href="{url}"
+                    {if:elseif "{url}" ^= "http:"}
+                        href="{url}"
+                    {if:else}
+                        href="/{url}"
+                    {/if}
+                    target="_blank"
                     class="header-nav__menu-item-link"
                 >
                     {category_name}
