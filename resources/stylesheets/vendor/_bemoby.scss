@@ -11,7 +11,6 @@
     width: 80px;
     height: 80px;
 
-    background-image: my.placeholder-bg();
     background-image: my.image('jucara/avatar_Ju@2x.png');
     background-image: image-set(
       my.image('jucara/avatar_Ju@2x.avif') type('image/avif'),
@@ -117,12 +116,6 @@
 
   .sc-open-icon,
   .sc-closed-icon {
-    // width: my.$gutter;
-    // height: my.$gutter;
-
-    // background-image: my.image('x--green.svg');
-    // border-radius: 100%;
-    outline: 1px dotted fuchsia;
   }
 
   .sc-chat-window {
@@ -158,7 +151,13 @@
 
       content: '';
 
-      background-image: my.placeholder-bg();
+      background-image: my.image('jucara/avatar_Ju@2x.png');
+      background-image: image-set(
+        my.image('jucara/avatar_Ju@2x.avif') type('image/avif'),
+        my.image('jucara/avatar_Ju@2x.webp') type('image/webp'),
+        my.image('jucara/avatar_Ju@2x.png') type('image/png'),
+      );
+      background-size: contain;
       border-radius: 100%;
     }
 
@@ -184,8 +183,12 @@
     }
 
     .sc-header--close-button {
-      background: my.palette('brand', 'green') !important;
+      background: my.image('x--green.svg') !important;
       border-radius: 50%;
+
+      img {
+        display: none;
+      }
     }
   }
 
@@ -196,10 +199,16 @@
     }
 
     .sc-message--system {
+      border-radius: 12px;
+
+    }
+
+    .sc-message--text {
       position: relative;
 
       background: hsl(204, 43%, 91%) !important;
-      border-radius: 12px;
+      margin-left: my.$gutter * 1.5;
+      margin-right: my.$gutter * 1.5;
 
       &::before {
         @include my.triangle('left', $color: hsl(204, 43%, 91%), $size: 0.5em);
@@ -213,7 +222,16 @@
     }
   }
 
+  .sc-user-input {
+    background-color: my.palette('neutral', 'white') !important;
+    box-shadow: 0 -10px 20px #0000001a;
+  }
+
+  .sc-user-input--file-icon-wrapper,
   .sc-user-input--buttons {
+    height: 100%;
+    min-height: 0;
+
     color: my.palette('brand', 'green');
 
     path {
