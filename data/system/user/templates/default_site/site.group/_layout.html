@@ -17,7 +17,7 @@
 {tv-access}
 <input type="checkbox" hidden="hidden" id="menu-controller" />
 
-    <div class="simplified-header">
+    <div class="simplified-header" aria-hidden="true">
         <div class="simplified-header__container">
             <div role="banner" class="site-info">
                 <a href="{site_url}" class="main-header__logo">
@@ -50,12 +50,8 @@
             </div>
 
             <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
+                onclick="document.documentElement.classList.toggle('opened-menu');"
                 class="header-nav__toggle header-nav__hamburguer"
-                onclick="
-                    this.classList.toggle('opened');
-                    document.documentElement.classList.toggle('opened-menu');
-                    this.setAttribute('aria-expanded', this.classList.contains('opened'));
-                "
             >
                 <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd"
                     clip-rule="evenodd" stroke-linecap="round"
@@ -149,40 +145,23 @@
 
             <div class="main-header">
                 {exp:query
-                    sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu hamburguer' LIMIT 1;"
+                    sql="SELECT cg.group_id AS group_id, cg.group_name AS group_name
+                    FROM exp_category_groups cg
+                    JOIN exp_categories ec ON ec.group_id = cg.group_id
+                    WHERE cg.site_id = '{site_id}'
+                    	AND cg.group_name IN ('menu em cascata', 'menu hamburguer')
+                    GROUP BY cg.group_id
+                    ORDER BY cg.group_name DESC
+                    ;"
                     parse="inward"
                 }
-                    <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
-                      class="header-nav__toggle header-nav__hamburguer"
-                        onclick="
-                            this.classList.toggle('opened');
-                            document.documentElement.classList.toggle('opened-menu');
-                            this.setAttribute('aria-expanded', this.classList.contains('opened'));
-                        "
-                    >
-                        <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd"
-                          clip-rule="evenodd" stroke-linecap="round"
-                        >
-                            <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
-                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                            <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
-                            <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
-                        </svg>
-                    </label>
-
-                    <nav class="main-nav">
-                        {embed="default_site:site/_sites-menu"}
-
-                        <label for="menu-controller" class="menu-controller--within-menu" aria-label="Menu" aria-haspopup="menu"
-                        class="header-nav__toggle header-nav__hamburguer"
-                            onclick="
-                                this.classList.toggle('opened');
-                                document.documentElement.classList.toggle('opened-menu');
-                                this.setAttribute('aria-expanded', this.classList.contains('opened'));
-                            "
+                    {if count == 1}
+                        <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
+                            class="header-nav__toggle header-nav__hamburguer"
+                            onclick="document.documentElement.classList.toggle('opened-menu');"
                         >
                             <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd"
-                            clip-rule="evenodd" stroke-linecap="round"
+                              clip-rule="evenodd" stroke-linecap="round"
                             >
                                 <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
                                 <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
@@ -190,53 +169,20 @@
                                 <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
                             </svg>
                         </label>
-                        {exp:channel:category_archive id="main-menu"
-                            channel="page|government_member|service|news|staff|special"
-                            style="nested" category_group="{group_id}" class="main-nav__list"
-                        }
-                            {categories}
-                                {if url}
-                                    <a
-                                        href="{url:url}"
-                                        target="_blank"
-                                        class="main-nav__menu-item-link"
-                                    >
-                                        {category_name}
-                                    </a>
-                                {if:else}
-                                    <button
-                                        class="main-nav__menu-item-container"
-                                        type="button" role="menuitem" aria-haspopup="menu"
-                                        onclick="
-                                            this.classList.toggle('opened');
-                                            this.setAttribute('aria-expanded', this.classList.contains('opened'))
-                                            this.focus();
-                                        ">
-                                        {category_name}
-                                    </button>
-                                {/if}
-                            {/categories}
 
-                            {entry_titles}
-                                <a
-                                    {if page_uri}
-                                        href="{page_uri}"
-                                    {if:elseif "{channel_short_name}" == "page"}
-                                        href="/{url_title}"
-                                    {if:elseif "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
-                                        href="{channel_url}"
-                                    {if:elseif "{channel_url}" $="/"}
-                                        href="{channel_url}{url_title}"
-                                    {if:else}
-                                        href="{channel_url}/{url_title}"
-                                    {/if}
-                                    class="main-nav__menu-link"
-                                >
-                                    {title}
-                                </a>
-                            {/entry_titles}
+                        <nav class="main-nav">
+                    {/if}
+
+                        {exp:channel:category_archive
+                            channel="page|government_member|service|news|staff|special"
+                            style="nested" category_group="{group_id}" class="main-nav__list main-nav__list--{group_name:url_slug}"
+                        }
+                            {tp-category_archive_menu_content}
                         {/exp:channel:category_archive}
-                    </nav>
+
+                    {if count == total_results}
+                        </nav>
+                    {/if}
                 {/exp:query}
 
                 {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
@@ -405,7 +351,16 @@
             {/exp:channel:entries}
         </div><!-- .main-header-and-search-form__container -->
 
-        {embed="default_site:site/_cascade-menu"}
+        {exp:query sql="SELECT group_id FROM exp_category_groups WHERE site_id = '{site_id}' AND group_name = 'menu em cascata' LIMIT 1;" parse="inward"}
+            <nav class="header-nav">
+                {exp:channel:category_archive show_empty="yes"
+                    channel="page|government_member|service|news|staff|special"
+                    style="nested" category_group="{group_id}" class="header-nav__list"
+                }
+                    {tp-category_archive_menu_content}
+                {/exp:channel:category_archive}
+            </nav>
+        {/exp:query}
     </div><!-- .main-header-and-search-form -->
 
     {layout:contents}
