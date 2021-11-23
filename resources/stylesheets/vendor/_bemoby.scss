@@ -46,7 +46,10 @@
       border-radius: 0;
       box-shadow: none;
 
-      .sc-open-icon,
+      .sc-open-icon {
+        display: none;
+      }
+
       .sc-closed-icon {
         right: 0;
         bottom: 150px;
@@ -72,7 +75,6 @@
           my.image('jucara/avatar_Ju_corpo-inteiro.png') type('image/png'),
         );
 
-        .sc-open-icon,
         .sc-closed-icon {
           bottom: 383px;
         }
