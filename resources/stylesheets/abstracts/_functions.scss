@@ -619,3 +619,42 @@ $_default-text-color--light: palette('text', 'light');
 
   @return map.get($default-breakpoints, $breakpoint);
 }
+
+@function placeholder-bg() {
+  $_placeholder-bg__diagonal: rgb(0, 0, 0);
+  $_placeholder-bg__color: rgb(220, 220, 220);
+
+  @return linear-gradient(to top left,
+  transparent 0%,
+  transparent calc(50% - 1px),
+  $_placeholder-bg__diagonal 50%,
+  transparent calc(50% + 1px),
+  transparent 100%),
+    linear-gradient(to top right,
+  transparent 0%,
+  transparent calc(50% - 1px),
+  $_placeholder-bg__diagonal 50%,
+  transparent calc(50% + 1px),
+  transparent 100%),
+    linear-gradient(to right,
+  $_placeholder-bg__color,
+  $_placeholder-bg__color);
+}
+
+@function grid-image ($columns: 1, $gutter: $gutter) {
+  $color: rgba(palette('feedback', 'danger'), 0.35);
+  $grid-image: $color 0, $color $gutter, transparent $gutter;
+
+  @for $i from 1 to $columns {
+    $multiplier: math.div($i, $columns);
+    $grid-image: list.append($grid-image,
+    (transparent calc(#{100% * $multiplier} - #{$gutter * $multiplier}),
+    $color calc(#{100% * $multiplier} - #{$gutter * $multiplier}),
+    $color calc(#{100% * $multiplier} + #{$gutter * (1 - $multiplier)}),
+    transparent calc(#{100% * $multiplier} + #{$gutter * (1 - $multiplier)})),
+    'comma');
+  }
+
+
+  @return linear-gradient(to right, #{list.append($grid-image, (transparent calc(100% - #{$gutter}), $color calc(100% - #{$gutter}), $color 100%),'comma')});
+}

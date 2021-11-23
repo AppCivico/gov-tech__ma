@@ -46,28 +46,7 @@
 /// }
 ///
 @mixin placeholder-bg {
-  $_placeholder-bg__diagonal: rgb(0, 0, 0);
-  $_placeholder-bg__color: rgb(220, 220, 220);
-
-  background: linear-gradient(
-    to top left,
-    transparent 0%,
-    transparent calc(50% - 1px),
-    $_placeholder-bg__diagonal 50%,
-    transparent calc(50% + 1px),
-    transparent 100%
-  ), linear-gradient(
-    to top right,
-    transparent 0%,
-    transparent calc(50% - 1px),
-    $_placeholder-bg__diagonal 50%,
-    transparent calc(50% + 1px),
-    transparent 100%
-  ), linear-gradient(
-    to right,
-    $_placeholder-bg__color,
-    $_placeholder-bg__color
-  );
+  background: f.placeholder-bg();
 }
 
 /// Grid background image
@@ -75,27 +54,7 @@
 /// @access public
 ///
 @mixin grid-image($columns: 1, $gutter: c.$gutter) {
-  $color: rgba(f.palette('feedback', 'danger'), 0.35);
-  $grid-image: $color 0, $color $gutter, transparent $gutter;
-
-  @for $i from 1 to $columns {
-    $multiplier: math.div($i, $columns);
-    $grid-image: list.append(
-      $grid-image,
-      (
-        transparent calc(#{100% * $multiplier} - #{$gutter * $multiplier}),
-        $color calc(#{100% * $multiplier} - #{$gutter * $multiplier}),
-        $color calc(#{100% * $multiplier} + #{$gutter * (1 - $multiplier)}),
-        transparent calc(#{100% * $multiplier} + #{$gutter * (1 - $multiplier)})
-      ),
-      'comma'
-    );
-  }
-
-  background-image: linear-gradient(
-    to right,
-    #{list.append($grid-image, (transparent calc(100% - #{c.$gutter}), $color calc(100% - #{c.$gutter}), $color 100%), 'comma')}
-  );
+  background-image: f.grid-image($columns: 1, $gutter: c.$gutter);
 }
 
 
@@ -1017,7 +976,6 @@ $no-viewport: false !default;
     font-size: $max;
   }
 }
-
 
 @mixin headings {
   h1,
