@@ -48,7 +48,7 @@
   padding: 0;
   margin: 0;
 
-  border-spacing: my.$gutter (my.$gutter * 0.5);
+  border-spacing: (my.$gutter * 0.5) (my.$gutter * 0.33333);
   border-collapse: separate;
 }
 
@@ -68,13 +68,14 @@
   content: '';
 
   background-image: my.image('icons/globe.svg');
+  background-position: 50% 50%;
 }
 
 .a11y-i18n-bar__button {
   display: block;
 
-  width: my.$gutter;
-  height: my.$gutter;
+  width: my.$gutter * 1.33333;
+  height: my.$gutter * 1.33333;
   min-height: 0;
   padding: 0;
   margin: 0;
@@ -82,7 +83,9 @@
 
   font-size: 1em;
   font-weight: inherit;
+  text-align: center;
 
+  background-size: my.$gutter * 0.875; // 21px
   border: 0;
 }
 
@@ -100,12 +103,13 @@
   color: inherit;
 
   background: none;
+  border-bottom: my.$stroke__thin solid transparent;
 
   &:hover,
   &:focus,
   &:active {
     background: none;
-    border-bottom: my.$stroke__thin solid currentColor;
+    border-bottom: my.$stroke__thin solid my.palette('brand', 'green');
     outline: none;
   }
 }
