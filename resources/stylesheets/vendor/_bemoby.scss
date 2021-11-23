@@ -196,11 +196,12 @@
     border-radius: 0 0 12px 12px;
 
     .sc-message--content {
-      margin-right: my.$gutter * 1.5;
-      margin-left: my.$gutter * 1.5;
     }
 
     .sc-message--system {
+      margin-right: my.$gutter * 1.5;
+      margin-left: my.$gutter * 1.5;
+
       border-radius: 12px;
     }
 
