@@ -111,6 +111,18 @@
 
         content: '';
       }
+
+      &.opened {
+        &::before,
+        &::after {
+          content: none;
+        }
+
+        .sc-open-icon,
+        .sc-closed-icon {
+          display: none;
+        }
+      }
     }
   }
 
@@ -183,7 +195,9 @@
     }
 
     .sc-header--close-button {
+      background-color: transparent !important;
       background-image: my.image('x--green.svg') !important;
+      background-position: 50% 50%;
       border-radius: 50%;
 
       img {
