@@ -46,6 +46,12 @@
       border-radius: 0;
       box-shadow: none;
 
+      .sc-open-icon,
+      .sc-closed-icon {
+        right: 0;
+        bottom: 233px;
+      }
+
       /* @2x Images (Pixel Ratio of 1.25+) */
       @media only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
         background-image: my.image('jucara/avatar_Ju--medium@2x@2x.png');
@@ -66,6 +72,11 @@
           my.image('jucara/avatar_Ju_corpo-inteiro.png') type('image/png'),
         );
 
+        .sc-open-icon,
+        .sc-closed-icon {
+          bottom: 383px;
+        }
+
         /* @2x Images (Pixel Ratio of 1.25+) */
         @media only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
           background-image: my.image('jucara/avatar_Ju_corpo-inteiro@2x.png');
@@ -75,12 +86,6 @@
             my.image('jucara/avatar_Ju_corpo-inteiro@2x.png') type('image/png'),
           );
         }
-      }
-
-      .sc-open-icon,
-      .sc-closed-icon {
-        right: 0;
-        bottom: 383px;
       }
 
       &::before,
