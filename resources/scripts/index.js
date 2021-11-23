@@ -10,6 +10,7 @@ import searchFormReset from './searchForm/reset';
 import searchFormSelect from './searchForm/select';
 import searchResults from './searchResults';
 import selectNavigation from './selectNavigation';
+import setFromQueryStrings from './setFromQueryString';
 import sliderInit from './slider';
 import videoGalleryInit from './videoGallery';
 
@@ -25,5 +26,6 @@ searchFormReset();
 searchFormSelect();
 searchResults();
 selectNavigation();
+setFromQueryStrings();
 sliderInit();
 videoGalleryInit();
