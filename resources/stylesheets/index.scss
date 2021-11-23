@@ -1,8 +1,7 @@
 @charset 'UTF-8';
 
 // 2. Vendors
-@use './vendor/eecms';
-@use './vendor/lory';
+@use 'vendor';
 @use '../../node_modules/halkabox/dist/halkaBox.min';
 
 // 3. Base stuff
