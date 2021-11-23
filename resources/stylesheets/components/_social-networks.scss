@@ -35,22 +35,19 @@ $list: (
 ///
 
 .social-networks {
-  display: table;
+  display: flex;
+
+  align-items: center;
 
   padding: 0;
   margin: 0;
-
-  table-layout: fixed;
-  border-collapse: collapse;
 }
 
 .social-networks__item {
-  display: table-cell;
+  display: block;
 
   padding: 0;
   margin: 0;
-
-  vertical-align: middle;
 
   &::before {
     content: none;
