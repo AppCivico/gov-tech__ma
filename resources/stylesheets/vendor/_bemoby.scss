@@ -193,22 +193,24 @@
   }
 
   .sc-message-list {
-    border-radius: 0 0 17px 17px;
+    border-radius: 0 0 12px 12px;
 
     .sc-message--content {
+      margin-right: my.$gutter * 1.5;
+      margin-left: my.$gutter * 1.5;
     }
 
     .sc-message--system {
       border-radius: 12px;
-
     }
 
     .sc-message--text {
       position: relative;
 
-      background: hsl(204, 43%, 91%) !important;
-      margin-left: my.$gutter * 1.5;
       margin-right: my.$gutter * 1.5;
+      margin-left: my.$gutter * 1.5;
+
+      background: hsl(204, 43%, 91%) !important;
 
       &::before {
         @include my.triangle('left', $color: hsl(204, 43%, 91%), $size: 0.5em);
