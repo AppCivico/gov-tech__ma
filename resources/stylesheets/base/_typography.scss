@@ -199,7 +199,7 @@ article fieldset > p:first-child {
     @supports (text-decoration: dotted underline) {
       text-decoration: dotted underline; /* 2 */
 
-      border-bottom: inherit;
+      border-bottom: 0;
     }
   }
 }
