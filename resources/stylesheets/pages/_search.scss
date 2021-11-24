@@ -2,6 +2,51 @@
 
 @use '../abstracts' as my;
 
+@mixin bar {
+  background-image: linear-gradient(90deg, #b22126, #241f21, #0082c9, #ffd100, #87ba40, #b22126, #241f21);
+  background-size: 600% 100%;
+
+  animation-name: searching;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @at-root {
+    @keyframes searching {
+      0% {
+        background-position: 0% 0;
+      }
+
+      100% {
+        background-position: 100% 0;
+      }
+    }
+  }
+}
+
+@mixin blinking-text {
+  animation-name: blinkingText;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+  @at-root {
+    @keyframes blinkingText {
+      0% {
+        color: my.palette('neutral', 'black');
+      }
+
+      50% {
+        color: my.palette('neutral', 'white');
+      }
+
+      100% {
+        color: my.palette('neutral', 'black');
+      }
+    }
+  }
+}
+
+
 @mixin circle {
   // it should be `sqrt(1vh^2 + 1vw^2)`, but, as we don't have sqrt on CSS,
   // let's use something we know: the hypotenuse is shorter than the sum of
@@ -46,92 +91,47 @@
 .going-to-search-results {
   overflow: hidden;
 
-  &::before {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: my.layer('default');
+  body {
+    &::before,
+    &::after {
+      position: fixed;
+      z-index: my.layer('default') + 5;
+    }
 
-    content: '';
+    &::before {
+      @include blinking-text;
 
-    background-color: my.palette('brand', 'blue', 'light');
-    opacity: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
 
-    animation-name: fade-in;
-    animation-duration: 2s;
-    animation-timing-function: ease-in;
-  }
+      display: flex;
 
-  &::after,
-  > body::before,
-  > body::after {
-    @include circle;
-  }
+      align-items: center;
+      justify-content: center;
 
-  &::after {
-    opacity: 0.2;
+      text-align: center;
+      text-transform: uppercase;
 
-    animation-delay: 333ms;
+      content: 'buscando...';
 
-  }
+      background-color: my.palette('neutral', 'white');
+    }
 
-  > body::before {
-    opacity: 0.5;
+    &::after {
+      @include bar;
 
-    animation-delay: 333ms * 2;
-  }
+      position: fixed;
+      top: calc(50% + #{my.$leading * 1em});
+      right: 75%;
+      left: 25%;
 
-  > body::after {
-    animation-delay: 333ms * 3;
-  }
+      width: 50%;
+      height: 4px;
 
-  [role='main']::before,
-  main::before,
-  [role='main']::after,
-  main::after {
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: my.layer('modal');
-
-    display: flex;
-
-    justify-content: center;
-
-    text-align: center;
-
-    opacity: 1;
-
-    animation-name: fade-in;
-    animation-delay: 1s;
-    animation-fill-mode: both;
-  }
-
-  [role='main']::before,
-  main::before {
-    top: 0%;
-    bottom: 50%;
-
-    align-items: flex-end;
-
-    font-size: my.ms-step(22px);
-
-    content: 'Estamos levando sua dúvida para os nossos servidores!';
-  }
-
-  [role='main']::after,
-  main::after {
-    top: 50%;
-    bottom: 0;
-
-    align-items: flex-start;
-
-    font-size: my.ms-step(20px);
-    font-weight: my.font-weight('bold');
-
-    content: 'Carregando resposta...';
+      content: '';
+    }
   }
 }
 
