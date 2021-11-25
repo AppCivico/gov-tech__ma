@@ -1,9 +1,55 @@
-{preload_replace:pr-channels="page"}
-
 {layout="default_site:site/_layout" root_class="page"}
 
 {if segment_2}
     {redirect="404"}
 {if:else}
-    {tp-generic_entry}
+    {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+
+    {exp:channel:entries channel="page|special" limit="1" require_entry="yes"
+        disable="category_fields|member_data|pagination"
+    }
+        {tp-check_draft}
+
+        {layout:set name="title"}{title}{/layout:set}
+        {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+        {layout:set name="entry_id"}{entry_id}{/layout:set}
+
+        {layout:set name="canonical"}/{segment_1}/{url_title}{/layout:set}
+        {thumbnail}
+            {layout:set name="sharing_cover"}{url:facebook}{/layout:set}
+        {/thumbnail}
+
+        <article role="main" id="main" class="h-entry">
+            <header class="h-entry__header">
+                <h1 class="h-entry__p-name">{title}</h1>
+                {if subhead}
+                    <h2 class="h-entry__subhead">{subhead}</h2>
+                {/if}
+            </header>
+
+            {if body}
+                <section class="h-entry__e-content e-content">{body}</section>
+            {/if}
+
+            {if gallery:total_rows}
+                <section class="gallery">
+                    {gallery}
+                        <figure class="gallery__item">
+                            {gallery:file}
+                                <a href="{url}" target="_blank" class="gallery__link" />
+                                    <img src="{url:thumb--gallery}"
+                                        data-width="142" data-height="116"
+                                        width="{width:thumb--gallery}" height="{height:thumb--gallery}"
+                                        alt="{description}"
+                                    decoding="async" loading="lazy" class="gallery__image" />
+                                    {if gallery:caption}<figcaption>{gallery:caption}</figcaption>{/if}
+                                </a>
+                            {/gallery:file}
+                        </figure>
+                    {/gallery}
+                </section>
+            {/if}
+
+        </article>
+    {/exp:channel:entries}
 {/if}
