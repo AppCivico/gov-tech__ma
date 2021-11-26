@@ -188,6 +188,11 @@
   }
 
   .read-more__link {
+    padding-right: 12px;
+
+    background-image: my.image('icons/metro-file-download.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
     border: 0;
   }
 }
