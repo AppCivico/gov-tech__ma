@@ -50,7 +50,7 @@ progress,
 
   width: 100%;
   // Get rid of default border in Firefox.
-  height: my.$leading * 1em;
+  height: my.$gutter * 0.125;
 
   color: my.palette('button', 'submit');
 
@@ -60,10 +60,10 @@ progress,
   appearance: none;
 
   @include progress-bar-fg {
-    background: linear-gradient(90deg, transparent 50%, my.palette('button', 'submit') 50%) center/50px 50px transparent;
+    background: my.palette('brand', 'yellow', 'dark');
   }
 
   @include progress-bar-bg {
-    background: linear-gradient(90deg, transparent 50%, my.palette('button', 'base') 50%) center/50px 50px transparent;
+    background: my.palette('neutral', 'x-dark');
   }
 }

@@ -1,0 +1,193 @@
+@use '../abstracts' as my;
+
+.audio-player {
+  box-sizing: content-box;
+  display: block;
+
+  padding: 0 my.$gutter * 0.5;
+  margin: 0 0 (my.$gutter * 2) 0;
+
+  font-size: my.ms-step(13px);
+
+  background-color: my.palette('neutral', 'white');
+  border-radius: 999em;
+  box-shadow: 10px 10px 20px #00000029;
+
+  output {
+    display: inline;
+  }
+}
+
+.audio-player__controls {
+  box-sizing: border-box;
+  display: table;
+
+  width: 100%;
+  height: my.$gutter * 2;
+
+  border-spacing: my.$gutter * 0.25;
+  border-collapse: separate;
+
+  > * {
+    display: table-cell;
+
+    padding: 0;
+
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+}
+
+.audio-player__control-wrapper {
+  position: relative;
+}
+
+.audio-player__timer-wrapper {
+  output {
+    display: inline;
+  }
+}
+
+.audio-player__progress-wrapper {
+  width: 100%;
+}
+
+.audio-player__speed-wrapper {
+  width: 5em;
+}
+
+.audio-player__control {
+  display: block;
+
+  justify-content: center;
+
+  width: auto;
+  min-height: 0;
+  padding: 0 (my.$gutter * 0.25);
+  margin: 0;
+  overflow: hidden;
+
+  font-size: 1em;
+  text-align: center;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+
+    background-color: transparent;
+  }
+}
+
+.audio-player__control--rewind {
+  letter-spacing: -0.25em;
+}
+
+.audio-player__control--play {
+}
+
+.audio-player__control--pause {
+}
+
+.audio-player__control--forward {
+  letter-spacing: -0.25em;
+}
+
+.audio-player__timer {
+  display: block;
+
+  width: 100%;
+}
+
+.audio-player__progress {
+}
+
+.audio-player__control--speed {
+  display: block;
+
+  width: auto;
+  padding: 0;
+
+  font-size: 1em;
+  line-height: auto;
+  color: inherit;
+  text-indent: 0;
+
+  background: none;
+
+  &:read-only {
+    background-color: inherit;
+  }
+
+  option {
+    background-color: inherit;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+
+    background-color: inherit;
+
+    option {
+      background: inherit;
+    }
+  }
+}
+
+.audio-player__control--mute,
+.audio-player__control--unmute {
+  @include my.image-replacement;
+
+  width: my.$gutter * 1.5;
+  padding: 0;
+
+  background-position: 50% 50%;
+}
+
+.audio-player__control--mute {
+  background-image: my.image('icons/volume-up-fill.svg');
+}
+
+.audio-player__control--unmute {
+  background-image: my.image('icons/volume-mute-fill.svg');
+}
+
+.audio-player__control--menu {
+  width: auto;
+  padding: 0;
+}
+
+.audio-player__control--download {
+  position: absolute;
+  right: 0;
+
+  display: none;
+
+  width: auto;
+
+  background-color: my.palette('neutral', 'white');
+  border: 0;
+
+  :focus + & {
+    display: block;
+
+    background-color: my.palette('neutral', 'white');
+  }
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+
+  .read-more__link {
+    border: 0;
+  }
+}

@@ -181,9 +181,69 @@
                 </figure>
             {/hero}
 
-            {if body}
-                <section class="h-entry__e-content e-content">{body}</section>
-            {/if}
+                <section class="h-entry__e-content e-content">
+                    {if audio_file}
+                        <div class="audio-player" data-js="audio-player">
+                            <div class="audio-player__controls">
+                                <div class="audio-player__control-wrapper">
+                                    <button class="audio-player__control audio-player__control--rewind" data-js="audio-rewind" data-decrement="10">&#9664;&#9664;</button>
+                                </div>
+                                <div class="audio-player__control-wrapper">
+                                    <button class="audio-player__control audio-player__control--play" data-js="audio-play-pause" aria-label="Tocar/Parar">&#9654;</button>
+                                </div>
+                                <div class="audio-player__control-wrapper">
+                                    <button class="audio-player__control audio-player__control--forward" data-js="audio-forward" data-increment="30">&#9654;&#9654;</button>
+                                </div>
+
+                                <div class="audio-player__timer-wrapper">
+                                    <output class="audio-player__timer audio-player__timer--current-time" data-js="audio-current-time">00:00</output> / <output class="audio-player__timer audio-player__timer--duration" data-js="audio-duration">{audio_duration format="%m:%s"}</output>
+                                </div>
+                                <div class="audio-player__progress-wrapper">
+                                    <progress class="audio-player__progress" data-js="audio-progress" value="0"></progress>
+                                </div>
+
+                                <div class="audio-player__speed-wrapper">
+                                    <select class="audio-player__control audio-player__control--speed" data-js="audio-speed">
+                                        <option value="1">1×</option>
+                                        <option value="1.5">1.5×</option>
+                                        <option value="2">2×</option>
+                                    </select>
+                                </div>
+                                <div class="audio-player__control-wrapper">
+                                    <button class="audio-player__control audio-player__control--mute" data-js="audio-mute">Mute/Unmute</button>
+                                </div>
+                                <div class="audio-player__control-wrapper">
+                                    <button class="audio-player__control audio-player__control--menu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                        </svg>
+                                    </button>
+
+                                    <p class="audio-player__control audio-player__control--download read-more read-more--download">
+                                        <a href="{audio_file}"
+                                            class="read-more__link"
+                                            {if audio_file *= ".mp3"}
+                                                download="{url_title:url_slug}.mp3" type="audio/mp3"
+                                            {if:else}
+                                                download="{url_title:url_slug}.m4a" type="audio/mp4"
+                                            {/if}
+                                        >Download</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <audio volume="0.5">
+                                {if audio_file *= ".mp3"}
+                                    <source src="{audio_file}" type="audio/mp3" />
+                                {if:else}
+                                    <source src="{audio_file}" type="audio/mp4" />
+                                {/if}
+                            </audio>
+                        </div>
+                    {/if}
+                    {body}
+
+                </section>
             {if gallery:total_rows}
                 <div class="slider" data-js="slider">
                     <button type="button" hidden class="js_prev slider__prev" aria-hidden="true">
@@ -363,9 +423,6 @@
             </div>
         </article>
     {/exp:channel:entries}
-
-{if:elseif segment_2 != config:reserved_category_word AND segment_3 == "videos"}
-
 {if:elseif segment_2 != config:reserved_category_word AND segment_3 == "download"}
     {exp:channel:entries channel="news" limit="1" require_entry="yes" show_future_entries="yes"
     disable="categories|category_fields|member_data|pagination" status="not none" parse="inward"}

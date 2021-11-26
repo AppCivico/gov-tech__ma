@@ -83,9 +83,9 @@ $columns-per-breakpoint: (
 );
 
 $toggle-breakpoints: (
-  'toggle-layout': 62em, // 992px
   'toggle-table-layout': 48em,
-  'toggle-menu': 64em,
+  'toggle-layout': 62em, // 992px
+  'toggle-menu': 64em, // 1024px
 );
 
 $breakpoints: map.merge($breakpoints, $toggle-breakpoints);
