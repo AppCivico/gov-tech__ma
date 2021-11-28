@@ -1,5 +1,6 @@
 import a11y from './a11y';
 import ariaControlsInit from './ariaControls';
+import audioPlayer from './audio/player';
 import biddingInit from './bidding';
 import flagFirstAccess from './flag-first-access';
 import headerRandomize from './layout/header-randomize';
@@ -17,6 +18,7 @@ import videoGalleryInit from './videoGallery';
 
 a11y();
 ariaControlsInit();
+audioPlayer();
 biddingInit();
 flagFirstAccess();
 headerRandomize();
