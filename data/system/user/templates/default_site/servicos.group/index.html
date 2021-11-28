@@ -138,9 +138,21 @@
                     {/if}
                 {/exp:query}
 
-                {exp:channel:entries limit="10" status="not closed" site="not none" parse="inward"
-                    disable="category_fields|custom_fields|member_data" paginate="inline"
-                    category="{exp:cat2:id site_id='0' category_url_title='{segment_3}'}|{exp:cat2:id site_id='0' category_url_title='{segment_4}'}" dynamic="no"
+                {exp:query
+                    sql="SELECT ecp.entry_id, ect.url_title, ect.title, ec2.value AS 'site_url'
+                    FROM exp_category_posts ecp
+                    JOIN exp_categories ec ON ec.cat_id = ecp.cat_id
+                    JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
+                    JOIN exp_config ec2 ON ec2.site_id = ect.site_id AND ec2.key = 'site_url'
+                    WHERE ec.cat_url_title IN ('{segment_3}','{segment_4}')
+                    AND ect.status NOT IN ('closed')
+                    AND ecp.entry_id NOT IN (
+                    	SELECT entry_id
+                    	FROM exp_category_posts ecp2
+                    	JOIN exp_categories ec3 ON ecp2.cat_id = ec3.cat_id
+                    	WHERE ec3.cat_url_title = 'programas'
+                    )"
+                    parse="inward" paginate="inline" limit="10"
                 }
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
@@ -154,12 +166,7 @@
                         <ul class="h-feed__list h-feed__list--services">
                     {/if}
                             <li id="entry-{entry_id}" class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                                <a
-                                    {if channel_short_name == "page" || page_uri}
-                                        href="{page_uri}"
-                                    {if:else}
-                                        href="https:/{relative_url}/{url_title}"
-                                    {/if}
+                                <a href="{site_url}/servicos/{url_title}"
                                     class="h-entry__u-url h-entry__u-url--services h-entry__p-name h-entry__p-name--services p-name"
                                 >
                                     {title}
@@ -170,12 +177,10 @@
 
                         {tp-pagination}
                     {/if}
-                {/exp:channel:entries}
+                {/exp:query}
             {/if}
         </main>
-
     {if:else}
-
         <main class="h-feed">
             <header class="h-feed__header">
                 {layout:set name="canonical"}{site_url}/{segment_1}/{/layout:set}
@@ -280,7 +285,9 @@
 
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:entries channel="service" limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed"}
+    {exp:channel:entries channel="service" {if site_id == 1}site="not none"{/if}
+        limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed"
+    }
         {tp-check_draft}
 
         {layout:set name="title"}{title}{/layout:set}
