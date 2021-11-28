@@ -7,6 +7,10 @@
   position: relative;
   z-index: 7;
 
+  .opened-menu & {
+    display: none;
+  }
+
   .sc-launcher {
     width: 80px;
     height: 80px;

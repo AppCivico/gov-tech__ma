@@ -1,5 +1,5 @@
 import a11y from './a11y';
-import ariaMenusInit from './ariaMenus';
+import ariaControlsInit from './ariaControls';
 import biddingInit from './bidding';
 import flagFirstAccess from './flag-first-access';
 import headerRandomize from './layout/header-randomize';
@@ -16,7 +16,7 @@ import sliderInit from './slider';
 import videoGalleryInit from './videoGallery';
 
 a11y();
-ariaMenusInit();
+ariaControlsInit();
 biddingInit();
 flagFirstAccess();
 headerRandomize();

@@ -53,6 +53,20 @@ foreach ($domains as $site) {
     }
 }
 
+switch (TRUE) {
+    case (strpos($domain, 'localhost') !== false) :
+    case (strpos($domain, '.local') !== false) :
+        $assign_to_config['global_vars']['global:root-site-url'] = '//ma.gov.local';
+        break;
+
+    case (strpos($domain, 'appcivico') !== false) :
+        $assign_to_config['global_vars']['global:root-site-url'] = 'https://ma.appcivico.com.br';
+        break;
+
+    default:
+        $assign_to_config['global_vars']['global:root-site-url'] = 'https://ma.gov.br';
+        break;
+}
 $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $port : $protocol . $domain;
 
 $assign_to_config['site_name'] = $site_name;

@@ -63,19 +63,7 @@
                 </svg>
             </label>
 
-            {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-                {if social_profiles:total_rows}
-                    <ul class="social-networks">
-                        {social_profiles}
-                            <li class="social-networks__item">
-                                <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
-                                    {social_profiles:url}
-                                </a>
-                            </li>
-                        {/social_profiles}
-                    </ul>
-                {/if}
-            {/exp:channel:entries}
+            {embed="default_site:site/social_profiles" site="default_site" class="social-networks--simplified-header"}
         </div><!-- .simplified-header__container -->
     </div><!-- .simplified-header -->
 
@@ -157,6 +145,7 @@
                 }
                     {if count == 1}
                         <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
+                            aria-controls="main-nav"
                             class="header-nav__toggle header-nav__hamburguer"
                             onclick="document.documentElement.classList.toggle('opened-menu');"
                         >
@@ -170,7 +159,24 @@
                             </svg>
                         </label>
 
-                        <nav class="main-nav">
+                        <nav class="main-nav" id="main-nav">
+                            <label for="menu-controller" aria-label="Menu" aria-haspopup="menu"
+                                aria-controls="main-nav"
+                                class="header-nav__toggle header-nav__hamburguer header-nav__hamburguer--whitin"
+                                onclick="document.documentElement.classList.toggle('opened-menu');"
+                            >
+                                <svg width="29" height="26" viewBox="0 0 29 26" fill-rule="evenodd"
+                                  clip-rule="evenodd" stroke-linecap="round"
+                                >
+                                    <path d="M1.5 1.5h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--1" />
+                                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                                    <path d="M1.5 12.621h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--2" />
+                                    <path d="M1.5 23.742h25.262" stroke-width="3" class="menu-controller__line menu-controller__line--3" />
+                                </svg>
+                            </label>
+                            <div class="main-nav__social" aria-hidden="true">
+                                {embed="default_site:site/social_profiles" site="default_site"}
+                            </div>
                     {/if}
 
                         {exp:channel:category_archive
@@ -181,27 +187,51 @@
                         {/exp:channel:category_archive}
 
                     {if count == total_results}
+                            <div class="main-nav__i18n a11y-i18n-bar" aria-hidden="true">
+                                <ul class="a11y-i18n-bar__list a11y-i18n-bar__list--i18n">
+                                    <li class="a11y-i18n-bar__item">
+                                        <button type="button" onclick="doGTranslate('pt|en');" title="English"
+                                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                                            translate="no"
+                                        >
+                                            <abbr title="English" lang="en">EN</abbr>
+                                        </button>
+                                    </li>
+                                    <li class="a11y-i18n-bar__item">
+                                        <button type="button" onclick="doGTranslate('pt|fr');" title="French"
+                                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                                            translate="no"
+                                        >
+                                            <abbr title="Français" lang="fr">FR</abbr>
+                                        </button>
+                                    </li>
+                                    <li class="a11y-i18n-bar__item">
+                                        <button type="button" onclick="doGTranslate('pt|pt');" title="Portuguese"
+                                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                                            translate="no"
+                                        >
+                                            <abbr title="Português" lang="pt">PT</abbr>
+                                        </button>
+                                    </li>
+                                    <li class="a11y-i18n-bar__item">
+                                        <button type="button" onclick="doGTranslate('pt|es');" title="Spanish"
+                                            class="a11y-i18n-bar__button a11y-i18n-bar__button--translate"
+                                            translate="no"
+                                        >
+                                            <abbr title="Español" lang="es">ES</abbr>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </nav>
                     {/if}
                 {/exp:query}
 
-                {exp:channel:entries site="default_site" custom_fields="yes" limit="1" dynamic="no" channel="settings" url_title="settings" disable="categories|member_data|pagination"}
-                    {if social_profiles:total_rows}
-                        <ul class="social-networks social-networks--header">
-                            {social_profiles}
-                                <li class="social-networks__item">
-                                    <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">
-                                        {social_profiles:url}
-                                    </a>
-                                </li>
-                            {/social_profiles}
-                        </ul>
-                    {/if}
-                {/exp:channel:entries}
+                {embed="default_site:site/social_profiles" site="default_site" class="social-networks--header"}
 
                 {if site_id != 1}
-                    <a class="main-header__root-site-link" href="https://ma.appcivico.com.br/">
-                       ❮ ma.gov.br
+                    <a class="main-header__root-site-link" href="{global:root-site-url}">
+                       ma.gov.br
                     </a>
                 {/if}
 
@@ -355,7 +385,7 @@
             <nav class="header-nav">
                 {exp:channel:category_archive show_empty="yes"
                     channel="page|government_member|service|news|staff|special"
-                    style="nested" category_group="{group_id}" class="header-nav__list"
+                    style="nested" category_group="{group_id}" class="header-nav__list header-nav__list--{group_name:url_slug}"
                 }
                     {tp-category_archive_menu_content}
                 {/exp:channel:category_archive}
@@ -494,7 +524,7 @@
                         {/if}
                     </div>
                     {if social_profiles:total_rows}
-                        <ul class="social-networks">
+                        <ul class="social-networks social-networks--footer">
                             {social_profiles}
                                 <li class="social-networks__item">
                                     <a href="{social_profiles:url}" target="_blank" class="u-url social-networks__link">

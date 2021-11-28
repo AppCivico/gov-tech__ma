@@ -1,0 +1,47 @@
+{categories}
+    {if url}
+        <a
+            {if "{url}" ^= "/"}
+                href="{url}"
+            {if:elseif "{url}" ^= "http:"}
+                target="_blank"
+                href="{url}"
+            {if:else}
+                href="/{url}"
+            {/if}
+            class="nav__menu-item-link"
+        >
+            {category_name}
+        </a>
+    {if:else}
+        <button class="nav__menu-item-container" type="button"
+            role="menuitem" aria-haspopup="menu"
+            onclick="
+                this.classList.toggle('opened');
+                this.setAttribute('aria-expanded', this.classList.contains('opened'))
+                this.focus();
+            "
+        >
+            {category_name}
+        </button>
+    {/if}
+{/categories}
+
+{entry_titles}
+    <a
+        {if page_uri}
+            href="{page_uri}"
+        {if:elseif "{channel_short_name}" == "page"}
+            href="/{url_title}"
+        {if:elseif "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
+            href="{channel_url}"
+        {if:elseif "{channel_url}" $= "/"}
+            href="{channel_url}{url_title}"
+        {if:else}
+            href="{channel_url}/{url_title}"
+        {/if}
+        class="nav__menu-link"
+    >
+        {title}
+    </a>
+{/entry_titles}
