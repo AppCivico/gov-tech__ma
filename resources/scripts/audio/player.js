@@ -32,6 +32,8 @@ export default () => {
     const player = audioPlayers[i];
     const audio = player.querySelector('audio');
     const playPause = player.querySelector('[data-js="audio-play-pause"]');
+    const play = player.querySelector('[data-js="audio-play"]');
+    const pause = player.querySelector('[data-js="audio-pause"]');
     const rewind = player.querySelector('[data-js="audio-rewind"]');
     const forward = player.querySelector('[data-js="audio-forward"]');
     const progress = player.querySelector('[data-js="audio-progress"]');
@@ -55,18 +57,43 @@ export default () => {
       currentTime.textContent = toHHMMSS(audio.currentTime);
     });
 
-    playPause.addEventListener('click', () => {
-      if (!audio.paused) {
-        playPause.className = playPause.className.replace('--play', '--pause');
+    if (playPause) {
+      playPause.addEventListener('click', () => {
+        if (!audio.paused) {
+          playPause.className = playPause.className.replace('--play', '--pause');
+          audio.pause();
+          return;
+        }
+        if (audio.ended) {
+          audio.currentTime = 0;
+        }
+        playPause.className = playPause.className.replace('--pause', '--play');
+        audio.play();
+      }, false);
+    } else if (play && pause) {
+      play.addEventListener('click', () => {
+        if (audio.ended) {
+          audio.currentTime = 0;
+        }
+        audio.play();
+        play.setAttribute('hidden', '');
+        pause.removeAttribute('hidden');
+        if (pause instanceof HTMLButtonElement) {
+          pause.focus();
+        }
+      }, false);
+      pause.addEventListener('click', () => {
         audio.pause();
-        return;
-      }
-      if (audio.ended) {
-        audio.currentTime = 0;
-      }
-      playPause.className = playPause.className.replace('--pause', '--play');
-      audio.play();
-    }, false);
+
+        pause.setAttribute('hidden', '');
+        play.removeAttribute('hidden');
+        if (play instanceof HTMLButtonElement) {
+          play.focus();
+        }
+      }, false);
+    } else {
+      throw new Error('player control missing');
+    }
 
     rewind.addEventListener('click', () => {
       audio.currentTime -= parseInt(rewind.getAttribute('data-decrement'), 10) || 10;
@@ -96,8 +123,6 @@ export default () => {
         mute.className = mute.className.replace('--unmute', '--mute');
         audio.muted = true;
       }
-
-      console.debug('mute', audio.muted);
     }, false);
   }
 };
