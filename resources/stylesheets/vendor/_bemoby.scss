@@ -60,11 +60,11 @@
 
       /* @2x Images (Pixel Ratio of 1.25+) */
       @media only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
-        background-image: my.image('jucara/avatar_Ju--medium@2x@2x.png');
+        background-image: my.image('jucara/avatar_Ju--medium@2x.png');
         background-image: image-set(
-          my.image('jucara/avatar_Ju--medium@2x@2x.avif') type('image/avif'),
-          my.image('jucara/avatar_Ju--medium@2x@2x.webp') type('image/webp'),
-          my.image('jucara/avatar_Ju--medium@2x@2x.png') type('image/png'),
+          my.image('jucara/avatar_Ju--medium@2x.avif') type('image/avif'),
+          my.image('jucara/avatar_Ju--medium@2x.webp') type('image/webp'),
+          my.image('jucara/avatar_Ju--medium@2x.png') type('image/png'),
         );
       }
 
