@@ -176,6 +176,7 @@
   background-color: my.palette('neutral', 'white');
   border: 0;
 
+  :focus-within > &,
   :focus + & {
     display: block;
 
