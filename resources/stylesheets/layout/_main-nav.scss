@@ -14,7 +14,7 @@
 
   justify-content: space-between;
 
-  padding: (my.$gutter * 2) 0 0;
+  padding: 0;
 
   font-size: my.ms-step(14px);
   font-weight: inherit;
@@ -164,9 +164,6 @@
 
 .main-nav__i18n,
 .main-nav__social {
-  margin-right: auto;
-  margin-left: auto;
-
   @media screen and (min-width: my.breakpoint('toggle-menu')) {
     display: none;
   }
@@ -176,6 +173,23 @@
       filter: invert(100);
     }
   }
+}
+
+.main-nav__i18n {
+  padding-bottom: my.$gutter;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.main-nav__social {
+  padding-top: my.$gutter * 2;
+
+  box-shadow: 0 3px 6px my.palette('effects', 'shadow');
+}
+
+.main-nav__social .social-networks {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .main-nav__list--menu-em-cascata {
