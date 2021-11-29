@@ -14,7 +14,7 @@ export default (async () => {
   if (!(pln?.trim())) {
     const { parameters: { categoria } } = await getFromDialogFlow(searchTerm);
 
-    dialogFlowed = String(categoria);
+    dialogFlowed = categoria ? String(categoria) : undefined;
   } else {
     dialogFlowed = pln.trim();
   }
