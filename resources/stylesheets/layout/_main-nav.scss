@@ -14,6 +14,7 @@
 
   padding: (my.$gutter * 2) 0 0;
 
+  font-size: my.ms-step(14px);
   font-weight: inherit;
   color: my.palette('neutral', 'black');
   text-align: left;
@@ -145,6 +146,14 @@
 
 .main-nav__menu-item-container {
   font-weight: inherit;
+}
+
+.main-nav__list button {
+  font-weight: my.font-weight('bold');
+
+  @include my.on-event {
+    font-weight: my.font-weight('bold');
+  }
 }
 
 .main-nav__list a {
