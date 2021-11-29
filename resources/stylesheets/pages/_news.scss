@@ -25,7 +25,9 @@ $date-width: my.$gutter * 3;
   }
 
   .share-bar {
-    float: left;
+    @media screen and (min-width: my.breakpoint('tablet__portrait')) {
+      float: left;
+    }
   }
 
   .read-more--download {
