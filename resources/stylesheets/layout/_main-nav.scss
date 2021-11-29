@@ -49,8 +49,12 @@
 
   [for='menu-controller'] {
     position: fixed;
-    top: 0;
+    top: my.$gutter * 2;
     right: my.$gutter;
+
+    @media screen and (min-width: my.breakpoint('toggle-menu')) {
+      top: 0;
+    }
 
     @media screen and (min-width: my.$max-width) {
       right: calc(50% - #{my.$max-width * 0.5} + #{my.$gutter * 2});
@@ -182,7 +186,6 @@
 }
 
 .main-nav__social {
-  padding-top: my.$gutter * 2;
 
   box-shadow: 0 3px 6px my.palette('effects', 'shadow');
 }
