@@ -12,6 +12,8 @@
 
   flex-direction: column;
 
+  justify-content: space-between;
+
   padding: (my.$gutter * 2) 0 0;
 
   font-size: my.ms-step(14px);
