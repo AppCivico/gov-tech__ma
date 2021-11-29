@@ -124,5 +124,9 @@ export default () => {
         audio.muted = true;
       }
     }, false);
+
+    if (player.hasAttribute('hidden')) {
+      player.removeAttribute('hidden');
+    }
   }
 };

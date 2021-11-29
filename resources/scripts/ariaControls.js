@@ -22,7 +22,6 @@ function handleDialog(controlled, isOpening) {
 }
 
 function toggleControlled(e) {
-  console.debug('e.button', e.button);
   switch (true) {
     case e.button !== 0:
     case e.altKey:

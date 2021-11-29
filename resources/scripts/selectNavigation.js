@@ -1,10 +1,6 @@
 export default (() => {
   const navigationForms = document.forms;
 
-  console.log(navigationForms.length);
-
-  document.body.innerHTML += `<pre>${navigationForms.length}</pre>`;
-
   for (let i = 0; i < navigationForms.length; i += 1) {
     const form = navigationForms[i];
 
