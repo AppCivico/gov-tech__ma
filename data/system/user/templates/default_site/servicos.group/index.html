@@ -146,12 +146,15 @@
                     JOIN exp_config ec2 ON ec2.site_id = ect.site_id AND ec2.key = 'site_url'
                     WHERE ec.cat_url_title IN ('{segment_3}','{segment_4}')
                     AND ect.status NOT IN ('closed')
-                    AND ecp.entry_id NOT IN (
-                    	SELECT entry_id
-                    	FROM exp_category_posts ecp2
-                    	JOIN exp_categories ec3 ON ecp2.cat_id = ec3.cat_id
-                    	WHERE ec3.cat_url_title = 'programas'
-                    )"
+                    {if segment_3 != 'programas'}
+                        AND ecp.entry_id NOT IN (
+                        	SELECT entry_id
+                        	FROM exp_category_posts ecp2
+                        	JOIN exp_categories ec3 ON ecp2.cat_id = ec3.cat_id
+                        	WHERE ec3.cat_url_title = 'programas'
+                        )
+                    {/if}
+                    "
                     parse="inward" paginate="inline" limit="10"
                 }
                     {if no_results}
