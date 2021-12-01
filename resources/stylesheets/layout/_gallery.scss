@@ -50,8 +50,6 @@
     position: relative;
 
     flex-basis: 260px;
-
-    aspect-ratio: 16 / 9;
   }
 
   .gallery__link {
@@ -118,7 +116,7 @@
   }
 
   .gallery__image--video {
-    position: absolute;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
   }
 
