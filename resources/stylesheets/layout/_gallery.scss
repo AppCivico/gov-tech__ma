@@ -47,11 +47,11 @@
   }
 
   .gallery__item--video {
-    @include my.aspect-ratio(16 x 9);
-
     position: relative;
 
     flex-basis: 260px;
+
+    aspect-ratio: 16 / 9;
   }
 
   .gallery__link {
