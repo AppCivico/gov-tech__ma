@@ -65,6 +65,14 @@ status="not closed" parse="inward" orderby="bidding__opening" sort="desc"
                     </dd>
                 </dl>
 
+                {if is_duplicated}
+                    <dl class="bidding-data">
+                        <dt class="bidding-data__title">
+                            É repetição.
+                        </dt>
+                    </dl>
+                {/if}
+
                 {if bidding__notice:total_rows || bidding__edict:total_rows || bidding__files:total_rows}
                     <details class="bidding-files">
                         <summary class="bidding-files__title">Arquivos</summary>
