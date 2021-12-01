@@ -12,26 +12,15 @@
   }
 
   .sc-launcher {
-    width: 80px;
-    height: 80px;
-
-    background-image: my.image('jucara/avatar_Ju@2x.png');
-    background-image: image-set(
-      my.image('jucara/avatar_Ju@2x.avif') type('image/avif'),
-      my.image('jucara/avatar_Ju@2x.webp') type('image/webp'),
-      my.image('jucara/avatar_Ju@2x.png') type('image/png'),
-    );
     background-size: contain;
-    box-shadow: 10px 10px 10px #0000002b;
 
-    .sc-open-icon,
-    .sc-closed-icon {
+    .sc-custom-open-icon {
+      display: none;
+    }
+
+    .sc-custom-closed-icon {
       right: 0;
-      bottom: 96px;
-
-      background-color: my.palette('brand', 'green');
-      border-radius: 50%;
-
+      bottom: 0;
     }
 
     .first-access & {
@@ -50,10 +39,17 @@
       border-radius: 0;
       box-shadow: none;
 
-      .sc-open-icon,
-      .sc-closed-icon {
-        right: 0;
+      .sc-custom-closed-icon {
+        right: 48px;
+
+        display: none;
+      }
+
+      .sc-custom-open-icon {
+        right: 48px;
         bottom: 150px;
+
+        display: block;
 
         opacity: 1;
       }
@@ -68,7 +64,7 @@
         );
       }
 
-      @media screen and (min-height: 850px) {
+      @media screen and (min-height: 800px) {
         height: 383px;
 
         background-image: my.image('jucara/avatar_Ju_corpo-inteiro.png');
@@ -78,8 +74,7 @@
           my.image('jucara/avatar_Ju_corpo-inteiro.png') type('image/png'),
         );
 
-        .sc-open-icon,
-        .sc-closed-icon {
+        .sc-custom-open-icon {
           bottom: 383px;
         }
 
@@ -101,9 +96,11 @@
       }
 
       &::before {
-        width: 12em;
+        top: 24px;
+
+        width: 6em;
         height: auto;
-        padding: my.$gutter * 0.5;
+        padding: (my.$gutter * 0.25) (my.$gutter * 0.5);
         overflow: hidden;
 
         white-space: pre-wrap;
@@ -111,12 +108,19 @@
         content: 'Olá! Sou a Juçara. \A Em que posso ajudar?';
 
         background: hsl(0, 0%, 100%);
-        border-radius: 17px;
+        border-radius: 18px;
         box-shadow: 5px 10px 10px #00000029;
+
+        @media screen and (min-width: my.breakpoint('phone__landscape')) {
+          width: 12em;
+        }
       }
 
       &::after {
         @include my.triangle('right', $color: hsl(0, 0%, 100%), $size: 0.5em);
+
+        top: 12px;
+
         margin-top: 2em;
         margin-right: -0.75em;
 
@@ -129,28 +133,29 @@
           content: none;
         }
 
-        .sc-open-icon,
-        .sc-closed-icon {
+        .sc-custom-open-icon,
+        .sc-custom-closed-icon {
           display: none;
         }
       }
     }
-  }
 
-  .sc-open-icon,
-  .sc-closed-icon {
+    &.opened {
+      display: none;
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 
   .sc-chat-window {
-    top: 22px;
-    bottom: 22px;
+    bottom: 24px;
 
-    width: auto;
-    height: auto;
     margin-right: 22px;
     margin-left: 22px;
 
-    border-radius: 17px;
+    border-radius: 18px;
   }
 
   .sc-header {
@@ -165,7 +170,7 @@
     text-transform: uppercase;
 
     background: my.palette('neutral', 'white') !important;
-    border-radius: 17px;
+    border-radius: 18px;
     box-shadow: 10px 10px 20px #0000001a;
 
     &::before {
