@@ -1,4 +1,8 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +21,9 @@ Manifest::load();
 global $assign_to_config; // Make this global so we can add some of the config variables here
 
 // make sure our global vars config exists
-if (!isset($assign_to_config['global_vars']))
-  $assign_to_config['global_vars'] = array(); // This array must be associative
+if (!isset($assign_to_config['global_vars'])) {
+    $assign_to_config['global_vars'] = array(); // This array must be associative
+}
 
 $protocol = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 $port = isset($_SERVER["SERVER_PORT"]) ? $_SERVER["SERVER_PORT"] : 80;
@@ -27,11 +32,11 @@ $port = isset($_SERVER["SERVER_PORT"]) ? $_SERVER["SERVER_PORT"] : 80;
  * @see https://stackoverflow.com/a/42387790
  */
 if (isset($_SERVER['HTTP_CF_VISITOR'])) {
-  $cf_visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
+    $cf_visitor = json_decode($_SERVER['HTTP_CF_VISITOR']);
 
-  if (isset($cf_visitor->scheme) && $cf_visitor->scheme == 'https') {
-    $protocol = "https://";
-  }
+    if (isset($cf_visitor->scheme) && 'https' == $cf_visitor->scheme) {
+        $protocol = 'https://';
+    }
 }
 
 $strict_urls = 'n';
@@ -46,20 +51,20 @@ $domain = $_SERVER['HTTP_HOST'];
 $domains = include('domains.php');
 
 foreach ($domains as $site) {
-    if (in_array($domain, $site['hosts'] )) {
+    if (in_array($domain, $site['hosts'])) {
         $site_name = $site['site_name'];
         $assign_to_config['global_vars']['global:editorial-group'] = $site['editorial_group'];
         break;
     }
 }
 
-switch (TRUE) {
-    case (strpos($domain, 'localhost') !== false) :
-    case (strpos($domain, '.local') !== false) :
+switch (true) {
+    case (strpos($domain, 'localhost') !== false):
+    case (strpos($domain, '.local') !== false):
         $assign_to_config['global_vars']['global:root-site-url'] = '//ma.gov.local';
         break;
 
-    case (strpos($domain, 'appcivico') !== false) :
+    case (strpos($domain, 'appcivico') !== false):
         $assign_to_config['global_vars']['global:root-site-url'] = 'https://ma.appcivico.com.br';
         break;
 
