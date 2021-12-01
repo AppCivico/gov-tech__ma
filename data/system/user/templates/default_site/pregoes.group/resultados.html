@@ -1,5 +1,5 @@
 {exp:channel:entries channel="bidding" limit="100" disable="category_fields|member_data|pagination"
-status="not closed" parse="inward"
+status="not closed" parse="inward" orderby="bidding__opening" sort="desc"
     {if segment_3 && segment_3 != "-"}
         search:bidding__type="{segment_3}"
     {/if}
