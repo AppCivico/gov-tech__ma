@@ -46,12 +46,7 @@
       }
 
       .sc-custom-open-icon {
-        right: 48px;
-        bottom: 150px;
-
-        display: block;
-
-        opacity: 1;
+        display: none;
       }
 
       /* @2x Images (Pixel Ratio of 1.25+) */
@@ -73,10 +68,6 @@
           my.image('jucara/avatar_Ju_corpo-inteiro.webp') type('image/webp'),
           my.image('jucara/avatar_Ju_corpo-inteiro.png') type('image/png'),
         );
-
-        .sc-custom-open-icon {
-          bottom: 383px;
-        }
 
         /* @2x Images (Pixel Ratio of 1.25+) */
         @media only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 120dpi), only screen and (min-resolution: 1.25dppx) {
