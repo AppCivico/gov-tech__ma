@@ -1,5 +1,13 @@
-{exp:channel:entries channel="bidding" limit="1" require_entry="yes" disable="category_fields|member_data|pagination" status="not closed"}
-    {tp-check_draft}
+{exp:channel:entries channel="bidding" limit="1" require_entry="yes" entry_id="{segment_3}" disable="category_fields|member_data|pagination" status="not closed" dynamic="no"}
+    {if no_results}
+        Pregão não encontrado.
+    {/if}
+
+    {if status == "closed" OR entry_date > current_time}
+        {if author_id != logged_in_member_id AND logged_in_group_id != "1" AND logged_in_group_id != "3" AND logged_in_group_id != "5" AND logged_in_group_id != "6"}
+            Pregão não disponível.
+        {/if}
+    {/if}
 
     {if bidding__files:total_rows || bidding__notice:total_rows || bidding__edict:total_rows}
         {exp:zip filename="{channel_short_name}-{url_title}-{entry_id}.zip"
@@ -22,6 +30,6 @@
             {/zip:files}
         {/exp:zip}
     {if:else}
-        {redirect="404"}
+        Arquivos não encontrados.
     {/if}
 {/exp:channel:entries}
