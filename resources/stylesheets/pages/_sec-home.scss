@@ -48,6 +48,10 @@
 
     object-fit: cover;
   }
+
+  .h-entry__u-photo--featured {
+    aspect-ratio: auto;
+  }
 }
 
 .sec-home__default {
