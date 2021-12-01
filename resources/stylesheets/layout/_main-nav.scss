@@ -72,15 +72,22 @@
   border-bottom: my.$stroke__thin solid my.palette('brand', 'green', 'medium');
 }
 
-.main-nav__list {
+.main-nav__list-wrapper {
   @include my.container;
 
-  display: block;
+  position: relative;
 
   width: 100%;
   max-height: 100%;
   margin: auto;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.main-nav__list {
+  display: block;
+
+  margin: 0;
 
   font-weight: my.font-weight('bold');
   text-align: center;
