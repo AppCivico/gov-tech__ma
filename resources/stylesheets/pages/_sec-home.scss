@@ -135,14 +135,20 @@
     flex-shrink: 0;
 
     width: 100%;
-    min-width: 55px;
-    max-width: 260px;
+    max-width: 30px;
     height: auto;
-    min-height: 24px;
-    max-height: 200px;
     margin-right: my.$gutter * 0.5;
     overflow: hidden;
     object-fit: contain;
+
+    @media screen and (min-width: my.breakpoint('toggle-layout')) {
+      max-width: 50px;
+    }
+
+    + * {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
   }
 }
 
