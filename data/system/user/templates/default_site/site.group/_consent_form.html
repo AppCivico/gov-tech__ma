@@ -1,22 +1,30 @@
 {!--  DO NOT CACHE  --}
 
 {if ! consent:has_responded:ee:cookies_functionality}
-    <div class="consent-form__wrapper">
-        {exp:consent:form consent="ee:cookies_functionality" form_class="consent-form"}
+    <div class="consent-request__wrapper">
+        {exp:consent:requests consent="ee:cookies_functionality"}
+            <div class="consent-request">
+                <div role="group" class="consent-request__content">
+                    <p>O Portal de Serviços do Governo do Estado do Maranhão utiliza cookies para melhorar sua experiência de navegação no portal. Ao utilizar o Portal de Serviços, você concorda com a política de monitoramento de cookies. Para ter mais informações sobre como isso é feito, acesse Política de cookies.</p>
 
-            <div role="group" class="consent-form__content">
-                <p>O Portal de Serviços do Governo do Estado do Maranhão utiliza cookies para melhorar sua experiência de navegação no portal. Ao utilizar o Portal de Serviços, você concorda com a política de monitoramento de cookies. Para ter mais informações sobre como isso é feito, acesse Política de cookies.</p>
+                    <p><strong>Se você concorda, clique em ACEITO.</strong></p>
+                </div>
 
-                <p><strong>Se você concorda, clique em ACEITO.</strong></p>
+                <div role="group" class="consent-request__controls">
+                    <a class="consent-request__grant-button" href="{consent_grant_url}">Aceito</a>
+
+                    <a href="{global:root-site-url}/privacidade/cookies" target="_blank">
+                        Política de monitoramente de cookies
+                    </a>
+                </div>
             </div>
 
-            <div role="group" class="consent-form__controls">
-                <button type="submit" name="ee:cookies_functionality" value="y">Aceito</button>
-
-                <a href="{path='privacidade/cookies'}" target="_blank">
-                    Política de monitoramente de cookies
-                </a>
-            </div>
-        {/exp:consent:form}
+            {if consent_granted}
+                <script>
+                    window['ma:consents'] = window['ma:consents'] || '';
+                    window['ma:consents'] += ' {consent_short_name}';
+                </script>
+            {/if}
+        {/exp:consent:requests}
     </div>
 {/if}
