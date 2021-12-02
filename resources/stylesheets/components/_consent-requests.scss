@@ -41,7 +41,6 @@
   }
 
   .consent-request__content {
-    min-width: map.get(my.$line-lengths, 'min');
     max-width: map.get(my.$line-lengths, 'max');
   }
 
@@ -56,17 +55,19 @@
     min-width: map.get(my.$line-lengths, 'min');
   }
 
+  .consent-request__withdraw-button,
   .consent-request__grant-button {
-    display: block;
-
     flex-basis: 0;
 
     padding: 0 my.$gutter;
     margin-right: my.$gutter;
 
-    line-height: my.$gutter * 2;
-    color: my.palette('neutral', 'white');
     text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .consent-request__grant-button {
+    color: my.palette('neutral', 'white');
 
     background-color: my.palette('brand', 'blue');
     border: 0;
