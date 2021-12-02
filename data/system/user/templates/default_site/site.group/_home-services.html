@@ -29,5 +29,10 @@
     {if count == total_results}
         </ul>
     </section>
+        {if embed:show_read_more}
+            <p class="read-more read-more--main-services">
+                <a class="read-more__link" href="/servicos/">+ Serviços e programas</a>
+            </p>
+        {/if}
     {/if}
 {/exp:channel:entries}

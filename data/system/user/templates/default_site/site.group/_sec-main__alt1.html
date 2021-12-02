@@ -32,11 +32,7 @@
             parse="inward"
     }
 
-        {embed="default_site:site/_home-services" cat_id="{cat_id}" group_id="{group_id}" title="Principais serviços"}
-
-        <p class="read-more read-more--main-services">
-            <a class="read-more__link" href="/servicos/">+ Serviços e programas</a>
-        </p>
+        {embed="default_site:site/_home-services" cat_id="{cat_id}" group_id="{group_id}" title="Principais serviços" show_read_more="true"}
     {/exp:query}
 
     {exp:channel:entries channel="ad" limit="3" orderby="random"
