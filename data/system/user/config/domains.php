@@ -1,4 +1,5 @@
 <?php
+
 return [
     [
         'hosts' => [
@@ -183,7 +184,7 @@ return [
         'hosts' => [
             'fapema.br',
             'fapema.local',
-            'appcivico.com.br'
+            'fapema-ma.appcivico.com.br'
         ],
         'site_name' => 'fapema',
         'editorial_group' => ''
@@ -292,7 +293,7 @@ return [
         'hosts' => [
             'pm.ssp.ma.gov.br',
             'pm.ssp.ma.gov.local',
-            'pm-ssp.ma.appcivico.com.br'
+            'pm-ssp-ma.appcivico.com.br'
         ],
         'site_name' => 'pm',
         'editorial_group' => ''
