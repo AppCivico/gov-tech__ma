@@ -20,14 +20,19 @@
                 </div>
             </div>
 
-            {if consent_granted}
-                <script>
-                    window['ma:consents'] = window['ma:consents'] || '';
-                    window['ma:consents'] += ' {consent_short_name}';
-                </script>
-
-                {tv-static_footer}
-            {/if}
         {/exp:consent:requests}
     </div>
+{if:else}
+    {exp:consent:requests consent="ee:cookies_functionality"}
+        <script>
+            window['ma:consents'] = window['ma:consents'] || '';
+        </script>
+        {if consent_granted}
+            <script>
+                window['ma:consents'] += ' {consent_short_name}';
+            </script>
+
+            {tv-static_footer}
+        {/if}
+    {/exp:consent:requests}
 {/if}
