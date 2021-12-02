@@ -47,7 +47,8 @@
 }
 
 .ad__image--header {
-  width: 1108px;
+  @include my.fallback('max-width', min(100%, 1108px), 1108px);
+
   margin-bottom: my.$gutter * 4;
 }
 
