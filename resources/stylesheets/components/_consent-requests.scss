@@ -2,7 +2,7 @@
 
 @use '../abstracts' as my;
 
-.consent-form__wrapper {
+.consent-request__wrapper {
   @include my.container;
 
   position: fixed;
@@ -19,7 +19,7 @@
   transform: translateX(-50%);
 }
 
-.consent-form {
+.consent-request {
   display: flex;
 
   flex-wrap: wrap;
@@ -40,12 +40,12 @@
     }
   }
 
-  .consent-form__content {
+  .consent-request__content {
     min-width: map.get(my.$line-lengths, 'min');
     max-width: map.get(my.$line-lengths, 'max');
   }
 
-  .consent-form__controls {
+  .consent-request__controls {
     display: flex;
 
     flex-basis: 0;
@@ -56,15 +56,23 @@
     min-width: map.get(my.$line-lengths, 'min');
   }
 
-  [type='submit'] {
+  .consent-request__grant-button {
+    display: block;
+
     flex-basis: 0;
 
     padding: 0 my.$gutter;
     margin-right: my.$gutter;
 
+    line-height: my.$gutter * 2;
     color: my.palette('neutral', 'white');
+    text-decoration: none;
 
     background-color: my.palette('brand', 'blue');
     border: 0;
+
+    @include my.on-event {
+      text-decoration: none;
+    }
   }
 }

@@ -33,7 +33,7 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:consent:form consent='ee:cookies_functionality'}
+    {exp:consent:form consent="ee:cookies_functionality" form_class="consent-request" form_id="consent-request-update"}
       {consents}
           <fieldset>
             <legend>
@@ -42,8 +42,6 @@
               {if consent_granted}(aceitos){/if}
               {if ! consent_granted}(recusados){/if}
             </legend>
-
-            {consent_request}
 
             <ul>
               <li>
