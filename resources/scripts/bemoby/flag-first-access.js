@@ -21,6 +21,8 @@ function checkFirstOpening(e) {
 }
 
 export default (() => {
+  if (!document.getElementById('webchat')) return;
+
   if (!localStorage?.firstVisit || window.location.search.indexOf('first-access') !== -1) {
     registerFirstAccess();
     document.documentElement.addEventListener('click', checkFirstOpening);
