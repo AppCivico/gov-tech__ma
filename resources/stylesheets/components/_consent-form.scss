@@ -1,0 +1,70 @@
+@use 'sass:map';
+
+@use '../abstracts' as my;
+
+.consent-form__wrapper {
+  @include my.container;
+
+  position: fixed;
+  bottom: 0;
+  z-index: 50;
+
+  padding: 0 my.$gutter;
+  margin-left: 50%;
+
+  font-size: my.ms-step(14px);
+
+  background-color: my.palette('neutral', 'gray');
+
+  transform: translateX(-50%);
+}
+
+.consent-form {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  margin: 0;
+
+  [role='group'] {
+    flex-grow: 1;
+
+    margin: 0;
+
+    > * {
+      padding: 0;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .consent-form__content {
+    min-width: map.get(my.$line-lengths, 'min');
+    max-width: map.get(my.$line-lengths, 'max');
+  }
+
+  .consent-form__controls {
+    display: flex;
+
+    flex-basis: 0;
+    flex-wrap: nowrap;
+
+    align-items: center;
+
+    min-width: map.get(my.$line-lengths, 'min');
+  }
+
+  [type='submit'] {
+    flex-basis: 0;
+
+    padding: 0 my.$gutter;
+    margin-right: my.$gutter;
+
+    color: my.palette('neutral', 'white');
+
+    background-color: my.palette('brand', 'blue');
+    border: 0;
+  }
+}

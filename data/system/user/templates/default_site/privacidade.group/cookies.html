@@ -1,0 +1,64 @@
+{layout="default_site:site/_layout" root_class="page"}
+
+{layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
+
+<article role="main" id="main" class="h-entry">
+    {exp:channel:entries channel="page" limit="1" require_entry="yes"
+        disable="category_fields|member_data|pagination"
+    }
+        {if no_results}
+            <header class="h-entry__header">
+                <h1 class="h-entry__p-name">Cookies</h1>
+                <h2 class="h-entry__subhead">Consentimento</h2>
+            </header>
+        {/if}
+
+        {layout:set name="title"}{title}{/layout:set}
+        {layout:set name="description"}{summary:attr_safe limit="155"}{/layout:set}
+        {layout:set name="entry_id"}{entry_id}{/layout:set}
+
+        {layout:set name="canonical"}/{segment_1}/{url_title}{/layout:set}
+        {thumbnail}
+            {layout:set name="sharing_cover"}{url:facebook}{/layout:set}
+        {/thumbnail}
+        <header class="h-entry__header">
+            <h1 class="h-entry__p-name">{title}</h1>
+            {if subhead}
+                <h2 class="h-entry__subhead">{subhead}</h2>
+            {/if}
+        </header>
+
+        {if body}
+            <section class="h-entry__e-content e-content">{body}</section>
+        {/if}
+    {/exp:channel:entries}
+
+    {exp:consent:form consent='ee:cookies_functionality'}
+      {consents}
+          <fieldset>
+            <legend>
+              {consent_title}
+
+              {if consent_granted}(aceitos){/if}
+              {if ! consent_granted}(recusados){/if}
+            </legend>
+
+            {consent_request}
+
+            <ul>
+              <li>
+                  <input type="radio" id="{consent_short_name}" name="{consent_short_name}" value="y" {if consent_granted}checked{/if} />
+                <label for="{consent_short_name}">Aceito</label>
+              </li>
+              <li>
+                <input type="radio" id="{consent_short_name}" name="{consent_short_name}" value="n" {if ! consent_granted}checked{/if} />
+                <label for="{consent_short_name}">Recuso</label>
+              </li>
+            </ul>
+
+          </fieldset>
+      {/consents}
+
+      <button type="submit">Salvar</button>
+    {/exp:consent:form}
+</article>

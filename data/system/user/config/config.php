@@ -222,7 +222,7 @@ $config['redis'] = array(
 
 $config['relaxed_track_views'] = 'y';
 // $config['req_mbr_activation'] = 'email';
-$config['require_cookie_consent'] = 'n';
+$config['require_cookie_consent'] = 'y';
 $config['require_secure_passwords'] = 'y';
 // $config['require_terms_of_service'] = 'y';
 $config['reserved_category_word'] = $assign_to_config['global_vars']['config:reserved_category_word'] = 'categorias';
