@@ -63,6 +63,7 @@ const applyResults = async (form) => {
   resultsTargetEl.setAttribute('aria-busy', 'false');
 
   initDialog();
+  enabler();
 };
 
 export default (() => {
