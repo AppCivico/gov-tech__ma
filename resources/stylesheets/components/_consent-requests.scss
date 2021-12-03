@@ -9,10 +9,10 @@
   bottom: 0;
   z-index: 50;
 
-  padding: 0 my.$gutter;
+  padding: 0 (my.$gutter * 0.5);
   margin-left: 50%;
 
-  font-size: my.ms-step(14px);
+  font-size: my.ms-step(12px);
 
   background-color: my.palette('neutral', 'gray');
 
@@ -31,12 +31,17 @@
   [role='group'] {
     flex-grow: 1;
 
+    padding: (my.$gutter * 0.5) 0;
     margin: 0;
 
     > * {
       padding: 0;
       margin-right: 0;
       margin-left: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -59,8 +64,8 @@
   .consent-request__grant-button {
     flex-basis: 0;
 
-    padding: 0 my.$gutter;
-    margin-right: my.$gutter;
+    padding: 0 (my.$gutter * 0.5);
+    margin-right: (my.$gutter * 0.5);
 
     text-decoration: none;
     white-space: nowrap;
