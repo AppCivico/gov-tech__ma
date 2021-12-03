@@ -4,6 +4,6 @@ export default function scrollToResults() {
   if (window.location.hash) return;
 
   if (mainElement) {
-    mainElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    mainElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
 }
