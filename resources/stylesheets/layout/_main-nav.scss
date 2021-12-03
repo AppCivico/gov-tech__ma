@@ -51,6 +51,7 @@
     position: fixed;
     top: my.$gutter * 2;
     right: my.$gutter;
+    z-index: my.layer('default');
 
     @media screen and (min-width: my.breakpoint('toggle-menu')) {
       top: 0;
