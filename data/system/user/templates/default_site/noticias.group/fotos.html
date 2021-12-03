@@ -19,9 +19,12 @@
 
         {exp:query sql="SELECT ect.entry_id, ecgf.col_id_1 AS src, ecgf.col_id_5 AS caption, ect.url_title, ect.title
             FROM exp_channel_grid_field_2 ecgf
-            INNER JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
-            INNER JOIN exp_channels ec ON ec.channel_id = ect.channel_id
-            WHERE ect.site_id = '{site_id}' AND ect.status != 'closed' AND ec.channel_name = 'news'
+            JOIN exp_channel_titles ect ON ect.entry_id = ecgf.entry_id
+            JOIN exp_channels ec ON ec.channel_id = ect.channel_id
+            WHERE ect.site_id = '{site_id}'
+                AND ect.status != 'closed'
+                AND ec.channel_name = 'news'
+                AND ecgf.col_id_1 != ''
             ORDER BY ect.entry_date DESC, ecgf.row_order ASC;"
             paginate="inline"
             limit="18"
