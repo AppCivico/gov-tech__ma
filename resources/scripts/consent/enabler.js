@@ -1,7 +1,7 @@
 export default function enabler() {
   const consents = window['ma:consents']?.split(' ');
 
-  if (consents.length) {
+  if (consents?.length) {
     consents.forEach((consent) => {
       const items = document.querySelectorAll(`[data-js="${consent}"]`);
 
