@@ -74,7 +74,7 @@ class Zip
             $file_status = (file_exists($this->archive_name)) ? true : false;
 
             foreach ($filenames as $key => $value) {
-                $filenames[$key] = trim($value);
+                $filenames[$key] = urldecode(trim($value));
             }
 
             if ('yes' == $overwrite && $file_status) {
