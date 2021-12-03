@@ -1,3 +1,4 @@
+import enabler from '../consent/enabler';
 import currentQuery from '../utilities/currentQuery';
 import fullyDecode from '../utilities/fullyDecode';
 import objectToQueryString from '../utilities/objectToQueryString';
