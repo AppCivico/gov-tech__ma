@@ -2,14 +2,14 @@
 
 Panorama do **Sistema de Gerenciamento de Conteúdo**.
 
-![screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png#float](images/screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png)
+![screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png](images/screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png#float)
 
 Do lado esquerdo, há um menu que, a depender das suas permissões como integrante, exibe as funções disponíveis.
 
 
 ## Publicação de conteúdo
 
-![screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png#float](images/screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png)
+![screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png](images/screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png#float)
 
 As listagens dos diferentes tipos de publicação podem ser acessados todos pelo mesmo menu.
 
@@ -44,7 +44,7 @@ Para controlar a exibição e ordem das publicações salvas, independentemente 
 ### Tipos de notícias
 
 
-![screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png#float](images/screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png)
+![screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png#float)
 No caso de _press releases_ terem a exata configuração de notícias, faz-se necessário separá-los uns dos outros com uma taxonomia.
 
 
@@ -60,7 +60,7 @@ Classificação das notícias por assunto. Segue lista de forma alguma esgotada 
 - impostos;
 - habitação;
 
-![screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png#float](images/screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png)
+![screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png#float)
 
 ### Posicionamento na área pública
 
@@ -100,7 +100,7 @@ Taxonomias:
 
 - secretarias
 
-![screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png#float](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png)
+![screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png#float)
 
 
 ### Documentos

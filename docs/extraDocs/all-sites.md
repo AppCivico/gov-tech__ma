@@ -1,5 +1,10 @@
 # Todos os sites configurados e domínios aceitos
 
+Os nomes dos sites e suas descrições podem ser configurados na área **Gerenciar sites** do painel de controle.
+![menu principal do painel de controle com o item Gerenciar Sites destacado](images/sites/manage-sites.png#float)
+
+## Domínios aceitos
+
 Domínios fora dessa lista são ignorados.
 
 Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
