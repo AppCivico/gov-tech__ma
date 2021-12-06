@@ -49,6 +49,7 @@
   "dependencies": {
     "audio-recorder-polyfill": "^0.4.1",
     "halkabox": "^1.6.0",
-    "lory.js": "^2.5.3"
+    "lory.js": "^2.5.3",
+    "oembed-all": "^1.2.0"
   }
 }
