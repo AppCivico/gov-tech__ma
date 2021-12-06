@@ -68,8 +68,6 @@
   }
 
   .h-entry__p-name--pln-results {
-    @include my.truncate;
-
     display: table-cell;
 
     flex-grow: 1;
