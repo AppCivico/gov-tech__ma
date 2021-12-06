@@ -9,7 +9,9 @@ export default (() => {
 
     for (let j = 0; j < form.elements.length; j += 1) {
       const element = form.elements[j];
-      const queryValue = fullyDecode(currentQuery[element.name]);
+      const queryValue = Array.isArray(currentQuery[element.name])
+        ? currentQuery[element.name].forEach((item) => fullyDecode(item))
+        : fullyDecode(currentQuery[element.name]);
 
       switch (true) {
         case (queryValue && element.value === queryValue):

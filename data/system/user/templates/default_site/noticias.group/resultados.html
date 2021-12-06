@@ -10,7 +10,7 @@
 }
     {if no_results}
         <header class="h-feed__header">
-            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
+            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords' separator=' '}"</h2>
         </header>
 
         <p class="h-feed__e-content">
@@ -18,19 +18,19 @@
         </p>
 
         <ul class="tab-bar">
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}"
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&split=any"
                 class="tab-bar__tab "
             >
                 Tudo
             </a>
 
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=videos"
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&required=videos&split=any"
                 class="tab-bar__tab"
             >
                 Vídeos
             </a>
 
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=fotos"
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&required=fotos&split=any"
                 class="tab-bar__tab"
             >
                 Fotos
@@ -41,12 +41,12 @@
 
     {if count == "1"}
         <header class="h-feed__header">
-            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords'}"</h2>
+            <h2 class="search-results__title h-feed__p-name">Resultados para "{exp:request:get_post name='keywords' separator=' '}"</h2>
 
             {paginate}
-            <h2 class="h-feed__subhead">
-                Página {current_page}/{total_pages}
-            </h2>
+                <h2 class="h-feed__subhead">
+                    Página {current_page}/{total_pages}
+                </h2>
             {/paginate}
         </header>
 
@@ -55,20 +55,33 @@
         </p>
 
         <ul class="tab-bar">
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}"
-                class="tab-bar__tab "
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&split=any"
+                class="tab-bar__tab
+                    {exp:request:get name='required'}
+                        {if no_results}tab-bar__tab--current{/if}
+                        {if item == ''}tab-bar__tab--current{/if}
+                    {/exp:request:get}
+                "
             >
                 Tudo
             </a>
 
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=videos"
-                class="tab-bar__tab"
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&required=videos&split=any"
+                class="tab-bar__tab
+                    {exp:request:get name='required'}
+                        {if item == 'videos'}tab-bar__tab--current{/if}
+                    {/exp:request:get}
+                "
             >
                 Vídeos
             </a>
 
-            <a href="/{segment_1}/busca/?keywords={exp:request:get name='keywords'}&required=fotos"
-                class="tab-bar__tab"
+            <a href="/{segment_1}/busca/?keywords={exp:request:get_post name='keywords' separator='+'}&required=fotos&split=any"
+                class="tab-bar__tab
+                    {exp:request:get name='required'}
+                        {if item == 'fotos'}tab-bar__tab--current{/if}
+                    {/exp:request:get}
+                "
             >
                 Fotos
             </a>

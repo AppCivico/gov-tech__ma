@@ -1,7 +1,7 @@
 {layout="default_site:site/_layout" root_class="search going-to-search-results" robots="noindex,noarchive,follow"
 title="Busca"}
 
-{layout:set name="description"}Busca por '{exp:request:get name='keywords'}'{/layout:set}
+{layout:set name="description"}Busca por "{exp:request:get name='keywords' separator=' '}"{/layout:set}
 
 <form action="/noticias/resultados" name="search-form--hidden" method="get" hidden>
     <input type="hidden" name="keywords" value="{exp:request:get name='keywords'}" />

@@ -2,6 +2,7 @@ import setCurrentFilter from '../../searchForm/setCurrentFilter';
 import currentQuery from '../../utilities/currentQuery';
 import fullyDecode from '../../utilities/fullyDecode';
 import goAndGetBack from '../../utilities/goAndGetBack';
+import stopWords from '../stop-words.json';
 import pageNavigation from './pageNavigation';
 
 export default (() => {
@@ -13,15 +14,38 @@ export default (() => {
 
   resultsTargetEl.setAttribute('aria-busy', 'true');
 
-  if (currentQuery.keywords) {
+  if (currentQuery.keywords && currentQuery.split) {
+    const { split } = currentQuery;
+
+    switch (split) {
+      case 'any':
+      case 'all':
+      case 'word':
+        currentQuery.keywords = currentQuery.keywords.split(' ');
+        currentQuery.keywords = currentQuery.keywords
+          .filter((x) => !!stopWords && stopWords.indexOf(x) === -1);
+
+        if (split === 'word') {
+          currentQuery.keywords = currentQuery.keywords.join(' ');
+        }
+        break;
+
+      case 'exact':
+      default:
+        break;
+    }
+
     formData.set('keywords', currentQuery.keywords);
   }
 
   Object.keys(currentQuery).forEach((key) => {
-    let queryValue = fullyDecode(currentQuery[key]);
+    let queryValue = currentQuery[key];
 
-    if (queryValue.match(/^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(\|[A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$/)) {
-      queryValue = queryValue.split('|');
+    if (typeof queryValue === 'string') {
+      queryValue = fullyDecode(currentQuery[key]);
+      if (queryValue.match(/^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(\|[A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$/)) {
+        queryValue = queryValue.split('|');
+      }
     }
 
     if (Array.isArray(queryValue)) {

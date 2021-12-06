@@ -14,7 +14,9 @@ export default (() => {
 
         case (element.nodeName.toUpperCase() === 'INPUT'):
           if (currentQuery[element.name]) {
-            element.value = currentQuery[element.name];
+            element.value = Array.isArray(currentQuery[element.name])
+              ? currentQuery[element.name].join(' ')
+              : currentQuery[element.name];
           }
           break;
 
