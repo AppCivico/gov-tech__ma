@@ -94,8 +94,14 @@
                     sql="
                         SELECT ec.cat_id, ec.cat_name, ec.cat_url_title
                         FROM exp_categories ec
-                        JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
-                        WHERE LOWER(ecg.group_name) IN ('perfil do cidadao')
+                        JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id AND LOWER(ecg.group_name) IN ('perfil do cidadao')
+                        JOIN exp_category_posts ecp ON ecp.cat_id = ec.cat_id
+                        WHERE ecp.entry_id IN (
+                        	SELECT ecp2.entry_id
+                        	FROM exp_category_posts ecp2
+                        	JOIN exp_categories ec2 ON ec2.cat_id = ecp2.cat_id
+                        	WHERE ec2.cat_url_title = '{segment_3}'
+                        )
                         GROUP BY ec.cat_url_title
                         ORDER BY ec.cat_name
                     "
