@@ -4,6 +4,10 @@
   h1 {
     font-size: my.ms-step(28px);
     font-weight: inherit;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 }
 
