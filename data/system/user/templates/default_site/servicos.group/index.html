@@ -187,16 +187,16 @@
                     sql="SELECT ecp.entry_id, ect.url_title, ect.title, ec3.value AS 'service_site_url'
                         FROM exp_category_posts ecp
                         JOIN exp_categories ec ON ec.cat_id = ecp.cat_id AND ec.cat_url_title = '{segment_3}'
-                        {if segment_4}
+                        {if segment_5}
                             JOIN exp_category_posts ecp2 ON ecp.entry_id = ecp2.entry_id
-                            JOIN exp_categories ec2 ON ec2.cat_id = ecp2.cat_id AND ec2.cat_url_title = '{segment_4}'
+                            JOIN exp_categories ec2 ON ec2.cat_id = ecp2.cat_id AND ec2.cat_url_title = '{segment_5}'
                         {/if}
                         JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
                         JOIN exp_channels ec4 ON ect.channel_id = ec4.channel_id
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
                         WHERE ect.status NOT IN ('closed')
                         AND ec4.channel_name IN ('program', 'service')
-                        {if segment_3 != 'programas'}
+                        {if segment_3 != 'programas' && segment_4 != 'programas'}
                             AND ecp.entry_id NOT IN (
                             	SELECT entry_id
                             	FROM exp_category_posts ecp5
