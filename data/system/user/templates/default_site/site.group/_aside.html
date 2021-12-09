@@ -9,18 +9,12 @@
             JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
             JOIN exp_channels ec2 ON ect.channel_id = ec2.channel_id
             WHERE ec.site_id = '{site_id}'
-                AND (
-                    LOWER(cg.group_name) = 'perfil do cidadao'
-                    OR (
-                        LOWER(cg.group_name) = 'categorias de servicos'
-                        AND ec.cat_url_title = 'programas'
-                    )
-                )
+                AND LOWER(cg.group_name) = 'perfil do cidadao'
                 AND ec2.channel_name = 'service'
                 AND ect.status != 'closed'
             GROUP BY ec.cat_id
             ORDER BY COUNT(ecp.entry_id) DESC
-            LIMIT 3"
+            LIMIT 4"
         parse="inward"
     }
         <section class="h-feed main-aside__section">
