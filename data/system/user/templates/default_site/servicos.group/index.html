@@ -113,20 +113,6 @@
                             {/if}
                         {/exp:channel:category_heading}
                     {/if}
-
-                    <ul class="tab-bar tab-bar--services">
-                        <li class="tab-bar__tab {if segment_3 != 'programas' && segment_4 != 'programas'}tab-bar__tab--current{/if}">
-                            <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}">
-                                Serviços
-                            </a>
-                        </li>
-
-                        <li class="tab-bar__tab {if segment_4 == 'programas'}tab-bar__tab--current{/if}">
-                            <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}/programas">
-                                Programas
-                            </a>
-                        </li>
-                    </ul>
                 </header>
 
                 {exp:query
@@ -183,8 +169,23 @@
                     {/if}
                 {/exp:query}
 
+                <ul class="tab-bar tab-bar--services">
+                    <li class="tab-bar__tab {if segment_3 != 'programas' && segment_4 != 'programas'}tab-bar__tab--current{/if}">
+                        <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}">
+                            Serviços
+                        </a>
+                    </li>
+
+                    <li class="tab-bar__tab {if segment_4 == 'programas'}tab-bar__tab--current{/if}">
+                        <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}/programas">
+                            Programas
+                        </a>
+                    </li>
+                </ul>
+
                 {exp:query
-                    sql="SELECT ecp.entry_id, ect.url_title, ect.title, ec3.value AS 'service_site_url'
+                    sql="
+                        SELECT ecp.entry_id, ect.url_title, ect.title, ec3.value AS 'service_site_url'
                         FROM exp_category_posts ecp
                         JOIN exp_categories ec ON ec.cat_id = ecp.cat_id AND ec.cat_url_title = '{segment_3}'
                         {if segment_5}
@@ -198,10 +199,10 @@
                         AND ec4.channel_name IN ('program', 'service')
                         {if segment_3 != 'programas' && segment_4 != 'programas'}
                             AND ecp.entry_id NOT IN (
-                            	SELECT entry_id
-                            	FROM exp_category_posts ecp5
-                            	JOIN exp_categories ec6 ON ecp5.cat_id = ec6.cat_id
-                            	WHERE ec6.cat_url_title = 'programas'
+                                SELECT entry_id
+                                FROM exp_category_posts ecp5
+                                JOIN exp_categories ec6 ON ecp5.cat_id = ec6.cat_id
+                                WHERE ec6.cat_url_title = 'programas'
                             )
                         {/if}
                         "
