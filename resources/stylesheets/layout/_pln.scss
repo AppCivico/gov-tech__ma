@@ -28,6 +28,7 @@
 
   .h-entry__u-url--pln-results {
     display: block;
+    break-inside: avoid;
 
     margin: 0;
 
@@ -38,7 +39,6 @@
 
   .h-feed__h-entry--pln-results {
     display: table;
-    display: flex;
 
     align-items: center;
 
