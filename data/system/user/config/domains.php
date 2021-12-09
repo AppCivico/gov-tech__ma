@@ -293,7 +293,10 @@ return [
         'hosts' => [
             'pm.ssp.ma.gov.br',
             'pm.ssp.ma.gov.local',
-            'pm-ssp-ma.appcivico.com.br'
+            'pm.ssp-ma.gov.br',
+            'pm.ssp-ma.gov.local',
+            'pm-ssp-ma.appcivico.com.br',
+            'pm.ssp-ma.appcivico.com.br'
         ],
         'site_name' => 'pm',
         'editorial_group' => ''
