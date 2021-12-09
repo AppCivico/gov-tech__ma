@@ -95,7 +95,14 @@
                     {layout:set name="canonical"}{site_url}/{segment_1}/{segment_2}/{segment_3}{/layout:set}
 
                     {if segment_3}
-                        {exp:channel:category_heading channel="service|programs" disable="category_fields" category_url_title="{segment_3}"}
+                        {exp:query
+                            sql="SELECT ec.cat_name AS category_name, ec.cat_description AS category_description
+                                FROM exp_categories ec
+                                WHERE ec.cat_url_title ='{segment_3}'
+                                ORDER BY cat_description
+                                LIMIT 1
+                            "
+                        }
                             <h1 class="h-feed__p-name">
                                 {category_name}
                             </h1>
@@ -111,7 +118,8 @@
                                     {layout:set name="title"}{segment_3}{/layout:set}
                                 </h1>
                             {/if}
-                        {/exp:channel:category_heading}
+                        {/exp:query}
+
                     {/if}
                 </header>
 
