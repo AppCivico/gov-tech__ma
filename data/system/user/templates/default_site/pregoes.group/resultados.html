@@ -65,6 +65,17 @@ status="not closed" parse="inward" orderby="bidding__opening" sort="desc"
                     </dd>
                 </dl>
 
+                {if comprasnet}
+                    <dl class="bidding-data">
+                        <dt class="bidding-data__title">
+                            Acesso:
+                        </dt>
+                        <dd class="bidding-data__definition">
+                            <a href="{comprasnet}" target="_blank" rel="noopener noreferrer">comprasnet.gov.br</a>
+                        </dd>
+                    </dl>
+                {/if}
+
                 {if is_duplicated}
                     <dl class="bidding-data">
                         <dt class="bidding-data__title">
