@@ -89,10 +89,6 @@ export default (() => {
     .then((response) => response.text())
     .then((data) => {
       resultsTargetEl.innerHTML = data;
-      if (resultsTargetEl.hasAttribute('hidden')) {
-        resultsTargetEl.removeAttribute('hidden');
-      }
-
       resultsTargetEl.addEventListener('click', pageNavigation);
     }).catch(() => {
       if (!resultsTargetEl.hasAttribute('hidden')) {
@@ -101,6 +97,9 @@ export default (() => {
     })
     .finally(() => {
       resultsTargetEl.setAttribute('aria-busy', 'false');
+      if (resultsTargetEl.hasAttribute('hidden')) {
+        resultsTargetEl.removeAttribute('hidden');
+      }
       setCurrentFilter();
     });
 });

@@ -1,4 +1,15 @@
 {exp:search:search_results paginate="inline"}
+    {if no_results}
+        <header class="h-feed__header">
+            <h2 class="search-results__title h-feed__p-name">Sem resultados para "{exp:search:keywords}"</h2>
+        </header>
+
+        {embed="default_site:busca/_search-form--tab"}
+
+        <p class="h-feed__e-content">
+            Não foram encontrados resultados.
+        </p>
+    {/if}
     {if count == "1"}
         <header class="h-feed__header">
             <h2 class="search-results__title h-feed__p-name">Confira outros resultados para "{exp:search:keywords}"</h2>

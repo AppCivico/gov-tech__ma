@@ -15,7 +15,12 @@ export default ((url = '', data = {}, optionsParam = {}) => {
   }
 
   return fetch(submissionUrl, options)
-    .then((response) => handleErrors(response))
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText || 'Network response was not OK');
+      }
+      return handleErrors(response);
+    })
     .then((response) => Promise.resolve(response))
     .catch((err) => Promise.reject(err));
 });
