@@ -212,6 +212,13 @@
                                 JOIN exp_categories ec6 ON ecp5.cat_id = ec6.cat_id
                                 WHERE ec6.cat_url_title = 'programas'
                             )
+                        {if:else}
+                            AND ecp.entry_id NOT IN (
+                                SELECT entry_id
+                                FROM exp_category_posts ecp5
+                                JOIN exp_categories ec6 ON ecp5.cat_id = ec6.cat_id
+                                WHERE ec6.cat_url_title = 'programas'
+                            )
                         {/if}
                         "
                     parse="inward" paginate="inline" limit="10"
