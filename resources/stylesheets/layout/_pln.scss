@@ -38,16 +38,14 @@
   }
 
   .h-feed__h-entry--pln-results {
-    display: table;
+    display: flex;
 
     align-items: center;
+    justify-content: stretch;
 
     width: 100%;
     max-width: 100%;
-    margin: 0 (my.$gutter * 0.5) 0 0;
-
-    border-spacing: 0 my.$gutter * 0.5;
-    border-collapse: separate;
+    margin: 0 (my.$gutter * 0.5) my.$gutter (my.$gutter * 0.5);
 
     &::before,
     &::after {
@@ -56,25 +54,21 @@
   }
 
   .pln-results__thumb {
-    display: table-cell;
-
-    flex-basis: 0;
+    flex-basis: my.$gutter * 2;
+    flex-shrink: 0;
 
     width: auto;
     height: my.$gutter * 2;
-    margin: 0;
-
-    vertical-align: middle;
+    margin: 0 (my.$gutter * 0.5) 0 0;
   }
 
   .h-entry__p-name--pln-results {
-    display: table-cell;
-
     flex-grow: 1;
 
+    width: auto;
+    max-width: none;
     margin: 0;
 
     font-size: 1em;
-    vertical-align: middle;
   }
 }
