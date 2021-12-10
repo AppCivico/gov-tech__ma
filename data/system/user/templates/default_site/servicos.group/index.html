@@ -205,7 +205,7 @@
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
                         WHERE ect.status != ('closed')
                         AND ec4.channel_name IN ('program', 'service')
-                        {if segment_3 != 'programas' && segment_4 != 'programas'}
+                        {if segment_4 == 'programas'}
                             AND ecp.entry_id IN (
                                 SELECT entry_id
                                 FROM exp_category_posts ecp5
