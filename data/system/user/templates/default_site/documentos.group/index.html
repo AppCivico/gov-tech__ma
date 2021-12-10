@@ -8,7 +8,7 @@
 
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:entries channel="service" limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed" show_future_entries="yes"}
+    {exp:channel:entries channel="{pr-channels}" limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed" show_future_entries="yes"}
         {tp-check_draft}
 
         {layout:set name="title"}{title}{/layout:set}
