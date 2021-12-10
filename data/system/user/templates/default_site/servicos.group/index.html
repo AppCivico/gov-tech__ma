@@ -203,10 +203,10 @@
                         JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
                         JOIN exp_channels ec4 ON ect.channel_id = ec4.channel_id
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
-                        WHERE ect.status NOT IN ('closed')
+                        WHERE ect.status != ('closed')
                         AND ec4.channel_name IN ('program', 'service')
                         {if segment_3 != 'programas' && segment_4 != 'programas'}
-                            AND ecp.entry_id NOT IN (
+                            AND ecp.entry_id IN (
                                 SELECT entry_id
                                 FROM exp_category_posts ecp5
                                 JOIN exp_categories ec6 ON ecp5.cat_id = ec6.cat_id
