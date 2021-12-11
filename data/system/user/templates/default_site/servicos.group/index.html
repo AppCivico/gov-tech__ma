@@ -178,14 +178,26 @@
                 {/exp:query}
 
                 <ul class="tab-bar tab-bar--services">
-                    <li class="tab-bar__tab {if segment_3 != 'programas' && segment_4 != 'programas'}tab-bar__tab--current{/if}">
-                        <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}">
+                    <li class="tab-bar__tab {if segment_3 != 'programas' && segment_4 != 'programas' && last_segment != 'programas'}tab-bar__tab--current{/if}">
+                        <a class="tab-bar__label"
+                            {if segment_5 == "programas"}
+                                href="/{segment_1}/{segment_2}/{segment_3}/{segment_4}"
+                            {if:else}
+                                href="/{segment_1}/{segment_2}/{segment_3}"
+                            {/if}
+                        >
                             Serviços
                         </a>
                     </li>
 
-                    <li class="tab-bar__tab {if segment_4 == 'programas'}tab-bar__tab--current{/if}">
-                        <a class="tab-bar__label" href="/{segment_1}/{segment_2}/{segment_3}/programas">
+                    <li class="tab-bar__tab {if last_segment == 'programas'}tab-bar__tab--current{/if}">
+                        <a class="tab-bar__label"
+                            {if last_segment == "programas"}
+                                href="/{current_path}"
+                            {if:else}
+                                href="/{current_path}/programas"
+                            {/if}
+                        >
                             Programas
                         </a>
                     </li>
@@ -203,9 +215,9 @@
                         JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
                         JOIN exp_channels ec4 ON ect.channel_id = ec4.channel_id
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
-                        WHERE ect.status != ('closed')
+                        WHERE ect.status != 'closed'
                         AND ec4.channel_name IN ('program', 'service')
-                        {if segment_4 == 'programas'}
+                        {if last_segment == 'programas'}
                             AND ecp.entry_id IN (
                                 SELECT entry_id
                                 FROM exp_category_posts ecp5
@@ -226,7 +238,11 @@
                     {if no_results}
                         <ul class="h-feed__list h-feed__list--services">
                             <li class="h-feed__h-entry h-feed__h-entry--services h-entry">
-                                nenhum serviço encontrado
+                                {if last_segment == 'programas'}
+                                    nenhum programa encontrado
+                                {if:else}
+                                    nenhum serviço encontrado
+                                {/if}
                             </li>
                         </ul>
                     {/if}
