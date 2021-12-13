@@ -150,16 +150,23 @@
                                         </legend>
 
                                         <select name="location-to" class="navigation-by-select__select">
-                                            <option value=""></option>
+                                            <option
+                                                {if segment_4 == 'programas' || segment_5 == 'programas'}
+                                                    value="/{segment_1}/{segment_2}/{segment_3}/programas"
+                                                {if:else}
+                                                    value="/{segment_1}/{segment_2}/{segment_3}"
+                                                {/if}
+                                            ></option>
                     {/if}
                                             <option
-                                                {if segment_4}
-                                                    value="{cat_url_title}"
-                                                    {if segment_4 == cat_url_title}
-                                                        selected
-                                                    {/if}
+                                                {if segment_4 == '{cat_url_title}'}
+                                                    selected
+                                                {/if}
+
+                                                {if segment_4 == "programas" || segment_5 == "programas"}
+                                                    value="/{segment_1}/{segment_2}/{segment_3}/{cat_url_title}/programas"
                                                 {if:else}
-                                                    value="{segment_3}/{cat_url_title}"
+                                                    value="/{segment_1}/{segment_2}/{segment_3}/{cat_url_title}"
                                                 {/if}
                                             >
                                                 {cat_name}
@@ -192,10 +199,12 @@
 
                     <li class="tab-bar__tab {if last_segment == 'programas'}tab-bar__tab--current{/if}">
                         <a class="tab-bar__label"
-                            {if last_segment == "programas"}
+                            {if segment_4 == "programas" || segment_5 == "programas"}
                                 href="/{current_path}"
+                            {if:elseif segment_4 && !(segment_4 ~ "/^P\d+/")}
+                                href="/{segment_1}/{segment_2}/{segment_3}/{segment_4}/programas"
                             {if:else}
-                                href="/{current_path}/programas"
+                                href="/{segment_1}/{segment_2}/{segment_3}/programas"
                             {/if}
                         >
                             Programas
@@ -208,7 +217,7 @@
                         SELECT ecp.entry_id, ect.url_title, ect.title, ec3.value AS 'service_site_url'
                         FROM exp_category_posts ecp
                         JOIN exp_categories ec ON ec.cat_id = ecp.cat_id AND ec.cat_url_title = '{segment_3}'
-                        {if segment_4 && segment_4 != 'programas'}
+                        {if segment_4 && segment_4 != 'programas' && !(segment_4 ~ '/^P\d+/')}
                             JOIN exp_category_posts ecp2 ON ecp.entry_id = ecp2.entry_id
                             JOIN exp_categories ec2 ON ec2.cat_id = ecp2.cat_id AND ec2.cat_url_title = '{segment_4}'
                         {/if}
@@ -217,7 +226,7 @@
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
                         WHERE ect.status != 'closed'
                         AND ec4.channel_name IN ('program', 'service')
-                        {if last_segment == 'programas'}
+                        {if segment_4 == 'programas' || segment_5 == 'programas'}
                             AND ecp.entry_id IN (
                                 SELECT entry_id
                                 FROM exp_category_posts ecp5
