@@ -25,12 +25,14 @@
 
 {entry_titles}
     <a
-        {if "{page_uri}"}
-            href="{page_uri}"
-        {if:elseif "{channel_short_name}" == "page"}
-            href="/{url_title}"
-        {if:elseif "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
-            href="{channel_url}"
+        {if "{channel_short_name}" == "page" || "{channel_short_name}" == "staff" || "{channel_short_name}" == "government_member"}
+            {if "{page_uri}"}
+                href="{page_uri}"
+            {if:elseif "{channel_short_name}" == "page"}
+                href="/{url_title}"
+            {if:else}
+                href="{channel_url}"
+            {/if}
         {if:elseif "{channel_url}" $= "/"}
             href="{channel_url}{url_title}"
         {if:else}
