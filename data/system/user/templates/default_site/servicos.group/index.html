@@ -227,7 +227,7 @@
                         JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
                         WHERE ect.status != 'closed'
                         AND ec4.channel_name IN ('program', 'service')
-                        AND ecg.group_name != 'DialogFlow'
+                        AND ecg.group_name NOT IN ('DialogFlow', 'Dialogflow', 'dialogflow')
                         {if segment_4 == 'programas' || segment_5 == 'programas'}
                             AND ecp.entry_id IN (
                                 SELECT entry_id
