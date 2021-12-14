@@ -224,8 +224,10 @@
                         JOIN exp_channel_titles ect ON ecp.entry_id = ect.entry_id
                         JOIN exp_channels ec4 ON ect.channel_id = ec4.channel_id
                         JOIN exp_config ec3 ON ec3.site_id = ect.site_id AND ec3.key = 'site_url'
+                        JOIN exp_category_groups ecg ON ecg.group_id = ec.group_id
                         WHERE ect.status != 'closed'
                         AND ec4.channel_name IN ('program', 'service')
+                        AND ecg.group_name != 'DialogFlow'
                         {if segment_4 == 'programas' || segment_5 == 'programas'}
                             AND ecp.entry_id IN (
                                 SELECT entry_id
