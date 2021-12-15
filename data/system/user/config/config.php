@@ -238,6 +238,7 @@ $config['template'] = 'index';
 $config['theme_folder_path'] = Manifest::get('THEME_FOLDER_PATH', '/var/www/html/themes/');
 $config['theme_folder_url'] = Manifest::get('THEME_FOLDER_URL', '/themes/');
 $config['time_format'] = '24';
+$config['use_orig_name_as_fallback_title'] = 'y';
 $config['updater_allow_advanced'] = 'y';
 $config['use_category_name'] = 'y';
 $config['word_separator'] = 'dash';
