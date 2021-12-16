@@ -120,7 +120,6 @@ $config['captcha_url'] = '/images/captchas';
 $config['cookie_domain'] = $domain;
 $config['cookie_prefix'] = 'ma_';
 $config['cookie_samesite'] = 'Strict';
-// $config['cookie_secure'] = 'y';
 
 $config['css_js_settings'] = [
     'js' => '(function() {
@@ -193,6 +192,7 @@ $config['debug'] = Manifest::get('DEBUG', '1');
 $config['default_member_group'] = '4';
 $config['default_site_timezone'] = 'America/Sao_Paulo';
 $config['deft_lang'] = 'portuguese';
+$config['disable_csrf_protection'] = 'y';
 $config['emoticon_url'] = '/images/smileys';
 $config['enable_censoring'] = 'y';
 $config['enable_hit_tracking'] = 'n';
