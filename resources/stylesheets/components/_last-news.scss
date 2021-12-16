@@ -42,8 +42,6 @@
   }
 
   .h-feed__h-entry--featured {
-    @include my.aspect-ratio(710 x 400);
-
     position: relative;
 
     width: 100%;
@@ -137,13 +135,13 @@
   .h-entry__u-photo--featured {
     float: none;
     width: 100%;
+    aspect-ratio: 21 / 15;
 
     transition-timing-function: ease-out;
     transition-duration: 300ms;
     transition-property: margin transform;
     object-fit: cover;
     object-position: 50% 0;
-    aspect-ratio: 710 / 400;
 
     @media screen and (min-width: my.breakpoint('tablet__portrait')) {
       height: 100%;

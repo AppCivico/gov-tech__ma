@@ -27,7 +27,6 @@
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  // grid-auto-rows: minmax(100px, 1fr);
   grid-gap: my.$gutter * 0.5;
 
   padding: 0;
@@ -73,8 +72,6 @@
   }
 
   .mosaic__link {
-    @include my.aspect-ratio(1 x 1);
-
     display: block;
 
     height: 100%;
@@ -85,11 +82,9 @@
   }
 
   .mosaic__link--video {
-    @include my.aspect-ratio(48 x 27);
   }
 
   :only-child > .mosaic__link {
-    @include my.aspect-ratio(2 x 1);
   }
 
   .mosaic__image {
