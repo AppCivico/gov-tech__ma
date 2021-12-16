@@ -27,6 +27,7 @@
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
   grid-gap: my.$gutter * 0.5;
 
   padding: 0;
@@ -88,14 +89,12 @@
   }
 
   .mosaic__image {
-    position: absolute;
-
     display: block;
 
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
   }
 
   .mosaic__link--video .mosaic__image {
