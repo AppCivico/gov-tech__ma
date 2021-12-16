@@ -1,5 +1,5 @@
 {exp:channel:entries channel="news" parse="inward"
-    search:body="{exp:request:get_post name='keywords'}\W"
+    search:body="{exp:request:get_post name='keywords'}"
     paginate="inline" orderby="date" sort="desc"
     {if segment_3 == "videos"}
         search:videos="not IS_EMPTY"
