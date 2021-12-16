@@ -48,10 +48,11 @@ services:
     restart: unless-stopped
     environment:
         REDIS_PASSWORD: ${REDIS_PASSWORD}
-        MYSQL_DATABASE: "${DATABASE_NAME}"
-        MYSQL_USER: "${DATABASE_USER}"
-        MYSQL_PASSWORD: "${DATABASE_PASSWORD}"
-        MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
+        REDIS_PORT: 6379
+        DB_HOSTNAME: "${DATABASE_HOST}"
+        DB_DATABASE: "${DATABASE_NAME}"
+        DB_USERNAME: "${DATABASE_USER}"
+        DB_PASSWORD: "${DATABASE_PASSWORD}"
     depends_on:
       - db
       - redis
