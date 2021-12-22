@@ -15,17 +15,12 @@
                     <label for="type">Tipo de licitação:</label>
                     <select id="type" name="type">
                         <option value="">Todos</option>
-                        <option value="Ata de abertura">Ata de abertura</option>
-                        <option value="Chamado pública">Chamado pública</option>
-                        <option value="Concorrência">Concorrência</option>
-                        <option value="Concurso">Concurso</option>
-                        <option value="Convite">Convite</option>
-                        <option value="Pregão eletrônico">Pregão eletrônico</option>
-                        <option value="Pregão presencial">Pregão presencial</option>
-                        <option value="Procedimentos auxiliares">Procedimentos auxiliares</option>
-                        <option value="RDC">RDC</option>
-                        <option value="Requisição de proposta">Requisição de proposta</option>
-                        <option value="Tomada de serviço">Tomada de serviço</option>
+
+                        {exp:low_options:bidding__type}
+                          {if option:group != ''}<optgroup label="{option:group}">{/if}
+                          {options}<option value="{option:value}">{option:label}</option>{/options}
+                          {if option:group != ''}</optgroup>{/if}
+                        {/exp:low_options:bidding__type}
                     </select>
                 </p>
 
@@ -40,19 +35,12 @@
                     <label for="status">Situação:</label>
                     <select id="status" name="status">
                         <option value="">Qualquer</option>
-                        <option value="postponed_until_further_deliberation">Adiado até ulterior deliberação</option>
-                        <option value="postponed">Adiado</option>
-                        <option value="awarded">Adjudicado</option>
-                        <option value="scheduled">Agendado</option>
-                        <option value="canceled">Anulado</option>
-                        <option value="minutes_out">Ata esgotada</option>
-                        <option value="current_minutes">Ata vigente</option>
-                        <option value="desert">Deserto</option>
-                        <option value="in_progress">Em andamento</option>
-                        <option value="failed">Fracassado</option>
-                        <option value="homologated">Homologado</option>
-                        <option value="ratified">Ratificado</option>
-                        <option value="revoked">Revogado</option>
+
+                        {exp:low_options:bidding__status}
+                          {if option:group != ''}<optgroup label="{option:group}">{/if}
+                          {options}<option value="{option:value}">{option:label}</option>{/options}
+                          {if option:group != ''}</optgroup>{/if}
+                        {/exp:low_options:bidding__status}
                     </select>
                 </p>
             </fieldset>
