@@ -14,7 +14,7 @@ td {
   width: auto;
   height: auto;
 
-  font-size: 1em;
+  font-size: my.ms-step(14px);
   vertical-align: inherit;
 
   background-color: transparent;
@@ -128,6 +128,10 @@ tbody th {
   text-align: left;
 
   background-color: my.palette('neutral', 'light');
+
+  &:not(:last-child) {
+    border-right: my.$stroke__thin solid my.palette('neutral', 'base');
+  }
 }
 
 tbody td {
