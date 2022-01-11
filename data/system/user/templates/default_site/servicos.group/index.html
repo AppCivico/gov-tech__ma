@@ -508,9 +508,27 @@
                         <summary>Onde encontrar</summary>
 
                         <div class="details__widget">
-                            <a href="{service__link}" target="_blank">
-                                {service__link}
-                            </a>
+                            <p><a href="{service__link}" target="_blank">{service__link}</a></p>
+
+                            {if sources:total_rows}
+                                <footer>
+                                    <p>Mais informações:</p>
+
+                                    <ul>
+                                        {sources}
+                                            <li>
+                                                <a href="{sources:link}" target="_blank">
+                                                    {if sources:text}
+                                                        {sources:text}
+                                                    {if:else}
+                                                        {sources:link}
+                                                    {/if}
+                                                </a>
+                                            </li>
+                                        {/sources}
+                                    </ul>
+                                </footer>
+                            {/if}
                         </div>
                     </details>
                 {/if}
