@@ -64,7 +64,10 @@
 
                         <div class="details__widget">
                             <p>
-                                <a href="{url}" download>{file_name}</a>
+                                <a href="{url}" download>{file_name:url_decode}</a>
+                                <small>
+                                    ({file_size:human})
+                                </small>
                             </p>
                         </div>
                     </details>
