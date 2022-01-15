@@ -45,6 +45,7 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 | Junta Comercial do Maranhão                                                                | [jucema.ma.gov.br](https://jucema.ma.gov.br)                     |
 | Laboratório Central de Saúde Pública                                                       | [lacen.ma.gov.br](https://lacen.ma.gov.br)                       |
 | Maranhão Parcerias                                                                         | [mapa.ma.gov.br](https://mapa.ma.gov.br)                         |
+| Plano Diretor de Desenvolvimento Integrado                                                 | [pddi.ma.gov.br](https://pddi.ma.gov.br)                         |
 | Polícia Civil                                                                              | [policiacivil.ma.gov.br](https://policiacivil.ma.gov.br)         |
 | Polícia Militar                                                                            | [pm.ssp.ma.gov.br](https://pm.ssp.ma.gov.br)                     |
 | Portal da Transparência                                                                    | [transparencia.ma.gov.br](https://transparencia.ma.gov.br)       |
