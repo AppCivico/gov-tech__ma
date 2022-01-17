@@ -119,6 +119,10 @@ details {
   &:last-child {
     margin-bottom: 0;
   }
+
+  footer {
+    font-size: my.ms-step(12px);
+  }
 }
 
 h1 a,
