@@ -88,16 +88,16 @@ $config['app_version'] = '6.0.6';
 $config['encryption_key'] = Manifest::get('ENCRYPTION_KEY', '90c1e6d60d21c0691882686407a4641f6cd6c4bf');
 $config['session_crypt_key'] = Manifest::get('SESSION_CRYPT_KEY', '691b97ef2c0cbe431e448db295323337847f0330');
 $config['database'] = array(
-  'expressionengine' => array(
-    'hostname' => Manifest::get('DB_HOSTNAME', ''),
-    'database' => Manifest::get('DB_DATABASE', ''),
-    'username' => Manifest::get('DB_USERNAME', ''),
-    'password' => Manifest::get('DB_PASSWORD', ''),
-    'dbprefix' => 'exp_',
-    'char_set' => 'utf8mb4',
-    'dbcollat' => 'utf8mb4_unicode_ci',
-    'port'     => ''
-  ),
+    'expressionengine' => array(
+        'hostname' => Manifest::get('DB_HOSTNAME', ''),
+        'database' => Manifest::get('DB_DATABASE', ''),
+        'username' => Manifest::get('DB_USERNAME', ''),
+        'password' => Manifest::get('DB_PASSWORD', ''),
+        'dbprefix' => 'exp_',
+        'char_set' => 'utf8mb4',
+        'dbcollat' => 'utf8mb4_unicode_ci',
+        'port'     => ''
+    ),
 );
 
 $config['allow_avatar_uploads'] = 'y';
@@ -122,24 +122,25 @@ $config['cookie_prefix'] = 'ma_';
 $config['cookie_samesite'] = 'Strict';
 
 $config['css_js_settings'] = [
-    'js' => '(function() {
-  var bidingTypeField = document.querySelector("[name=field_id_49]");
-  var comprasNetField = document.querySelector("[name=field_id_50]");
+    'js' =>
+    '(function() {
+        var bidingTypeField = document.querySelector("[name=field_id_49]");
+        var comprasNetField = document.querySelector("[name=field_id_50]");
 
-  if(!bidingTypeField || !comprasNetField) return;
+        if(!bidingTypeField || !comprasNetField) return;
 
-  var comprasNetFieldset = comprasNetField.closest("fieldset");
+        var comprasNetFieldset = comprasNetField.closest("fieldset");
 
-  $("form").on("interact", function(e) {
-    if(e.target.name !== "field_id_49") return;
-    var value = e.target.value;
-    if (value.toLowerCase() === "pregão eletrônico") {
-      comprasNetFieldset.classList.remove("hidden");
-    } else {
-      comprasNetFieldset.classList.add("hidden");
-    }
-  });
-})()',
+        $("form").on("interact", function(e) {
+            if(e.target.name !== "field_id_49") return;
+            var value = e.target.value;
+            if (value.toLowerCase() === "pregão eletrônico") {
+              comprasNetFieldset.classList.remove("hidden");
+            } else {
+              comprasNetFieldset.classList.add("hidden");
+            }
+        });
+    })()',
     'css' => '
         .dashboard::before {
             content: url("/assets/images/brand/gov__ma.svg");
