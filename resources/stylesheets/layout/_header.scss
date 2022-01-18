@@ -508,8 +508,11 @@
   }
 }
 
+.header-nav__list > li:focus-within ul,
 .header-nav__list > li:hover ul {
   display: block;
+
+  max-height: 999em;
 
   visibility: visible;
 

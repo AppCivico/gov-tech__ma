@@ -138,6 +138,7 @@ nav li ul {
 
 nav .opened,
 nav li:focus-within > ul,
+nav button:hover + ul,
 nav button:focus + ul {
   max-height: 999em;
 
@@ -187,7 +188,15 @@ nav button:first-child {
     content: '';
 
     background-image: my.image('/icons/plus.svg');
-    background-position: 100% 50%;
+    background-position: 50% 50%;
+
+    @media (pointer: coarse) {
+      content: none;
+    }
+
+    @media (pointer: fine) {
+      content: none;
+    }
   }
 
   &:hover,
