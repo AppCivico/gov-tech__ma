@@ -51,7 +51,7 @@ $domain = $_SERVER['HTTP_HOST'];
 $domains = include('domains.php');
 
 foreach ($domains as $site) {
-    if (in_array($domain, $site['hosts'])) {
+    if (in_array(preg_replace("/www\d*\./", '', $domain), $site['hosts'])) {
         $site_name = $site['site_name'];
         $assign_to_config['global_vars']['global:editorial-group'] = $site['editorial_group'];
         break;
