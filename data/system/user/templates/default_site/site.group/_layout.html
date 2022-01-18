@@ -137,7 +137,11 @@
                     FROM exp_category_groups cg
                     JOIN exp_categories ec ON ec.group_id = cg.group_id
                     WHERE cg.site_id = '{site_id}'
-                    	AND cg.group_name IN ('menu em cascata', 'menu hamburguer')
+                    {if segment_1 == 'agencia-de-noticias'}
+                        AND cg.group_name IN ('editorias')
+                    {if:else}
+                        AND cg.group_name IN ('menu em cascata', 'menu hamburguer')
+                    {/if}
                     GROUP BY cg.group_id
                     ORDER BY cg.group_name DESC
                     ;"
@@ -180,12 +184,25 @@
                             <div class="main-nav__list-wrapper">
                     {/if}
 
-                            {exp:channel:category_archive
-                                channel="page|government_member|service|document|news|staff|special"
-                                style="nested" category_group="{group_id}" class="main-nav__list main-nav__list--{group_name:url_slug}"
-                            }
-                                {tp-category_archive_menu_content}
-                            {/exp:channel:category_archive}
+                    {if segment_1 == "agencia-de-noticias"}
+                        {exp:channel:categories channel="news" style="nested" category_group="{group_id}" show_empty="no" class="main-nav__list main-nav__list--{group_name:url_slug}"}
+                            <a href="{path='channel/index'}">{category_name}</a>
+
+                            {if has_children}
+                                <button
+                                    type="button"
+                                    aria-haspopup="true"
+                                >categorias filhas</button>
+                            {/if}
+                        {/exp:channel:categories}
+                    {if:else}
+                        {exp:channel:category_archive
+                            channel="page|government_member|service|document|news|staff|special"
+                            style="nested" category_group="{group_id}" class="main-nav__list main-nav__list--{group_name:url_slug}"
+                        }
+                            {tp-category_archive_menu_content}
+                        {/exp:channel:category_archive}
+                    {/if}
 
                     {if count == total_results}
                             </div>

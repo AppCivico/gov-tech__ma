@@ -1,7 +1,37 @@
 @use '../abstracts' as my;
 
-// /* navigation
-// ---------------------------------------------------------------------------- */
+///
+/// Navigation
+///
+/// @group components
+///
+/// @example html
+///   <nav>
+///     <ul>
+///       <li>
+///         <a href="/category/436">sed</a>
+///       </li>
+///       <li>
+///         <a href="/category/743">et</a>
+///         <button type="button" aria-haspopup="true">
+///           children of et
+///         </button>
+///         <ul>
+///           <li>
+///             <a href="/category/219">pariatur</a>
+///           </li>
+///           <li>
+///             <a href="/category/765">quae</a>
+///           </li>
+///         </ul>
+///       </li>
+///       <li>
+///         <a href="/category/911">quae</a>
+///       </li>
+///     </ul>
+///   </nav>
+///
+
 menu,
 nav {
 }
@@ -23,6 +53,11 @@ nav ol {
 
 menu li,
 nav li {
+  @include my.fallback('display', 'flex', 'table');
+
+  flex-wrap: wrap;
+
+  width: 100%;
   padding: 0;
   margin: 0;
 
@@ -32,16 +67,19 @@ nav li {
 }
 
 [role='menuitem'],
+nav button,
 menu a,
 nav a {
   @include my.link-undercover;
+  @include my.fallback('display', 'flex', 'table-cell');
 
   display: flex;
 
+  flex-grow: 1;
+
   align-items: center;
 
-  height: 100%;
-  min-height: 0;
+  min-height: my.$leading * 1.5em;
   padding: 0 my.$gutter;
   margin-right: auto;
   margin-left: auto;
@@ -50,9 +88,9 @@ nav a {
   font-weight: inherit;
   text-overflow: ellipsis;
 
-  background: none;
-  border: 0;
-  border-radius: 0;
+  &:only-child {
+    height: 100%;
+  }
 
   &:link {
     text-decoration: none;
@@ -69,9 +107,6 @@ nav a {
     color: inherit;
     text-decoration: underline;
 
-    background: none;
-    border: 0;
-
     @supports (text-decoration-color: #{palette('accent')}) {
       text-decoration-line: underline;
       text-decoration-style: solid;
@@ -80,19 +115,120 @@ nav a {
   }
 }
 
+menu li ul,
+nav li ul {
+  display: block;
+
+  flex-basis: 100%;
+
+  max-height: 0;
+  padding-left: my.$leading * 0.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+
+  font-weight: my.font-weight('normal');
+
+  opacity: 0;
+
+  transition-delay: 0, 0;
+  transition-duration: 1s, 1s;
+  transition-property: max-height, opacity;
+}
+
+nav .opened,
+nav li:focus-within > ul,
+nav button:focus + ul {
+  max-height: 999em;
+
+  opacity: 1;
+
+  transition-delay: 0, 0;
+  transition-duration: 1s, 1s;
+  transition-property: max-height, opacity;
+}
+
+nav button:focus {
+  pointer-events: none;
+}
+
 .current > a {
   pointer-events: none;
 }
 
-// /* access
+nav button[aria-haspopup] {
+  min-width: 0;
+  padding: 0;
+
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+
+  @include my.on-event {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+nav button:first-child {
+  width: 100%;
+
+  &::after {
+    display: inline-block;
+
+    width: my.$leading * 1em;
+    height: my.$leading * 1em;
+    margin-left: 0.25em;
+
+    content: '';
+
+    background-image: my.image('/icons/plus.svg');
+    background-position: 100% 50%;
+  }
+
+  &:hover,
+  &:focus {
+    &::after {
+      background-image: my.image('/icons/minus.svg');
+    }
+  }
+}
+
+nav a + button[aria-haspopup] {
+  @include my.image-replacement;
+
+  flex-grow: 0;
+
+  width: my.$leading * 1em;
+
+  background-image: my.image('/icons/plus.svg');
+  background-position: 50% 50%;
+
+  &:focus {
+    background-image: my.image('/icons/minus.svg');
+  }
+}
+
+nav li:hover > a + button[aria-haspopup] {
+  background-image: my.image('/icons/minus.svg');
+}
+
+
+// access
 // ---------------------------------------------------------------------------- */
 .skip-links {
+}
+
+.skip-links li {
 }
 
 .skip-links a {
   @include my.visually-hidden--focusable;
 }
-
 
 ///
 /// Pagination
