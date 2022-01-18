@@ -312,6 +312,15 @@ return [
     ],
     [
         'hosts' => [
+            'pddi.ma.gov.br',
+            'pddi.ma.gov.local',
+            'pddi-ma.appcivico.com.br'
+        ],
+        'site_name' => 'pddi',
+        'editorial_group' => ''
+    ],
+    [
+        'hosts' => [
             'pge.ma.gov.br',
             'pge.ma.gov.local',
             'pge-ma.appcivico.com.br'
