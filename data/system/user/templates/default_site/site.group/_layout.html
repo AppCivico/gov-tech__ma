@@ -186,7 +186,7 @@
 
                     {if segment_1 == "agencia-de-noticias"}
                         {exp:channel:categories channel="news" style="nested" category_group="{group_id}" show_empty="no" class="main-nav__list main-nav__list--{group_name:url_slug}"}
-                            <a href="{path='channel/index'}">{category_name}</a>
+                            <a href="/noticias/categorias/{category_url_title}">{category_name}</a>
 
                             {if has_children}
                                 <button
