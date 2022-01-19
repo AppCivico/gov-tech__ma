@@ -3,7 +3,7 @@ import ariaControlsInit from './ariaControls';
 import audioPlayer from './audio/player';
 import flagFirstAccess from './bemoby/flag-first-access';
 import biddingInit from './bidding';
-import consentInit from './consent/enabler';
+import consentInit from './consent';
 import headerRandomize from './layout/header-randomize';
 import likeDetailsInit from './like-a-details';
 import menuResetter from './menuResetter';
