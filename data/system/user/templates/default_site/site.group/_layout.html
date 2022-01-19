@@ -138,7 +138,7 @@
                     JOIN exp_categories ec ON ec.group_id = cg.group_id
                     WHERE cg.site_id = '{site_id}'
                     {if segment_1 == 'agencia-de-noticias'}
-                        AND cg.group_name IN ('editorias')
+                        AND cg.group_name IN ('menu agencia de noticias')
                     {if:else}
                         AND cg.group_name IN ('menu em cascata', 'menu hamburguer')
                     {/if}
