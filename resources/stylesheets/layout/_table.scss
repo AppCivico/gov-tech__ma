@@ -14,7 +14,7 @@ td {
   width: auto;
   height: auto;
 
-  font-size: my.ms-step(14px);
+  font-size: 100%;
   vertical-align: inherit;
 
   background-color: transparent;
@@ -29,7 +29,7 @@ table {
   margin-left: 0;
 
   font-family: inherit;
-  font-size: 100%;
+  font-size: my.ms-step(12px);
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 0, 'tnum' 1, 'onum' 0, 'lnum' 1, 'dlig' 0;
   vertical-align: top;
 
