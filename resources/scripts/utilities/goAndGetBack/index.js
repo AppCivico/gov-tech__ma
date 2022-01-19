@@ -7,7 +7,7 @@ export default ((url = '', data = {}, optionsParam = {}) => {
   if (!options.credentials) options.credentials = 'same-origin';
 
   if (!options.body) {
-    if (options.method.toUpperCase() === 'POST') {
+    if (options.method?.toUpperCase() === 'POST') {
       options.body = data;
     } else {
       submissionUrl += `?${new URLSearchParams(data).toString()}`;
