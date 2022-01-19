@@ -137,7 +137,7 @@
                     FROM exp_category_groups cg
                     JOIN exp_categories ec ON ec.group_id = cg.group_id
                     WHERE cg.site_id = '{site_id}'
-                    {if segment_1 == 'agencia-de-noticias'}
+                    {if site_id == 1 && (segment_1 == 'agencia-de-noticias' || segment_1 == 'noticias')}
                         AND cg.group_name IN ('menu agencia de noticias')
                     {if:else}
                         AND cg.group_name IN ('menu em cascata', 'menu hamburguer')
@@ -184,7 +184,7 @@
                             <div class="main-nav__list-wrapper">
                     {/if}
 
-                    {if segment_1 == "agencia-de-noticias"}
+                    {if site_id == 1 && (segment_1 == "agencia-de-noticias" || segment_1 == "noticias")}
                         {exp:channel:categories channel="news" style="nested" category_group="{group_id}" show_empty="yes" class="main-nav__list main-nav__list--{group_name:url_slug}"}
                             <a href="/noticias/categorias/{category_url_title}">{category_name}</a>
 
