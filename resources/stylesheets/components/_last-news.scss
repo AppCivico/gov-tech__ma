@@ -105,6 +105,10 @@
       padding: my.$gutter * 0.5;
 
       .h-entry__p-name--last-news {
+        width: max-content;
+        padding-right: my.$gutter * 0.5;
+        padding-left: my.$gutter * 0.5;
+
         font-size: my.ms-step(24px);
 
         background-color: my.palette('effects', 'back-title');
