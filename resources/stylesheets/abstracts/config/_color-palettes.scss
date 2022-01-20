@@ -171,6 +171,7 @@ $palette: map.set($palette, 'placeholder', $placeholder);
 /// @colors effects
 ///
 $effects: (
+  'back-title': rgba(0, 0, 0, 0.4),
   'backdrop': rgba(0, 0, 0, 0.5),
   'shadow': hsla(0, 0%, 0%, 0.161),
   'tap-highlight': rgb(255, 94, 153),
