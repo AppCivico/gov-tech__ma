@@ -140,6 +140,7 @@ nav li ul {
 
 nav .opened,
 nav li:focus-within > ul,
+nav li:hover > ul,
 nav button:hover + ul,
 nav button:focus + ul {
   max-height: 999em;
