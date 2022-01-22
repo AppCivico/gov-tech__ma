@@ -1,0 +1,27 @@
+@use '../abstracts' as my;
+
+.migrating-site {
+  $min-font: my.ms-step(16px);
+  $max-font: my.ms-step(28px);
+  $line-height: 1.266666666em;
+
+  @include my.fluid-font($min: $min-font, $max: $max-font);
+
+  width: 42.375rem; // 678px
+  max-width: 90%;
+  padding: my.$gutter;
+
+  background-color: my.palette('brand', 'yellow', 'medium');
+  border: my.$stroke solid my.palette('neutral', 'black');
+
+  p {
+    &:first-child {
+      font-size: 1.333333em;
+      font-weight: my.font-weight('bold');
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

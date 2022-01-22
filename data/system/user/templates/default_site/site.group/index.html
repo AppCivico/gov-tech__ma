@@ -196,3 +196,16 @@
         {/if}
     {/exp:channel:entries}
 {/if}
+
+    <dialog class="migrating-site" open>
+        <p>O portal do Governo do Maranhão está mudando!</p>
+        <p>Aproveite para navegar e conhecer nossa nova proposta. </p>
+        <p>
+            Se você prefere a versão anterior,
+            <a href="{site_url:replace find='/^(http)s?:\/\/(www\d?\.)?(.*)$/i' replace='http://www3.$3' regex='yes'}">clique aqui</a>.
+        </p>
+
+        <menu>
+            <button aria-haspopup="dialog" value="close" title="Fechar">&times;</button>
+        </menu>
+    </dialog>
