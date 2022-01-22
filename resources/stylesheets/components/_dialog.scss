@@ -99,7 +99,8 @@ dialog menu {
   z-index: my.layer('dropdown');
 }
 
-dialog [value='cancel'] {
+dialog [value='cancel'],
+dialog [value='close'] {
   @include my.like-a__virgin;
 
   display: flex;
@@ -110,6 +111,7 @@ dialog [value='cancel'] {
   width: my.$gutter * 0.5;
   height: my.$gutter * 0.5;
 
+  font-size: 1rem;
   text-align: center;
 
   cursor: pointer;
