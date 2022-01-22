@@ -1,8 +1,8 @@
 @use '../abstracts' as my;
 
 .migrating-site {
-  $min-font: my.ms-step(16px);
-  $max-font: my.ms-step(28px);
+  $min-font: my.ms-step(14px);
+  $max-font: my.ms-step(24px);
   $line-height: 1.266666666em;
 
   @include my.fluid-font($min: $min-font, $max: $max-font);
