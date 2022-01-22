@@ -1,4 +1,4 @@
-function handleDialog(controlled, isOpening) {
+function handleDialog(controlled, isOpening, control) {
   if (isOpening) {
     if (typeof controlled.showModal === 'function') {
       controlled.showModal();
@@ -18,6 +18,8 @@ function handleDialog(controlled, isOpening) {
     if (controlled.getAttribute('role') === 'dialog') {
       controlled.setAttribute('hidden', '');
     }
+
+    control.blur();
   }
 }
 
@@ -39,9 +41,13 @@ function toggleControlled(e) {
 
   if (!(control instanceof HTMLElement)) return;
 
-  const controlled = control.hasAttribute('aria-controls')
-    ? document.getElementById(control.getAttribute('aria-controls'))
-    : control.nextElementSibling;
+  let controlled;
+
+  if (control.hasAttribute('aria-controls')) {
+    controlled = document.getElementById(control.getAttribute('aria-controls')) || control.nextElementSibling;
+  } else if (control.getAttribute('aria-haspopup') === 'dialog') {
+    controlled = control.closest('dialog');
+  }
 
   if (!controlled || !(controlled instanceof HTMLElement)) return;
 
@@ -51,7 +57,7 @@ function toggleControlled(e) {
     case controlled.nodeName.toUpperCase() === 'DIALOG':
     case control.getAttribute('aria-haspopup') === 'dialog':
     case controlled.getAttribute('role') === 'dialog':
-      handleDialog(controlled, isOpening);
+      handleDialog(controlled, isOpening, control);
       break;
 
     case control.getAttribute('aria-haspopup') === 'true':
