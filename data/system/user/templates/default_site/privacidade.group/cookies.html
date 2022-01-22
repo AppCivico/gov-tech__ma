@@ -33,7 +33,7 @@
         {/if}
     {/exp:channel:entries}
 
-    {exp:consent:form consent="ee:cookies_functionality" form_class="consent-request" form_id="consent-request-update"}
+    {exp:consent:form consent="ee:cookies_functionality" form_class="consent-request consent-controller" form_id="consent-request-update"}
       {consents}
           <fieldset>
             <legend>
@@ -45,12 +45,12 @@
 
             <ul>
               <li>
-                  <input type="radio" id="{consent_short_name}" name="{consent_short_name}" value="y" {if consent_granted}checked{/if} />
-                <label for="{consent_short_name}">Aceito</label>
+                  <input type="radio" id="{consent_short_name}--y" name="{consent_short_name}" value="y" {if consent_granted}checked{/if} />
+                <label for="{consent_short_name}--y">Aceito</label>
               </li>
               <li>
-                <input type="radio" id="{consent_short_name}" name="{consent_short_name}" value="n" {if ! consent_granted}checked{/if} />
-                <label for="{consent_short_name}">Recuso</label>
+                <input type="radio" id="{consent_short_name}--n" name="{consent_short_name}" value="n" {if ! consent_granted}checked{/if} />
+                <label for="{consent_short_name}--n">Recuso</label>
               </li>
             </ul>
 
