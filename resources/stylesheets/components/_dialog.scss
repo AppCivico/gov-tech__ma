@@ -59,7 +59,6 @@ dialog {
     @include backdrop;
   }
 
-  &:focus-within,
   &:target,
   &[open] {
     display: block;

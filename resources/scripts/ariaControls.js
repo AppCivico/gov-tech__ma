@@ -18,9 +18,9 @@ function handleDialog(controlled, isOpening, control) {
     if (controlled.getAttribute('role') === 'dialog') {
       controlled.setAttribute('hidden', '');
     }
-
-    control.blur();
   }
+
+  control.blur();
 }
 
 function toggleControlled(e) {
