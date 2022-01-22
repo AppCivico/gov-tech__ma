@@ -107,8 +107,9 @@ dialog [value='close'] {
   align-items: center;
   justify-content: center;
 
-  width: my.$gutter * 0.5;
-  height: my.$gutter * 0.5;
+  width: my.$gutter;
+  height: my.$gutter;
+  padding: 0;
 
   font-size: 1rem;
   text-align: center;
