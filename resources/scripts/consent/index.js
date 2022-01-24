@@ -25,7 +25,6 @@ function captureRequest(e) {
   const options = {
     method: target.method || 'POST',
     cache: 'no-cache',
-    credentials: 'omit',
     mode: 'same-origin',
     redirect: 'follow',
     Accept: 'application/json, application/xml, text/plain, text/html, *.*',
