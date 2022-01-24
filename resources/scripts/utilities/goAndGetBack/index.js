@@ -6,6 +6,8 @@ export default ((url = '', data = {}, optionsParam = {}) => {
 
   if (!options.credentials) options.credentials = 'same-origin';
 
+  options.headers = { 'X-Requested-With': 'XMLHttpRequest', ...options.headers || {} };
+
   if (!options.body) {
     if (options.method?.toUpperCase() === 'POST') {
       options.body = data;
