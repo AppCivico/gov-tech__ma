@@ -24,6 +24,10 @@ function captureRequest(e) {
 
   const options = {
     method: target.method || 'POST',
+    cache: 'no-cache',
+    mode: 'same-origin',
+    redirect: 'follow',
+    Accept: 'application/json, application/xml, text/plain, text/html, *.*',
   };
 
   target.setAttribute('aria-busy', 'true');
