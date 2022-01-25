@@ -16,24 +16,25 @@ services:
       options:
         max-file: "${LOG_MAX_FILE}"
         max-size: "${LOG_MAX_SIZE}"
-  db:
-    container_name: ma_gov_mariadb
-    image: mariadb:10.5.10-focal
-    volumes:
-        - ${MYSQL_DATA}:/var/lib/mysql
-    environment:
-        MYSQL_DATABASE: "${DATABASE_NAME}"
-        MYSQL_USER: "${DATABASE_USER}"
-        MYSQL_PASSWORD: "${DATABASE_PASSWORD}"
-        MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
-    networks:
-        - database
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "${LOG_MAX_FILE}"
-        max-size: "${LOG_MAX_SIZE}"
-    restart: unless-stopped
+
+#  db:
+#    container_name: ma_gov_mariadb
+#    image: mariadb:10.5.10-focal
+#    volumes:
+#        - ${MYSQL_DATA}:/var/lib/mysql
+#    environment:
+#        MYSQL_DATABASE: "${DATABASE_NAME}"
+#        MYSQL_USER: "${DATABASE_USER}"
+#        MYSQL_PASSWORD: "${DATABASE_PASSWORD}"
+#        MYSQL_ROOT_PASSWORD: "${DATABASE_ROOT_PASSWORD}"
+#    networks:
+#        - database
+#    logging:
+#      driver: "json-file"
+#      options:
+#        max-file: "${LOG_MAX_FILE}"
+#        max-size: "${LOG_MAX_SIZE}"
+#    restart: unless-stopped
   apache:
     build: ./docker/apache/
     volumes:
