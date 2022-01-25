@@ -62,6 +62,8 @@
 
     position: relative;
 
+    flex-basis: auto;
+
     &::after {
       @extend %loading-bg;
     }
