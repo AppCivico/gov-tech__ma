@@ -55,7 +55,7 @@ services:
         DB_USERNAME: "${DATABASE_USER}"
         DB_PASSWORD: "${DATABASE_PASSWORD}"
     depends_on:
-      - db
+#      - db
       - redis
     networks:
       - cms
