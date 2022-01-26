@@ -314,6 +314,7 @@ return [
         'hosts' => [
             'pddi.ma.gov.br',
             'pddi.ma.gov.local',
+            'pddi.agemsul.ma.gov.br',
             'pddi-ma.appcivico.com.br'
         ],
         'site_name' => 'pddi',
