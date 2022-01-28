@@ -3,7 +3,7 @@
 {if segment_2 == ""}
     <main class="h-feed">
         {exp:channel:entries channel="news" limit="4" search:thumbnail="not IS_EMPTY"
-            status="not closed" disable="category_fields|member_data|pagination" orderby="date" sort="desc"
+            status="destacada" disable="category_fields|member_data|pagination" orderby="date" sort="desc"
         }
             {if count == 1}
             <section class="last-news h-feed">
