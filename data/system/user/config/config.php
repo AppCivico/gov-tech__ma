@@ -70,7 +70,7 @@ switch (true) {
         break;
 
     default:
-        $assign_to_config['global_vars']['global:root-site-url'] = 'https://ma.gov.br';
+        $assign_to_config['global_vars']['global:root-site-url'] = 'https://www.ma.gov.br';
         break;
 }
 $site_url = ($port !== '443' && $port !== '80') ? $protocol . $domain . ':' . $port : $protocol . $domain;
