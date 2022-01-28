@@ -62,6 +62,7 @@ foreach ($domains as $site) {
 switch (true) {
     case (strpos($domain, 'localhost') !== false):
     case (strpos($domain, '.local') !== false):
+        $protocol = "http://";
         $assign_to_config['global_vars']['global:root-site-url'] = '//ma.gov.local';
         break;
 
