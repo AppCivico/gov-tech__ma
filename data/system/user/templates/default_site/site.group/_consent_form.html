@@ -1,7 +1,15 @@
 {!-- DO NOT CACHE --}
 
+{exp:consent:requests consent="ee:cookies_functionality"}
+    <script>
+        // store available consent requests
+        window['ma:consents'] = window['ma:consents'] || [];
+        window['ma:consents'].push('{consent_short_name}');
+    </script>
+{/exp:consent:requests}
+
 {if ! consent:has_responded:ee:cookies_functionality}
-    <div class="consent-request__wrapper">
+    <div class="consent-request__wrapper" data-js="toggle">
         {exp:consent:requests consent="ee:cookies_functionality"}
             <div class="consent-request">
                 <div role="group" class="consent-request__content">
@@ -20,15 +28,10 @@
     </div>
 {if:else}
     {exp:consent:requests consent="ee:cookies_functionality"}
-        <script>
-            window['ma:consents'] = window['ma:consents'] || [];
-        </script>
         {if consent_granted}
             <script>
-                window['ma:consents'].push('{consent_short_name}');
+                document.cookie = '{consent_short_name}=; SameSite=Strict; Secure;max-age=60*60*24*365';
             </script>
-
-            {tv-static_footer}
         {/if}
     {/exp:consent:requests}
 {/if}

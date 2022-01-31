@@ -15,6 +15,9 @@ function captureRequest(e) {
       break;
   }
 
+  const consents = window['ma:consents'];
+  if (!consents?.length) return;
+
   const target = e.currentTarget;
   const formData = target instanceof HTMLFormElement
     ? new FormData(target)
@@ -30,6 +33,14 @@ function captureRequest(e) {
     Accept: 'application/json, application/xml, text/plain, text/html, *.*',
   };
 
+  const wrapper = target.closest('[data-js="toggle"]');
+  if (wrapper) {
+    wrapper.setAttribute('hidden', '');
+  }
+
+  // enabling ahead of response just to make it to look faster
+  enabler();
+
   target.setAttribute('aria-busy', 'true');
 
   goAndGetBack(`${action}`, formData, options)
@@ -38,10 +49,13 @@ function captureRequest(e) {
         throw new Error('Network response was not OK');
       }
 
-      window.location.reload();
+      consents.forEach((consent) => {
+        document.cookie = `${consent}=; SameSite=Strict; Secure;max-age=60*60*24*365`;
+      });
     })
     .catch(() => {
       target.setAttribute('aria-busy', 'false');
+      wrapper.removeAttribute('hidden', '');
     })
     .finally(() => {
     });
