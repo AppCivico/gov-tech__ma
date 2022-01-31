@@ -1,5 +1,5 @@
 export default function enabler() {
-  const consents = window['ma:consents']?.split(' ');
+  const consents = window['ma:consents'];
 
   if (consents?.length) {
     consents.forEach((consent) => {
