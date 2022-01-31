@@ -1,3 +1,4 @@
+import resetCookie from '../utilities/cookie/reset';
 import goAndGetBack from '../utilities/goAndGetBack';
 import enabler from './enabler';
 
@@ -39,7 +40,7 @@ function captureRequest(e) {
   }
 
   // enabling ahead of response just to make it to look faster
-  enabler();
+  enabler(true);
 
   target.setAttribute('aria-busy', 'true');
 
@@ -56,8 +57,9 @@ function captureRequest(e) {
     .catch(() => {
       target.setAttribute('aria-busy', 'false');
       wrapper.removeAttribute('hidden', '');
-    })
-    .finally(() => {
+      consents.forEach((consent) => {
+        resetCookie(consent);
+      });
     });
 }
 
