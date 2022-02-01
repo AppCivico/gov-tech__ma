@@ -104,7 +104,7 @@ $lang = array(
 
 'search_no_result' => 'Sua busca não retornou nenhum resultado.',
 
-'search_no_stopwords' => 'Seus termos de busca contém apenas palavras comuns que não atendem aos critérios exigidos.',
+'search_no_stopwords' => 'Seus termos de busca incluem palavras comuns que não entrarão nos critérios de busca.',
 
 'search_not_allowed' => 'Você não possui permissões par utilizar o mecanismo de busca.',
 
