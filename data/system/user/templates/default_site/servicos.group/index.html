@@ -389,8 +389,9 @@
 
     {layout:set name="robots"}index,follow,noarchive,noodp{/layout:set}
 
-    {exp:channel:entries channel="service" {if site_id == 1}site="not none"{/if}
-        limit="1" require_entry="yes" disable="category_fields|member_data" status="not closed"
+    {exp:channel:entries channel="service" limit="1" require_entry="yes" status="not closed"
+        disable="category_fields|member_data"
+        {if site_id == 1}site="default_site|{global:not_sites}"{/if}
     }
         {tp-check_draft}
 
