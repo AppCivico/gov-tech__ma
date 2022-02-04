@@ -8,19 +8,17 @@
 >
 <head>
 
-{exp:consent:requests consent="ee:cookies_functionality"}
-    {if consent_granted}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-43WSLQF7SQ"></script>
-        <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
 
-                gtag('config', 'G-43WSLQF7SQ');
-        </script>
-    {/if}
-{/exp:consent:requests}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script data-js="ee:cookies_functionality" async src="https://www.googletagmanager.com/gtag/js?id=G-43WSLQF7SQ"></script>
+<script data-js="ee:cookies_functionality" >
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-43WSLQF7SQ');
+</script>
+
 
 {tp-head}
 
