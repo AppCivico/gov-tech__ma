@@ -156,6 +156,11 @@ nav button:focus {
   pointer-events: none;
 }
 
+nav [aria-controls]:focus,
+nav [aria-haspopup]:focus {
+  pointer-events: auto;
+}
+
 .current > a {
   pointer-events: none;
 }

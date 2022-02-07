@@ -44,9 +44,11 @@ function toggleControlled(e) {
   let controlled;
 
   if (control.hasAttribute('aria-controls')) {
-    controlled = document.getElementById(control.getAttribute('aria-controls')) || control.nextElementSibling;
+    controlled = document.getElementById(control.getAttribute('aria-controls'));
   } else if (control.getAttribute('aria-haspopup') === 'dialog') {
     controlled = control.closest('dialog');
+  } else {
+    controlled = control.nextElementSibling;
   }
 
   if (!controlled || !(controlled instanceof HTMLElement)) return;
@@ -86,6 +88,10 @@ export default () => {
   const controls = document.querySelectorAll('[aria-controls],[aria-haspopup]');
 
   for (let i = 0; i < controls.length; i += 1) {
+    controls[i].addEventListener('focus', (e) => {
+      e.target.style.pointerEvents = 'auto'; // prevent CSS conflicts
+    });
+
     controls[i].addEventListener('click', toggleControlled);
   }
 };
