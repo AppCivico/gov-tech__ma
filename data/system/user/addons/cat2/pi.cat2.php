@@ -28,7 +28,9 @@ class Cat2 {
 	 */
 	function __construct()
 	{
-		$this->site = ee()->TMPL->fetch_param('site_id', ee()->config->item('site_id'));
+        $this->site = !empty(ee()->TMPL->fetch_param('site'))
+            ? (ee('Model')->get('Site')->filter('site_name', ee()->TMPL->fetch_param('site'))->fields('site_id')->first()->getId() ?: ee()->config->item('site_id'))
+            : ee()->TMPL->fetch_param('site_id', ee()->config->item('site_id'));
 
 		// register parameters
 		$this->category_url_title = strtolower(ee()->TMPL->fetch_param('category_url_title', ''));
