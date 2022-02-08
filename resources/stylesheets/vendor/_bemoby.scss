@@ -143,6 +143,8 @@
   .sc-chat-window {
     bottom: 24px;
 
+    max-width: calc(100% - 44px);
+    max-height: calc(100% - 48px);
     margin-right: 22px;
     margin-left: 22px;
 
@@ -232,6 +234,8 @@
       margin-right: my.$gutter * 1.5;
       margin-left: my.$gutter * 1.5;
 
+      color: black !important;
+
       background: hsl(204, 43%, 91%) !important;
 
       &::before {
@@ -242,6 +246,10 @@
         right: 100%;
 
         content: '';
+      }
+
+      .sc-message--meta {
+        color: inherit !important;
       }
     }
   }
