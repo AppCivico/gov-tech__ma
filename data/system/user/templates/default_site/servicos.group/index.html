@@ -48,11 +48,13 @@
 
                 {exp:query
                     sql="SELECT ec.site_id msm_site_id, es.site_label msm_site_label, es.site_name msm_site_name,
-                        MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'msm_site_url',
-                        MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on'
+                        MAX( CASE WHEN (ec.key = 'site_url') THEN ec.value ELSE NULL END ) as 'base_url',
+                        MAX( CASE WHEN (ec.key = 'is_site_on') THEN ec.value ELSE NULL END ) as 'msm_is_site_on',
+                        c.channel_url AS 'msm_service_channel_url'
                         FROM exp_config ec
                         JOIN exp_sites es ON es.site_id = ec.site_id
-                        WHERE ec.site_id != 1
+                        JOIN exp_channels c ON es.site_id = c.site_id
+                        WHERE ec.site_id != 1 AND c.channel_title = 'Serviços'
                         GROUP BY ec.site_id
                         ORDER BY es.site_label
                     "
@@ -71,7 +73,7 @@
                                     {/if}
 
                                         {if msm_is_site_on == "y"}
-                                            <option value="{msm_site_url}/servicos">
+                                            <option value="{msm_service_channel_url}">
                                                 {msm_site_label}
                                             </option>
                                         {/if}
