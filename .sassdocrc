@@ -112,6 +112,7 @@ herman:
     - 'docs/extraDocs/all-fields.md'
     - 'docs/extraDocs/assets.md'
     - 'docs/extraDocs/deploy.md'
+    - 'docs/extraDocs/ci-cd.md'
     - 'docs/extraDocs/routes-and-templates.md'
     - 'docs/extraDocs/content-modelling.md'
     - 'docs/extraDocs/content-management.md'
