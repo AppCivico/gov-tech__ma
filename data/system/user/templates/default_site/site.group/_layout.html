@@ -542,10 +542,7 @@ onload="gtag('js', new Date());gtag('config', 'G-43WSLQF7SQ');"></script>
                     <div class="h-card">
                         {if settings__address}
                             <div class="p-adr">
-                                <a href="https://maps.apple.com/?daddr={settings__address:attr_safe:url_encode plus_encoded_spaces='yes'}"
-                                    target="_blank" rel="noopener noreferrer">
-                                    {settings__address}
-                                </a>
+                                {settings__address}
                                 {opening_hours}
                             </div>
                         {/if}
