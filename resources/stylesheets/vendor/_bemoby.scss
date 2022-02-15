@@ -11,6 +11,11 @@
     display: none;
   }
 
+  /* stylelint-disable-next-line selector-max-id */
+  #file-input {
+    min-width: 0;
+  }
+
   .sc-launcher {
     background-size: contain;
 
