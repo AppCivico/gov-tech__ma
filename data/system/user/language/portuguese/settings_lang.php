@@ -1,7 +1,5 @@
 <?php
 $lang = array(
-
-
 'access_throttling' =>
 'Supressão de acessos',
 
@@ -57,7 +55,7 @@ $lang = array(
 'Configurações de páginas',
 
 'security_privacy' =>
-'Securança & Privacidade',
+    'Segurança & Privacidade',
 
 'system_settings' =>
 'Configurações de sistema',
@@ -252,7 +250,7 @@ $lang = array(
 'Caractere de quebra de linha',
 
 'email_newline_desc' =>
-'n fornece a maior compatibilidade. Se esta configuração não funcionar para você, contate seu provedor de e-mail para instruções.',
+    'n fornece a maior compatibilidade. Se esta configuração não funcionar para você, contacte seu provedor de e-mail para instruções.',
 
 'email_smtp_crypto' =>
 'Tipo de conexão',
@@ -393,7 +391,7 @@ $lang = array(
 'Nome da aplicação New Relic',
 
 'newrelic_app_name_desc' =>
-'Altera o nome da aplicação que aparece no dashboarde New Relic para esta instalação do ExpressionEngine.',
+    'Altera o nome da aplicação que aparece no painel da New Relic para esta instalação do ExpressionEngine.',
 
 'output_options' =>
 'Opções de Saída',
@@ -411,7 +409,7 @@ $lang = array(
 'Atualizar (apenas Windows)',
 
 'send_headers' =>
-'Usar headres de página <abbr>HTTP</abbr> ?',
+    'Usar cabeçalhos de página <abbr>HTTP</abbr> ?',
 
 'send_headers_desc' =>
 'Quando ativado, seu website irá gerar headers <abbr>HTTP</abbr> para todas as páginas.',
@@ -561,13 +559,13 @@ $lang = array(
 'Ativar strict <abbr>URL</abbr>s?',
 
 'strict_urls_desc' =>
-'Quando ativado, o ExpressioneEngine irá aplicar regras mais rigorosas para a manipulação de <abbr>URL</abbr>.',
+    'Quando ativado, o ExpressionEngine irá aplicar regras mais rigorosas para a manipulação de <abbr>URL</abbr>.',
 
 'template_manager' =>
 'Gerenciador de Modelo',
 
 'dynamic_tracking_disabling' =>
-'Limite de Suspesão?',
+    'Limite de Suspensão?',
 
 'dynamic_tracking_disabling_desc' =>
 'Todo o monitoramento será suspenso quando o número de visitantes online exceder este número.</em> <em>O monitoramento de usuários conectados deve estar ativado para usar este recurso. <a >Saiba mais</a>',
@@ -588,7 +586,7 @@ $lang = array(
 'Ativar monitoramento de usuários online?',
 
 'enable_online_user_tracking_desc' =>
-'Quando ativado, o ExpressionEngine irá trackear os usuários logados.',
+    'Quando ativado, o ExpressionEngine irá rastrear os usuários autenticados.',
 
 'log_referrers' =>
 'Ativar monitoramento de referências?',
@@ -603,7 +601,7 @@ $lang = array(
 'Caracteres de Substituição',
 
 'censor_replacement_desc' =>
-'As palavras que estiverm contidas na lista de palavras censuradas serão substituídas com estes caracteres.',
+    'As palavras que estiverem contidas na lista de palavras censuradas serão substituídas com estes caracteres.',
 
 'censored_words' =>
 'Palavras para censurar',
@@ -612,7 +610,7 @@ $lang = array(
 'Uma palavra por linha. Todas as palavras listadas serão substituídas pelos caracteres especificados acima.',
 
 'enable_censoring' =>
-'Ativar cenura?',
+    'Ativar censura?',
 
 'enable_censoring_desc' =>
 'Quando ativado, as palavras listadas serão substituídas pelos caracteres especificados.',
@@ -786,7 +784,7 @@ $lang = array(
 'Conjuntos de Menus excluído',
 
 'menu_sets_deleted_desc' =>
-'%d conuntos de menus foram escluídos.',
+    '%d conjuntos de menus foram excluídos.',
 
 'menu_single' =>
 'Link Simples',
@@ -852,7 +850,7 @@ $lang = array(
 'Converter E-mails e <abbr>URL</abbr> em links?',
 
 'prv_msg_auto_links_desc' =>
-'Quando ativado, todas as <abbr>URL</abbr>s e E-mails serão convertidos em hiperlinks.',
+    'Quando ativado, todas as <abbr>URL</abbr>s e E-mails serão convertidos em hyperlinks.',
 
 'prv_msg_html_format' =>
 'Formatando',
@@ -918,13 +916,13 @@ $lang = array(
 'Adicionar número aleatório?',
 
 'captcha_rand_desc' =>
-'Quando ativado, os campos de <abbr>CAPTCHA</abbr> vão gerar números rendômicos assim como letras.',
+    'Quando ativado, os campos de <abbr>CAPTCHA</abbr> vão gerar números aleatórios assim como letras.',
 
 'captcha_require_members' =>
-'É necessário preencher <abbr>CAPTCHA</abbr> enquanto logado?',
+    'É necessário preencher <abbr>CAPTCHA</abbr> enquanto autenticado?',
 
 'captcha_require_members_desc' =>
-'Quando desativado, os integrantes logados não precisarão preencher os campos de <abbr>CAPTCHA</abbr> .',
+    'Quando desativado, os integrantes autenticados não precisarão preencher os campos de <abbr>CAPTCHA</abbr> .',
 
 'captcha_settings' =>
 'Configurações de CAPTCHAs',
@@ -1029,7 +1027,7 @@ $lang = array(
 'Configurações de Segurança de integrante',
 
 'name_of_dictionary_file' =>
-'Arquivo de Dictionário',
+    'Arquivo de Dicionário',
 
 'name_of_dictionary_file_desc' =>
 'Nome do seu arquivo de <mark>dicionário</mark> armazenado na pasta de configurações.',
@@ -1059,10 +1057,10 @@ $lang = array(
 'Quando ativado, os cookies não serão definidos para os visitantes (exceto aqueles <b>estritamente necessários</b> para o website funcionar) até que eles consintam sua política de cookies do site. Veja a documentação do <a >Módulo de consentimento</a> para maiores detalhes.',
 
 'require_ip_for_login' =>
-'É necesário user agent e <abbr>IP</abbr> para login?',
+    'É necessário user agent e <abbr>IP</abbr> para login?',
 
 'require_ip_for_login_desc' =>
-'Quando ativado, os memnbros não serão capazes de efetuar seu login sem um user agent válido ou um endereço de <abbr>IP</abbr> .',
+    'Quando ativado, os membros não serão capazes de efetuar seu login sem um user agent válido ou um endereço de <abbr>IP</abbr> .',
 
 'require_ip_for_posting' =>
 'É necessário user agent e <abbr>IP</abbr> para publicar?',
@@ -1092,7 +1090,7 @@ $lang = array(
 'Ocasionalmente EllisLab solicita aos usuários para ajudar a melhorar o ExpressionEngine, <a >fornecendo análise de uso, diagnósticos e informações de utilização</a>.',
 
 'un_min_len' =>
-'Tamanho mínimo do Nome de Usuário',
+    'Tamanho mínimo do Nome de Integrante',
 
 'un_min_len_desc' =>
 'Número mínimo de caracteres necessário para novos nomes de integrantes.',
@@ -1191,7 +1189,7 @@ $lang = array(
 'Nova versão',
 
 'app_consent_requests' =>
-'Requisições de Aplicação de Consentimento',
+    'Requisições de Consentimento da Aplicação',
 
 'user_consent_requests' =>
 'Requisições de Consentimento de Usuário',
