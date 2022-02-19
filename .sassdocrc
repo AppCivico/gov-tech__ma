@@ -44,6 +44,10 @@ trackingCode: |
       color: #666;
     }
 
+    h2 {
+        clear: both;
+    }
+
     [data-region="nav"] {
       background: transparent;
       color: #999;
@@ -86,7 +90,6 @@ trackingCode: |
       color: hsl(197.1, 0%, 24.5%);
     }
 
-    .hljs-pre,
     .text-block pre {
       font-size: smaller;
       background-color: hsl(200, 0%, 98.6%);
@@ -97,6 +100,13 @@ trackingCode: |
     [data-nav]:link::before,
     [data-nav]:visited::before {
       background: hsl(196, 0%, 87.1%);
+    }
+
+    img[src$='#float'] {
+        float: left;
+        clear: left;
+        margin-right: 0.75em;
+        margin-bottom: 1.5em;
     }
   </style>
 

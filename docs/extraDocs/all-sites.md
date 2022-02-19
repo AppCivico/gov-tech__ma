@@ -96,3 +96,15 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 |                                                                                            | [seir.ma.gov.br](https://seir.ma.gov.br)                         |
 | Selo Quilombos do Maranhão                                                                 | [seloquilombos.ma.gov.br](https://seloquilombos.ma.gov.br)       |
 | Tribunal de Contas                                                                         | [tce.ma.gov.br](https://tce.ma.gov.br)                           |
+
+Esses domínios estão registrados como um `array()` no arquivo `/data/system/user/config/domains.php`, combinando o nome interno do site e seus domínios.
+
+Entre os sites, há aqueles que não são controlados pelo mesmo sistema, mas têm serviços e documentos que a serem disponibilizados usando o portal do central, o MA.GOV. Esses sistes estão listados numa variável de configuração em `/data/system/user/config/config.php`, segundo o formato de listas do ExpressionEngine, com `|`:
+
+```php
+$assign_to_config['global_vars']['global:not_sites'] = 'caema|cbm|detran|diariooficial|fapema|imesc|iprev|jucema|pm|policiacivil|procon|saude|seati|sefaz|segep|ssp';
+```
+
+Além disso, seus canais de **Serviços**, normalmente `/servicos`, devem ser modificados para:
+
+- `{base_url}/servicos/secretarias/SITE_NAME`
