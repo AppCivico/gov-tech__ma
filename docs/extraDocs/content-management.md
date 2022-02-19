@@ -96,10 +96,6 @@ Campos:
   - rodapé
   - painel flutuante em um endereço específico
 
-Taxonomias:
-
-- secretarias
-
 ![screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png#float)
 
 
@@ -116,9 +112,7 @@ Campos:
 
 Taxonomias:
 
-- secretarias
 - tópicos
-
 
 ### Equipe
 
@@ -166,17 +160,9 @@ Campos:
   - título
   - texto
 
-
 Taxonomias:
 
-- secretarias
 - tópicos
-
-
-
-Taxonomias:
-
-- secretarias
 
 ### Notícias
 
@@ -209,11 +195,8 @@ Campos:
 
 Taxonomias:
 
-- secretarias
 - tipos de notícias
 - tópicos
-
-
 
 ### Páginas livres
 
@@ -227,12 +210,6 @@ Campos:
 - n × campos extras
   - título
   - texto
-
-
-
-Taxonomias:
-
-- secretarias
 
 ### Serviços
 
@@ -250,21 +227,6 @@ Campos:
 - link para sistema específico
 - definition list × n
 - press kits
-
-
-
-Taxonomias:
-
-- secretarias
-
-### Links sugeridos
-
-Especialmente para **parceiros e serviços**. Porém, precisamos rever a necessidade no caso de todos as secretarias e seus serviços se juntarem, o que é improvável. Alguns serviços, como _agendamento de emplacamento de veículo_ devem ficar de fora.
-
-- URL
-- nome
-- secretaria - selecinada a partir de uma lista fechada?
-- texto adjacente opcional
 
 ### Sobrescrição de URLs
 

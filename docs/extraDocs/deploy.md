@@ -1,6 +1,5 @@
 # Instalação e deploy
 
-
 ## Requisitos do mínimos de sistema
 
 - docker community edition 19 or maior (testado na 19.03.12)
@@ -9,15 +8,15 @@
 - Pelo menos 4 GB de RAM e 25GB de disco livres para as imagens dos containers.
 - Servidor SMTP para envio de e-mails
 
-O ExpressionEngine é a maior parte do código fonte deste projeto, e é escrito em PHP 7, e necessita de um banco de dados compartível com MySQL.
+O ExpressionEngine é a maior parte do código fonte deste projeto, e é escrito em PHP 7, e necessita de um banco de dados compatível com MySQL.
 
 Existirá uma pequena parte escrita em Go, que é para fazer a comunicação com a API do Dialogflow. O código go é compilado para um binário durante o build da imagem, e pode ser copiado para subir sem o docker.
 
-# Deploy com docker-compose
+## Deploy com docker-compose
 
 Containers:
 
-<img src="https://raw.githubusercontent.com/AppCivico/gov-tech__ma/main/docs/extraDocs/container_ma_gov.svg">
+![](images/container_ma_gov.svg)
 
 Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os seguintes componentes:
 
@@ -28,12 +27,11 @@ Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os
 - nginx: Aplica regras de cache/rate-liming e load-balance entre as instancias do apache
 
 Comunicação entre os containers:
-<img src="https://github.com/AppCivico/gov-tech__ma/blob/main/docs/extraDocs/conexoes-entre-containers-v2.png?raw=true">
+![](images/conexoes-entre-containers-v2.png?raw=true)
 
-Na maquina onde ficará hospedado o docker, é necessário haver um serviço de proxy reverso; Pode ser nginx, ou outro de preferencia, ele será responsável por fazer a terminação HTTPS e encaminhar o request para o container do nginx.
+Na máquina onde ficará hospedado o docker, é necessário haver um serviço de proxy reverso; Pode ser nginx, ou outro de preferência, ele será responsável por fazer a terminação HTTPS e encaminhar o request para o container do nginx.
 
 **ATENÇÂO** O proxy deve adicionar o IP do usuário real no header `X-Real-IP` para que o rate-limiting e os logs do CMS fiquem corretos.
-
 
 Para subir este ambiente, é necessário ter pelo menos um dump do banco de dados e código fonte completo (com a versão correta do ExpressionEngine).
 
@@ -79,7 +77,6 @@ Antes de subir, será necessário verificar se as permissões dos diretórios do
     GOV_MA_UPLOAD_DIR &
     GOV_MA_SERVER_BASE_DIR precisam ser 33:33 (imagem do apache, user www-data)
 
-
 Ao executar o comando `docker-compose up -d` e aguardar o download/build das imagens, você poderá executar o comando `docker-compose ps` e visualizar o resultado:
 
              Name                        Command               State            Ports
@@ -90,7 +87,7 @@ Ao executar o comando `docker-compose up -d` e aguardar o download/build das ima
     ma_pythia                 (TODO)
     maappcivicocom_apache_1   /entrypoint.sh apache2-for ...   Up      80/tcp
 
-O container do apache pode ser executado com mais de uma replica caso o processo precise escalar. Porém, o apache já executa vários processo que podem saturar a CPU. De qualquer forma, se necessário, é possível adicionar mais processos do apache usando o comando `docker-compose up -d --scale apache=2` para ter dois containers do apache. O container `ma_gov_web` irá continuar usando a mesma porta e fazendo load-balance entre as instancias dos apaches.
+O container do apache pode ser executado com mais de uma réplica caso o processo precise escalar. Porém, o apache já executa vários processo que podem saturar a CPU. De qualquer forma, se necessário, é possível adicionar mais processos do apache usando o comando `docker-compose up -d --scale apache=2` para ter dois containers do apache. O container `ma_gov_web` irá continuar usando a mesma porta e fazendo load-balance entre as instâncias dos apaches.
 
 ## Alterações nas configurações
 
@@ -102,7 +99,7 @@ Após fazer alterações no docker-compose, é necessário executar o comando pa
 
     docker-compose logs -f
 
-# Configuração do proxy reverso
+## Configuração do proxy reverso
 
 Apenas para fins de exemplos, segue configuração que o AppCívico está usando no nosso proxy reverso (nginx)
 
@@ -141,6 +138,4 @@ Apenas para fins de exemplos, segue configuração que o AppCívico está usando
 
     }
 
-No caso, nosso HTTPS externo é realizado pelo https://cloudflare.com/ que então faz o pedido para o nosso servidor, que entrega um certificado self-signed.
-
-
+No caso, nosso HTTPS externo é realizado pela [CloudFlare](https://cloudflare.com/), que então faz o pedido para o nosso servidor, que entrega um certificado self-signed.

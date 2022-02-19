@@ -1,6 +1,6 @@
 # Modelagem de conteúdo
 
-Representação inicial de como os diferentes tipos de conteúdos, em forma de texto, imagem ou outros arquivos, serão guardados site.
+Representação inicial de como os diferentes tipos de conteúdos, em forma de texto, imagem ou outros arquivos, serão guardados site, **independentemente** do sistema utilizado.
 
 ## Terminologias
 
@@ -14,7 +14,6 @@ Representação inicial de como os diferentes tipos de conteúdos, em forma de t
 
 Para controlar a exibição e ordem das publicações salvas, independentemente de seu tipo, segue um conjunto básico de _statuses_. Podemos modificá-lo ou criar outros grupos.
 
-- rascunho
 - abertas
 - destaques
 - fechadas
@@ -22,9 +21,8 @@ Para controlar a exibição e ordem das publicações salvas, independentemente 
 ```{.mermaid theme=dark background=transparent}
 graph TB
     A([Statuses])
-    A --- B(Rascunho)
     A --- C(Abertas)
-    A --- D(Destaques)
+    A --- D(Destacadas)
     A --- E(Fechadas)
 ```
 
@@ -39,13 +37,11 @@ graph LR
     B -.- B1([...])
     A --- C{Tópicos}
     C -.- C1([...])
-    A --- D{Secretarias}
-    D -.- D1([...])
 ```
 
 ### Tipos de notícias
 
-Segue lista inicial de sugestões para classificação de notícias.
+Segue lista inicial de exemplos/sugestões para classificação de notícias.
 
 - anúncio
 - declaração oficial
@@ -74,7 +70,7 @@ graph TB
 
 ### Tópicos
 
-Classificação das notícias por assunto. Segue lista de forma alguma esgotada de exemplos:
+Classificação das notícias por assunto. Segue lista de forma alguma esgotada de exemplos/sugestões:
 
 - calendário oficial;
 - campanha de vacinação;
@@ -103,97 +99,6 @@ graph TB
     D -.- D1([...])
 ```
 
-### Secretarias
-
-Dada a fusão de todos os canais de comunicação do Estado do Maranhão em um único site/endereço, as secretarias, setores ou entidades do Governo se tornam apenas classificadores que podem ser aplicados às publicações. Por exemplo:
-
-- Governo do Maranhão;
-- Laboratório Central de Saúde Pública;
-- Secretaria da Fazenda;
-- Secretaria de Cultura;
-- Secretaria de Meio Ambiente e Recursos Naturais;
-- ...
-
-```{.mermaid theme=dark background=transparent}
-graph TB
-    0([Taxonomias])
-    0 --- A{Secretarias}
-    0 --- 02{Tópicos}
-    02-.- 021([...])
-    0 --- 03{Tipos de notícias}
-    03-.- 031([...])
-    A --- B(Governo do Maranhão)
-    A --- C(Laboratório Central de Saúde Pública)
-    A --- D(Secretaria da Fazenda)
-    A --- E(Secretaria de Cultura)
-    A --- F(Secretaria de Meio Ambiente e Recursos Naturais)
-    A -.- G([...])
-```
-
-Diferentemente das outras taxonomias, as secretarias precisam de várias informações.
-
-Campos:
-
-- nome
-- descrição curta
-- endereço;
-- inúmeros emails para atendimento
-- inúmeros números de telefone para atendimento
-- perfis em redes sociais:
-  - Facebook;
-  - Instagram;
-  - LinkedIn;
-  - Twitter;
-  - WhatsApp;
-  - YouTube.
-  - ...
-- identificadores de scripts personalizados
-  - Google Analytics UA
-  - Linha do tempo do twitter incorporada
-    - link
-    - largura >= 220
-    - altura >= 200
-    - tema
-      - claro
-      - escuro
-    - idioma
-  - Plugin de página do Facebook
-    - link
-    - largura
-    - altura
-    - usar cabeçalho reduzido
-    - largura adaptável
-    - ocultar cabeçalho
-    - exibir rostos dos amigos
-    - abas
-      - timeline
-      - events
-      - messages
-  - ID de lista de vídeos do YouTube
-
-```{.mermaid theme=dark background=transparent}
-graph TB
-    A([Secretaria])
-    A --- B(Nome)
-    A --- C(Descrição curta)
-
-    A --- AZ(Campos extras)
-    AZ --- BZ(Título)
-    AZ --- CZ(Texto)
-
-    A --- D(Endereço)
-    A --- E(n x Email)
-    A --- F(n x Telefones)
-    A --- G(Perfis de redes sociais)
-    G --- H(Facebook)
-    G --- I(Instagram)
-    G --- J(LinkedIn)
-    G --- K(Twitter)
-    G --- L(WhatsApp)
-    G --- M(YouTube)
-    G -.- N([...])
-```
-
 ## Tipos de publicações
 
 ### Anúncios publicitários / Informes
@@ -215,10 +120,6 @@ Campos:
   - coluna lateral
   - rodapé
   - painel flutuante em um endereço específico
-
-Taxonomias:
-
-- secretarias
 
 ```{.mermaid theme=dark background=transparent}
 graph TB
@@ -257,27 +158,7 @@ Campos:
 
 Taxonomias:
 
-- secretarias
 - tópicos
-
-```{.mermaid theme=dark background=transparent}
-graph TB
-    A([Links sugeridos])
-    A --- B(Título)
-    A --- C(Descrição)
-    A --- D(Arquivo)
-
-    A --- AZ(Campos extras)
-    AZ --- BZ(Título)
-    AZ --- CZ(Texto)
-
-    A --- E{Conteúdo relacionado}
-    E -.- E0[Notícias]
-    E -.- E1[Eventos]
-    E -.- E2[Serviços]
-    A --- Z{Status}
-    Z -.- z0([...])
-```
 
 ### Equipe
 
@@ -344,10 +225,8 @@ Campos:
   - título
   - texto
 
-
 Taxonomias:
 
-- secretarias
 - tópicos
 
 ```{.mermaid theme=dark background=transparent}
@@ -378,10 +257,6 @@ graph TB
     A --- Z{Status}
     Z -.- z0([...])
 ```
-
-Taxonomias:
-
-- secretarias
 
 ### Notícias
 
@@ -414,7 +289,6 @@ Campos:
 
 Taxonomias:
 
-- secretarias
 - tipos de notícias
 - tópicos
 
@@ -479,10 +353,6 @@ graph TB
     AZ --- CZ(Texto)
 ```
 
-Taxonomias:
-
-- secretarias
-
 ### Serviços
 
 Descrição de serviços prestados pelas secretárias para alimentar a busca.
@@ -514,30 +384,6 @@ graph TB
     J -.- J0([...])
     A --- W{Secretarias}
     W -.- W0([...])
-    A --- Z{Status}
-    Z -.- z0([...])
-```
-
-Taxonomias:
-
-- secretarias
-
-### Links sugeridos
-
-Especialmente para **parceiros e serviços**. Porém, precisamos rever a necessidade no caso de todos as secretarias e seus serviços se juntarem, o que é improvável. Alguns serviços, como _agendamento de emplacamento de veículo_ devem ficar de fora.
-
-- URL
-- nome
-- secretaria - selecinada a partir de uma lista fechada?
-- texto adjacente opcional
-
-```{.mermaid theme=dark background=transparent}
-graph TB
-    A([Links sugeridos])
-    A --- B(URL)
-    A --- C(Nome)
-    A --- D(Secretaria)
-    A --- E(Texto)
     A --- Z{Status}
     Z -.- z0([...])
 ```

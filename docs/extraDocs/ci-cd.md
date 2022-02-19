@@ -14,15 +14,15 @@ Para manter esse serviço rodando, pode-se utilizar o arquivo de serviço para s
 
 # Configuração do ambiente em produção
 
-Em /home/app foi criado os seguintes arquivos e diretórios:
+Em `/home/app` foi criado os seguintes arquivos e diretórios:
 
-- build-env/
-- ci/
-- persistent-storage/
-- prod-env/
-- www_versions/
-- gov_ma_user_envfile
-- run-deploy.sh
+- `build-env/`
+- `ci/`
+- `persistent-storage/`
+- `prod-env/`
+- `www_versions/`
+- `gov_ma_user_envfile`
+- `run-deploy.sh`
 
 ## build-env
 
@@ -85,7 +85,7 @@ OBS: atualmente, cada versão ocupa ~ 50 MB em disco, é necessário criar uma r
 
 ## prod-env
 
-Repositório `gov-tech__ma` com as configurações do ambiente (.env) para subir os containers da aplicação de acordo com os paths acima.
+Repositório `gov-tech__ma` com as configurações do ambiente (`.env`) para subir os containers da aplicação de acordo com os paths acima.
 
     4.0K -rw-r--r-- 1    0    0  343 Sep  2 23:35 babel.config.js
     4.0K drwxr-xr-x 4    0    0 4.0K Sep  2 23:35 data
@@ -186,4 +186,4 @@ Com o seguinte arquivo de configuração no
 
 Ao executar `systemctl daemon-reload` e depois `systemctl start dispatcher-server` o serviço deverá estar em pé. Para iniciar um deploy, basta chamar `curl http://127.0.0.1:50024/deploy`
 
-Essa chamada poderá ser executada por qualquer usuário com acesso a maquina, mesmo se não tiver root. Assim qualquer desenvolvedor poderá iniciar um deploy. Também pode-ser configurado um proxy ou mudar o bind deste serviço para que qualquer um com acesso a VPN consiga fazer essa chamada.
+Essa chamada poderá ser executada por qualquer usuário com acesso a máquina, mesmo se não tiver root. Assim qualquer desenvolvedor poderá iniciar um deploy. Também pode-ser configurado um proxy ou mudar o bind deste serviço para que qualquer um com acesso a VPN consiga fazer essa chamada.
