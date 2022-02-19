@@ -108,14 +108,33 @@ herman:
     - "hsl"
 
   extraDocs:
-    - 'docs/extraDocs/all-sites.md'
-    - 'docs/extraDocs/all-fields.md'
-    - 'docs/extraDocs/assets.md'
-    - 'docs/extraDocs/deploy.md'
-    - 'docs/extraDocs/ci-cd.md'
-    - 'docs/extraDocs/routes-and-templates.md'
-    - 'docs/extraDocs/content-modelling.md'
-    - 'docs/extraDocs/content-management.md'
+    -
+        name: Gerenciamento de conteúdo
+        path: 'docs/extraDocs/content-management.md'
+    -
+        name: Modelagem de conteúdo
+        path: 'docs/extraDocs/content-modelling.md'
+    -
+        name: Todos os sites/secretarias/departamentos
+        path: 'docs/extraDocs/all-sites.md'
+    -
+        name: Todos os campos
+        path: 'docs/extraDocs/all-fields.md'
+    -
+        name: Rotas e modelos
+        path: 'docs/extraDocs/routes-and-templates.md'
+    -
+        name: Recursos estáticos
+        path: 'docs/extraDocs/assets.md'
+    -
+        name: Integração contínua
+        path: 'docs/extraDocs/ci-cd.md'
+    -
+        name: Deploy
+        path: 'docs/extraDocs/deploy.md'
+    -
+        name: Essa documentação
+        path: 'docs/extraDocs/docs.md'
 
   extraLinks:
     - name: "Governo do Estado do Maranhão"
