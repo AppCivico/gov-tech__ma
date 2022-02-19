@@ -4,6 +4,7 @@
   "description": "O projeto tem o objetivo de implementar um novo portal de serviços, reunindo 67 sites do governo do Maranhão em uma plataforma de atendimento centralizado, facilitando o acesso do cidadão aos serviços oferecidos pelo governo estadual.",
   "main": "./data/html/index.php",
   "scripts": {
+    "build": "npm run production",
     "build:docs": "npm run compile:jsonConfig && npx sassdoc resources/stylesheets/ -d data/html/docs && cp docs/extraDocs/images data/html/docs/images -r",
     "compile:jsonConfig": "npx sass --no-source-map --stop-on-error resources/stylesheets/abstracts/_json.scss:docs/compiledTemp/json.css",
     "compile:sass": "npx sass --no-source-map --stop-on-error resources/stylesheets/index.scss:data/system/user/templates/default_site/-.group/styles.css",

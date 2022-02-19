@@ -8,3 +8,5 @@ Arquivos de estilos e scripts são compilados pelo [Laravel MIX](https://laravel
 Os estilos são escritos em [SASS](https://sass-lang.com/) e [seus componentes](/docs/components.html) são documentados usando [SassDoc](http://sassdoc.com/).
 
 Os scripts são escritos usando usando [BabelJS](https://babeljs.io/).
+
+O script de build, `npm run build`, colocará os arquivos finais no grupo `site`, dentro dos templates do `default_site`.
