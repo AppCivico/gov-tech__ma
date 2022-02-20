@@ -2,24 +2,23 @@
 
 Panorama do **Sistema de Gerenciamento de Conteúdo**.
 
-![screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png](images/screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png#float)
+![](images/screenshot_2021_06_30_at_20_20_25_estado_do_maranhao_visao_geral_expressionengine.png)
 
 Do lado esquerdo, há um menu que, a depender das suas permissões como integrante, exibe as funções disponíveis.
 
-
 ## Publicação de conteúdo
 
-![screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png](images/screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png#float)
+![](images/screenshot_2021_06_30_at_20_26_20_estado_do_maranhao_visao_geral_expressionengine.png)
 
 As listagens dos diferentes tipos de publicação podem ser acessados todos pelo mesmo menu.
 
-![screenshot_2021_06_28_at_09_36_42_estado_do_maranhao_visao_geral_expressionengine.png](images/screenshot_2021_06_28_at_09_36_42_estado_do_maranhao_visao_geral_expressionengine.png)
+![](images/screenshot_2021_06_28_at_09_36_42_estado_do_maranhao_visao_geral_expressionengine.png)
 
 Cliques nos sinais de **+** abrem diretamente o formulário para criação de uma nova publicação.
 
 ## SEO
 
-![screenshot_2021_06_25_at_11_10_29_editar_publicacao_mais_turismo_expressionengine.png](images/screenshot_2021_06_25_at_11_10_29_editar_publicacao_mais_turismo_expressionengine.png)
+![](images/screenshot_2021_06_25_at_11_10_29_editar_publicacao_mais_turismo_expressionengine.png)
 
 Campos que influenciem diretamente na maneira como o Google classifica o conteúdo da página têm uma aba dedicada nos formulários de publicação quando pertinente.
 
@@ -27,7 +26,7 @@ Campos que influenciem diretamente na maneira como o Google classifica o conteú
 
 ## Gerenciamento de arquivos
 
-![screenshot_2021_06_30_at_20_33_58_gerenciador_de_arquivos_expressionengine.png](images/screenshot_2021_06_30_at_20_33_58_gerenciador_de_arquivos_expressionengine.png)
+![](images/screenshot_2021_06_30_at_20_33_58_gerenciador_de_arquivos_expressionengine.png)
 
 ## Gerenciamento de status de publicação
 
@@ -43,10 +42,9 @@ Para controlar a exibição e ordem das publicações salvas, independentemente 
 
 ### Tipos de notícias
 
+![](images/screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png)
 
-![screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_53_28_tipos_de_noticias_categorias_expressionengine.png#float)
 No caso de _press releases_ terem a exata configuração de notícias, faz-se necessário separá-los uns dos outros com uma taxonomia.
-
 
 ### Tópicos
 
@@ -60,19 +58,19 @@ Classificação das notícias por assunto. Segue lista de forma alguma esgotada 
 - impostos;
 - habitação;
 
-![screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png#float)
+![](images/screenshot_2021_06_30_at_20_46_55_assuntos_categorias_expressionengine.png)
 
 ### Posicionamento na área pública
 
-![screenshot_2021-08-24_at_12-51-30_secretaria_de_estado_do_turismo.png](images/screenshot_2021-08-24_at_12-51-30_secretaria_de_estado_do_turismo.png)
+![](images/screenshot_2021-08-24_at_12-51-30_secretaria_de_estado_do_turismo.png)
 
 Há um grupo de categorias chamado **Aparecer na área pública** com posições configuradas. Elas podem ser escolhidas na aba _Categorias_ do formulário de publicações.
 
-![screenshot_2021-08-24_at_13-00-30_editar_publicacao_maranhao_de_encantos_expressionengine.png](images/screenshot_2021-08-24_at_13-00-30_editar_publicacao_maranhao_de_encantos_expressionengine.png)
+![](images/screenshot_2021-08-24_at_13-00-30_editar_publicacao_maranhao_de_encantos_expressionengine.png)
 
 Os títulos usadas na área pública seguem [os títulos das categorias em si](/admin.php?/cp/categories/group), para manter as configurações simples. Porém, para continuarem funcionando, seus **títulos em URL** devem se manter `home-special` e `home-services`.
 
-![screenshot_2021-08-24_at_13-10-31_aparecer_na_area_publica_—_categorias_expressionengine.png](images/screenshot_2021-08-24_at_13-10-31_aparecer_na_area_publica_—_categorias_expressionengine.png)
+![](images/screenshot_2021-08-24_at_13-10-31_aparecer_na_area_publica_—_categorias_expressionengine.png)
 
 ## Tipos de publicações
 
@@ -96,7 +94,7 @@ Campos:
   - rodapé
   - painel flutuante em um endereço específico
 
-![screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png#float)
+![](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png)
 
 
 ### Documentos
@@ -135,8 +133,6 @@ Campos:
     - presidência;
     - assessoria jurídica;
     - ...
-
-
 
 ### Eventos
 
@@ -230,26 +226,26 @@ Campos:
 
 ### Sobrescrição de URLs
 
-Às vezes, precisamos sobrescrever a URI pela qual uma página é acessada. Por exemplo, todos os documentos são encontrados em `/documentos/NOME-DO-DOCUMENTO`. Porém, um em especial não se enquadra entre os outros e precisaria de uma URI `/NOME-DO-DOCUMENTO`. A aba **Páginas** da tela de publicação atende a esses casos.
+Às vezes, precisamos sobrescrever a URI pela qual uma página é acessada. Por exemplo, todos os documentos são encontrados em `/documentos/NOME-DO-DOCUMENTO`. Porém, se um em especial não se enquadra entre os outros e precisa de uma URI `/NOME-DO-DOCUMENTO`, a aba **Páginas** da tela de publicação atende a esses casos.
 
-![image-20211108100315427](./images/pages-module/image-20211108100315427.png)
+![](./images/pages-module/image-20211108100315427.png)
 
 Em seu primeiro campo, preencha a URI desejada começando por `/`.
 
-![image-20211108095521988](./images/pages-module/image-20211108095521988.png)
+![](./images/pages-module/image-20211108095521988.png)
 
 Em seguida, declare qual arquivo de modelo deve ser usado para exibí-la.
 
-![image-20211108095556040](./images/pages-module/image-20211108095556040.png)
+![](./images/pages-module/image-20211108095556040.png)
 
 Todos os modelos em uso no website serão listados.
 
-![image-20211108101326103](./images/pages-module/image-20211108101326103.png)
+![](./images/pages-module/image-20211108101326103.png)
 
 O modelo mais provável de ser usado é o chamado `pages`. Comece a digitar seu nome no campo de busca para encontrá-lo mais facilmente.
 
-![image-20211108095705654](./images/pages-module/image-20211108095705654.png)
+![](./images/pages-module/image-20211108095705654.png)
 
 Agora, lembre-se de salvar suas modificações.
 
-![image-20211108102118364](./images/pages-module/image-20211108102118364.png)
+![](./images/pages-module/image-20211108102118364.png)
