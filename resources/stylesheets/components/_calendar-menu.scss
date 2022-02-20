@@ -1,5 +1,120 @@
 @use '../abstracts' as my;
 
+///
+/// Calendar menu
+///
+/// @group components
+///
+/// @example html
+/// <ul class="calendar-menu__list">
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         30
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         31
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         1
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         2
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         3
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         4
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         5
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         6
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         7
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         8
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         9
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         10
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         11
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         12
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         13
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         14
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         15
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         16
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         17
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         18
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         19
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item--today calendar-menu__item--current active">
+///         20
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         21
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         22
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         23
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         24
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         25
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         26
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         27
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--no-entries calendar-menu__item">
+///         28
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         1
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         2
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         3
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         4
+///     </li>
+///     <li class="calendar-menu__item calendar-menu__item--blank">
+///         5
+///     </li>
+/// </ul>
+///
+
 .calendar-menu {
   padding: 0;
   margin: 0;
