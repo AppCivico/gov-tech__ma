@@ -1,5 +1,28 @@
 @use '../abstracts' as my;
 
+///
+/// Sliders, using Lory
+///
+/// @group components
+///
+/// @example html
+/// <div class="slider" data-js="slider" data-slider-play="auto">
+///   <button type="button" class="js_prev slider__prev" aria-hidden="true">
+///       ◀
+///   </button>
+///   <div class="slider__frame">
+///       <div class="slider__container">
+///           <div class="slider__item">
+///               [...]
+///           </div>
+///       </div>
+///   <button type="button" class="js_next slider__next" aria-hidden="true">
+///       ▶
+///   </button>
+///   <ul class="slider__navigation"></ul>
+/// </div>
+///
+
 .slider {
   position: relative;
 

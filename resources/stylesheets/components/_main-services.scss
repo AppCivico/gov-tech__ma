@@ -2,6 +2,52 @@
 
 @use '../abstracts' as my;
 
+///
+/// Main services
+///
+/// @group components
+///
+/// @example html
+/// <section class="main-services h-feed h-feed--main-services">
+///     <h2 class="p-name h-feed__p-name h-feed__p-name--main-services">Principais serviços</h2>
+///
+///     <div class="main-services__category-lists">
+///
+///         <div class="main-services__category">
+///             <h3 class="main-services__title" data-js="like-a-details">
+///                 Motorista
+///             </h3>
+///             <ul class="main-services__list">
+///                 <li class="main-services__item">
+///                     <a href="/servicos/emissao-de-cnh">
+///                         Emissão de CNH
+///                     </a>
+///                 </li>
+///                 <li class="main-services__item">
+///                     <a href="/servicos/licenciamento-anual">
+///                         Licenciamento anual
+///                     </a>
+///                 </li>
+///                 <li class="main-services__item">
+///                     <a href="/servicos/renovacao-de-cnh">
+///                         Renovação de CNH
+///                     </a>
+///                 </li>
+///                 <li class="main-services__item">
+///                     <a href="/servicos/transferencia-de-cnh-de-outra-uf-para-o-maranhao">
+///                         Transferência de CNH de outra UF para o Maranhão
+///                     </a>
+///                 </li>
+///             </ul>
+///         </div>
+///
+///     </div>
+///     <p class="read-more read-more--main-services">
+///         <a class="read-more__link" href="/servicos/">+ Serviços</a>
+///     </p>
+/// </section>
+///
+
 $column-width: 10em;
 
 .main-services {

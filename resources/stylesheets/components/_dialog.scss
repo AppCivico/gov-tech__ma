@@ -1,5 +1,25 @@
 @use '../abstracts' as my;
 
+///
+/// Dialogs
+///
+/// @group components
+///
+/// @example html
+/// <dialog class="migrating-site" open="">
+///     <p>O portal do Governo do Maranhão está mudando!</p>
+///     <p>Aproveite para navegar e conhecer nossa nova proposta. </p>
+///     <p>
+///         Se você prefere a versão anterior,
+///         <a href="https://www3.iprev.ma.gov.local">clique aqui</a>.
+///     </p>
+///
+///     <menu>
+///         <button aria-haspopup="dialog" aria-expanded="true" value="close" title="Fechar">×</button>
+///     </menu>
+/// </dialog>
+///
+
 [role='dialog'],
 dialog {
   @include my.shadow;

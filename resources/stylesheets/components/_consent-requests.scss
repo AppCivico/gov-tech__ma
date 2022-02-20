@@ -2,6 +2,29 @@
 
 @use '../abstracts' as my;
 
+///
+/// Consent requests
+///
+/// @group components
+///
+/// @example html
+/// <div class="consent-request__wrapper" data-js="toggle">
+///     <div class="consent-request">
+///         <div role="group" class="consent-request__content">
+///             O Portal de Serviços do Governo do Estado do Maranhão utiliza cookies para melhorar sua experiência de navegação no portal.
+///         </div>
+///
+///         <div role="group" class="consent-request__controls">
+///             <a class="consent-controller consent-request__grant-button like-a__button like-a__button--submit" href="foobar">Aceito</a>
+///
+///             <a href="/privacidade/cookies" target="_blank">
+///                 Configurações e Política de monitoramento por cookies
+///             </a>
+///         </div>
+///     </div>
+/// </div>
+///
+
 .consent-request__wrapper {
   @include my.container;
 

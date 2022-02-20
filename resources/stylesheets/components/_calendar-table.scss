@@ -1,5 +1,169 @@
 @use '../abstracts' as my;
 
+///
+/// Calendar table
+///
+/// @group components
+///
+/// @example html
+/// <table class="calendar-table">
+///     <thead class="calendar-table__month-header">
+///         <tr>
+///             <th>
+///                 <a class="calendar-table__month-links calendar-table__month-links--previous" href="http://ma.gov.local/agenda/2022/01">&lt;&lt;</a>
+///             </th>
+///             <th colspan="5">
+///                 Fevereiro 2022
+///             </th>
+///             <th>
+///                 <a class="calendar-table__month-links calendar-table__month-links--next" href="http://ma.gov.local/agenda/2022/03">&gt;&gt;</a>
+///             </th>
+///         </tr>
+///         <tr class="calendar-table__week-days">
+///             <th class="calendar-day-heading">
+///                 <abbr title="Domingo">Dom</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Segunda">Seg</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Terça">Ter</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Quarta">Qua</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Quinta">Qui</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Sexta">Sex</abbr>
+///             </th>
+///             <th class="calendar-day-heading">
+///                 <abbr title="Sábado">Sáb</abbr>
+///             </th>
+///         </tr>
+///     </thead>
+///
+///     <tbody>
+///         <tr>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 30
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 31
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 1
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 2
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 3
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 4
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 5
+///             </td>
+///         </tr>
+///         <tr>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 6
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 7
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 8
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 9
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 10
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 11
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 12
+///             </td>
+///         </tr>
+///         <tr>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 13
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 14
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 15
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 16
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 17
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 18
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 19
+///             </td>
+///         </tr>
+///         <tr>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell--today">
+///                 20
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 21
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 22
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 23
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 24
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 25
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 26
+///             </td>
+///         </tr>
+///         <tr>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 27
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--no-entries calendar-table__cell">
+///                 28
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 1
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 2
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 3
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 4
+///             </td>
+///             <td class="calendar-table__cell calendar-table__cell--blank">
+///                 5
+///             </td>
+///         </tr>
+///     </tbody>
+/// </table>
+///
+
 .calendar-table {
   font-weight: my.font-weight('normal');
   text-align: center;

@@ -1,5 +1,34 @@
 @use '../abstracts' as my;
 
+///
+/// Ads
+///
+/// @group components
+///
+/// @example html
+/// <div class="accordions">
+///     <h2 class="accordions__title">
+///         Você pode se interessar por:
+///     </h2>
+///     <details class="accordions__item">
+///         <summary class="accordions__summary">
+///             Avenida Litorânea: Setur entrega mirante e escultura
+///         </summary>
+///         <div class="accordions__detail">
+///             A lenda maranhense conta que uma serpente rasga o solo lentamente e quando a sua calda e cabeça se tocarem a ilha de…
+///         </div>
+///     </details>
+///     <details class="accordions__item">
+///         <summary class="accordions__summary">
+///             Setur oferece curso gratuito de turismo seguro
+///         </summary>
+///         <div class="accordions__detail">
+///             Considerando o potencial turístico do Polo Lençóis Maranhenses, no período de 28 junho a 02 de julho, o Governo do…
+///         </div>
+///     </details>
+/// </div>
+///
+
 .ad__wrapper {
   body > & {
     @include my.container;
