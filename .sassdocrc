@@ -102,7 +102,7 @@ trackingCode: |
       background: hsl(196, 0%, 87.1%);
     }
 
-    img[src$='#float'] {
+    img[src$="#float"] {
         float: left;
         clear: left;
         margin-right: 0.75em;
@@ -118,33 +118,32 @@ herman:
     - "hsl"
 
   extraDocs:
-    -
-        name: Gerenciamento de conteúdo
-        path: 'docs/extraDocs/content-management.md'
-    -
-        name: Modelagem de conteúdo
-        path: 'docs/extraDocs/content-modelling.md'
-    -
-        name: Todos os sites/secretarias/departamentos
-        path: 'docs/extraDocs/all-sites.md'
-    -
-        name: Todos os campos
-        path: 'docs/extraDocs/all-fields.md'
-    -
-        name: Rotas e modelos
-        path: 'docs/extraDocs/routes-and-templates.md'
-    -
-        name: Recursos estáticos
-        path: 'docs/extraDocs/assets.md'
-    -
-        name: Integração contínua
-        path: 'docs/extraDocs/ci-cd.md'
-    -
-        name: Deploy
-        path: 'docs/extraDocs/deploy.md'
-    -
-        name: Essa documentação
-        path: 'docs/extraDocs/docs.md'
+    - name: Gerenciamento de conteúdo
+      path: "docs/extraDocs/content-management.md"
+    - name: Configurações por site
+      path: "docs/extraDocs/settings-site.md"
+    - name: Configurações gerais
+      path: "docs/extraDocs/settings.md"
+    - name: Configurações por integrante
+      path: "docs/extraDocs/members.md"
+    - name: Requisições de consentimento
+      path: "docs/extraDocs/consent-requests.md"
+    - name: Modelagem de conteúdo
+      path: "docs/extraDocs/content-modelling.md"
+    - name: Todos os sites/secretarias/departamentos
+      path: "docs/extraDocs/all-sites.md"
+    - name: Todos os campos
+      path: "docs/extraDocs/all-fields.md"
+    - name: Rotas e modelos
+      path: "docs/extraDocs/routes-and-templates.md"
+    - name: Recursos estáticos
+      path: "docs/extraDocs/assets.md"
+    - name: Integração contínua
+      path: "docs/extraDocs/ci-cd.md"
+    - name: Deploy
+      path: "docs/extraDocs/deploy.md"
+    - name: Essa documentação
+      path: "docs/extraDocs/docs.md"
 
   extraLinks:
     - name: "Governo do Estado do Maranhão"
