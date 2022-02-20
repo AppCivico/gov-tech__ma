@@ -7,7 +7,7 @@
     "build": "npm run production",
     "build:docs": "npm run compile:jsonConfig && npx sassdoc resources/stylesheets/ -d data/html/docs && cp docs/extraDocs/images data/html/docs/images -r",
     "compile:jsonConfig": "npx sass --no-source-map --stop-on-error resources/stylesheets/abstracts/_json.scss:docs/compiledTemp/json.css",
-    "compile:sass": "npx sass --no-source-map --stop-on-error resources/stylesheets/index.scss:data/system/user/templates/default_site/-.group/styles.css",
+    "compile:sass": "npx sass --no-source-map --stop-on-error resources/stylesheets/index.scss:data/system/user/templates/default_site/site.group/styles.css",
     "dev": "npm run development",
     "development": "npx mix",
     "watch": "npx mix watch",

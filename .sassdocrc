@@ -111,7 +111,7 @@ trackingCode: |
   </style>
 
 herman:
-  customCSS: "data/system/user/templates/default_site/-.group/styles.css"
+  customCSS: "./data/system/user/templates/default_site/site.group/styles.css"
 
   displayColors:
     - "hex"
