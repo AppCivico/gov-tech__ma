@@ -277,3 +277,8 @@ textarea {
     height: 100%;
   }
 }
+
+[data-src^='https://i.ytimg.com'] {
+  background-color: my.palette('loading', 'background');
+  background-image: my.image('loading.svg');
+}

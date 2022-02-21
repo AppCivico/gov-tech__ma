@@ -410,7 +410,8 @@
                                                     <img
                                                         width="{video_width}"
                                                         height="{video_height}"
-                                                        src="{video_thumbnail}"
+                                                        data-js="ee:cookies_functionality"
+                                                        data-src="{src:replace find='/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*$/' replace='https://i.ytimg.com/vi/$1/mqdefault.jpg' regex='yes'}"
                                                         alt="{video_title}"
                                                         decoding="async" loading="lazy" class="gallery__image"
                                                     />

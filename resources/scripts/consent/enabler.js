@@ -19,6 +19,9 @@ export default function enabler(force = false) {
           if (item.hasAttribute('data-src')) {
             item.setAttribute('src', item.getAttribute('data-src'));
           }
+          if (item.hasAttribute('data-srcset')) {
+            item.setAttribute('srcset', item.getAttribute('data-src'));
+          }
         }
       }
     });
