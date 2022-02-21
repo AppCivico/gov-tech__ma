@@ -9,7 +9,9 @@
             LOWER(ec.cat_name) = '{segment_3}'
             OR LOWER(ec.cat_url_title) = '{segment_3}'
         )
-        AND LOWER(ecg1.group_name) = 'categorias de servicos';"
+        AND LOWER(ecg1.group_name) = 'categorias de servicos'
+        HAVING dialog_flow_ids IS NOT NULL
+    "
     parse="inward"
 }
     {if count == 1}
@@ -24,6 +26,7 @@
         <div class="h-feed__list h-feed__list--pln-results">
     {/if}
 
+    {if dialog_flow_ids}
             {exp:channel:entries channel="document|service" site="not none" limit="12" dynamic="no"
                 disable="custom_fields|member_data|pagination"
                 status="not closed" category="{dialog_flow_ids}"
@@ -52,6 +55,7 @@
                     </article>
                 </a>
             {/exp:channel:entries}
+    {/if}
 
     {if count == total_results}
         </div>
