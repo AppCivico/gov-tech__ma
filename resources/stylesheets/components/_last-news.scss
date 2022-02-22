@@ -18,7 +18,9 @@
   }
 
   .h-entry__u-url--last-news {
-    @include my.link-undercover;
+    @include my.link-undercover {
+      align-items: flex-start;
+    }
   }
 
   .h-entry__u-url--featured {
@@ -149,6 +151,7 @@
     transition-property: margin transform;
     object-fit: cover;
     object-position: 50% 0;
+    margin: 0;
 
     @media screen and (min-width: my.breakpoint('tablet__portrait')) {
       height: 100%;
