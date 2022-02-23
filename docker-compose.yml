@@ -50,10 +50,11 @@ services:
     environment:
         REDIS_PASSWORD: ${REDIS_PASSWORD}
         REDIS_PORT: 6379
-        DB_HOSTNAME: "${DATABASE_HOST}"
-        DB_DATABASE: "${DATABASE_NAME}"
-        DB_USERNAME: "${DATABASE_USER}"
-        DB_PASSWORD: "${DATABASE_PASSWORD}"
+        # configurar aqui, ou então no GOV_MA_USER_ENV_FILE que vai para o /data/system/user/config/.env
+        # DATABASE_HOST: "${DATABASE_HOST}"
+        # DATABASE_NAME: "${DATABASE_NAME}"
+        # DATABASE_USER: "${DATABASE_USER}"
+        # DATABASE_PASSWORD: "${DATABASE_PASSWORD}"
     depends_on:
 #      - db
       - redis
