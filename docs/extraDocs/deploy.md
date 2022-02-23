@@ -45,14 +45,11 @@ Considerando que o arquivo `docker-compose.yml` e todo o código fonte deste rep
 
     /home/ubuntu/ma.appcivico.com/
 
-Copie o arquivo `.env.sample` para `.env` e faça as configurações das variareis de ambiente. Atualmente as variáveis são:
+Copie o arquivo `.env.sample` para `.env` e faça as configurações das variareis de ambiente. Até o dia 23-02-2022 as variáveis eram:
 
     REDIS_ALLOW_EMPTY_PASSWORD=no        - se o redis deve permitir senhas em branco
     REDIS_PASSWORD=secretpwd             - senha do redis
-    DATABASE_NAME=eedbnm                 - nome do banco de dados
-    DATABASE_USER=eeuser                 - nome do usuário do banco de dados
-    DATABASE_PASSWORD=eepass             - senha do usuário do banco de dados
-    DATABASE_ROOT_PASSWORD=eerootpass    - senha do usuário root do banco de dados
+    
     NGINX_BIND_ADDRESS=172.17.0.1:50025  - qual interface e porta o nginx deve fazer o bind [ mudou para 10.22.8.188:80 em produção ]
     LOG_MAX_FILE=100                     - quantidade de logs para cada container do docker
     LOG_MAX_SIZE=1m                      - quantidade em MB para cada rotate do logs
@@ -66,6 +63,13 @@ Copie o arquivo `.env.sample` para `.env` e faça as configurações das variare
     PYTHIA_CONFIG_DIR                    - local onde fica o key.json (dialogflow)
     GOOGLE_CLOUD_PROJECT_NAME            - nome do projeto do google (dialogflow)
 
+    # apenas se for subir o banco usando docker-compose
+    DATABASE_NAME=eedbnm                 - nome do banco de dados 
+    DATABASE_USER=eeuser                 - nome do usuário do banco de dados
+    DATABASE_PASSWORD=eepass             - senha do usuário do banco de dados
+    DATABASE_ROOT_PASSWORD=eerootpass    - senha do usuário root do banco de dados
+    
+    
 
 As imagens do redis e mariadb já estão prontas. As imagens do apache e nginx são construídas a partir do Dockerfile. O mesmo está na pasta `docker/apache/` e `docker/nginx/` respectivamente.
 
