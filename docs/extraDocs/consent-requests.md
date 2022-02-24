@@ -20,4 +20,4 @@ Scripts personalizados que precisam rodar após o _aceite de consentimento_ pode
 onload="gtag('js', new Date()); gtag('config', 'GOGLE-TAG-ID');"></script>
 ```
 
-Após o aceite, o atributo `datas-src` mudará para `src` o script será carregado e rodará o código no script `onload`.
+Após o aceite, o atributo `datas-src` mudará para `src` o script será carregado e rodará o código no script `onload`. Os elementos são reconhecidos pelo atributo e valor `data-js="ee:cookies_functionality"`.

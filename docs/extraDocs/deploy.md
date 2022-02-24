@@ -27,7 +27,7 @@ Para facilitar a configuração, fornecemos um arquivo docker-compose.yml com os
 - nginx: Aplica regras de cache/rate-liming e load-balance entre as instancias do apache
 
 Comunicação entre os containers:
-![](images/conexoes-entre-containers-v2.png?raw=true)
+![](images/conexoes-entre-containers-v2.png)
 
 Na máquina onde ficará hospedado o docker, é necessário haver um serviço de proxy reverso; Pode ser nginx, ou outro de preferência, ele será responsável por fazer a terminação HTTPS e encaminhar o request para o container do nginx.
 

@@ -99,6 +99,8 @@ Para cada um, também aceita a versão `.gov.local` para desenvolvimento local.
 
 Esses domínios estão registrados como um `array()` no arquivo `/data/system/user/config/domains.php`, combinando o nome interno do site e seus domínios.
 
+## Sites parciais
+
 Entre os sites, há aqueles que não são controlados pelo mesmo sistema, mas têm serviços e documentos que a serem disponibilizados usando o portal do central, o MA.GOV. Esses sistes estão listados numa variável de configuração em `/data/system/user/config/config.php`, segundo o formato de listas do ExpressionEngine, com `|`:
 
 ```php

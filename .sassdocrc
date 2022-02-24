@@ -144,6 +144,8 @@ herman:
       path: "docs/extraDocs/deploy.md"
     - name: Essa documentação
       path: "docs/extraDocs/docs.md"
+    - name: "Tutorial: criar sites"
+      path: "docs/extraDocs/tutorial__new-site.md"
 
   extraLinks:
     - name: "Governo do Estado do Maranhão"

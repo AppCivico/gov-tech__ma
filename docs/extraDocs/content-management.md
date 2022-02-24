@@ -90,9 +90,7 @@ Campos:
 - link
 - posição na página
   - cabeçalho
-  - coluna lateral
   - rodapé
-  - painel flutuante em um endereço específico
 
 ![](images/screenshot_2021_06_30_at_20_47_38_secretarias_categorias_expressionengine.png)
 
@@ -114,7 +112,7 @@ Taxonomias:
 
 ### Equipe
 
-Publicações definem o organograma hierárquico da secretaria e podem ou não estar atreladas aos perfis de usuários do sistema.
+Publicações que definem o organograma hierárquico da secretaria e podem ou não estar atreladas aos perfis de usuários do sistema.
 
 Sugerimos que sejam separadas, para que apenas reais usuários do sistema tenham senhas.
 
@@ -167,7 +165,7 @@ As notícias podem ser a respeito do Estado em si, de uma secretaria ou comuns a
 Campos:
 
 - título;
-- título exclusivo para página única - opcional para o caso dele ser diferente do que aparece em listagens;
+- linha fina - opcional para o caso dele ser diferente do que aparece em listagens;
 - resumo - opcional para ser exibido em listagens, ao invés de um recorte automático do conteúdo
 - conteúdo;
 - data;
@@ -201,11 +199,10 @@ Páginas livres para conteúdos que não se classificam nas outras situações s
 Campos:
 
 - título
-- título exclusivo para página única - opcional para o caso dele ser diferente do que aparece em listagens;
+- linha fina - opcional para o caso dele ser diferente do que aparece em listagens;
+- resumo
 - conteúdo
-- n × campos extras
-  - título
-  - texto
+- galeria
 
 ### Serviços
 
@@ -214,7 +211,7 @@ Descrição de serviços prestados pelas secretárias para alimentar a busca.
 Campos:
 
 - título
-- título exclusivo para página única - opcional para o caso dele ser diferente do que aparece em listagens;
+- linha fina - opcional para o caso dele ser diferente do que aparece em listagens;
 - resumo - opcional para ser exibido em listagens, ao invés de um recorte automático do conteúdo
 - conteúdo;
 - custo:
@@ -223,6 +220,20 @@ Campos:
 - link para sistema específico
 - definition list × n
 - press kits
+
+
+### Conteúdos especiais
+
+Publicações que não se encaixam nos tipos já disponíveis, mas são agrupáveis.
+
+Campos:
+
+- título
+- linha fina - opcional para o caso dele ser diferente do que aparece em listagens;
+- resumo
+- conteúdo
+- ícone
+- galeria
 
 ### Sobrescrição de URLs
 
