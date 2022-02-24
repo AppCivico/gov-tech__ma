@@ -60,3 +60,23 @@ No menu principal, acesse **Desenvolvedor** -> **Gerenciar sites**.
 Ao preencher os dados do site, atente para manter seu **Nome curto** como previamente definido.
 
 ![Gerenciar sites -> Novo site](./images/sites/gerenciar-sites__criacao.png)
+
+No topo do menu principal, troque o site em controle.
+
+Para criar os canais, no menu principal, acesse **Desenvolvedor** -> **Canais**.
+
+![menu__canais.png](./images/channels/menu__canais.png)
+
+Importe o modelo de canais para todos os sites disponível no repositório de versionamento, na pasta `/_work-files/channel_sets/channel_sets.zip`.
+
+![gerenciador-de-canais__menu.png](./images/channels/gerenciador-de-canais__menu.png)
+
+No formulário seguinte, informe os caminhos dos diretórios criados para esse site específico.
+
+![gerenciador-de-canais__paths.png](./images/channels/gerenciador-de-canais__paths.png)
+
+Agora que todos os canais estão criados, prepare as configurações personalizados. Acessando no menu principal **Conteúdo** -> **Publicações** -> **Configurações**.
+
+![new-custom-settings.png](./images\new-custom-settings.png)
+
+[Configurar as permissões](/docs/members.html) é a última etapa.
