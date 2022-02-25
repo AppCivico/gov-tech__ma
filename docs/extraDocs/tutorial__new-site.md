@@ -7,22 +7,22 @@ Nota: Usando `xyz` como exemplo.
 No repositório de controle de versão, adicione o site em `data/system/user/config/domains.php`. Subdomínios `www` ou `www0` não são necessários.
 
 ```php
-    [
-        'hosts' => [
-            'xyz.ma.gov.br', // domínio real
-            'xyz.ma.gov.local', // domínio para desenvolvimento local
-        ],
-        'site_name' => 'xyz' // nome curto do site
+[
+    'hosts' => [
+        'xyz.ma.gov.br', // domínio real
+        'xyz.ma.gov.local', // domínio para desenvolvimento local
     ],
+    'site_name' => 'xyz' // nome curto do site
+],
 ```
 
- Caso o site seja "parcial", um daqueles que manterá sua estutura própria separada, adicione `xyz` à variável de configurações `global:not_sites` no arquivo `/data/system/user/config/config.php`:
+Caso o [site seja "parcial"](/docs/all-sites.html#sites-parciais), um daqueles que manterá sua estutura própria separada, adicione `xyz` à variável de configurações `global:not_sites` no arquivo `/data/system/user/config/config.php`:
 
 ```php
 $assign_to_config['global_vars']['global:not_sites'] = 'caema|cbm|detran|diariooficial|fapema|imesc|iprev|jucema|pm|policiacivil|procon|saude|seati|sefaz|segep|ssp|xyz';
 ```
 
-Replique os templates _proxy_ de outro site que não o raiz (`default_site`) por exemplo, `aged`:
+Replique os [templates _proxy_](/docs/routes-and-templates.html) de outro site que não o raiz (`default_site`) por exemplo, `aged`:
 
 ```shell
 cd data/system/user/templates/
