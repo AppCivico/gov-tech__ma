@@ -63,6 +63,17 @@ Ao preencher os dados do site, atente para manter seu **Nome curto** como previa
 
 No topo do menu principal, troque o site em controle.
 
+Para configurar o grupo de modelos que será usado para servir a página inicial do site, acesse a área de modelos.
+
+![menu -> templates](./images/templates/menu__templates.png)
+Edite as propriedades do grupo chamado **site** clicando no lápis ao lado do nome do grupo.
+
+![modelos -> Grupo site -> editar](./images/templates/templates__edit-site-group.png)
+
+Habilite a opção **Tornar grupo padrão**.
+
+![templates__edit-site-group--make-default.png](./images\templates\templates__edit-site-group--make-default.png)
+
 Para criar os canais, no menu principal, acesse **Desenvolvedor** -> **Canais**.
 
 ![menu__canais.png](./images/channels/menu__canais.png)
