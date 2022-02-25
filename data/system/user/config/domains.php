@@ -698,6 +698,14 @@ return [
     ],
     [
         'hosts' => [
+      'crj.ma.gov.br',
+      'crj.ma.gov.local'
+    ],
+    'site_name' => 'crj',
+    'editorial_group' => ''
+  ],
+  [
+    'hosts' => [
             'homol.ma.gov.br',
             'ma.gov.br',
             'ma.gov.local',
