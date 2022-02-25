@@ -1,6 +1,6 @@
 {
-    "label": "Onde",
-    "order": 25,
+    "label": "Localiza\u00e7\u00e3o",
+    "order": 59,
     "instructions": "",
     "show_fmt": "n",
     "fmt": "none",
@@ -12,5 +12,5 @@
         "field_fmt": "none",
         "field_show_fmt": "n"
     },
-    "ta_rows": 6
+    "ta_rows": 8
 }

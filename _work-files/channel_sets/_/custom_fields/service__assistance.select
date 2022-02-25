@@ -6,7 +6,7 @@
     "pre_populate": "v",
     "settings": {
         "value_label_pairs": {
-            "online": "online",
+            "online": "on-line",
             "presential": "presencial",
             "hybrid": "h\u00edbrido"
         }

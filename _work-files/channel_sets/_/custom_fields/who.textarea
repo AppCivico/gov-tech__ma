@@ -2,8 +2,6 @@
     "label": "Quem pode utilizar",
     "order": 23,
     "instructions": "",
-    "required": "y",
-    "search": "y",
     "show_fmt": "n",
     "fmt": "br",
     "settings": {

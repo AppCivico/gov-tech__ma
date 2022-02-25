@@ -1,7 +1,7 @@
 {
     "label": "Miniatura para listas",
     "order": 3,
-    "instructions": "Imagem opcional para essa entrada em listas",
+    "instructions": "Imagem opcional para listagem de publica\u00e7\u00f5es. Ser\u00e1 exibida em 260\u00d7200px, nas listagens; 1068\u00d7600px, na Ag\u00eancia de Not\u00edcias; at\u00e9 1068\u00d7490px nas not\u00edcias em Destaque; e at\u00e9 530\u00d7530px na Galeria de fotos.",
     "fmt": "none",
     "content_type": "image",
     "settings": {

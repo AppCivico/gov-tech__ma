@@ -1,7 +1,7 @@
 {
     "label": "Aviso",
     "order": 50,
-    "instructions": "PDF",
+    "instructions": "Apesar de e-mails serem solicitados a quem requisitar o download desse arquivo, o acesso a ele N\u00c3O \u00e9 seguramente protegido.",
     "required": "y",
     "content_type": "all",
     "settings": {

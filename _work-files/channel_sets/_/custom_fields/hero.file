@@ -1,7 +1,7 @@
 {
     "label": "Imagem de destaque",
     "order": 2,
-    "instructions": "",
+    "instructions": "Pode ser exibida em at\u00e9 744px de largura e 311px de altura.",
     "fmt": "none",
     "content_type": "image",
     "settings": {

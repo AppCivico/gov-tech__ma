@@ -2,7 +2,6 @@
     "label": "Links para consulta",
     "order": 32,
     "instructions": "Lista opcional de links em que pode se saber mais sobre o assunto.",
-    "search": "y",
     "settings": {
         "grid_min_rows": 0,
         "grid_max_rows": "",
@@ -30,7 +29,7 @@
             "name": "link",
             "instructions": "",
             "required": "n",
-            "search": "y",
+            "search": "n",
             "settings": {
                 "allowed_url_schemes": [
                     "http:\/\/",

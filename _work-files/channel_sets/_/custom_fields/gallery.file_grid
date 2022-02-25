@@ -1,7 +1,8 @@
 {
     "label": "Galeria",
     "order": 11,
-    "instructions": "A primeira imagem ser\u00e1 usada como miniatura nas listas de publica\u00e7\u00f5es com pelo menos 1116\u00d7558px.",
+    "instructions": "Nas miniaturas, as imagens s\u00e3o exibidas em at\u00e9 142\u00d7116px. Na galeria de fotos de uma not\u00edcia, pode ser exibida em at\u00e9 1068px e na propor\u00e7\u00e3o de 2.4.",
+    "search": "y",
     "content_type": "image",
     "settings": {
         "grid_min_rows": 0,
@@ -49,7 +50,7 @@
             "name": "caption",
             "instructions": "Legenda opcional",
             "required": "n",
-            "search": "n",
+            "search": "y",
             "settings": {
                 "field_maxl": "256",
                 "field_fmt": "none",

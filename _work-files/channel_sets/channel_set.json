@@ -166,6 +166,27 @@
       ]
     },
     {
+      "channel_title": "Licita\u00e7\u00f5es",
+      "channel_name": "bidding",
+      "channel_lang": "pt",
+      "channel_url": "\u007bbase_url\u007d\/pregoes",
+      "deft_status": "closed",
+      "comment_system_enabled": "n",
+      "search_results_url": "",
+      "search_excerpt": "",
+      "title_field_label": "Nome da licita\u00e7\u00e3o",
+      "sticky_enabled": "n",
+      "field_groups": [
+        "bidding"
+      ],
+      "fields": [],
+      "cat_groups": [
+        "Menu de rodap\u00e9",
+        "Menu em cascata",
+        "Menu hamburguer"
+      ]
+    },
+    {
       "channel_title": "Not\u00edcias",
       "channel_description": "",
       "channel_name": "news",
@@ -207,27 +228,6 @@
       "field_groups": [
         "page",
         "SEO"
-      ],
-      "fields": [],
-      "cat_groups": [
-        "Menu de rodap\u00e9",
-        "Menu em cascata",
-        "Menu hamburguer"
-      ]
-    },
-    {
-      "channel_title": "Preg\u00f5es",
-      "channel_name": "bidding",
-      "channel_lang": "pt",
-      "channel_url": "\u007bbase_url\u007d\/pregoes",
-      "deft_status": "closed",
-      "comment_system_enabled": "n",
-      "search_results_url": "",
-      "search_excerpt": "",
-      "title_field_label": "Nome da licita\u00e7\u00e3o",
-      "sticky_enabled": "n",
-      "field_groups": [
-        "bidding"
       ],
       "fields": [],
       "cat_groups": [

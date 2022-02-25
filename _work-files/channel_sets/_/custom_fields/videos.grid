@@ -1,0 +1,29 @@
+{
+    "label": "V\u00eddeos",
+    "order": 12,
+    "instructions": "",
+    "search": "y",
+    "settings": {
+        "grid_min_rows": 0,
+        "grid_max_rows": "",
+        "allow_reorder": "y"
+    },
+    "columns": [
+        {
+            "type": "url",
+            "label": "link",
+            "name": "link",
+            "instructions": "",
+            "required": "y",
+            "search": "y",
+            "settings": {
+                "allowed_url_schemes": [
+                    "http:\/\/",
+                    "https:\/\/"
+                ],
+                "url_scheme_placeholder": "https:\/\/",
+                "field_required": "y"
+            }
+        }
+    ]
+}

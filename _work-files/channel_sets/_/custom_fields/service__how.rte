@@ -2,8 +2,6 @@
     "label": "Passo a passo",
     "order": 26,
     "instructions": "",
-    "required": "y",
-    "search": "y",
     "show_fmt": "n",
     "fmt": "none",
     "settings": {

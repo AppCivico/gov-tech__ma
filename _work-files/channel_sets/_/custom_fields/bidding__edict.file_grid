@@ -1,14 +1,14 @@
 {
     "label": "Edital",
     "order": 51,
-    "instructions": "PDF",
+    "instructions": "Apesar de e-mails serem solicitados a quem requisitar o download desse arquivo, o acesso a ele N\u00c3O \u00e9 seguramente protegido.",
     "required": "y",
-    "content_type": "image",
+    "content_type": "all",
     "settings": {
         "grid_min_rows": "1",
         "grid_max_rows": "1",
         "allow_reorder": "y",
-        "field_content_type": "image",
+        "field_content_type": "all",
         "allowed_directories": "all"
     },
     "columns": [
@@ -20,7 +20,7 @@
             "required": "n",
             "search": "n",
             "settings": {
-                "field_content_type": "image",
+                "field_content_type": "all",
                 "allowed_directories": "all",
                 "show_existing": "",
                 "num_existing": 0,
