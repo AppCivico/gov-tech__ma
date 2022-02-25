@@ -78,7 +78,7 @@ Para criar os canais, no menu principal, acesse **Desenvolvedor** -> **Canais**.
 
 ![menu__canais.png](./images/channels/menu__canais.png)
 
-Importe o modelo de canais para todos os sites disponível no repositório de versionamento, na pasta `/_work-files/channel_sets/channel_sets.zip`.
+Importe o modelo de canais para todos os sites disponível no repositório de versionamento, na pasta `/_work-files/channel_sets/ChannelSet.zip`.
 
 ![gerenciador-de-canais__menu.png](./images/channels/gerenciador-de-canais__menu.png)
 
@@ -88,6 +88,6 @@ No formulário seguinte, informe os caminhos dos diretórios criados para esse s
 
 Agora que todos os canais estão criados, prepare as configurações personalizados. Acessando no menu principal **Conteúdo** -> **Publicações** -> **Configurações**.
 
-![new-custom-settings.png](./images\new-custom-settings.png)
+![new-custom-settings.png](./images/new-custom-settings.png)
 
 [Configurar as permissões](/docs/members.html) é a última etapa.
